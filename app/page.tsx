@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 
 const work = [
@@ -36,16 +37,16 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Project Monet",
-    url: "https://projectmonet.space/",
+    url: "https://www.projectmonet.space/",
     email: "contact@projectmonet.space",
     telephone: "+91-8290096163",
-    logo: "https://projectmonet.space/favicon.svg",
+    logo: "https://www.projectmonet.space/favicon.svg",
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Project Monet",
-    url: "https://projectmonet.space/",
+    url: "https://www.projectmonet.space/",
   },
   {
     "@context": "https://schema.org",
@@ -71,6 +72,7 @@ function animation(delay: number) {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -105,6 +107,28 @@ export default function Home() {
     if (offset === -1) return "is-left";
     if (offset === 1) return "is-right";
     return offset < 0 ? "is-far-left" : "is-far-right";
+  }
+
+  async function submitDemoRequest(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setFormStatus("submitting");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      const result = (await response.json()) as { success?: boolean };
+
+      if (!response.ok || !result.success) throw new Error("Submission failed");
+
+      form.reset();
+      setFormStatus("success");
+    } catch {
+      setFormStatus("error");
+    }
   }
 
   return (
@@ -295,10 +319,12 @@ export default function Home() {
             </div>
           </div>
 
-          <form action="https://api.web3forms.com/submit" method="POST">
+          <form onSubmit={submitDemoRequest}>
             <input type="hidden" name="access_key" value="90f82656-9d87-4f58-965e-fb7bd90a0019" />
             <input type="hidden" name="subject" value="New Project Monet free demo request" />
             <input type="hidden" name="from_name" value="Project Monet Website" />
+            <input type="hidden" name="source" value="projectmonet.space homepage" />
+            <input className="botcheck" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" />
             <div className="field-pair">
               <label><span>Your name</span><input name="name" type="text" autoComplete="name" placeholder="Mayank" required /></label>
               <label><span>Business name</span><input name="business_name" type="text" placeholder="Your business" required /></label>
@@ -315,7 +341,18 @@ export default function Home() {
               </select>
             </label>
             <label><span>Anything we should know? <small>Optional</small></span><textarea name="message" rows={3} placeholder="Share your existing website, Google profile, or what you want to improve." /></label>
-            <button className="form-submit" type="submit">Request Free Demo <ArrowUpRight size={17} /></button>
+            <button className="form-submit" type="submit" disabled={formStatus === "submitting"}>
+              {formStatus === "submitting" ? "Sending request…" : "Request Free Demo"}
+              {formStatus !== "submitting" && <ArrowUpRight size={17} />}
+            </button>
+            <div className={`form-status ${formStatus}`} aria-live="polite" role="status">
+              {formStatus === "success" && (
+                <><strong>Request received.</strong><span>Thank you—we&apos;ll review your details and get back to you soon.</span></>
+              )}
+              {formStatus === "error" && (
+                <><strong>We couldn&apos;t send that.</strong><span>Please try again, or email contact@projectmonet.space.</span></>
+              )}
+            </div>
             <p className="form-disclaimer">
               The free demo is a concept preview. Full website work, revisions, SEO setup,
               domain connection and launch begin after project confirmation and advance payment.
