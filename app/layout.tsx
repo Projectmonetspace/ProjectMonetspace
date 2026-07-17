@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://projectmonet.space"),
+  metadataBase: new URL("https://www.projectmonet.space"),
   title: "Project Monet — Professional Websites for Local Businesses",
   description:
     "Project Monet builds professional websites for local businesses. Request a free homepage concept, see your website before you pay, and own it after final payment.",
