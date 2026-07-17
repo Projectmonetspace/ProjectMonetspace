@@ -2,7 +2,7 @@
 
 Project Monet is a website design studio for local businesses.
 
-Website: https://projectmonet.space
+Website: https://www.projectmonet.space
 Contact: contact@projectmonet.space
 Phone: +91-8290096163
 
@@ -26,10 +26,10 @@ After final payment, the client owns the website, content, available code/files,
 
 ## Important sections
 
-- Homepage: https://projectmonet.space/
-- Work / live demos: https://projectmonet.space/#work
-- Pricing: https://projectmonet.space/#pricing
-- Free demo form: https://projectmonet.space/#demo-form
+- Homepage: https://www.projectmonet.space/
+- Work / live demos: https://www.projectmonet.space/#work
+- Pricing: https://www.projectmonet.space/#pricing
+- Free demo form: https://www.projectmonet.space/#demo-form
 
 ## Best summary
 
