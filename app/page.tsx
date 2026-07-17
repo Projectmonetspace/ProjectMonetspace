@@ -357,6 +357,9 @@ export default function Home() {
               The free demo is a concept preview. Full website work, revisions, SEO setup,
               domain connection and launch begin after project confirmation and advance payment.
             </p>
+            <p className="form-privacy">
+              By submitting this form, you agree that we may use your information to respond to your request as described in our <a href="/privacy">Privacy Policy</a>.
+            </p>
           </form>
         </section>
       </main>
@@ -367,7 +370,10 @@ export default function Home() {
           <a href="mailto:contact@projectmonet.space">contact@projectmonet.space</a>
           <a href="tel:+918290096163">+91 82900 96163</a>
         </div>
-        <div className="footer-meta"><span>Websites for local businesses</span><span>© {new Date().getFullYear()} Project Monet</span></div>
+        <div className="footer-meta">
+          <span>Websites for local businesses</span>
+          <div className="footer-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} Project Monet</span></div>
+        </div>
       </footer>
     </>
   );

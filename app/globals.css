@@ -135,6 +135,8 @@ input::placeholder, textarea::placeholder { color: #a6a49e; }
 .form-status span { color: #696762; font-size: .68rem; line-height: 1.5; }
 .form-status.error { border-color: rgba(139,31,31,.28); }
 .form-disclaimer { margin: 1.1rem 0 0; color: #7b7974; font-size: .62rem; line-height: 1.55; }
+.form-privacy { margin: .55rem 0 0; color: #85837d; font-size: .58rem; line-height: 1.55; }
+.form-privacy a { color: #4f4e4a; border-bottom: 1px solid #aaa8a1; }
 
 footer { background: #090a0b; padding: 7rem 4vw 2rem; }
 .footer-brand { display: block; padding-bottom: 4rem; border-bottom: 1px solid var(--line); font-size: clamp(3.8rem, 10vw, 10rem); font-weight: 500; line-height: .86; letter-spacing: -.08em; }
@@ -142,6 +144,27 @@ footer { background: #090a0b; padding: 7rem 4vw 2rem; }
 .footer-contact { display: flex; gap: 2.5rem; padding: 2rem 0 5rem; font-size: .75rem; }
 .footer-contact a { padding-bottom: .2rem; border-bottom: 1px solid #55565a; }
 .footer-meta { display: flex; justify-content: space-between; color: #606165; font-size: .58rem; text-transform: uppercase; letter-spacing: .1em; }
+.footer-links { display: flex; align-items: center; gap: 1.4rem; }
+.footer-links a { transition: color .2s ease; }
+.footer-links a:hover { color: var(--white); }
+
+.legal-page { min-height: 100svh; padding: 1.5rem 3vw 2.5rem; background: var(--pearl); color: #0b0c0d; }
+.legal-nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(0,0,0,.15); }
+.legal-nav .brand-orbit i { background: #0b0c0d; }
+.legal-back { display: inline-flex; align-items: center; gap: .45rem; font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.legal-content { width: min(780px, 100%); margin: 0 auto; padding: 7rem 0 8rem; }
+.legal-content header { margin-bottom: 5rem; }
+.legal-content header h1 { margin: 0; font-size: clamp(3.6rem, 9vw, 7rem); font-weight: 400; line-height: .9; letter-spacing: -.07em; }
+.legal-content header > p:last-child { max-width: 620px; margin: 1.8rem 0 0; color: #62615d; font-size: 1.05rem; line-height: 1.7; }
+.legal-content section { padding: 2.2rem 0; border-top: 1px solid rgba(0,0,0,.14); }
+.legal-content h2 { margin: 0 0 1rem; font-size: 1.15rem; font-weight: 500; letter-spacing: -.025em; }
+.legal-content p, .legal-content li { color: #5f5e59; font-size: .9rem; line-height: 1.8; }
+.legal-content p { margin: .7rem 0 0; }
+.legal-content ul { margin: .8rem 0 0; padding-left: 1.2rem; }
+.legal-content a { color: #0b0c0d; border-bottom: 1px solid #8e8c86; }
+.legal-footer { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0 0; border-top: 1px solid rgba(0,0,0,.15); color: #686762; font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; }
+.legal-footer div { display: flex; gap: 1.4rem; }
+.legal-footer a { color: #343431; }
 
 .not-found-page { min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem 3vw 3rem; background: radial-gradient(circle at 72% 24%, #202226 0, #0f1012 34%, #090a0b 68%); }
 .not-found-brand { display: inline-flex; align-items: center; gap: .65rem; width: fit-content; font-size: .86rem; font-weight: 600; }
@@ -202,6 +225,12 @@ footer { background: #090a0b; padding: 7rem 4vw 2rem; }
   .field-pair { grid-template-columns: 1fr; gap: 0; }
   footer { padding: 5rem 1.2rem 1.5rem; }
   .footer-contact, .footer-meta { flex-direction: column; gap: 1rem; }
+  .footer-links { flex-wrap: wrap; gap: .8rem 1.2rem; }
+  .legal-page { padding: 1.2rem 1.2rem 2rem; }
+  .legal-content { padding: 5rem 0 6rem; }
+  .legal-content header { margin-bottom: 3.5rem; }
+  .legal-content section { padding: 1.8rem 0; }
+  .legal-footer { align-items: flex-start; flex-direction: column; gap: 1rem; }
   .footer-contact { padding-bottom: 4rem; }
   .not-found-page { padding: 1.2rem 1.2rem 2rem; }
   .not-found-content { padding: 5rem 0; }
