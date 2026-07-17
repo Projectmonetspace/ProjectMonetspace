@@ -36,6 +36,7 @@
     "build",
     "db/index.ts",
     "examples",
+    "vite.config.ts",
     "worker",
     "scripts"
   ]
