@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <circle cx="930" cy="170" r="330" fill="#171717"/>
+  <text x="70" y="90" fill="#b7b5af" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">PROJECT MONET</text>
+  <text x="65" y="315" fill="#f2f0ea" font-family="Georgia, serif" font-size="86">See your website</text>
+  <text x="65" y="410" fill="#aaa8a2" font-family="Georgia, serif" font-size="86" font-style="italic">before you pay.</text>
+  <line x1="70" y1="520" x2="1130" y2="520" stroke="#383837"/>
+  <text x="70" y="565" fill="#777773" font-family="Arial, sans-serif" font-size="18">PROFESSIONAL WEBSITES FOR LOCAL BUSINESSES</text>
+</svg>
