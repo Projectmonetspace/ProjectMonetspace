@@ -72,8 +72,44 @@ function animation(delay: number) {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
+  const [loadHeroVideo, setLoadHeroVideo] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const galleryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = (
+      navigator as Navigator & {
+        connection?: { effectiveType?: string; saveData?: boolean };
+      }
+    ).connection;
+    const constrainedConnection =
+      connection?.saveData || ["slow-2g", "2g"].includes(connection?.effectiveType ?? "");
+
+    const updateVideoPreference = () => {
+      setLoadHeroVideo(desktop.matches && !reducedMotion.matches && !constrainedConnection);
+    };
+
+    const loadVideoAfterInteraction = () => {
+      if (!desktop.matches && !reducedMotion.matches && !constrainedConnection) {
+        setLoadHeroVideo(true);
+      }
+    };
+
+    updateVideoPreference();
+    desktop.addEventListener("change", updateVideoPreference);
+    reducedMotion.addEventListener("change", updateVideoPreference);
+    window.addEventListener("pointerdown", loadVideoAfterInteraction, { once: true, passive: true });
+    window.addEventListener("keydown", loadVideoAfterInteraction, { once: true });
+
+    return () => {
+      desktop.removeEventListener("change", updateVideoPreference);
+      reducedMotion.removeEventListener("change", updateVideoPreference);
+      window.removeEventListener("pointerdown", loadVideoAfterInteraction);
+      window.removeEventListener("keydown", loadVideoAfterInteraction);
+    };
+  }, []);
 
   useEffect(() => {
     const gallery = galleryRef.current;
@@ -179,17 +215,29 @@ export default function Home() {
 
       <main id="top">
         <section className="cinematic-hero" aria-labelledby="hero-title">
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+          <Image
+            className="hero-poster"
+            src="/hero-poster.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
             aria-hidden="true"
-          >
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4" type="video/mp4" />
-          </video>
+          />
+          {loadHeroVideo && (
+            <video
+              className="hero-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/hero-poster.webp"
+              aria-hidden="true"
+            >
+              <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4" type="video/mp4" />
+            </video>
+          )}
           <div className="bottom-blur" aria-hidden="true" />
 
           <div className="hero-content">
@@ -199,7 +247,7 @@ export default function Home() {
                 <span><MonitorSmartphone size={16} /> Local businesses</span>
                 <span><Globe2 size={16} /> India & worldwide</span>
               </div>
-              <h1 id="hero-title" className="animate-blur-fade-up" style={animation(400)}>
+              <h1 id="hero-title">
                 See your website<br />before you pay.
               </h1>
               <p className="animate-blur-fade-up" style={animation(500)}>
@@ -243,8 +291,6 @@ export default function Home() {
                         src={item.image}
                         alt={`${item.title} website preview`}
                         fill
-                        unoptimized
-                        priority={index < 3}
                         sizes="(max-width: 767px) 272px, 28vw"
                         style={{ objectPosition: item.position }}
                       />
@@ -324,7 +370,14 @@ export default function Home() {
             <input type="hidden" name="subject" value="New Project Monet free demo request" />
             <input type="hidden" name="from_name" value="Project Monet Website" />
             <input type="hidden" name="source" value="projectmonet.space homepage" />
-            <input className="botcheck" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" />
+            <input
+              className="botcheck"
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-label="Leave this field empty"
+            />
             <div className="field-pair">
               <label><span>Your name</span><input name="name" type="text" autoComplete="name" placeholder="Mayank" required /></label>
               <label><span>Business name</span><input name="business_name" type="text" placeholder="Your business" required /></label>
