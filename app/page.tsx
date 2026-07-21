@@ -247,7 +247,7 @@ export default function Home() {
                 <span><MonitorSmartphone size={16} /> Local businesses</span>
                 <span><Globe2 size={16} /> India & worldwide</span>
               </div>
-              <h1 id="hero-title" className="animate-blur-fade-up" style={animation(400)}>
+              <h1 id="hero-title">
                 See your website<br />before you pay.
               </h1>
               <p className="animate-blur-fade-up" style={animation(500)}>
