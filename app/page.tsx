@@ -112,13 +112,22 @@ export default function Home() {
   async function submitDemoRequest(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    // Silently absorb simple bots before they consume the form provider quota.
+    if (formData.get("botcheck")) {
+      form.reset();
+      setFormStatus("success");
+      return;
+    }
+
     setFormStatus("submitting");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: new FormData(form),
+        body: formData,
       });
       const result = (await response.json()) as { success?: boolean };
 
@@ -331,21 +340,21 @@ export default function Home() {
               aria-label="Leave this field empty"
             />
             <div className="field-pair">
-              <label><span>Your name</span><input name="name" type="text" autoComplete="name" placeholder="Mayank" required /></label>
-              <label><span>Business name</span><input name="business_name" type="text" placeholder="Your business" required /></label>
+              <label><span>Your name</span><input name="name" type="text" autoComplete="name" placeholder="Mayank" maxLength={100} required /></label>
+              <label><span>Business name</span><input name="business_name" type="text" autoComplete="organization" placeholder="Your business" maxLength={150} required /></label>
             </div>
-            <label><span>Type of business</span><input name="business_type" type="text" placeholder="Dental clinic, restaurant, salon…" required /></label>
+            <label><span>Type of business</span><input name="business_type" type="text" placeholder="Dental clinic, restaurant, salon…" maxLength={100} required /></label>
             <div className="field-pair">
-              <label><span>Phone number</span><input name="phone" type="tel" autoComplete="tel" placeholder="+91" required /></label>
-              <label><span>Email address</span><input name="email" type="email" autoComplete="email" placeholder="you@business.com" required /></label>
+              <label><span>Phone number</span><input name="phone" type="tel" autoComplete="tel" placeholder="+91" maxLength={30} required /></label>
+              <label><span>Email address</span><input name="email" type="email" autoComplete="email" placeholder="you@business.com" maxLength={254} required /></label>
             </div>
             <label>
               <span>Google Business Profile</span>
-              <select name="google_business_profile" defaultValue="">
+              <select name="google_business_profile" defaultValue="" required>
                 <option value="" disabled>Select one</option><option value="Yes">Yes</option><option value="No">No</option><option value="I don't know">I don&apos;t know</option>
               </select>
             </label>
-            <label><span>Anything we should know? <small>Optional</small></span><textarea name="message" rows={3} placeholder="Share your existing website, Google profile, or what you want to improve." /></label>
+            <label><span>Anything we should know? <small>Optional</small></span><textarea name="message" rows={3} maxLength={2000} placeholder="Share your existing website, Google profile, or what you want to improve." /></label>
             <button className="form-submit" type="submit" disabled={formStatus === "submitting"}>
               {formStatus === "submitting" ? "Sending request…" : "Request Free Demo"}
               {formStatus !== "submitting" && <ArrowUpRight size={17} />}

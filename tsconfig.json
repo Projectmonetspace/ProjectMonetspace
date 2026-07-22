@@ -28,16 +28,11 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "**/*.mjs"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "build",
-    "db/index.ts",
-    "examples",
-    "vite.config.ts",
-    "worker",
-    "scripts"
+    "dist"
   ]
 }
