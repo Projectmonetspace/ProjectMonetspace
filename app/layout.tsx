@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "Project Monet builds professional websites for local businesses. Request a free homepage concept, see your website before you pay, and own it after final payment.",
   alternates: { canonical: "/" },
+  manifest: "/site.webmanifest",
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
@@ -32,11 +33,13 @@ export const metadata: Metadata = {
   other: { "codex-preview": "development" },
   icons: {
     icon: [
-      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon.png", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon-32.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: [{ url: "/favicon.ico" }],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
   },
 };
 
