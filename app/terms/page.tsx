@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import LegalShell from "../components/legal-shell";
 
 export const metadata: Metadata = {
   title: "Website Terms — Project Monet",
@@ -10,22 +9,7 @@ export const metadata: Metadata = {
 
 export default function WebsiteTerms() {
   return (
-    <main className="legal-page">
-      <nav className="legal-nav" aria-label="Legal page navigation">
-        <Link className="not-found-brand" href="/" aria-label="Project Monet home">
-          <span className="brand-orbit" aria-hidden="true"><i></i><i></i></span>
-          <span>Project Monet</span>
-        </Link>
-        <Link className="legal-back" href="/"><ArrowLeft size={15} /> Home</Link>
-      </nav>
-
-      <article className="legal-content">
-        <header>
-          <p className="section-kicker">Legal · Effective July 17, 2026</p>
-          <h1>Website Terms</h1>
-          <p>These terms govern your use of projectmonet.space. A paid client project is governed by its separate proposal, agreement and statement of work.</p>
-        </header>
-
+    <LegalShell title="Terms & Conditions" description="These terms govern your use of projectmonet.space. A paid client project is governed by its separate proposal, agreement and statement of work.">
         <section>
           <h2>Website use</h2>
           <p>You may use this website to learn about Project Monet, view public work examples and submit a genuine business enquiry. You must not misuse the website, interfere with its operation, attempt unauthorized access, submit unlawful or deceptive content, or use automated systems to abuse the form.</p>
@@ -35,6 +19,7 @@ export default function WebsiteTerms() {
           <h2>Free demo requests</h2>
           <p>A free demo is a small homepage concept intended to show a possible visual direction. It is not a complete website, a revision round, an SEO campaign, a guaranteed deliverable or a commitment to accept every request.</p>
           <p>Project Monet may decline a request, ask for more information or limit the concept based on availability and fit. Full website work begins only after the scope is confirmed and the required advance payment is received.</p>
+          <p>Free demos remain Project Monet&apos;s intellectual property and may not be copied, published, deployed or used commercially unless Project Monet gives written permission. See the <a href="/demo-policy">Demo Policy</a> for details.</p>
         </section>
 
         <section>
@@ -70,15 +55,14 @@ export default function WebsiteTerms() {
         </section>
 
         <section>
+          <h2>Governing terms</h2>
+          <p>These website terms are governed by the laws of India. Any project-specific agreement may contain additional governing-law and dispute-resolution provisions, which will control for that project.</p>
+        </section>
+
+        <section>
           <h2>Contact</h2>
           <p>Questions about these terms can be sent to <a href="mailto:contact@projectmonet.space">contact@projectmonet.space</a>.</p>
         </section>
-      </article>
-
-      <footer className="legal-footer">
-        <span>© {new Date().getFullYear()} Project Monet</span>
-        <div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
-      </footer>
-    </main>
+    </LegalShell>
   );
 }

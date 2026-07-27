@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import LegalShell from "../components/legal-shell";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Project Monet",
@@ -10,22 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <main className="legal-page">
-      <nav className="legal-nav" aria-label="Legal page navigation">
-        <Link className="not-found-brand" href="/" aria-label="Project Monet home">
-          <span className="brand-orbit" aria-hidden="true"><i></i><i></i></span>
-          <span>Project Monet</span>
-        </Link>
-        <Link className="legal-back" href="/"><ArrowLeft size={15} /> Home</Link>
-      </nav>
-
-      <article className="legal-content">
-        <header>
-          <p className="section-kicker">Legal · Effective July 17, 2026</p>
-          <h1>Privacy Policy</h1>
-          <p>This policy explains how Project Monet handles information you provide through this website.</p>
-        </header>
-
+    <LegalShell title="Privacy Policy" description="This policy explains how Project Monet handles information you provide through this website.">
         <section>
           <h2>Information we collect</h2>
           <p>When you request a free demo or contact us, we may collect your name, business name, business type, phone number, email address, Google Business Profile status, links and any message you choose to provide.</p>
@@ -79,12 +63,6 @@ export default function PrivacyPolicy() {
           <h2>Contact</h2>
           <p>For privacy questions or requests, email <a href="mailto:contact@projectmonet.space">contact@projectmonet.space</a>.</p>
         </section>
-      </article>
-
-      <footer className="legal-footer">
-        <span>© {new Date().getFullYear()} Project Monet</span>
-        <div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
-      </footer>
-    </main>
+    </LegalShell>
   );
 }
