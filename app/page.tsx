@@ -19,13 +19,14 @@ const work = [
   { title: "Shop Co", category: "Ecommerce", url: "https://ecommerce-figma-build.vercel.app/shop-co.html", image: "/work/shop-co.jpg", position: "center top" },
   { title: "Construction", category: "Construction", url: "https://construction-azure-five.vercel.app/", image: "/work/construction.jpg", position: "center top" },
   { title: "AHS", category: "Home Services", url: "https://ahs-teal.vercel.app/", image: "/work/ahs.jpg", position: "center top" },
-  { title: "Dental Health", category: "Dental", url: "https://dental-health-landing.vercel.app/", image: "/work/dental-health.jpg", position: "center top" },
+  { title: "0900 Dental", category: "Dental", url: "https://dentist-peach-tau.vercel.app/", image: "/work/0900-dental.jpg", position: "center top" },
   { title: "Estatery", category: "Real Estate", url: "https://estatery-landing.vercel.app", image: "/work/estatery.jpg", position: "center top" },
   { title: "Interior", category: "Interior Design", url: "https://interior-three-omega.vercel.app/", image: "/work/interior.jpg", position: "center top" },
   { title: "Vital Gym", category: "Fitness", url: "https://vitalgym-ashy.vercel.app", image: "/work/vital-gym.jpg", position: "center top" },
   { title: "Speaker Store", category: "Ecommerce", url: "https://ecommerce-figma-build.vercel.app/speaker.html", image: "/work/speaker.jpg", position: "center top" },
   { title: "Restaurant", category: "Restaurant", url: "https://restaurant-tan-eta.vercel.app/", image: "/work/restaurant.jpg", position: "center top" },
   { title: "Mayank Harsh", category: "Portfolio", url: "https://mayankharsh.space", image: "/work/mayank-harsh.jpg", position: "center 28%" },
+  { title: "Dental Health", category: "Dental", url: "https://dental-health-landing.vercel.app/", image: "/work/dental-health.jpg", position: "center top" },
 ];
 
 const pricing = [
@@ -237,7 +238,7 @@ export default function Home() {
         <section className="work-section" id="work" aria-labelledby="work-title">
           <div className="work-heading">
             <div>
-              <p className="section-kicker">Selected live work · 01—10</p>
+              <p className="section-kicker">Selected live work · 01—11</p>
               <h2 id="work-title">A gallery you can enter.</h2>
             </div>
             <p>Swipe through the reel. Every frame opens a real, live website.</p>
