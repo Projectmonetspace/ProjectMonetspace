@@ -4,8 +4,8 @@
   "description": "Professional websites for local businesses.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B0B0B",
-  "theme_color": "#0B0B0B",
+  "background_color": "#F04A1D",
+  "theme_color": "#F04A1D",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
