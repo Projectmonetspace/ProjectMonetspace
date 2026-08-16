@@ -9,7 +9,7 @@ const contentSecurityPolicy = [
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
   "media-src 'self' https://d8j0ntlcm91z4.cloudfront.net",
-  "connect-src 'self'",
+  "connect-src 'self' https://api.web3forms.com",
   "manifest-src 'self'",
   "worker-src 'self' blob:",
   "upgrade-insecure-requests",

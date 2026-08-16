@@ -119,7 +119,7 @@ export default function Home() {
     setFormStatus("submitting");
 
     try {
-      const response = await fetch("/api/demo-request", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: new FormData(form),
@@ -332,6 +332,9 @@ export default function Home() {
           </div>
 
           <form onSubmit={submitDemoRequest}>
+            <input type="hidden" name="access_key" value="90f82656-9d87-4f58-965e-fb7bd90a0019" />
+            <input type="hidden" name="subject" value="New Project Monet free demo request" />
+            <input type="hidden" name="from_name" value="Project Monet Website" />
             <input type="hidden" name="source" value="projectmonet.space homepage" />
             <input
               className="botcheck"
