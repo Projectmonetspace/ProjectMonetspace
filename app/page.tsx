@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -391,6 +392,10 @@ export default function Home() {
         <div className="footer-meta">
           <span>Websites for local businesses</span>
           <div className="footer-links">
+            <Link href="/services/web-design-for-local-businesses">Services</Link>
+            <Link href="/industries">Industries</Link>
+            <Link href="/resources">Resources</Link>
+            <Link href="/pricing">Pricing guide</Link>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
             <a href="/refund-cancellation">Refunds</a>
