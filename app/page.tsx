@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -118,7 +119,7 @@ export default function Home() {
     setFormStatus("submitting");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/demo-request", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: new FormData(form),
@@ -331,9 +332,6 @@ export default function Home() {
           </div>
 
           <form onSubmit={submitDemoRequest}>
-            <input type="hidden" name="access_key" value="90f82656-9d87-4f58-965e-fb7bd90a0019" />
-            <input type="hidden" name="subject" value="New Project Monet free demo request" />
-            <input type="hidden" name="from_name" value="Project Monet Website" />
             <input type="hidden" name="source" value="projectmonet.space homepage" />
             <input
               className="botcheck"
@@ -391,6 +389,10 @@ export default function Home() {
         <div className="footer-meta">
           <span>Websites for local businesses</span>
           <div className="footer-links">
+            <Link href="/services/web-design-for-local-businesses">Services</Link>
+            <Link href="/industries">Industries</Link>
+            <Link href="/resources">Resources</Link>
+            <Link href="/pricing">Pricing guide</Link>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
             <a href="/refund-cancellation">Refunds</a>

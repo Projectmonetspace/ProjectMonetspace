@@ -1,34 +1,68 @@
 # Project Monet
 
-[Project Monet](https://www.projectmonet.space/) is a website design studio for local businesses.
+[Project Monet](https://www.projectmonet.space/) is a website design studio for local businesses in India and internationally.
 
 Contact: [contact@projectmonet.space](mailto:contact@projectmonet.space)
 Phone: +91-8290096163
-
-## What Project Monet does
-
-Project Monet builds professional, mobile-friendly websites for local businesses such as dentists, restaurants, salons, clinics, gyms, real estate businesses, jewellery businesses, ecommerce businesses, coaches and other local service providers.
 
 ## Core offer
 
 See your website before you pay.
 
-Project Monet can create a small free homepage concept preview before a paid website project begins. The free demo is a direction preview, not a complete website, and it does not include revisions.
+Project Monet can create a small free homepage concept before a paid website project begins. The free demo is a direction preview, not a complete website, and it does not include revisions or commercial usage rights.
+
+## Website services
+
+- [Web design for local businesses](https://www.projectmonet.space/services/web-design-for-local-businesses)
+- [Website pricing](https://www.projectmonet.space/pricing)
+- [Free website demo](https://www.projectmonet.space/free-website-demo)
+- [How the website process works](https://www.projectmonet.space/how-it-works)
+- [Website ownership and handover](https://www.projectmonet.space/website-ownership)
 
 ## Pricing
 
-Website packages start from ₹20,000 for Indian clients and $299 for international clients. INR and USD are separate regional pricing tracks. Domain, hosting, paid tools, add-ons and maintenance are charged separately.
+- Starter Website: ₹20,000 for Indian clients / $299 for international clients
+- Business Website: ₹35,000 for Indian clients / $499 for international clients
+- Growth Website: ₹55,000+ for Indian clients / $799+ for international clients
+
+INR and USD are separate regional pricing tracks. Domain, hosting, paid tools, add-ons and maintenance are charged separately. Standard payment terms are 50% advance and 50% before launch and handover.
+
+## Industry website pages
+
+The [industry library](https://www.projectmonet.space/industries) contains focused guidance and services for:
+
+- [Dentists and dental clinics](https://www.projectmonet.space/industries/dentists)
+- [Restaurants](https://www.projectmonet.space/industries/restaurants)
+- [Salons](https://www.projectmonet.space/industries/salons)
+- [Interior designers](https://www.projectmonet.space/industries/interior-designers)
+- [Construction companies](https://www.projectmonet.space/industries/construction-companies)
+- [Clinics](https://www.projectmonet.space/industries/clinics)
+- [Gyms](https://www.projectmonet.space/industries/gyms)
+- [Real estate businesses](https://www.projectmonet.space/industries/real-estate)
+- [Jewellery businesses](https://www.projectmonet.space/industries/jewellery)
+- [Ecommerce stores](https://www.projectmonet.space/industries/ecommerce)
+- [Home-service businesses](https://www.projectmonet.space/industries/home-services)
+- [Coaches and consultants](https://www.projectmonet.space/industries/coaches-consultants)
+
+## Small-business website resources
+
+The [resources library](https://www.projectmonet.space/resources) includes original, plain-English guides to:
+
+- [Small-business website cost in India](https://www.projectmonet.space/resources/small-business-website-cost-india)
+- [Google Business Profile vs a website](https://www.projectmonet.space/resources/google-business-profile-vs-website)
+- [Website vs Instagram](https://www.projectmonet.space/resources/website-vs-instagram)
+- [Domain vs hosting](https://www.projectmonet.space/resources/domain-vs-hosting)
+- [Why a business should control its domain](https://www.projectmonet.space/resources/should-business-own-domain)
+- [Website maintenance](https://www.projectmonet.space/resources/website-maintenance)
+- [Website project timelines](https://www.projectmonet.space/resources/how-long-to-build-small-business-website)
+- [Essential local-business website sections](https://www.projectmonet.space/resources/local-business-website-sections)
 
 ## Ownership
 
-After final payment, the client owns the website, content, available code/files, domain and hosting access, and relevant platform credentials. No lock-ins. No hidden ownership. No hostage websites.
+After final payment, the client owns the completed website, content and available custom code/files included in the agreement, along with relevant domain, hosting and platform access. Third-party products remain subject to their own licences. Maintenance is optional.
 
-## Important sections
+## Important policies
 
-- [Homepage](https://www.projectmonet.space/)
-- [Work and live demos](https://www.projectmonet.space/#work)
-- [Pricing](https://www.projectmonet.space/#pricing)
-- [Free demo form](https://www.projectmonet.space/#demo-form)
 - [Privacy Policy](https://www.projectmonet.space/privacy)
 - [Terms & Conditions](https://www.projectmonet.space/terms)
 - [Refund & Cancellation Policy](https://www.projectmonet.space/refund-cancellation)
@@ -36,6 +70,6 @@ After final payment, the client owns the website, content, available code/files,
 - [Demo Policy](https://www.projectmonet.space/demo-policy)
 - [Contact](https://www.projectmonet.space/contact)
 
-## Best summary
+## Accuracy rules
 
-Project Monet helps local businesses preview a website direction before paying, then builds professional websites with clear regional pricing, optional maintenance and full ownership after final payment.
+Project Monet does not guarantee search rankings, leads, calls, sales, revenue, medical outcomes, property returns or other business results. It does not use fabricated clients, testimonials, ratings or statistics. Useful information comes before promotion.
