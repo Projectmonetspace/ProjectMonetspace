@@ -48,11 +48,11 @@ test("every detail page is unique, substantive, and internally linked", () => {
   }
 });
 
-test("the generated sitemap is data-driven and covers 34 public pages", async () => {
+test("the generated sitemap is data-driven and covers 35 public pages", async () => {
   const source = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
   assert.match(source, /allSeoPages\.map/);
   assert.match(source, /return \[\.\.\.fixedPages, \.\.\.seoPages\]/);
-  assert.equal(allSeoPages.length + 9, 34);
+  assert.equal(allSeoPages.length + 10, 35);
 });
 
 test("structured data stays visible-content aligned without FAQ rich-result spam", async () => {

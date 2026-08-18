@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function WebsiteTerms() {
   return (
-    <LegalShell title="Terms & Conditions" description="These terms govern your use of projectmonet.space. A paid client project is governed by its separate proposal, agreement and statement of work.">
+    <LegalShell title="Terms & Conditions" description="These terms govern your use of projectmonet.space. A paid client project is governed by its separate proposal, agreement and statement of work." effectiveDate="August 18, 2026">
         <section>
           <h2>Website use</h2>
           <p>You may use this website to learn about Project Monet, view public work examples and submit a genuine business enquiry. You must not misuse the website, interfere with its operation, attempt unauthorized access, submit unlawful or deceptive content, or use automated systems to abuse the form.</p>
@@ -37,6 +37,11 @@ export default function WebsiteTerms() {
         <section>
           <h2>External links</h2>
           <p>Portfolio and other external links are provided for reference. Project Monet does not control every third-party website and is not responsible for its availability, security, content or privacy practices.</p>
+        </section>
+
+        <section>
+          <h2>Privacy, forms and analytics</h2>
+          <p>Information submitted through this website is handled under our <a href="/privacy">Privacy Policy</a>. Optional Google Analytics cookies remain disabled unless you accept them, and you can change that choice at any time as explained in our <a href="/cookies">Cookie Policy</a>. Form submission is separate from analytics consent.</p>
         </section>
 
         <section>

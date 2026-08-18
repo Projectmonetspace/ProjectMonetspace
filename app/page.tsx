@@ -397,6 +397,7 @@ export default function Home() {
             <Link href="/resources">Resources</Link>
             <Link href="/pricing">Pricing guide</Link>
             <a href="/privacy">Privacy</a>
+            <a href="/cookies">Cookies</a>
             <a href="/terms">Terms</a>
             <a href="/refund-cancellation">Refunds</a>
             <a href="/shipping-delivery">Delivery</a>
