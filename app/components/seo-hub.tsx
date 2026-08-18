@@ -47,7 +47,7 @@ export default function SeoHub({ eyebrow, heading, intro, answer, pages, itemLab
           <h1>{heading}</h1>
           <p>{intro}</p>
           <div className="seo-hero-actions">
-            <Link className="seo-primary-button" href="/free-website-demo">Request free demo <ArrowRight size={16} /></Link>
+            <Link className="seo-primary-button" href="/free-website-demo" data-analytics-event="request_demo_click" data-analytics-location="seo_hub_hero">Request free demo <ArrowRight size={16} /></Link>
             <Link className="seo-text-link" href="/pricing">See website pricing</Link>
           </div>
         </header>
@@ -72,7 +72,7 @@ export default function SeoHub({ eyebrow, heading, intro, answer, pages, itemLab
           <p className="seo-kicker">Project Monet</p>
           <h2>Useful information first. A clear next step when you are ready.</h2>
           <p>See a compact website direction before confirming the full paid project.</p>
-          <Link href="/free-website-demo">Request a free homepage concept <ArrowRight size={17} /></Link>
+          <Link href="/free-website-demo" data-analytics-event="request_demo_click" data-analytics-location="seo_hub_final_cta">Request a free homepage concept <ArrowRight size={17} /></Link>
         </section>
       </article>
       <SeoFooter />

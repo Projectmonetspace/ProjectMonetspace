@@ -28,7 +28,7 @@ export default function ContactPage() {
 
       <section>
         <h2>New projects</h2>
-        <p>For a free homepage concept, use the <Link href="/#demo-form">Request Free Demo form</Link>. Include your business name, business type, contact details and any existing website or Google Business Profile so we can assess the request.</p>
+        <p>For a free homepage concept, use the <Link href="/#demo-form" data-analytics-event="request_demo_click" data-analytics-location="contact_page">Request Free Demo form</Link>. Include your business name, business type, contact details and any existing website or Google Business Profile so we can assess the request.</p>
       </section>
 
       <section>

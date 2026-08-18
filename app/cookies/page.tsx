@@ -36,7 +36,7 @@ export default function CookiePolicy() {
 
       <section>
         <h2>What analytics measures</h2>
-        <p>With consent, Google Analytics helps us measure visitor and session counts, pages viewed, approximate location, browser and device details, referrals and enabled interactions such as scrolling and outbound clicks. This information is used to understand website performance and improve content and navigation.</p>
+        <p>With consent, Google Analytics helps us measure visitor and session counts, pages viewed, approximate location, browser and device details, referrals and enabled interactions such as scrolling, outbound clicks, demo-request CTA clicks and successful demo-request completion. Custom events contain the action and page location, not the personal or business information entered into the form. This information is used to understand website performance and improve content and navigation.</p>
         <p>We do not currently grant Google advertising-storage, advertising user-data or advertising-personalisation consent, and we do not use these cookies for personalised advertising or remarketing.</p>
       </section>
 

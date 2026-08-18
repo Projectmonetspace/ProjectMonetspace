@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import AnalyticsEvents from "./components/analytics-events";
 import CookieConsent from "./components/cookie-consent";
 import "./globals.css";
 
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={inter.variable}>
         {children}
+        <AnalyticsEvents />
         <CookieConsent />
       </body>
     </html>
