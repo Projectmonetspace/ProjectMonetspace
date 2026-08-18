@@ -30,8 +30,14 @@ export default function PrivacyPolicy() {
 
         <section>
           <h2>Service providers</h2>
-          <p>The website is hosted by Vercel. Form submissions are processed by Web3Forms and delivered to Project Monet&apos;s email account. These providers may process information under their own privacy terms as necessary to provide their services.</p>
+          <p>The website is hosted by Vercel. Form submissions are processed by Web3Forms and delivered to Project Monet&apos;s email account. Website usage is measured using Google Analytics. These providers may process information under their own privacy terms as necessary to provide their services.</p>
           <p>Portfolio links may open third-party websites. Their privacy practices are controlled by their respective owners.</p>
+        </section>
+
+        <section>
+          <h2>Analytics and cookies</h2>
+          <p>We use Google Analytics to understand how people find and use this website. It may collect information such as pages viewed, approximate location, browser and device details, referral source, scrolling and link interactions, using cookies or similar identifiers.</p>
+          <p>We use this information in aggregate to improve the website and understand which pages are useful. We do not intentionally send names, email addresses, phone numbers or free-form enquiry content to Google Analytics.</p>
         </section>
 
         <section>

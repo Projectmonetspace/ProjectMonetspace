@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
+const googleAnalyticsId = "G-5QS7ECZJGD";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,5 +51,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={inter.variable}>{children}</body></html>;
+  return (
+    <html lang="en">
+      <body className={inter.variable}>{children}</body>
+      <GoogleAnalytics gaId={googleAnalyticsId} />
+    </html>
+  );
 }
