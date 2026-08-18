@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
       <section>
         <h2>Information collected automatically</h2>
         <p>Vercel, Web3Forms and related infrastructure may process limited technical information such as IP address, browser and device details, request or submission timestamps, referring pages and security logs to host the website, deliver form submissions and prevent abuse.</p>
-        <p>If you accept analytics cookies, Google Analytics collects website-use data including page views, session statistics, approximate location derived from network information, browser and device information, referral source and enabled interaction events such as scrolling, outbound link clicks, file downloads, site searches, video engagement and form-start or form-submit events where available. We do not intentionally configure Analytics to collect the text entered into form fields.</p>
+        <p>If you accept analytics cookies, Google Analytics collects website-use data including page views, session statistics, approximate location derived from network information, browser and device information, referral source and enabled interaction events such as scrolling, outbound link clicks, file downloads, site searches, video engagement, demo-request CTA clicks and successful demo-request completion. We do not intentionally configure Analytics to collect the text entered into form fields.</p>
       </section>
 
       <section>
@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
       <section>
         <h2>Analytics and cookies</h2>
         <p>Analytics is disabled by default and the Google Analytics tag loads only after you select “Accept analytics.” Advertising storage, advertising user-data and advertising-personalisation consent remain denied because this site does not currently use Google Analytics for personalised advertising or remarketing.</p>
-        <p>When accepted, Google Analytics may set first-party <code>_ga</code> and <code>_ga_&lt;container-id&gt;</code> cookies to distinguish visitors and maintain session state. We do not intentionally send names, email addresses, phone numbers or free-form enquiry content to Google Analytics. See our <a href="/cookies">Cookie Policy</a> for cookie durations and controls.</p>
+        <p>When accepted, Google Analytics may set first-party <code>_ga</code> and <code>_ga_&lt;container-id&gt;</code> cookies to distinguish visitors and maintain session state. Our custom analytics events describe the action and page location only. We do not intentionally send names, email addresses, phone numbers, business details or free-form enquiry content to Google Analytics. See our <a href="/cookies">Cookie Policy</a> for cookie durations and controls.</p>
       </section>
 
       <section>

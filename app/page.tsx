@@ -15,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
+import { trackAnalyticsEvent } from "./lib/analytics";
 
 const work = [
   { title: "Shop Co", category: "Ecommerce", url: "https://ecommerce-figma-build.vercel.app/shop-co.html", image: "/work/shop-co.jpg", position: "center top" },
@@ -128,6 +129,10 @@ export default function Home() {
 
       if (!response.ok || !result.success) throw new Error("Submission failed");
 
+      trackAnalyticsEvent("generate_lead", {
+        form_location: "homepage",
+        lead_type: "free_demo",
+      });
       form.reset();
       setFormStatus("success");
     } catch {
@@ -154,7 +159,7 @@ export default function Home() {
         </nav>
 
         <div className="header-actions">
-          <a className="liquid-glass header-cta animate-blur-fade-up" style={animation(340)} href="#demo-form">
+          <a className="liquid-glass header-cta animate-blur-fade-up" style={animation(340)} href="#demo-form" data-analytics-event="request_demo_click" data-analytics-location="homepage_header">
             Request Demo <ArrowUpRight size={15} />
           </a>
           <button
@@ -177,7 +182,7 @@ export default function Home() {
               <span>0{index + 1}</span>{label}
             </a>
           ))}
-          <a href="#demo-form" onClick={() => setMenuOpen(false)}><span>04</span>Request Free Demo</a>
+          <a href="#demo-form" data-analytics-event="request_demo_click" data-analytics-location="homepage_mobile_menu" onClick={() => setMenuOpen(false)}><span>04</span>Request Free Demo</a>
         </div>
       </header>
 
@@ -221,7 +226,7 @@ export default function Home() {
                 start the full project only if it feels right.
               </p>
               <div className="hero-buttons">
-                <a className="solid-button animate-blur-fade-up" style={animation(600)} href="#demo-form">
+                <a className="solid-button animate-blur-fade-up" style={animation(600)} href="#demo-form" data-analytics-event="request_demo_click" data-analytics-location="homepage_hero">
                   Request Free Demo <ArrowUpRight size={17} />
                 </a>
                 <a className="liquid-glass glass-button animate-blur-fade-up" style={animation(700)} href="#work">
@@ -251,7 +256,7 @@ export default function Home() {
               <div className="gallery-spacer" aria-hidden="true" />
               {work.map((item, index) => (
                 <article className={`work-card ${cardPosition(index)}`} data-index={index} key={item.url}>
-                  <a href={item.url} target="_blank" rel="noreferrer" aria-label={`Open ${item.title} live website`}>
+                  <a href={item.url} target="_blank" rel="noreferrer" aria-label={`Open ${item.title} live website`} data-analytics-event="portfolio_open" data-analytics-location="homepage_gallery">
                     <div className={`work-image fallback-${index + 1}`}>
                       <Image
                         src={item.image}

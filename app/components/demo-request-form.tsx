@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { trackAnalyticsEvent } from "../lib/analytics";
 
 export default function DemoRequestForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -20,6 +21,10 @@ export default function DemoRequestForm() {
       });
       const result = (await response.json()) as { success?: boolean };
       if (!response.ok || !result.success) throw new Error("Submission failed");
+      trackAnalyticsEvent("generate_lead", {
+        form_location: "free_website_demo_page",
+        lead_type: "free_demo",
+      });
       form.reset();
       setStatus("success");
     } catch {

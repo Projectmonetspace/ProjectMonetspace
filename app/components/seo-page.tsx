@@ -92,7 +92,7 @@ export function SeoNav() {
         <Link href="/resources">Resources</Link>
         <Link href="/pricing">Pricing</Link>
       </nav>
-      <Link className="seo-nav-cta" href="/free-website-demo">Request demo <ArrowUpRight size={14} /></Link>
+      <Link className="seo-nav-cta" href="/free-website-demo" data-analytics-event="request_demo_click" data-analytics-location="seo_navigation">Request demo <ArrowUpRight size={14} /></Link>
     </header>
   );
 }
@@ -134,7 +134,7 @@ export default function SeoDetailPage({ page }: { page: SeoPage }) {
           <h1>{page.heading}</h1>
           <p>{page.intro}</p>
           <div className="seo-hero-actions">
-            <Link className="seo-primary-button" href={page.path === "/free-website-demo" ? "#request-demo" : "/free-website-demo"}>Request free demo <ArrowRight size={16} /></Link>
+            <Link className="seo-primary-button" href={page.path === "/free-website-demo" ? "#request-demo" : "/free-website-demo"} data-analytics-event="request_demo_click" data-analytics-location="seo_hero">Request free demo <ArrowRight size={16} /></Link>
             <Link className="seo-text-link" href="/pricing">See website pricing <ArrowUpRight size={15} /></Link>
           </div>
           {page.updated && <p className="seo-updated"><Clock3 size={14} /> Updated {page.updated} · Reviewed by Mayank, Project Monet</p>}
@@ -168,7 +168,7 @@ export default function SeoDetailPage({ page }: { page: SeoPage }) {
             {page.demo && (
               <aside className="seo-demo-callout">
                 <div><p>Related live work</p><h2>Open the direction in a real browser.</h2></div>
-                <a href={page.demo.url} target="_blank" rel="noreferrer">{page.demo.label} <ArrowUpRight size={16} /></a>
+                <a href={page.demo.url} target="_blank" rel="noreferrer" data-analytics-event="portfolio_open" data-analytics-location="seo_live_work">{page.demo.label} <ArrowUpRight size={16} /></a>
               </aside>
             )}
 
@@ -207,7 +207,7 @@ export default function SeoDetailPage({ page }: { page: SeoPage }) {
             <p className="seo-kicker">See the direction first</p>
             <h2>A small concept before a full commitment.</h2>
             <p>Share the business essentials. If the request fits the process, Project Monet can prepare a compact homepage direction before the paid project begins.</p>
-            <Link href="/free-website-demo">Request a free homepage concept <ArrowRight size={17} /></Link>
+            <Link href="/free-website-demo" data-analytics-event="request_demo_click" data-analytics-location="seo_final_cta">Request a free homepage concept <ArrowRight size={17} /></Link>
           </section>
         )}
       </article>
