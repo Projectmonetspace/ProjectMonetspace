@@ -103,7 +103,7 @@ export function SeoFooter() {
       <Link href="/">Project Monet<span>.</span></Link>
       <p>Professional websites for local businesses. Full ownership after final payment.</p>
       <div>
-        <Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/demo-policy">Demo policy</Link><Link href="/contact">Contact</Link>
+        <Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/demo-policy">Demo policy</Link><Link href="/contact">Contact</Link>
       </div>
     </footer>
   );

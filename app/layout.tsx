@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
+import Script from "next/script";
+import CookieConsent from "./components/cookie-consent";
 import "./globals.css";
-
-const googleAnalyticsId = "G-5QS7ECZJGD";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,8 +52,29 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={inter.variable}>{children}</body>
-      <GoogleAnalytics gaId={googleAnalyticsId} />
+      <head>
+        <Script id="google-consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            window.gtag = gtag;
+            var storedConsent = null;
+            try { storedConsent = window.localStorage.getItem('pm_analytics_consent'); } catch (error) {}
+            gtag('consent', 'default', {
+              analytics_storage: storedConsent === 'granted' ? 'granted' : 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500
+            });
+            gtag('set', 'ads_data_redaction', true);
+          `}
+        </Script>
+      </head>
+      <body className={inter.variable}>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }

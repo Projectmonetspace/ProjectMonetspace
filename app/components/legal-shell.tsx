@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 const policyLinks = [
   { href: "/privacy", label: "Privacy" },
+  { href: "/cookies", label: "Cookies" },
   { href: "/terms", label: "Terms" },
   { href: "/refund-cancellation", label: "Refunds" },
   { href: "/shipping-delivery", label: "Delivery" },
@@ -15,9 +16,10 @@ type LegalShellProps = {
   title: string;
   description: string;
   children: ReactNode;
+  effectiveDate?: string;
 };
 
-export default function LegalShell({ title, description, children }: LegalShellProps) {
+export default function LegalShell({ title, description, children, effectiveDate = "July 27, 2026" }: LegalShellProps) {
   return (
     <main className="legal-page">
       <nav className="legal-nav" aria-label="Policy page navigation">
@@ -30,7 +32,7 @@ export default function LegalShell({ title, description, children }: LegalShellP
 
       <article className="legal-content">
         <header>
-          <p className="section-kicker">Business policy · Effective July 27, 2026</p>
+          <p className="section-kicker">Business policy · Effective {effectiveDate}</p>
           <h1>{title}</h1>
           <p>{description}</p>
         </header>
