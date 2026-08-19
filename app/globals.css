@@ -62,7 +62,7 @@ button { color: inherit; }
 .work-heading > p { margin: 0; color: #8c8d90; font-size: .88rem; line-height: 1.65; }
 .gallery-stage { position: relative; margin-top: 2.5rem; }
 .gallery-haze { position: absolute; z-index: 0; left: 50%; top: 50%; width: 56vw; height: 32vw; transform: translate(-50%,-50%); border-radius: 50%; background: rgba(255,255,255,.04); filter: blur(80px); pointer-events: none; }
-.curved-gallery { position: relative; z-index: 1; display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.2rem); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-y pinch-zoom; padding: 2rem 0 4.5rem; }
+.curved-gallery { position: relative; z-index: 1; display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.2rem); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 2rem 0 4.5rem; }
 .curved-gallery::-webkit-scrollbar { display: none; }
 .gallery-spacer { flex: 0 0 calc(50vw - min(19vw, 210px)); }
 .work-card { flex: 0 0 clamp(260px, 28vw, 420px); scroll-snap-align: center; transform-origin: 50% 115%; transition: transform .7s cubic-bezier(.16,1,.3,1), opacity .55s ease; }
