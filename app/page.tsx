@@ -13,9 +13,10 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import type { FormEvent } from "react";
+import type { FormEvent, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { trackAnalyticsEvent } from "./lib/analytics";
+import { getGalleryGestureIntent, type GalleryGestureIntent } from "./lib/gallery-gesture";
 
 const work = [
   { title: "Shop Co", category: "Ecommerce", url: "https://ecommerce-figma-build.vercel.app/shop-co.html", image: "/work/shop-co.jpg", position: "center top" },
@@ -79,6 +80,15 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState(0);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const galleryRef = useRef<HTMLDivElement>(null);
+  const galleryGestureRef = useRef<{
+    pointerId: number;
+    startX: number;
+    startY: number;
+    startScrollLeft: number;
+    intent: GalleryGestureIntent;
+    dragged: boolean;
+  } | null>(null);
+  const suppressGalleryClickRef = useRef(false);
 
   useEffect(() => {
     const gallery = galleryRef.current;
@@ -104,6 +114,64 @@ export default function Home() {
     const card = galleryRef.current?.querySelector<HTMLElement>(`[data-index="${next}"]`);
     card?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     setActiveProject(next);
+  }
+
+  function startGalleryGesture(event: ReactPointerEvent<HTMLDivElement>) {
+    if (event.button !== 0) return;
+
+    galleryGestureRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      startScrollLeft: event.currentTarget.scrollLeft,
+      intent: "pending",
+      dragged: false,
+    };
+    suppressGalleryClickRef.current = false;
+  }
+
+  function moveGalleryGesture(event: ReactPointerEvent<HTMLDivElement>) {
+    const gesture = galleryGestureRef.current;
+    if (!gesture || gesture.pointerId !== event.pointerId || gesture.intent === "vertical") return;
+
+    const deltaX = event.clientX - gesture.startX;
+    const deltaY = event.clientY - gesture.startY;
+
+    if (gesture.intent === "pending") {
+      gesture.intent = getGalleryGestureIntent(deltaX, deltaY);
+      if (gesture.intent !== "horizontal") return;
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
+
+    gesture.dragged = true;
+    event.currentTarget.scrollLeft = gesture.startScrollLeft - deltaX;
+  }
+
+  function finishGalleryGesture(event: ReactPointerEvent<HTMLDivElement>) {
+    const gesture = galleryGestureRef.current;
+    if (!gesture || gesture.pointerId !== event.pointerId) return;
+
+    if (gesture.intent === "horizontal" && gesture.dragged) {
+      suppressGalleryClickRef.current = true;
+    }
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    galleryGestureRef.current = null;
+  }
+
+  function cancelGalleryGesture(event: ReactPointerEvent<HTMLDivElement>) {
+    if (galleryGestureRef.current?.pointerId === event.pointerId) {
+      galleryGestureRef.current = null;
+    }
+  }
+
+  function preventGalleryClickAfterDrag(event: ReactMouseEvent<HTMLDivElement>) {
+    if (!suppressGalleryClickRef.current) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressGalleryClickRef.current = false;
   }
 
   function cardPosition(index: number) {
@@ -252,7 +320,17 @@ export default function Home() {
 
           <div className="gallery-stage">
             <div className="gallery-haze" aria-hidden="true" />
-            <div className="curved-gallery" ref={galleryRef} aria-label="Scrollable live website gallery">
+            <div
+              className="curved-gallery"
+              ref={galleryRef}
+              aria-label="Scrollable live website gallery"
+              onPointerDown={startGalleryGesture}
+              onPointerMove={moveGalleryGesture}
+              onPointerUp={finishGalleryGesture}
+              onPointerCancel={cancelGalleryGesture}
+              onClickCapture={preventGalleryClickAfterDrag}
+              onDragStart={(event) => event.preventDefault()}
+            >
               <div className="gallery-spacer" aria-hidden="true" />
               {work.map((item, index) => (
                 <article className={`work-card ${cardPosition(index)}`} data-index={index} key={item.url}>
