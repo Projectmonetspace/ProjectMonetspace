@@ -196,7 +196,7 @@ footer { background: #090a0b; padding: 7rem 4vw 2rem; }
   .site-header { grid-template-columns: 1fr auto; padding: 1rem 1.2rem; }
   .desktop-nav { display: none; }
   .menu-toggle { display: inline-flex; }
-  .mobile-menu { position: absolute; top: 68px; left: 1rem; right: 1rem; display: flex; flex-direction: column; padding: .6rem; border: 1px solid rgba(255,255,255,.12); border-radius: 1.25rem; background: rgba(14,15,17,.94); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 20px 70px rgba(0,0,0,.45); opacity: 0; pointer-events: none; transform: translateY(-12px); transition: opacity .45s ease, transform .45s cubic-bezier(.16,1,.3,1); }
+  .mobile-menu { position: absolute; top: 68px; left: 1rem; right: 1rem; display: flex; flex-direction: column; max-height: calc(100svh - 84px); overflow-y: auto; padding: .6rem; border: 1px solid rgba(255,255,255,.12); border-radius: 1.25rem; background: rgba(14,15,17,.94); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 20px 70px rgba(0,0,0,.45); opacity: 0; pointer-events: none; transform: translateY(-12px); transition: opacity .45s ease, transform .45s cubic-bezier(.16,1,.3,1); }
   .mobile-menu.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); }
   .mobile-menu a { display: flex; gap: 1.4rem; padding: 1rem; border-radius: .8rem; font-size: .8rem; transform: translateX(-8px); opacity: 0; transition: background .25s ease, transform .45s ease, opacity .45s ease; }
   .mobile-menu.is-open a { transform: translateX(0); opacity: 1; }
