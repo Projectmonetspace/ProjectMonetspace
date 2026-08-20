@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Clock3 } from "lucide-react";
 import DemoRequestForm from "./demo-request-form";
@@ -11,7 +12,7 @@ export function metadataFor(page: SeoPage): Metadata {
     title: page.metaTitle,
     description: page.metaDescription,
     alternates: { canonical: page.path },
-    authors: [{ name: "Mayank — Project Monet", url: siteUrl }],
+    authors: [{ name: "Mayank Harsh — Project Monet", url: `${siteUrl}/about` }],
     openGraph: {
       type: page.kind === "guide" ? "article" : "website",
       url: page.path,
@@ -30,11 +31,20 @@ export function metadataFor(page: SeoPage): Metadata {
 }
 
 function breadcrumbFor(page: SeoPage) {
+  if (page.kind === "profile") {
+    return [
+      { name: "Home", path: "/" },
+      { name: page.title, path: page.path },
+    ];
+  }
+
   const middle = page.kind === "industry"
     ? { name: "Industries", path: "/industries" }
     : page.kind === "guide"
       ? { name: "Resources", path: "/resources" }
-      : { name: "Services", path: "/services/web-design-for-local-businesses" };
+      : page.kind === "work"
+        ? { name: "Work", path: "/work" }
+        : { name: "Services", path: "/services/web-design-for-local-businesses" };
 
   return [
     { name: "Home", path: "/" },
@@ -60,21 +70,46 @@ function schemaFor(page: SeoPage) {
         "@type": "Article",
         headline: page.title,
         description: page.metaDescription,
-        datePublished: "2026-08-16",
-        dateModified: "2026-08-16",
+        datePublished: page.published ?? "2026-08-16",
+        dateModified: page.published ?? "2026-08-16",
         mainEntityOfPage: `${siteUrl}${page.path}`,
-        author: { "@type": "Person", name: "Mayank", url: siteUrl },
+        author: { "@type": "Person", name: "Mayank Harsh", url: `${siteUrl}/about` },
         publisher: { "@type": "Organization", name: "Project Monet", url: siteUrl, logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.png` } },
         image: `${siteUrl}/og.png`,
       }
-    : {
+    : page.kind === "work"
+      ? {
+          "@type": "CreativeWork",
+          name: page.title,
+          description: page.metaDescription,
+          url: `${siteUrl}${page.path}`,
+          dateCreated: page.published ?? "2026-08-20",
+          creator: { "@type": "Organization", name: "Project Monet", url: siteUrl },
+          image: page.image ? `${siteUrl}${page.image.src}` : `${siteUrl}/og.png`,
+        }
+      : page.kind === "profile"
+        ? {
+            "@type": "ProfilePage",
+            name: page.title,
+            description: page.metaDescription,
+            url: `${siteUrl}${page.path}`,
+            dateCreated: page.published ?? "2026-08-20",
+            mainEntity: {
+              "@type": "Person",
+              name: "Mayank Harsh",
+              jobTitle: "Founder and Creative Director",
+              worksFor: { "@type": "Organization", name: "Project Monet", url: siteUrl },
+              url: "https://www.mayankharsh.space/",
+            },
+          }
+        : {
         "@type": "Service",
         name: page.title,
         description: page.metaDescription,
         url: `${siteUrl}${page.path}`,
         provider: { "@type": "Organization", name: "Project Monet", url: siteUrl },
         areaServed: ["India", "Worldwide"],
-      };
+          };
 
   return { "@context": "https://schema.org", "@graph": [primary, breadcrumbSchema] };
 }
@@ -88,8 +123,10 @@ export function SeoNav() {
       </Link>
       <nav aria-label="Main navigation">
         <Link href="/services/web-design-for-local-businesses">Services</Link>
+        <Link href="/work">Work</Link>
         <Link href="/industries">Industries</Link>
         <Link href="/resources">Resources</Link>
+        <Link href="/about">About</Link>
         <Link href="/pricing">Pricing</Link>
       </nav>
       <Link className="seo-nav-cta" href="/free-website-demo" data-analytics-event="request_demo_click" data-analytics-location="seo_navigation">Request demo <ArrowUpRight size={14} /></Link>
@@ -103,7 +140,7 @@ export function SeoFooter() {
       <Link href="/">Project Monet<span>.</span></Link>
       <p>Professional websites for local businesses. Full ownership after final payment.</p>
       <div>
-        <Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/demo-policy">Demo policy</Link><Link href="/contact">Contact</Link>
+        <Link href="/work">Work</Link><Link href="/about">About</Link><Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies</Link><Link href="/terms">Terms</Link><Link href="/demo-policy">Demo policy</Link><Link href="/contact">Contact</Link>
       </div>
     </footer>
   );
@@ -139,6 +176,12 @@ export default function SeoDetailPage({ page }: { page: SeoPage }) {
           </div>
           {page.updated && <p className="seo-updated"><Clock3 size={14} /> Updated {page.updated} · Reviewed by Mayank, Project Monet</p>}
         </header>
+
+        {page.image && (
+          <figure className="seo-hero-media">
+            <Image src={page.image.src} alt={page.image.alt} fill priority sizes="(max-width: 767px) 100vw, 92vw" style={{ objectPosition: page.image.position ?? "center" }} />
+          </figure>
+        )}
 
         <aside className="seo-answer" aria-labelledby="quick-answer-title">
           <p id="quick-answer-title">Quick answer</p>

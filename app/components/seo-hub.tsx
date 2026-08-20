@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { SeoPage } from "../lib/seo-content";
 import { SeoFooter, SeoNav } from "./seo-page";
@@ -10,7 +11,7 @@ type SeoHubProps = {
   answer: string;
   pages: SeoPage[];
   itemLabel: string;
-  path: "/industries" | "/resources";
+  path: "/industries" | "/resources" | "/work";
 };
 
 export default function SeoHub({ eyebrow, heading, intro, answer, pages, itemLabel, path }: SeoHubProps) {
@@ -59,7 +60,8 @@ export default function SeoHub({ eyebrow, heading, intro, answer, pages, itemLab
           </div>
           <div className="seo-hub-grid">
             {pages.map((page, index) => (
-              <Link href={page.path} key={page.path}>
+              <Link href={page.path} key={page.path} className={page.image ? "has-image" : undefined}>
+                {page.image && <span className="seo-hub-image"><Image src={page.image.src} alt="" fill sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" style={{ objectPosition: page.image.position ?? "center" }} /></span>}
                 <span>{String(index + 1).padStart(2, "0")} · {page.eyebrow}</span>
                 <h3>{page.title}</h3>
                 <p>{page.metaDescription}</p>

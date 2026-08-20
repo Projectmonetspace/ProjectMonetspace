@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 
-import { allSeoPages, corePages, industryPages, resourcePages } from "../app/lib/seo-content.ts";
+import { allSeoPages, corePages, industryPages, resourcePages, workPages } from "../app/lib/seo-content.ts";
 
 const allowedRelated = new Set([
   "/industries",
@@ -23,11 +23,12 @@ function textFor(page) {
   ].join(" ");
 }
 
-test("ships the approved 27-page SEO architecture", () => {
-  assert.equal(corePages.length, 5);
+test("ships the approved 39-page content architecture", () => {
+  assert.equal(corePages.length, 6);
   assert.equal(industryPages.length, 12);
-  assert.equal(resourcePages.length, 8);
-  assert.equal(allSeoPages.length + 2, 27, "25 detail pages plus two hubs");
+  assert.equal(resourcePages.length, 12);
+  assert.equal(workPages.length, 6);
+  assert.equal(allSeoPages.length + 3, 39, "36 detail pages plus three hubs");
 });
 
 test("every detail page is unique, substantive, and internally linked", () => {
@@ -48,11 +49,11 @@ test("every detail page is unique, substantive, and internally linked", () => {
   }
 });
 
-test("the generated sitemap is data-driven and covers 35 public pages", async () => {
+test("the generated sitemap is data-driven and covers 47 public pages", async () => {
   const source = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
   assert.match(source, /allSeoPages\.map/);
   assert.match(source, /return \[\.\.\.fixedPages, \.\.\.seoPages\]/);
-  assert.equal(allSeoPages.length + 10, 35);
+  assert.equal(allSeoPages.length + 11, 47);
 });
 
 test("structured data stays visible-content aligned without FAQ rich-result spam", async () => {
@@ -60,5 +61,7 @@ test("structured data stays visible-content aligned without FAQ rich-result spam
   assert.match(component, /BreadcrumbList/);
   assert.match(component, /\"@type\": \"Article\"/);
   assert.match(component, /\"@type\": \"Service\"/);
+  assert.match(component, /\"@type\": \"CreativeWork\"/);
+  assert.match(component, /\"@type\": \"ProfilePage\"/);
   assert.doesNotMatch(component, /FAQPage/);
 });

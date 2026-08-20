@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { allSeoPages } from "../app/lib/seo-content.ts";
 
 const baseUrl = process.env.TEST_BASE_URL ?? "http://127.0.0.1:3000";
-const routes = ["/industries", "/resources", ...allSeoPages.map((page) => page.path)];
+const routes = ["/industries", "/resources", "/work", ...allSeoPages.map((page) => page.path)];
 
 for (const route of routes) {
   const response = await fetch(`${baseUrl}${route}`);
