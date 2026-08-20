@@ -31,6 +31,24 @@ test("ships the approved 39-page content architecture", () => {
   assert.equal(allSeoPages.length + 3, 39, "36 detail pages plus three hubs");
 });
 
+test("the homepage hamburger links to the main content pages", async () => {
+  const homepage = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+
+  for (const path of [
+    "/services/web-design-for-local-businesses",
+    "/work",
+    "/industries",
+    "/resources",
+    "/about",
+    "/pricing",
+    "/free-website-demo",
+  ]) {
+    assert.match(homepage, new RegExp(`href: "${path}"`));
+  }
+
+  assert.match(homepage, /aria-label="Mobile navigation"/);
+});
+
 test("every detail page is unique, substantive, and internally linked", () => {
   assert.equal(new Set(allSeoPages.map((page) => page.path)).size, allSeoPages.length);
   assert.equal(new Set(allSeoPages.map((page) => page.metaTitle)).size, allSeoPages.length);

@@ -37,6 +37,16 @@ const pricing = [
   { name: "Growth Website", inr: "₹55,000+", usd: "$799+", label: "Search & lead foundations" },
 ];
 
+const mobileNavigation = [
+  { label: "Website Design", href: "/services/web-design-for-local-businesses" },
+  { label: "Work", href: "/work" },
+  { label: "Industries", href: "/industries" },
+  { label: "Resources", href: "/resources" },
+  { label: "About", href: "/about" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Request Free Demo", href: "/free-website-demo", analyticsEvent: "request_demo_click" },
+];
+
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -176,14 +186,20 @@ export default function Home() {
           </button>
         </div>
 
-        <div id="mobile-menu" className={`mobile-menu ${menuOpen ? "is-open" : ""}`}>
-          {["Work", "Pricing", "Ownership"].map((label, index) => (
-            <a href={`#${label.toLowerCase()}`} key={label} style={{ transitionDelay: `${index * 60}ms` }} onClick={() => setMenuOpen(false)}>
-              <span>0{index + 1}</span>{label}
-            </a>
+        <nav id="mobile-menu" className={`mobile-menu ${menuOpen ? "is-open" : ""}`} aria-label="Mobile navigation">
+          {mobileNavigation.map((item, index) => (
+            <Link
+              href={item.href}
+              key={item.href}
+              style={{ transitionDelay: `${index * 60}ms` }}
+              data-analytics-event={item.analyticsEvent}
+              data-analytics-location={item.analyticsEvent ? "homepage_mobile_menu" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>{item.label}
+            </Link>
           ))}
-          <a href="#demo-form" data-analytics-event="request_demo_click" data-analytics-location="homepage_mobile_menu" onClick={() => setMenuOpen(false)}><span>04</span>Request Free Demo</a>
-        </div>
+        </nav>
       </header>
 
       <main id="top">
