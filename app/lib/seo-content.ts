@@ -27,13 +27,17 @@ export type SeoPage = {
   sections: SeoSection[];
   faqs: SeoFaq[];
   relatedPaths: string[];
-  kind: "service" | "industry" | "guide";
+  kind: "service" | "industry" | "guide" | "work" | "profile";
   updated?: string;
+  published?: string;
+  image?: { src: string; alt: string; position?: string };
   demo?: { label: string; url: string };
   sources?: SeoSource[];
 };
 
-export const corePages: SeoPage[] = [
+import { phaseTwoCorePages, phaseTwoResourcePages, workPages } from "./phase-two-content.ts";
+
+const corePagesBase: SeoPage[] = [
   {
     path: "/services/web-design-for-local-businesses",
     title: "Web Design for Local Businesses",
@@ -537,7 +541,7 @@ export const industryPages: SeoPage[] = [
   },
 ];
 
-export const resourcePages: SeoPage[] = [
+const resourcePagesBase: SeoPage[] = [
   {
     path: "/resources/small-business-website-cost-india",
     title: "How Much Does a Small-Business Website Cost in India?",
@@ -755,7 +759,11 @@ export const resourcePages: SeoPage[] = [
   },
 ];
 
-export const allSeoPages = [...corePages, ...industryPages, ...resourcePages];
+export const corePages: SeoPage[] = [...corePagesBase, ...phaseTwoCorePages];
+export const resourcePages: SeoPage[] = [...resourcePagesBase, ...phaseTwoResourcePages];
+export { workPages };
+
+export const allSeoPages = [...corePages, ...industryPages, ...resourcePages, ...workPages];
 
 export function findSeoPage(path: string) {
   return allSeoPages.find((page) => page.path === path);

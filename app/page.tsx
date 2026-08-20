@@ -398,8 +398,10 @@ export default function Home() {
           <span>Websites for local businesses</span>
           <div className="footer-links">
             <Link href="/services/web-design-for-local-businesses">Services</Link>
+            <Link href="/work">Work</Link>
             <Link href="/industries">Industries</Link>
             <Link href="/resources">Resources</Link>
+            <Link href="/about">About</Link>
             <Link href="/pricing">Pricing guide</Link>
             <a href="/privacy">Privacy</a>
             <a href="/cookies">Cookies</a>
