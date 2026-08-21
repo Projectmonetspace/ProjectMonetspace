@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Website Concepts & Design Breakdowns | Project Monet Work",
   description: "Explore clearly labelled Project Monet website concepts for ecommerce, construction, home services, dental clinics, interiors and restaurants.",
   alternates: { canonical: "/work" },
-  openGraph: { title: "Website Concepts & Design Breakdowns | Project Monet", description: "Six live website concepts with honest design and customer-journey breakdowns.", url: "/work", images: ["/og.png"] },
+  openGraph: { type: "website", title: "Website Concepts & Design Breakdowns | Project Monet", description: "Six live website concepts with honest design and customer-journey breakdowns.", url: "/work", images: ["/og.png"] },
   twitter: { card: "summary_large_image", title: "Project Monet Work", description: "Live website concepts with honest design breakdowns.", images: ["/og.png"] },
 };
 

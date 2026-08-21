@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import LegalShell from "../components/legal-shell";
+import { pageMetadata } from "../lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Shipping & Delivery Policy — Project Monet",
   description: "How Project Monet digitally delivers website concepts, project milestones, websites and access credentials.",
-  alternates: { canonical: "/shipping-delivery" },
-};
+  path: "/shipping-delivery",
+});
 
 export default function ShippingDeliveryPolicy() {
   return (

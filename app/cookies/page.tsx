@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import LegalShell from "../components/legal-shell";
+import { pageMetadata } from "../lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Cookie Policy — Project Monet",
   description: "How Project Monet uses essential browser storage and optional Google Analytics cookies on projectmonet.space.",
-  alternates: { canonical: "/cookies" },
-};
+  path: "/cookies",
+});
 
 export default function CookiePolicy() {
   return (

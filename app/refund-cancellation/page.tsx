@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import LegalShell from "../components/legal-shell";
+import { pageMetadata } from "../lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Refund & Cancellation Policy — Project Monet",
-  description: "Refund and cancellation terms for Project Monet digital website design and development services.",
-  alternates: { canonical: "/refund-cancellation" },
-};
+  description: "Understand Project Monet refund and cancellation terms for custom website design, including what happens before and after project work begins.",
+  path: "/refund-cancellation",
+});
 
 export default function RefundCancellationPolicy() {
   return (

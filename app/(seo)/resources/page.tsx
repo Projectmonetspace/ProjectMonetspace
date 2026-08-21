@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Small-Business Website Guides | Project Monet",
   description: "Plain-English guides to website pricing, structure, briefs, enquiries, Google Business Profile, domains, ownership, maintenance and planning.",
   alternates: { canonical: "/resources" },
-  openGraph: { title: "Small-Business Website Guides | Project Monet", description: "Useful website decisions explained for business owners.", url: "/resources", images: ["/og.png"] },
+  openGraph: { type: "website", title: "Small-Business Website Guides | Project Monet", description: "Useful website decisions explained for business owners.", url: "/resources", images: ["/og.png"] },
   twitter: { card: "summary_large_image", title: "Small-Business Website Guides | Project Monet", description: "Useful website decisions explained for business owners.", images: ["/og.png"] },
 };
 

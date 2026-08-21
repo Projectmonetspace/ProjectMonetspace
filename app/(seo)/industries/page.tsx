@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Website Design by Industry | Project Monet",
   description: "Focused website design guidance and services for dentists, restaurants, salons, interiors, construction, clinics, gyms, real estate and more.",
   alternates: { canonical: "/industries" },
-  openGraph: { title: "Website Design by Industry | Project Monet", description: "Explore website requirements for twelve local-business categories.", url: "/industries", images: ["/og.png"] },
+  openGraph: { type: "website", title: "Website Design by Industry | Project Monet", description: "Explore website requirements for twelve local-business categories.", url: "/industries", images: ["/og.png"] },
   twitter: { card: "summary_large_image", title: "Website Design by Industry | Project Monet", description: "Explore website requirements for twelve local-business categories.", images: ["/og.png"] },
 };
 

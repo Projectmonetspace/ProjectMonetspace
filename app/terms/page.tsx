@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import LegalShell from "../components/legal-shell";
+import { pageMetadata } from "../lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Website Terms — Project Monet",
-  description: "Terms governing use of the Project Monet website and free website concept request.",
-  alternates: { canonical: "/terms" },
-};
+  description: "Read the terms for using projectmonet.space and requesting a free website concept, including demo limits, acceptable use and service boundaries.",
+  path: "/terms",
+});
 
 export default function WebsiteTerms() {
   return (
