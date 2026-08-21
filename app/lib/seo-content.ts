@@ -266,7 +266,7 @@ export const industryPages: SeoPage[] = [
       { question: "Can the website promise treatment results?", answer: "No. Copy should remain accurate and responsible. Diagnosis, suitability and outcomes depend on professional assessment and cannot be guaranteed by a marketing page." },
       { question: "Do we need a page for every treatment?", answer: "Not automatically. Start with the treatments patients actively search for or struggle to understand, then expand when the clinic has accurate, useful content for each page." },
     ],
-    relatedPaths: ["/resources/local-business-website-sections", "/pricing", "/free-website-demo", "/industries/clinics"],
+    relatedPaths: ["/resources/local-business-website-sections", "/pricing", "/free-website-demo", "/industries/clinics", "/work/dental-clinic-website-concept"],
   },
   {
     path: "/industries/restaurants",
@@ -365,7 +365,7 @@ export const industryPages: SeoPage[] = [
       { question: "Do you create project case studies?", answer: "The layout can support them. Copywriting and project documentation may be added, while the construction company remains responsible for accurate facts and approvals." },
       { question: "What package suits a construction company?", answer: "A multi-page Business or Growth website is usually more suitable than a single page because capabilities, sectors and projects need separate space. Final scope determines the quote." },
     ],
-    relatedPaths: ["/industries/interior-designers", "/pricing", "/free-website-demo", "/website-ownership"],
+    relatedPaths: ["/industries/interior-designers", "/pricing", "/free-website-demo", "/website-ownership", "/industries/real-estate"],
   },
   {
     path: "/industries/clinics",
@@ -513,7 +513,7 @@ export const industryPages: SeoPage[] = [
       { question: "Can the website show instant estimates?", answer: "Only when pricing rules are reliable enough to automate. Otherwise, a guided quote request may be more accurate and safer for the business." },
       { question: "What is a good CTA for home services?", answer: "Use the action the team can answer consistently—often call, WhatsApp or request a quote—and state realistic response hours." },
     ],
-    relatedPaths: ["/resources/google-business-profile-vs-website", "/pricing", "/free-website-demo", "/resources/local-business-website-sections"],
+    relatedPaths: ["/resources/google-business-profile-vs-website", "/pricing", "/free-website-demo", "/resources/local-business-website-sections", "/work/ahs-home-services-website-concept"],
   },
   {
     path: "/industries/coaches-consultants",
@@ -537,7 +537,7 @@ export const industryPages: SeoPage[] = [
       { question: "Can you build a course platform?", answer: "A course platform is separate from a standard marketing website and requires custom scoping for content access, payments, accounts and support." },
       { question: "Can you write the personal brand copy?", answer: "Copywriting can be quoted separately. The coach or consultant must provide accurate experience, offer details and substantiation for claims." },
     ],
-    relatedPaths: ["/resources/website-vs-instagram", "/pricing", "/free-website-demo", "/resources/local-business-website-sections"],
+    relatedPaths: ["/resources/website-vs-instagram", "/pricing", "/free-website-demo", "/resources/local-business-website-sections", "/industries/gyms"],
   },
 ];
 
@@ -566,7 +566,7 @@ const resourcePagesBase: SeoPage[] = [
       { question: "Why does ecommerce cost more?", answer: "A store adds product data, inventory, payments, shipping, returns, customer communication and security-sensitive workflows. It is operational software as well as a marketing website." },
       { question: "How are payments split?", answer: "Project Monet normally requires 50% advance to begin the paid build and the remaining 50% before launch and handover." },
     ],
-    relatedPaths: ["/pricing", "/how-it-works", "/website-ownership", "/free-website-demo"],
+    relatedPaths: ["/pricing", "/how-it-works", "/website-ownership", "/free-website-demo", "/resources/one-page-vs-multi-page-website"],
   },
   {
     path: "/resources/google-business-profile-vs-website",
@@ -593,7 +593,7 @@ const resourcePagesBase: SeoPage[] = [
       { question: "What should the profile link to?", answer: "For a single-location business, the homepage or most relevant location page is common. Campaign parameters can help analytics identify profile traffic." },
     ],
     relatedPaths: ["/services/web-design-for-local-businesses", "/industries/home-services", "/resources/website-vs-instagram", "/free-website-demo"],
-    sources: [{ label: "Google Business Profile", url: "https://business.google.com/" }, { label: "Google guidelines for representing your business", url: "https://support.google.com/business/answer/3038177" }],
+    sources: [{ label: "Create or claim a Google Business Profile", url: "https://support.google.com/business/answer/2911778" }, { label: "Google guidelines for representing your business", url: "https://support.google.com/business/answer/3038177" }],
   },
   {
     path: "/resources/website-vs-instagram",

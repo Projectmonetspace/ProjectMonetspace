@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import LegalShell from "../components/legal-shell";
+import { pageMetadata } from "../lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact — Project Monet",
   description: "Contact Project Monet for website services, project support, payments, policy questions and free demo requests.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

@@ -65,7 +65,7 @@ export const workPages: SeoPage[] = [
     path: "/work/shop-co-ecommerce-concept",
     title: "Shop Co Ecommerce Website Concept",
     metaTitle: "Shop Co Ecommerce Website Concept | Project Monet Work",
-    metaDescription: "Explore the Shop Co ecommerce concept: a fashion storefront direction built around product discovery, category clarity, promotions and a focused path to purchase.",
+    metaDescription: "Explore the Shop Co ecommerce concept: a fashion storefront built around product discovery, clear categories, promotions and a focused path to purchase.",
     eyebrow: "Concept breakdown · Ecommerce",
     heading: "A fashion storefront that makes browsing feel immediate.",
     intro: "Shop Co is a speculative ecommerce interface created to demonstrate a retail direction. It is not presented as a paid client project and it does not claim sales, conversion or revenue results.",

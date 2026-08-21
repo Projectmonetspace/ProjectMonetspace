@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import LegalShell from "../components/legal-shell";
+import { pageMetadata } from "../lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Privacy Policy — Project Monet",
-  description: "How Project Monet collects, uses, stores and protects information through projectmonet.space.",
-  alternates: { canonical: "/privacy" },
-};
+  description: "Learn what information Project Monet collects through enquiries and consented analytics, why it is used, how it is protected, and your choices.",
+  path: "/privacy",
+});
 
 export default function PrivacyPolicy() {
   return (

@@ -56,7 +56,7 @@ test("every detail page is unique, substantive, and internally linked", () => {
 
   for (const page of allSeoPages) {
     assert.match(page.path, /^\/[a-z0-9/-]+$/);
-    assert.ok(page.metaDescription.length >= 100 && page.metaDescription.length <= 180, `${page.path} meta description length`);
+    assert.ok(page.metaDescription.length >= 100 && page.metaDescription.length <= 160, `${page.path} meta description length`);
     assert.ok(page.sections.length >= 4, `${page.path} has at least four useful sections`);
     assert.ok(page.faqs.length >= 4, `${page.path} answers at least four buyer questions`);
     assert.ok(textFor(page).split(/\s+/).length >= 280, `${page.path} has substantive visible copy`);
@@ -64,6 +64,19 @@ test("every detail page is unique, substantive, and internally linked", () => {
     for (const relatedPath of page.relatedPaths) {
       assert.ok(allSeoPages.some((candidate) => candidate.path === relatedPath) || allowedRelated.has(relatedPath), `${page.path} links to known ${relatedPath}`);
     }
+  }
+});
+
+test("priority pages receive a contextual internal link beyond their hub", () => {
+  for (const targetPath of [
+    "/industries/gyms",
+    "/industries/real-estate",
+    "/resources/one-page-vs-multi-page-website",
+    "/work/ahs-home-services-website-concept",
+    "/work/dental-clinic-website-concept",
+  ]) {
+    const incoming = allSeoPages.filter((page) => page.relatedPaths.includes(targetPath));
+    assert.ok(incoming.length >= 1, `${targetPath} has a contextual incoming link`);
   }
 });
 
