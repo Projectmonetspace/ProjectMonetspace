@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = findPublishedArticle(slug);
   if (!article) return {};
   const path = `/blog/${article.slug}`;
-  const image = `${path}/opengraph-image`;
+  const image = `${path}/og`;
 
   return {
     title: article.metaTitle,

@@ -29,6 +29,11 @@ for (const article of publishedBlogArticles) {
   assert.match(html, /BlogPosting/, `${article.slug} includes BlogPosting structured data`);
   assert.ok(html.includes(article.author), `${article.slug} includes the author`);
   assert.ok(html.includes(article.datePublished), `${article.slug} includes publication date`);
+  assert.ok(html.includes(`/blog/${article.slug}/og`), `${article.slug} uses its stable image route`);
+
+  const image = await fetch(`${baseUrl}/blog/${article.slug}/og`);
+  assert.equal(image.status, 200, `${article.slug} image returns 200`);
+  assert.match(image.headers.get("content-type") ?? "", /^image\/png/, `${article.slug} image is a PNG`);
 }
 
 const sitemap = await fetch(`${baseUrl}/sitemap.xml`);

@@ -34,10 +34,17 @@ test("blog routes are reusable and published-state driven", async () => {
 test("articles provide canonical, article social metadata and BlogPosting schema", async () => {
   const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
   const component = await readFile(new URL("../app/components/blog-article.tsx", import.meta.url), "utf8");
+  const imageRoute = await readFile(new URL("../app/(seo)/blog/[slug]/og/route.tsx", import.meta.url), "utf8");
   assert.match(route, /alternates: \{ canonical: path \}/);
   assert.match(route, /type: "article"/);
   assert.match(route, /publishedTime: article\.datePublished/);
   assert.match(route, /modifiedTime: article\.dateModified/);
   assert.match(component, /"@type": "BlogPosting"/);
   assert.match(component, /BreadcrumbList/);
+  assert.match(route, /const image = `\$\{path\}\/og`/);
+  assert.match(component, /src=\{`\/blog\/\$\{article\.slug\}\/og`\}/);
+  assert.match(component, /unoptimized/);
+  assert.match(imageRoute, /new ImageResponse/);
+  assert.doesNotMatch(route, /opengraph-image/);
+  assert.doesNotMatch(component, /opengraph-image/);
 });

@@ -1,15 +1,8 @@
 import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
-import { findPublishedArticle, publishedBlogArticles } from "../../../lib/blog-content";
+import { findPublishedArticle } from "../../../../lib/blog-content";
 
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
-
-export function generateStaticParams() {
-  return publishedBlogArticles.map((article) => ({ slug: article.slug }));
-}
-
-export default async function OpenGraphImage({ params }: { params: Promise<{ slug: string }> }) {
+export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = findPublishedArticle(slug);
   if (!article) notFound();
@@ -26,6 +19,6 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ slu
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", color: "#969798", fontSize: 22 }}><span>Verified before publication</span><span>projectmonet.space/blog</span></div>
     </div>,
-    size,
+    { width: 1200, height: 630 },
   );
 }
