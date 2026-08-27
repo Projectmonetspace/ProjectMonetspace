@@ -379,7 +379,178 @@ const instagram: BlogArticle = {
   relatedPaths: ["/blog/gemini-3-5-transcribe", "/resources/website-content-checklist", "/about"],
 };
 
-export const blogArticles: BlogArticle[] = [qwen, gemini, instagram];
+const claudeforce: BlogArticle = {
+  status: "published",
+  slug: "claudeforce-salesforce-in-claude",
+  title: "Claudeforce: Salesforce in Claude, 37 Skills, Availability & How It Works",
+  metaTitle: "Claudeforce: Salesforce in Claude, 37 Skills, Availability & How It Works",
+  metaDescription: "Claudeforce brings Salesforce data and workflows into Claude through a new plugin with 37 sales skills. Here’s how it works, current availability, security and what’s still unknown.",
+  h1: "Claudeforce Explained: How Salesforce in Claude Works and Who Can Use It",
+  excerpt: "Salesforce in Claude connects Claude to live Salesforce context through 37 prebuilt sales skills, with pilot access now and an open beta planned for September 2026.",
+  category: "AI",
+  author: "Project Monet Editorial Team",
+  datePublished: "2026-08-27",
+  dateModified: "2026-08-27",
+  ogAlt: "Project Monet editorial graphic explaining Claudeforce and Salesforce in Claude without implying affiliation",
+  sections: [
+    {
+      id: "quick-answer",
+      title: "What is Claudeforce?",
+      blocks: [
+        { type: "paragraph", html: "<strong>Claudeforce</strong> is the name Salesforce and Anthropic are using for an expanded partnership that connects Claude with Salesforce data, workflows and business rules. Its first product is <strong>Salesforce in Claude</strong>, a plugin for sales teams with <strong>37 prebuilt skills</strong> covering work such as pipeline review, meeting preparation, account planning and deal analysis." },
+        { type: "paragraph", html: "As of <strong>August 27, 2026</strong>, Salesforce says the plugin is available to <strong>select pilot customers</strong> and is planned to enter <strong>open beta in September 2026</strong>. Salesforce has not announced an exact beta date or standalone pricing." },
+        { type: "note", html: "Salesforce in Claude is not generally available to every Salesforce or Claude customer today. Access, packaging and regional availability may depend on customer agreements." },
+      ],
+    },
+    {
+      id: "partnership",
+      title: "Claudeforce is a partnership, not a new model",
+      blocks: [
+        { type: "paragraph", html: "Claudeforce is <strong>not a new foundation model</strong>. It is a Salesforce–Anthropic product partnership intended to make Claude useful with live enterprise context rather than limiting it to information a user manually pastes into a conversation." },
+        { type: "paragraph", html: "The first concrete product is Salesforce in Claude. Salesforce describes it as a plugin that connects Claude to Salesforce data, Slack and other connected enterprise context while keeping Salesforce permissions and business rules in force." },
+        { type: "paragraph", html: "The practical goal is straightforward: a seller can ask Claude about a deal, account, forecast or pipeline without first opening multiple Salesforce records and reconstructing the context manually." },
+      ],
+    },
+    {
+      id: "sales-skills",
+      title: "What can the 37 Salesforce in Claude skills do?",
+      blocks: [
+        { type: "paragraph", html: "Salesforce says the initial plugin includes <strong>37 prebuilt sales skills</strong> developed with Anthropic. The companies describe them as capabilities designed around Claude's reasoning, agentic tool use and generated interfaces—not simply generic CRM prompts wrapped around an API." },
+        { type: "list", items: [
+          "Daily pipeline and priority briefings",
+          "Deal-health analysis and close planning",
+          "Account planning and stakeholder mapping",
+          "Objection handling and lead triage",
+          "Customer-health and expansion checks",
+          "Meeting preparation and follow-up work",
+          "Salesforce record hygiene and updates",
+        ] },
+        { type: "paragraph", html: "Salesforce also describes an onboarding experience that reads a seller's permitted Salesforce, Slack and connected Claude context to create a tailored dashboard with accounts, pipeline and live data." },
+      ],
+    },
+    {
+      id: "architecture",
+      title: "How does Claude connect to Salesforce?",
+      blocks: [
+        { type: "paragraph", html: "Salesforce says the connection builds on <strong>Headless 360</strong>, its architecture for exposing data, applications, workflows, permissions and business logic as capabilities that AI systems can call directly." },
+        { type: "paragraph", html: "Those capabilities are exposed to Claude through a <strong>Model Context Protocol (MCP)</strong> connection. In practical terms, Claude can request the information or action it needs from Salesforce instead of relying on a user to copy data between interfaces." },
+        { type: "paragraph", html: "The action layer remains routed through Salesforce. That distinction matters because Salesforce is positioning its existing system of record, workflows and governance as the deterministic layer behind Claude's reasoning." },
+      ],
+    },
+    {
+      id: "permissions-security",
+      title: "Permissions, security and write controls",
+      blocks: [
+        { type: "paragraph", html: "Salesforce says every answer and action runs through an organization's existing Salesforce permissions and business rules. According to the company, Claude sees only information the signed-in user is authorized to see and can take only actions that user is authorized to take." },
+        { type: "paragraph", html: "Salesforce says authentication and permissions are managed centrally when an administrator connects the plugin. It also describes configurable controls for write actions: an organization can require confirmation before Claude sends an external email, while record updates are intended to change only the field Claude identified." },
+        { type: "paragraph", html: "The Claudeforce page also advertises <strong>zero data retention for Sonnet, Opus and Haiku</strong> and says Salesforce and Anthropic are developing further controls over data location, access and automated review." },
+        { type: "note", html: "These are vendor claims about the product's intended architecture and controls. Security, privacy and compliance teams should evaluate the implementation, contract terms and product configuration against their own requirements before production use." },
+      ],
+    },
+    {
+      id: "availability",
+      title: "Is Salesforce in Claude available now?",
+      blocks: [
+        { type: "paragraph", html: "<strong>Partially.</strong> Salesforce says Salesforce in Claude is available to <strong>select pilot customers</strong> as of the August 26 announcement." },
+        { type: "paragraph", html: "The company expects to launch an <strong>open beta in September 2026</strong>. The current official product page and announcement do not give a specific September date." },
+        { type: "paragraph", html: "Salesforce's public waitlist remains available for updates. It would be inaccurate to describe the plugin as generally available to every Salesforce or Claude customer today." },
+      ],
+    },
+    {
+      id: "pricing",
+      title: "How much does Claudeforce cost?",
+      blocks: [
+        { type: "paragraph", html: "Salesforce's public Claudeforce product page and August 26 announcement do <strong>not</strong> provide standalone pricing for Salesforce in Claude." },
+        { type: "paragraph", html: "Do not assume the plugin is included in an existing Salesforce, Claude or Agentforce subscription. Required plans, seats, usage costs, packaging and enterprise terms have not been publicly specified in the launch material and may vary by agreement." },
+        { type: "note", html: "The accurate answer today is that standalone pricing has not been publicly announced. This page should be updated when Salesforce publishes official packaging." },
+      ],
+    },
+    {
+      id: "agentforce-comparison",
+      title: "Claudeforce vs Agentforce",
+      blocks: [
+        { type: "paragraph", html: "The names are similar, but they describe different things. <strong>Agentforce</strong> is Salesforce's platform for building and operating AI agents inside the Salesforce ecosystem." },
+        { type: "paragraph", html: "<strong>Claudeforce</strong> is the Salesforce–Anthropic partnership and product direction that brings Salesforce context and actions into Claude. Salesforce in Claude is its first announced product." },
+        { type: "paragraph", html: "They are not necessarily competitors. Claude is also available within parts of Salesforce's wider Agentforce and enterprise AI stack, so the products can overlap at the model, data and workflow layers." },
+      ],
+    },
+    {
+      id: "what-comes-next",
+      title: "Is this only a Salesforce plugin for Claude?",
+      blocks: [
+        { type: "paragraph", html: "At launch, the most visible product is a Claude plugin focused on Sales, but Salesforce is positioning Claudeforce as a broader partnership rather than a one-off connector." },
+        { type: "paragraph", html: "Salesforce says additional prebuilt skills will begin launching later in 2026. The product page marks capabilities for <strong>Service, Marketing and Commerce</strong> as coming later, without firm public release dates." },
+        { type: "paragraph", html: "That makes the September open beta, official pricing and the next persona-specific releases the most important milestones to watch." },
+      ],
+    },
+    {
+      id: "why-it-matters",
+      title: "Why the Claudeforce launch matters",
+      blocks: [
+        { type: "paragraph", html: "The interesting part of Claudeforce is not simply that two large enterprise AI companies integrated their products. It reflects a wider shift in business software: users increasingly want an AI interface to come to the data and workflows they already use rather than navigating every application manually." },
+        { type: "paragraph", html: "For Salesforce, that means exposing more platform capabilities through headless interfaces and MCP. For Anthropic, it means Claude can act as an interface for governed enterprise work instead of operating separately from the systems where the records and business rules live." },
+        { type: "paragraph", html: "If the open beta is broad and the skills work reliably, likely demand will move from <strong>“what is Claudeforce?”</strong> toward practical questions about setup, pricing, permissions, supported Salesforce editions and comparisons with Agentforce." },
+      ],
+    },
+    {
+      id: "who-should-watch",
+      title: "Who should pay attention?",
+      blocks: [
+        { type: "list", items: [
+          "Salesforce sales teams already using Claude",
+          "Revenue operations teams",
+          "Enterprise AI leaders evaluating agentic workflows",
+          "Salesforce administrators responsible for permissions and governance",
+          "Teams considering MCP-based enterprise integrations",
+          "Security and compliance teams evaluating AI access to live CRM data",
+        ] },
+        { type: "paragraph", html: "Smaller businesses without Salesforce are unlikely to gain much from the initial release. The first version is aimed at enterprise sales workflows and depends on Salesforce context." },
+      ],
+    },
+    {
+      id: "faq",
+      title: "Frequently asked questions",
+      blocks: [
+        { type: "subheading", text: "When was Claudeforce announced?" },
+        { type: "paragraph", html: "Salesforce and Anthropic announced Claudeforce on <strong>August 26, 2026</strong>." },
+        { type: "subheading", text: "What is Salesforce in Claude?" },
+        { type: "paragraph", html: "It is the first product announced under Claudeforce: a Claude plugin that connects to Salesforce business context and launches with 37 prebuilt sales skills." },
+        { type: "subheading", text: "Is Salesforce in Claude available to everyone?" },
+        { type: "paragraph", html: "No. Salesforce says it is currently available to select pilot customers, with an open beta planned for September 2026." },
+        { type: "subheading", text: "Does Claudeforce have pricing?" },
+        { type: "paragraph", html: "No standalone public price or packaging was found in Salesforce's current launch material." },
+        { type: "subheading", text: "Does Salesforce in Claude use MCP?" },
+        { type: "paragraph", html: "Salesforce says Headless 360 exposes Salesforce platform capabilities to Claude through a secure MCP connection." },
+        { type: "subheading", text: "Is Claudeforce the same as Agentforce?" },
+        { type: "paragraph", html: "No. Agentforce is Salesforce's broader agent platform. Claudeforce is its partnership with Anthropic, with Salesforce in Claude as the first announced product." },
+      ],
+    },
+    {
+      id: "updates-to-watch",
+      title: "What to watch next",
+      blocks: [
+        { type: "list", ordered: true, items: [
+          "The exact open-beta launch date",
+          "Official pricing and packaging",
+          "Supported Salesforce and Claude plans",
+          "Wider geographic or customer availability",
+          "Service, Marketing and Commerce skill releases",
+          "Independent evidence about permissions and write controls in production",
+        ] },
+      ],
+    },
+  ],
+  sources: [
+    { label: "Salesforce — Claudeforce official product page", url: "https://www.salesforce.com/claudeforce/" },
+    { label: "Salesforce — official Claudeforce announcement", url: "https://www.salesforce.com/news/press-releases/2026/08/26/salesforce-and-anthropic-announce-claudeforce/" },
+    { label: "Salesforce Investor Relations — Claudeforce announcement", url: "https://investor.salesforce.com/news/news-details/2026/Salesforce-and-Anthropic-Announce-Claudeforce-The-1-AI-Meets-the-1-AI-CRM/default.aspx" },
+    { label: "Anthropic — expanded Salesforce partnership and trust-boundary context", url: "https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership" },
+    { label: "Salesforce — Headless 360 architecture", url: "https://www.salesforce.com/news/stories/salesforce-headless-360-announcement/" },
+  ],
+  relatedPaths: ["/blog/gemini-3-5-transcribe", "/blog/qwen3-8-flash-next", "/resources/what-makes-a-good-business-website", "/services/web-design-for-local-businesses"],
+};
+
+export const blogArticles: BlogArticle[] = [claudeforce, qwen, gemini, instagram];
 
 export const publishedBlogArticles = blogArticles.filter((article) => article.status === "published");
 
