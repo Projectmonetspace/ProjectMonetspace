@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { allSeoPages } from "./lib/seo-content";
+import { publishedBlogArticles } from "./lib/blog-content";
 
 const baseUrl = "https://www.projectmonet.space";
 
@@ -9,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/industries`, lastModified: "2026-08-16", changeFrequency: "monthly", priority: .8 },
     { url: `${baseUrl}/resources`, lastModified: "2026-08-20", changeFrequency: "weekly", priority: .8 },
     { url: `${baseUrl}/work`, lastModified: "2026-08-20", changeFrequency: "monthly", priority: .8 },
+    { url: `${baseUrl}/blog`, lastModified: "2026-08-27", changeFrequency: "daily", priority: .8 },
     { url: `${baseUrl}/privacy`, lastModified: "2026-08-18", changeFrequency: "yearly", priority: .2 },
     { url: `${baseUrl}/cookies`, lastModified: "2026-08-18", changeFrequency: "yearly", priority: .2 },
     { url: `${baseUrl}/terms`, lastModified: "2026-08-18", changeFrequency: "yearly", priority: .2 },
@@ -25,5 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page.kind === "service" ? .9 : page.kind === "profile" || page.kind === "work" ? .8 : .7,
   }));
 
-  return [...fixedPages, ...seoPages];
+  const blogPages: MetadataRoute.Sitemap = publishedBlogArticles.map((article) => ({
+    url: `${baseUrl}/blog/${article.slug}`,
+    lastModified: article.dateModified,
+    changeFrequency: "weekly",
+    priority: .75,
+  }));
+
+  return [...fixedPages, ...seoPages, ...blogPages];
 }
