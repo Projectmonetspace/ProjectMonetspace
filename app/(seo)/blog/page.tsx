@@ -41,10 +41,10 @@ export default function BlogIndexPage() {
       <article>
         <header className="seo-hero">
           <p className="seo-kicker">Project Monet Briefing</p>
-          <h1>Early signals. Verified before they become noise.</h1>
-          <p>Focused reporting at the intersection of AI, creators, social media, websites, automation and business growth—without turning Project Monet into a generic news feed.</p>
+          <h1>What’s changing before everyone starts talking about it.</h1>
+          <p>Early updates on AI, creator tools, social platforms, websites and automation — researched early, verified carefully, and explained without the noise.</p>
         </header>
-        <aside className="seo-answer"><p>Editorial rule</p><strong>Primary sources first. No invented availability, pricing, benchmarks or claims. Every live article passes a human approval gate.</strong></aside>
+        <aside className="seo-answer"><p>Editorial rule</p><strong>Primary sources first. No invented pricing, availability, benchmarks or claims. Facts are verified before publication.</strong></aside>
         <section className="seo-hub-list" aria-labelledby="published-articles">
           <div className="seo-hub-heading"><p className="seo-kicker">{String(publishedBlogArticles.length).padStart(2, "0")} published briefings</p><h2 id="published-articles">What changed—and what it actually means.</h2></div>
           <div className="seo-hub-grid blog-card-grid">
@@ -60,8 +60,8 @@ export default function BlogIndexPage() {
         </section>
         <section className="seo-final-cta">
           <p className="seo-kicker">Project Monet</p>
-          <h2>The homepage stays focused. The thinking lives here.</h2>
-          <p>Browse practical updates, or explore how Project Monet builds clear websites for local businesses.</p>
+          <h2>Useful signals. Clear context. Better decisions.</h2>
+          <p>Project Monet tracks the shifts worth paying attention to — and turns that same clarity into focused digital work for businesses.</p>
           <Link href="/services/web-design-for-local-businesses">Explore website services <ArrowRight size={17} /></Link>
         </section>
       </article>
