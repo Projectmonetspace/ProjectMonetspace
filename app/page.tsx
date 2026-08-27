@@ -42,6 +42,7 @@ const mobileNavigation = [
   { label: "Work", href: "/work" },
   { label: "Industries", href: "/industries" },
   { label: "Resources", href: "/resources" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Pricing", href: "/pricing" },
   { label: "Request Free Demo", href: "/free-website-demo", analyticsEvent: "request_demo_click" },
