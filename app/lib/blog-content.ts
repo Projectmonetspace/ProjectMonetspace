@@ -12,6 +12,11 @@ export type ArticleSection = {
 
 export type BlogArticle = {
   status: "published" | "draft";
+  articleType: "main" | "supporting";
+  cluster: string;
+  targetSearchIntent: string;
+  targetQuery: string;
+  parentSlug?: string;
   slug: string;
   title: string;
   metaTitle: string;
@@ -30,6 +35,10 @@ export type BlogArticle = {
 
 const qwen: BlogArticle = {
   status: "published",
+  articleType: "main",
+  cluster: "Qwen3.8 Flash Next",
+  targetSearchIntent: "Broad product overview, pricing, API availability and release facts",
+  targetQuery: "Qwen3.8 Flash Next",
   slug: "qwen3-8-flash-next",
   title: "Qwen3.8-Flash-Next: Pricing, API, Context Window & Qwen4 Preview",
   metaTitle: "Qwen3.8-Flash-Next: Pricing, API, Context Window & Qwen4 Preview",
@@ -132,11 +141,15 @@ const qwen: BlogArticle = {
     { label: "Qwen — official Hugging Face model card", url: "https://huggingface.co/Qwen/Qwen3.8-Flash-Next" },
     { label: "Reuters — Alibaba's Qwen launches Qwen3.8-Flash", url: "https://www.reuters.com/business/retail-consumer/alibabas-qwen-launches-qwen38-flash-ai-model-with-lower-training-costs-2026-08-26/" },
   ],
-  relatedPaths: ["/blog/gemini-3-5-transcribe", "/resources/what-makes-a-good-business-website", "/services/web-design-for-local-businesses"],
+  relatedPaths: ["/blog/how-to-run-qwen3-8-flash-next-locally", "/blog/gemini-3-5-transcribe", "/resources/what-makes-a-good-business-website", "/services/web-design-for-local-businesses"],
 };
 
 const gemini: BlogArticle = {
   status: "published",
+  articleType: "main",
+  cluster: "Gemini 3.5 Transcribe",
+  targetSearchIntent: "Broad product overview, API, features, pricing and availability",
+  targetQuery: "Gemini 3.5 Transcribe",
   slug: "gemini-3-5-transcribe",
   title: "Gemini 3.5 Transcribe: Pricing, API, Features & How to Use It",
   metaTitle: "Gemini 3.5 Transcribe: Pricing, API, Features & How to Use It",
@@ -244,6 +257,10 @@ const gemini: BlogArticle = {
 
 const instagram: BlogArticle = {
   status: "published",
+  articleType: "main",
+  cluster: "Instagram First Draft",
+  targetSearchIntent: "Feature overview, availability and practical use",
+  targetQuery: "Instagram First Draft Reels",
   slug: "instagram-first-draft-reels",
   title: "Instagram First Draft for Reels: How It Works, Availability & How to Use It",
   metaTitle: "Instagram First Draft for Reels: How It Works & Availability",
@@ -381,6 +398,10 @@ const instagram: BlogArticle = {
 
 const claudeforce: BlogArticle = {
   status: "published",
+  articleType: "main",
+  cluster: "Salesforce in Claude",
+  targetSearchIntent: "Product overview, skills, availability, security and pricing status",
+  targetQuery: "Salesforce in Claude Claudeforce",
   slug: "claudeforce-salesforce-in-claude",
   title: "Claudeforce: Salesforce in Claude, 37 Skills, Availability & How It Works",
   metaTitle: "Claudeforce: Salesforce in Claude, 37 Skills, Availability & How It Works",
@@ -550,7 +571,278 @@ const claudeforce: BlogArticle = {
   relatedPaths: ["/blog/gemini-3-5-transcribe", "/blog/qwen3-8-flash-next", "/resources/what-makes-a-good-business-website", "/services/web-design-for-local-businesses"],
 };
 
-export const blogArticles: BlogArticle[] = [claudeforce, qwen, gemini, instagram];
+const agentz: BlogArticle = {
+  status: "published",
+  articleType: "main",
+  cluster: "AccuKnox AgentZ",
+  targetSearchIntent: "Product overview, open-source status, availability, pricing and security model",
+  targetQuery: "AccuKnox AgentZ",
+  slug: "accuknox-agentz-ai-agent-platform",
+  title: "AccuKnox AgentZ: Open-Source AI Agent Platform, Features & Availability",
+  metaTitle: "AccuKnox AgentZ: AI Agent Platform, Features & Availability",
+  metaDescription: "AccuKnox AgentZ is an Apache-2.0 agent runtime with hosted, on-prem and air-gapped options. See its sandboxing, MCP, connectors and pricing status.",
+  h1: "AccuKnox AgentZ: What the New Zero-Trust AI Agent Platform Does",
+  excerpt: "AgentZ combines agent workflows with default-deny sandboxes, runtime credential injection, MCP support and deployment options from hosted SaaS to air-gapped infrastructure.",
+  category: "AI",
+  author: "Project Monet",
+  datePublished: "2026-08-27",
+  dateModified: "2026-08-27",
+  ogAlt: "Project Monet editorial graphic explaining the AccuKnox AgentZ AI agent platform",
+  sections: [
+    {
+      id: "what-is-agentz",
+      title: "What is AccuKnox AgentZ?",
+      blocks: [
+        { type: "paragraph", html: "AgentZ is a platform and runtime for building, running, automating and governing AI agents. AccuKnox describes a system where teams define agents and reusable skills, connect tools, run workflows from chat, APIs or a CLI, and trigger repeated work on a schedule or through webhooks." },
+        { type: "paragraph", html: "The product is aimed at the operational layer around an agent: where it runs, which models and tools it can use, what network destinations it can reach, how credentials are supplied and how a completed run can be inspected." },
+        { type: "note", html: "AccuKnox's own launch page is dated August 24, 2026; its distributed launch announcement appeared on August 27. This briefing describes the release as a late-August launch rather than treating either date as a separate product version." },
+      ],
+    },
+    {
+      id: "open-source-license",
+      title: "Is AgentZ open source?",
+      blocks: [
+        { type: "paragraph", html: "Yes. AccuKnox publishes the <strong>AgentZ repository on GitHub</strong>, and the repository declares the <strong>Apache License 2.0</strong>. That is more precise than relying only on the product page's open-source label." },
+        { type: "paragraph", html: "The repository contains the application source together with deployment material, including Helm and Kustomize directories. Anyone deploying it should still review the repository, dependencies and current release state before treating a self-managed installation as production-ready." },
+      ],
+    },
+    {
+      id: "availability",
+      title: "Hosted, on-premises and air-gapped availability",
+      blocks: [
+        { type: "paragraph", html: "AccuKnox says the hosted service is available at <code>agentzharness.ai</code>. The company also advertises on-premises and air-gapped deployments for teams with infrastructure, compliance or data-residency requirements." },
+        { type: "paragraph", html: "The public repository supports self-managed evaluation, but a repository and deployment manifests are not the same as a fully documented production support contract. Teams should confirm the current installation path, required Kubernetes infrastructure and support terms with AccuKnox before a production rollout." },
+      ],
+    },
+    {
+      id: "pricing",
+      title: "AgentZ pricing and the free plan",
+      blocks: [
+        { type: "paragraph", html: "AccuKnox's documentation says AgentZ is <strong>free to start</strong>, and the launch announcement describes a hosted free plan. As of the August 27 factual review, no detailed public AgentZ price table, paid-tier pricing or verified free-plan quotas were found." },
+        { type: "note", html: "“Free to start” confirms an entry point, not unlimited use. This article does not infer included runs, compute, storage, users, connector limits or enterprise pricing." },
+      ],
+    },
+    {
+      id: "models-connectors-mcp",
+      title: "Models, connectors and MCP support",
+      blocks: [
+        { type: "paragraph", html: "AgentZ is model-agnostic. Its documentation lists OpenAI, Anthropic, Google Gemini, AWS, Microsoft Azure and open-weight models, while the repository README adds provider paths such as Amazon Bedrock, Vertex AI, Azure AI Foundry and custom OpenAI- or Anthropic-compatible endpoints." },
+        { type: "paragraph", html: "AccuKnox lists connectors for Slack, Gmail, Microsoft 365, Google Workspace, Jira, Confluence, Notion, GitHub, GitLab and Bitbucket. The repository also describes an MCP server catalog and the ability to add a custom MCP server." },
+        { type: "note", html: "A listed connector or MCP path confirms documented support, not that every action in every external product is available. Permissions and connector depth should be tested for the intended workflow." },
+      ],
+    },
+    {
+      id: "sandbox-security",
+      title: "How the AgentZ sandbox and permissions work",
+      blocks: [
+        { type: "paragraph", html: "According to AccuKnox, each agent runs in a sandbox with a default-deny network posture. The open repository explains that an agent is a Kubernetes pod and that Cilium network policies block outbound traffic until an explicit rule permits it." },
+        { type: "paragraph", html: "AccuKnox also says credentials are scoped and injected at runtime instead of being exposed directly to the agent. Its documentation describes domain, port and protocol controls, per-action permissions and role-based access, while the repository describes host-scoped secret injection." },
+        { type: "note", html: "These are architectural and security claims from AccuKnox and its code documentation. They are not presented here as an independent audit, certification or proof that every deployment is secure." },
+      ],
+    },
+    {
+      id: "workflows-governance",
+      title: "Workflows, traces and governance",
+      blocks: [
+        { type: "paragraph", html: "AgentZ organizes work around organizations, workspaces, agents, workflows and sandboxes. Skills provide reusable capabilities; workflows chain steps; schedules and webhooks trigger runs; teams and roles define ownership and access." },
+        { type: "paragraph", html: "The product also records workflow graphs, execution traces, agent activity and tool interactions. That matters when an agent can change a business system: the final answer alone does not explain which tools were called, which permissions applied or where a failure occurred." },
+      ],
+    },
+    {
+      id: "who-is-it-for",
+      title: "Who is AgentZ for?",
+      blocks: [
+        { type: "paragraph", html: "AgentZ is most relevant to teams that want agents to perform repeatable work across business or engineering systems and need more control than a standalone chat interface provides. AccuKnox's examples span security, sales intelligence, research, engineering automation, HR, finance and operations." },
+        { type: "paragraph", html: "For a small personal automation, Kubernetes-based governance may be more infrastructure than necessary. For organizations allowing agents to use credentials, call tools or mutate external systems, isolation, permissions and traceability become more important." },
+      ],
+    },
+    {
+      id: "framework-comparison",
+      title: "AgentZ compared with agent frameworks",
+      blocks: [
+        { type: "paragraph", html: "A direct benchmark-style comparison with LangGraph or CrewAI would be premature. Those projects are commonly used to define and orchestrate agent behavior; AgentZ is positioning itself as a broader runtime and governance layer around execution, credentials, networking, deployment and auditability." },
+        { type: "paragraph", html: "That difference in scope does not make one approach universally better. A useful future comparison would need a shared workflow, equivalent deployment assumptions, connector depth, operational overhead and reproducible security tests." },
+      ],
+    },
+    {
+      id: "what-to-watch",
+      title: "What to watch next",
+      blocks: [
+        { type: "list", ordered: true, items: [
+          "A public AgentZ pricing table and free-plan quotas",
+          "Stable self-hosting installation and upgrade documentation",
+          "Connector-specific permissions and supported actions",
+          "Release maturity, adoption and independent security review",
+          "Reproducible comparisons with orchestration frameworks",
+        ] },
+      ],
+    },
+  ],
+  sources: [
+    { label: "AccuKnox — AgentZ documentation", url: "https://help.accuknox.com/agentz/" },
+    { label: "AccuKnox — AgentZ launch announcement", url: "https://accuknox.com/press-release/agentz-zero-trust-agentic-ai-launch" },
+    { label: "AccuKnox — AgentZ GitHub repository", url: "https://github.com/accuknox/agentZ" },
+    { label: "AccuKnox — AgentZ Apache-2.0 license", url: "https://github.com/accuknox/agentZ/blob/main/LICENSE" },
+  ],
+  relatedPaths: ["/blog/claudeforce-salesforce-in-claude", "/blog/qwen3-8-flash-next", "/resources/website-content-checklist"],
+};
+
+const qwenLocal: BlogArticle = {
+  status: "published",
+  articleType: "supporting",
+  cluster: "Qwen3.8 Flash Next",
+  targetSearchIntent: "Run the open-weight model locally with realistic hardware and quantization guidance",
+  targetQuery: "how to run Qwen3.8 Flash Next locally",
+  parentSlug: "qwen3-8-flash-next",
+  slug: "how-to-run-qwen3-8-flash-next-locally",
+  title: "How to Run Qwen3.8 Flash Next Locally: GGUF, Hardware & Benchmarks",
+  metaTitle: "Run Qwen3.8 Flash Next Locally: GGUF, Hardware & Benchmarks",
+  metaDescription: "Run Qwen3.8-Flash-Next locally with official weights or community GGUF builds. Compare quant sizes, hardware tiers, runtimes, context memory and benchmarks.",
+  h1: "How to Run Qwen3.8 Flash Next Locally: GGUF, Hardware and Benchmarks",
+  excerpt: "A practical guide to the official Qwen weights, community GGUF conversions, realistic memory tiers, supported runtimes and the limits of early performance data.",
+  category: "AI",
+  author: "Project Monet",
+  datePublished: "2026-08-27",
+  dateModified: "2026-08-27",
+  ogAlt: "Project Monet editorial graphic for running Qwen3.8 Flash Next locally with GGUF and local hardware",
+  sections: [
+    {
+      id: "before-you-start",
+      title: "Before you try to run it locally",
+      blocks: [
+        { type: "paragraph", html: "Qwen3.8-Flash-Next activates about 6B parameters per token, but the released model still contains a 125B main network, 51B N-gram embeddings and a 4B MTP component. Low active compute does <strong>not</strong> make the complete weight set fit like a 6B model." },
+        { type: "paragraph", html: "The official Hugging Face repository is roughly <strong>360 GB</strong> in its original weight format. Community GGUF conversions range from about <strong>72.5 GB at 1-bit</strong> to <strong>188 GB at 8-bit</strong>, before runtime overhead and context memory." },
+        { type: "note", html: "For most consumer computers, this is not a one-click local model. Memory capacity and memory bandwidth matter more than the 6B activated-parameter headline." },
+      ],
+    },
+    {
+      id: "official-weights-license",
+      title: "Official weights and license",
+      blocks: [
+        { type: "paragraph", html: "Qwen publishes the official post-trained weights at <strong>Qwen/Qwen3.8-Flash-Next</strong> on Hugging Face. The repository contains Transformers-format Safetensors and configuration files and is the authoritative source for the model artifacts." },
+        { type: "paragraph", html: "The model uses the <strong>Qwen Community License 1.0</strong>. It permits broad use, modification and deployment, but it is not Apache-2.0 and includes conditions for very large commercial products plus separate-license requirements for certain commercial Model-as-a-Service and AI work-assistant uses. Review the actual license before commercial deployment." },
+      ],
+    },
+    {
+      id: "supported-runtimes",
+      title: "Supported runtimes",
+      blocks: [
+        { type: "paragraph", html: "Qwen's official model card lists <strong>Hugging Face Transformers, vLLM, SGLang and TokenSpeed</strong> as compatible with the original weights. For production or high-throughput serving, Qwen specifically recommends current versions of SGLang, KTransformers or vLLM." },
+        { type: "paragraph", html: "For quantized local use, community GGUF builds target <strong>llama.cpp</strong> and compatible apps such as Ollama and LM Studio. Support can move quickly after a new architecture lands, so use a current runtime build and check the conversion's model card before downloading more than 100 GB of files." },
+      ],
+    },
+    {
+      id: "gguf-status",
+      title: "Is there an official Qwen3.8-Flash-Next GGUF?",
+      blocks: [
+        { type: "paragraph", html: "Qwen's official repository currently provides the original Transformers weights and an official FP8 variant. It does <strong>not</strong> publish an official Qwen GGUF repository." },
+        { type: "paragraph", html: "GGUF repositories such as <strong>unsloth/Qwen3.8-Flash-Next-GGUF</strong> are community-produced conversions derived from the Qwen model. They can be useful, but they should not be described as official Qwen releases or assumed to reproduce the original weights exactly." },
+      ],
+    },
+    {
+      id: "quantization-options",
+      title: "GGUF quantization options and file sizes",
+      blocks: [
+        { type: "paragraph", html: "The current Unsloth community repository lists these complete artifact sizes. They are download sizes, not guaranteed peak RAM or VRAM requirements:" },
+        { type: "list", items: [
+          "1-bit UD-IQ1 variants: about 72.5–74.5 GB",
+          "2-bit UD-Q2_K_XL: about 78.9 GB",
+          "3-bit variants: about 82–90 GB",
+          "4-bit UD-IQ4_XS: about 93.7 GB; UD-Q4_K_XL: about 111 GB",
+          "5-bit UD-Q5_K_XL: about 158 GB",
+          "6-bit UD-Q6_K_XL: about 169 GB",
+          "8-bit Q8_0: about 188 GB",
+          "BF16 conversion: about 354 GB",
+        ] },
+        { type: "note", html: "Lower-bit quantization saves memory but can reduce quality. A file that barely fits leaves too little room for the runtime, KV cache, operating system and any vision components." },
+      ],
+    },
+    {
+      id: "hardware-requirements",
+      title: "Realistic RAM and VRAM tiers",
+      blocks: [
+        { type: "list", items: [
+          "64 GB total memory: no complete GGUF listed above fits; this is not a realistic full-model target.",
+          "96 GB total or unified memory: only the smallest 1–3-bit files fit on paper, with limited room for runtime overhead and context.",
+          "128 GB unified or system memory: the first practical single-machine tier for a roughly 94 GB 4-bit build; the 111 GB Q4_K_XL remains tight once context and overhead are included.",
+          "192 GB total memory: allows higher-quality 5-, 6- or 8-bit files with more working room, although speed still depends heavily on bandwidth and offload.",
+          "Multi-GPU servers: size the aggregate VRAM above the chosen weights and leave headroom for KV cache and runtime allocations. Qwen does not publish one universal minimum GPU count for every engine and context length.",
+        ] },
+        { type: "paragraph", html: "A two-GPU system with 48 GB cards has 96 GB aggregate VRAM, but that does not automatically make a 94 GB artifact practical. Sharding, non-weight allocations and context still consume memory. Two 80 GB GPUs or four 48 GB GPUs offer more realistic headroom for a 4-bit deployment." },
+      ],
+    },
+    {
+      id: "cpu-gpu",
+      title: "CPU, GPU and unified-memory trade-offs",
+      blocks: [
+        { type: "paragraph", html: "CPU-only inference is possible with a GGUF runtime when system RAM is large enough, but generation speed is likely to be constrained by memory bandwidth. The MoE design reduces compute per token, yet the runtime still has to move data from a very large weight set." },
+        { type: "paragraph", html: "GPU offload improves throughput when the selected layers and weights fit in VRAM. Unified-memory systems avoid a hard CPU/GPU split, but they still need enough total memory and bandwidth. Hybrid CPU/GPU offload can make a model run without making it fast." },
+      ],
+    },
+    {
+      id: "context-memory",
+      title: "Why context length changes memory use",
+      blocks: [
+        { type: "paragraph", html: "Qwen documents a native context length of <strong>262,144 tokens</strong> and extension to 1 million with YaRN. That is a model capability, not a sensible default for a memory-limited local machine." },
+        { type: "paragraph", html: "KV-cache and runtime allocations grow as context increases. Start with 8K or 16K, confirm stable generation, then raise context while watching the runtime's reported memory use. Do not configure 262K or 1M merely because the architecture supports it." },
+        { type: "note", html: "Qwen warns that static YaRN can affect shorter-text performance. Enable long-context scaling only when the workload actually needs it." },
+      ],
+    },
+    {
+      id: "run-official",
+      title: "Run the official weights with vLLM or SGLang",
+      blocks: [
+        { type: "paragraph", html: "On sufficiently large GPU infrastructure, Qwen's simplest official vLLM path is:" },
+        { type: "note", html: "<code>pip install vllm<br>vllm serve Qwen/Qwen3.8-Flash-Next</code>" },
+        { type: "paragraph", html: "The official SGLang path is <code>pip install sglang</code> followed by <code>python3 -m sglang.launch_server --model-path Qwen/Qwen3.8-Flash-Next --host 0.0.0.0 --port 30000</code>. Both expose an OpenAI-compatible local endpoint in the documented examples." },
+        { type: "paragraph", html: "Use current framework recipes for tensor parallelism, quantized formats and long-context overrides. The one-line commands demonstrate compatibility; they do not guarantee the unquantized model will fit on a single GPU." },
+      ],
+    },
+    {
+      id: "run-gguf",
+      title: "Run a community GGUF with llama.cpp",
+      blocks: [
+        { type: "paragraph", html: "After installing a recent llama.cpp build, the Unsloth community card gives this direct server command for its Q4_K_XL conversion:" },
+        { type: "note", html: "<code>llama-server -hf unsloth/Qwen3.8-Flash-Next-GGUF:UD-Q4_K_XL -c 8192</code>" },
+        { type: "paragraph", html: "The equivalent Ollama path published on the community model card is <code>ollama run hf.co/unsloth/Qwen3.8-Flash-Next-GGUF:UD-Q4_K_XL</code>. Start with a modest context, verify the downloaded variant and inspect startup logs for offload and memory allocation." },
+        { type: "note", html: "These commands use an Unsloth conversion. They are not Qwen-authored setup instructions, and runtime support may depend on a recent llama.cpp release or architecture-specific changes." },
+      ],
+    },
+    {
+      id: "benchmarks",
+      title: "Benchmarks: capability is not local speed",
+      blocks: [
+        { type: "paragraph", html: "Qwen reports strong capability scores for the original model, including <strong>62.5 on SWE-bench Pro</strong> and <strong>91.9 on LiveCodeBench v6</strong>. These are vendor-reported evaluation results and do not tell you how many tokens per second a particular GGUF will generate on your machine." },
+        { type: "paragraph", html: "No official, reproducible consumer-hardware throughput table was published in the sources reviewed for this guide. Rather than invent a number, benchmark the exact runtime, quant, context and offload configuration you plan to use." },
+        { type: "list", ordered: true, items: [
+          "Record prompt-processing and generation tokens per second separately.",
+          "Keep the prompt, context length, quant and sampling settings fixed.",
+          "Report CPU, RAM channels, GPU model, VRAM and offload layers.",
+          "Run multiple passes after model loading and compare median results.",
+          "Test output quality as well as speed before choosing an extreme low-bit quant.",
+        ] },
+      ],
+    },
+    {
+      id: "bottom-line",
+      title: "The practical recommendation",
+      blocks: [
+        { type: "paragraph", html: "Use the official Qwen weights with vLLM or SGLang when you have server-class GPU capacity and need the authoritative model artifacts. Use a clearly labelled community GGUF when local experimentation and CPU, unified-memory or hybrid offload matter more than matching the original format." },
+        { type: "paragraph", html: "For a single machine, 128 GB is the realistic starting tier for a useful 4-bit attempt, and 192 GB provides healthier headroom. Anyone with less memory should consider a smaller Qwen model or a managed endpoint rather than relying on an extreme quant that barely fits." },
+      ],
+    },
+  ],
+  sources: [
+    { label: "Qwen — official Qwen3.8-Flash-Next model card", url: "https://huggingface.co/Qwen/Qwen3.8-Flash-Next" },
+    { label: "Qwen — Qwen Community License 1.0", url: "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/LICENSE" },
+    { label: "Qwen — Qwen3.8-Flash-Next launch announcement", url: "https://qwen.ai/blog?id=qwen3.8-flash-next" },
+    { label: "Unsloth — community Qwen3.8-Flash-Next GGUF builds", url: "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF" },
+    { label: "llama.cpp — official releases", url: "https://github.com/ggml-org/llama.cpp/releases" },
+  ],
+  relatedPaths: ["/blog/qwen3-8-flash-next", "/blog/accuknox-agentz-ai-agent-platform", "/resources/website-content-checklist"],
+};
+
+export const blogArticles: BlogArticle[] = [agentz, qwenLocal, claudeforce, qwen, gemini, instagram];
 
 export const publishedBlogArticles = blogArticles.filter((article) => article.status === "published");
 

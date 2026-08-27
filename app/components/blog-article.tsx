@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Clock3 } from "lucide-react";
-import type { BlogArticle } from "../lib/blog-content";
+import { findPublishedArticle, type BlogArticle } from "../lib/blog-content";
 import { findSeoPage } from "../lib/seo-content";
 import { SeoFooter, SeoNav } from "./seo-page";
 
@@ -55,7 +55,8 @@ export default function BlogArticlePage({ article }: { article: BlogArticle }) {
   const related = article.relatedPaths.map((path) => {
     if (path.startsWith("/blog/")) {
       const slug = path.slice("/blog/".length);
-      return { path, title: slug === "qwen3-8-flash-next" ? "Qwen3.8-Flash-Next explained" : slug === "gemini-3-5-transcribe" ? "Gemini 3.5 Transcribe guide" : "Instagram First Draft guide" };
+      const relatedArticle = findPublishedArticle(slug);
+      return relatedArticle ? { path, title: relatedArticle.title } : null;
     }
     const page = findSeoPage(path);
     return page ? { path, title: page.title } : null;
