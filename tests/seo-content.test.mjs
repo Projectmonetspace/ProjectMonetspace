@@ -80,10 +80,11 @@ test("priority pages receive a contextual internal link beyond their hub", () =>
   }
 });
 
-test("the generated sitemap is data-driven and covers 47 public pages", async () => {
+test("the generated sitemap is data-driven for SEO and published blog content", async () => {
   const source = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
   assert.match(source, /allSeoPages\.map/);
-  assert.match(source, /return \[\.\.\.fixedPages, \.\.\.seoPages\]/);
+  assert.match(source, /publishedBlogArticles\.map/);
+  assert.match(source, /return \[\.\.\.fixedPages, \.\.\.seoPages, \.\.\.blogPages\]/);
   assert.equal(allSeoPages.length + 11, 47);
 });
 

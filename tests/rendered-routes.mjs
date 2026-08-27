@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { allSeoPages } from "../app/lib/seo-content.ts";
+import { publishedBlogArticles } from "../app/lib/blog-content.ts";
 
 const baseUrl = process.env.TEST_BASE_URL ?? "http://127.0.0.1:3000";
-const routes = ["/industries", "/resources", "/work", ...allSeoPages.map((page) => page.path)];
+const blogRoutes = publishedBlogArticles.map((article) => `/blog/${article.slug}`);
+const routes = ["/industries", "/resources", "/work", "/blog", ...allSeoPages.map((page) => page.path), ...blogRoutes];
 
 for (const route of routes) {
   const response = await fetch(`${baseUrl}${route}`);
@@ -21,9 +23,18 @@ for (const page of allSeoPages) {
   assert.match(html, /BreadcrumbList/, `${page.path} includes breadcrumb structured data`);
 }
 
+for (const article of publishedBlogArticles) {
+  const response = await fetch(`${baseUrl}/blog/${article.slug}`);
+  const html = await response.text();
+  assert.match(html, /BlogPosting/, `${article.slug} includes BlogPosting structured data`);
+  assert.ok(html.includes(article.author), `${article.slug} includes the author`);
+  assert.ok(html.includes(article.datePublished), `${article.slug} includes publication date`);
+}
+
 const sitemap = await fetch(`${baseUrl}/sitemap.xml`);
 assert.equal(sitemap.status, 200, "sitemap returns 200");
 const sitemapXml = await sitemap.text();
 for (const page of allSeoPages) assert.ok(sitemapXml.includes(page.path), `sitemap includes ${page.path}`);
+for (const article of publishedBlogArticles) assert.ok(sitemapXml.includes(`/blog/${article.slug}`), `sitemap includes ${article.slug}`);
 
-console.log(`Verified ${routes.length} SEO routes, ${allSeoPages.length} answer blocks, and the generated sitemap.`);
+console.log(`Verified ${routes.length} SEO routes, ${allSeoPages.length} answer blocks, ${publishedBlogArticles.length} articles, and the generated sitemap.`);
