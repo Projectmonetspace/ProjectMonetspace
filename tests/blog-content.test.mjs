@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content.ts";
 
-const expectedSlugs = ["claudeforce-salesforce-in-claude", "qwen3-8-flash-next", "gemini-3-5-transcribe", "instagram-first-draft-reels"];
+const expectedSlugs = ["accuknox-agentz-ai-agent-platform", "how-to-run-qwen3-8-flash-next-locally", "claudeforce-salesforce-in-claude", "qwen3-8-flash-next", "gemini-3-5-transcribe", "instagram-first-draft-reels"];
 
 test("publishes exactly the approved, unique canonical articles", () => {
   assert.deepEqual(publishedBlogArticles.map((article) => article.slug), expectedSlugs);
@@ -14,8 +14,26 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.equal(findPublishedArticle(article.slug), article);
     assert.ok(article.sections.length >= 8, `${article.slug} keeps a substantive article structure`);
     assert.ok(article.sources.length >= 3, `${article.slug} includes source links`);
+    assert.ok(article.cluster, `${article.slug} belongs to a topic cluster`);
+    assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
+    assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.equal(article.datePublished, "2026-08-27");
     assert.equal(article.dateModified, "2026-08-27");
+  }
+});
+
+test("supporting articles have a reciprocal main-article relationship", () => {
+  const supportingArticles = publishedBlogArticles.filter((article) => article.articleType === "supporting");
+  assert.ok(supportingArticles.length > 0);
+
+  for (const article of supportingArticles) {
+    assert.ok(article.parentSlug, `${article.slug} names its main article`);
+    const parent = findPublishedArticle(article.parentSlug);
+    assert.ok(parent, `${article.slug} parent is published`);
+    assert.equal(parent.articleType, "main");
+    assert.equal(parent.cluster, article.cluster);
+    assert.ok(article.relatedPaths.includes(`/blog/${parent.slug}`), `${article.slug} links to its main article`);
+    assert.ok(parent.relatedPaths.includes(`/blog/${article.slug}`), `${parent.slug} links back to its supporting article`);
   }
 });
 
@@ -44,6 +62,7 @@ test("articles provide canonical, article social metadata and BlogPosting schema
   assert.match(route, /const image = `\$\{path\}\/og`/);
   assert.match(component, /src=\{`\/blog\/\$\{article\.slug\}\/og`\}/);
   assert.match(component, /unoptimized/);
+  assert.match(component, /findPublishedArticle\(slug\)/);
   assert.match(imageRoute, /new ImageResponse/);
   assert.doesNotMatch(route, /opengraph-image/);
   assert.doesNotMatch(component, /opengraph-image/);
