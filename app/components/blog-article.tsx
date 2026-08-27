@@ -22,7 +22,7 @@ function renderBlock(block: BlogArticle["sections"][number]["blocks"][number], i
 
 export default function BlogArticlePage({ article }: { article: BlogArticle }) {
   const canonical = `${siteUrl}/blog/${article.slug}`;
-  const image = `${canonical}/opengraph-image`;
+  const image = `${canonical}/og`;
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -80,7 +80,7 @@ export default function BlogArticlePage({ article }: { article: BlogArticle }) {
         </header>
 
         <figure className="blog-cover">
-          <Image src={`/blog/${article.slug}/opengraph-image`} alt={article.ogAlt} width={1200} height={630} priority sizes="(max-width: 767px) 100vw, 92vw" />
+          <Image src={`/blog/${article.slug}/og`} alt={article.ogAlt} width={1200} height={630} priority sizes="(max-width: 767px) 100vw, 92vw" unoptimized />
         </figure>
 
         <div className="seo-reading-grid blog-reading-grid">
