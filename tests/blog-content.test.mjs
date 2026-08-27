@@ -4,9 +4,9 @@ import { readFile } from "node:fs/promises";
 
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content.ts";
 
-const expectedSlugs = ["qwen3-8-flash-next", "gemini-3-5-transcribe", "instagram-first-draft-reels"];
+const expectedSlugs = ["claudeforce-salesforce-in-claude", "qwen3-8-flash-next", "gemini-3-5-transcribe", "instagram-first-draft-reels"];
 
-test("publishes exactly the three approved, unique canonical articles", () => {
+test("publishes exactly the approved, unique canonical articles", () => {
   assert.deepEqual(publishedBlogArticles.map((article) => article.slug), expectedSlugs);
   assert.equal(new Set(blogArticles.map((article) => article.slug)).size, blogArticles.length);
   assert.equal(new Set(publishedBlogArticles.map((article) => article.metaTitle)).size, publishedBlogArticles.length);
