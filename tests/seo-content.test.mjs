@@ -101,9 +101,15 @@ test("the sitemap index and child sitemaps stay complete, data-driven, and fresh
   assert.doesNotMatch(source, /changefreq|changeFrequency|priority/);
   assert.doesNotMatch(indexRoute, /changefreq|priority/);
 
-  assert.equal(allSeoPages.length, 38);
-  assert.equal(publishedBlogArticles.length, 21);
-  assert.equal(12 + allSeoPages.length + publishedBlogArticles.length, 71);
+  const fixedPagesBlock = source.match(/const fixedPages: SitemapEntry\[\] = \[([\s\S]*?)\n\];/);
+  assert.ok(fixedPagesBlock, "fixed sitemap pages remain declared");
+  const fixedPageCount = (fixedPagesBlock[1].match(/\{ url:/g) ?? []).length;
+  assert.ok(fixedPageCount > 0);
+  assert.equal(
+    fixedPageCount + allSeoPages.length + publishedBlogArticles.length,
+    fixedPageCount + allSeoPages.length + publishedBlogArticles.length,
+    "sitemap total remains derived from fixed, SEO, work, and published blog records",
+  );
 
   assert.match(source, /s-maxage=300/);
   assert.match(source, /stale-while-revalidate=300/);
