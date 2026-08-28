@@ -1,5 +1,6 @@
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
+import { praxistArticles } from "./blog-content-praxist.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
 
 const supportedCategories = new Set<BlogCategory>([
@@ -30,6 +31,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const registeredArticles: BlogArticle[] = [
+  ...praxistArticles,
   ...photoshopGoogleArticles,
   ...legacyBlogArticles,
 ].map(validateArticle);
