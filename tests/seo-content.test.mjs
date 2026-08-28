@@ -2,7 +2,9 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 
+import { publishedBlogArticles } from "../app/lib/blog-content.ts";
 import { allSeoPages, corePages, industryPages, resourcePages, workPages } from "../app/lib/seo-content.ts";
+import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 
 const allowedRelated = new Set([
   "/industries",
@@ -82,9 +84,12 @@ test("priority pages receive a contextual internal link beyond their hub", () =>
   }
 });
 
-test("the sitemap index and child sitemaps stay data-driven", async () => {
+test("the sitemap index and child sitemaps stay complete, data-driven, and fresh", async () => {
   const source = await readFile(new URL("../app/lib/sitemap-content.ts", import.meta.url), "utf8");
   const indexRoute = await readFile(new URL("../app/sitemap.xml/route.ts", import.meta.url), "utf8");
+  const pagesRoute = await readFile(new URL("../app/pages-sitemap.xml/route.ts", import.meta.url), "utf8");
+  const blogRoute = await readFile(new URL("../app/blog-sitemap.xml/route.ts", import.meta.url), "utf8");
+
   assert.match(source, /allSeoPages/);
   assert.match(source, /publishedBlogArticles\.map/);
   assert.match(indexRoute, /<sitemapindex xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
@@ -92,7 +97,27 @@ test("the sitemap index and child sitemaps stay data-driven", async () => {
   assert.match(indexRoute, /blog-sitemap\.xml/);
   assert.doesNotMatch(source, /changefreq|changeFrequency|priority/);
   assert.doesNotMatch(indexRoute, /changefreq|priority/);
-  assert.equal(allSeoPages.length + 11, 49);
+
+  const expectedPagesCount = 12 + allSeoPages.filter((page) => page.kind !== "work").length;
+  const expectedBlogCount = workPages.length + publishedBlogArticles.length;
+  assert.equal(pagesSitemapEntries.length, expectedPagesCount);
+  assert.equal(blogSitemapEntries.length, expectedBlogCount);
+
+  const sitemapUrls = [...pagesSitemapEntries, ...blogSitemapEntries].map((entry) => new URL(entry.url).pathname);
+  assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, "sitemap URLs stay unique");
+
+  for (const page of allSeoPages) {
+    assert.ok(sitemapUrls.includes(page.path), `sitemap includes ${page.path}`);
+  }
+  for (const article of publishedBlogArticles) {
+    assert.ok(sitemapUrls.includes(`/blog/${article.slug}`), `sitemap includes /blog/${article.slug}`);
+  }
+
+  assert.match(source, /s-maxage=300/);
+  assert.match(source, /stale-while-revalidate=300/);
+  for (const route of [indexRoute, pagesRoute, blogRoute]) {
+    assert.match(route, /export const revalidate = 300/);
+  }
 });
 
 test("structured data stays visible-content aligned without FAQ rich-result spam", async () => {
