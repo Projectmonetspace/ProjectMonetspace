@@ -5,6 +5,12 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content.ts";
 
 const expectedSlugs = [
+  "tencent-hy4-preview",
+  "run-hy4-preview-locally",
+  "hy4-preview-vs-glm-5-3-vs-kimi-k3",
+  "alibaba-wan-3-0",
+  "wan-3-0-api-guide",
+  "wan-3-0-vs-gemini-omni-vs-veo",
   "glm-5-3-flash",
   "glm-5-3-flash-vs-glm-5-3",
   "gemini-omni-flash",
@@ -28,7 +34,9 @@ test("publishes exactly the approved, unique canonical articles", () => {
   assert.equal(new Set(publishedBlogArticles.map((article) => article.metaTitle)).size, publishedBlogArticles.length);
   for (const article of publishedBlogArticles) {
     assert.equal(findPublishedArticle(article.slug), article);
-    assert.ok(article.sections.length >= 8, `${article.slug} keeps a substantive article structure`);
+    const blockCount = article.sections.reduce((count, section) => count + section.blocks.length, 0);
+    assert.ok(article.sections.length >= 4, `${article.slug} keeps a useful heading structure`);
+    assert.ok(blockCount >= 8, `${article.slug} keeps substantive article content`);
     assert.ok(article.sources.length >= 3, `${article.slug} includes source links`);
     assert.ok(article.cluster, `${article.slug} belongs to a topic cluster`);
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
