@@ -1,5 +1,5 @@
-import { publishedBlogArticles } from "./blog-content-registry";
-import { allSeoPages } from "./seo-content";
+import { publishedBlogArticles } from "./blog-content-registry.ts";
+import { allSeoPages } from "./seo-content.ts";
 
 const baseUrl = "https://www.projectmonet.space";
 
