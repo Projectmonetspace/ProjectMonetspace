@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 
-import { publishedBlogArticles } from "../app/lib/blog-content.ts";
+import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
+import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 import { allSeoPages, corePages, industryPages, resourcePages, workPages } from "../app/lib/seo-content.ts";
 
 const allowedRelated = new Set([
@@ -91,6 +92,7 @@ test("the sitemap index and child sitemaps stay complete, data-driven, and fresh
 
   assert.match(source, /allSeoPages/);
   assert.match(source, /publishedBlogArticles\.map/);
+  assert.match(source, /blog-content-registry/);
   assert.match(source, /allSeoPages\s*\n\s*\.filter\(\(page\) => page\.kind !== "work"\)/);
   assert.match(source, /allSeoPages\s*\n\s*\.filter\(\(page\) => page\.kind === "work"\)/);
   assert.match(source, /export const pagesSitemapEntries = \[\.\.\.fixedPages, \.\.\.seoPages\]/);
@@ -105,10 +107,9 @@ test("the sitemap index and child sitemaps stay complete, data-driven, and fresh
   assert.ok(fixedPagesBlock, "fixed sitemap pages remain declared");
   const fixedPageCount = (fixedPagesBlock[1].match(/\{ url:/g) ?? []).length;
   assert.equal(fixedPageCount, 12);
-  assert.ok(
-    fixedPageCount + allSeoPages.length + publishedBlogArticles.length >= 71,
-    "sitemap registry must not regress below the current 71 canonical URLs",
-  );
+
+  const expectedTotal = fixedPageCount + allSeoPages.length + publishedBlogArticles.length;
+  assert.equal(pagesSitemapEntries.length + blogSitemapEntries.length, expectedTotal, "sitemap registry count derives from fixed, SEO, work and published blog sources");
 
   assert.match(source, /s-maxage=300/);
   assert.match(source, /stale-while-revalidate=300/);
