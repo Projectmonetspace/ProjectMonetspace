@@ -23,12 +23,12 @@ function textFor(page) {
   ].join(" ");
 }
 
-test("ships the approved 39-page content architecture", () => {
+test("ships the expanded 41-page commercial content architecture", () => {
   assert.equal(corePages.length, 6);
   assert.equal(industryPages.length, 12);
-  assert.equal(resourcePages.length, 12);
+  assert.equal(resourcePages.length, 14);
   assert.equal(workPages.length, 6);
-  assert.equal(allSeoPages.length + 3, 39, "36 detail pages plus three hubs");
+  assert.equal(allSeoPages.length + 3, 41, "38 detail pages plus three hubs");
 });
 
 test("the homepage hamburger links to the main content pages", async () => {
@@ -72,6 +72,8 @@ test("priority pages receive a contextual internal link beyond their hub", () =>
     "/industries/gyms",
     "/industries/real-estate",
     "/resources/one-page-vs-multi-page-website",
+    "/resources/landing-page-vs-website-small-business",
+    "/resources/web-design-agency-vs-freelancer-india",
     "/work/ahs-home-services-website-concept",
     "/work/dental-clinic-website-concept",
   ]) {
@@ -85,7 +87,7 @@ test("the generated sitemap is data-driven for SEO and published blog content", 
   assert.match(source, /allSeoPages\.map/);
   assert.match(source, /publishedBlogArticles\.map/);
   assert.match(source, /return \[\.\.\.fixedPages, \.\.\.seoPages, \.\.\.blogPages\]/);
-  assert.equal(allSeoPages.length + 11, 47);
+  assert.equal(allSeoPages.length + 11, 49);
 });
 
 test("structured data stays visible-content aligned without FAQ rich-result spam", async () => {

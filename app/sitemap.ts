@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const seoPages: MetadataRoute.Sitemap = allSeoPages.map((page) => ({
     url: `${baseUrl}${page.path}`,
-    lastModified: page.published ?? "2026-08-16",
+    lastModified: page.modified ?? page.published ?? "2026-08-16",
     changeFrequency: "monthly",
     priority: page.kind === "service" ? .9 : page.kind === "profile" || page.kind === "work" ? .8 : .7,
   }));

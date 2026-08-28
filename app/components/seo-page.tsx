@@ -71,7 +71,7 @@ function schemaFor(page: SeoPage) {
         headline: page.title,
         description: page.metaDescription,
         datePublished: page.published ?? "2026-08-16",
-        dateModified: page.published ?? "2026-08-16",
+        dateModified: page.modified ?? page.published ?? "2026-08-16",
         mainEntityOfPage: `${siteUrl}${page.path}`,
         author: { "@type": "Person", name: "Mayank Harsh", url: `${siteUrl}/about` },
         publisher: { "@type": "Organization", name: "Project Monet", url: siteUrl, logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.png` } },
