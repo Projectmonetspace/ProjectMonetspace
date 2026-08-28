@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "praxist-autonomous-ai-research-system",
+  "how-to-install-use-praxist-codex-claude",
   "photoshop-27-10-ai-assisted-editor-prompt-to-edit",
   "how-to-use-photoshop-prompt-to-edit-ai-assisted-editor",
   "photoshop-light-adjustment-layer",
