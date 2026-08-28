@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 
-import { publishedBlogArticles } from "../app/lib/blog-content.ts";
+import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 
 const base = process.env.PRODUCTION_BASE_URL ?? "https://www.projectmonet.space";
