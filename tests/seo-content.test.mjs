@@ -82,11 +82,16 @@ test("priority pages receive a contextual internal link beyond their hub", () =>
   }
 });
 
-test("the generated sitemap is data-driven for SEO and published blog content", async () => {
-  const source = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
-  assert.match(source, /allSeoPages\.map/);
+test("the sitemap index and child sitemaps stay data-driven", async () => {
+  const source = await readFile(new URL("../app/lib/sitemap-content.ts", import.meta.url), "utf8");
+  const indexRoute = await readFile(new URL("../app/sitemap.xml/route.ts", import.meta.url), "utf8");
+  assert.match(source, /allSeoPages/);
   assert.match(source, /publishedBlogArticles\.map/);
-  assert.match(source, /return \[\.\.\.fixedPages, \.\.\.seoPages, \.\.\.blogPages\]/);
+  assert.match(indexRoute, /<sitemapindex xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
+  assert.match(indexRoute, /pages-sitemap\.xml/);
+  assert.match(indexRoute, /blog-sitemap\.xml/);
+  assert.doesNotMatch(source, /changefreq|changeFrequency|priority/);
+  assert.doesNotMatch(indexRoute, /changefreq|priority/);
   assert.equal(allSeoPages.length + 11, 49);
 });
 
