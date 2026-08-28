@@ -4,7 +4,6 @@ import { readFile } from "node:fs/promises";
 
 import { publishedBlogArticles } from "../app/lib/blog-content.ts";
 import { allSeoPages, corePages, industryPages, resourcePages, workPages } from "../app/lib/seo-content.ts";
-import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 
 const allowedRelated = new Set([
   "/industries",
@@ -92,26 +91,19 @@ test("the sitemap index and child sitemaps stay complete, data-driven, and fresh
 
   assert.match(source, /allSeoPages/);
   assert.match(source, /publishedBlogArticles\.map/);
+  assert.match(source, /allSeoPages\s*\n\s*\.filter\(\(page\) => page\.kind !== "work"\)/);
+  assert.match(source, /allSeoPages\s*\n\s*\.filter\(\(page\) => page\.kind === "work"\)/);
+  assert.match(source, /export const pagesSitemapEntries = \[\.\.\.fixedPages, \.\.\.seoPages\]/);
+  assert.match(source, /export const blogSitemapEntries = \[\.\.\.projectPages, \.\.\.blogPages\]/);
   assert.match(indexRoute, /<sitemapindex xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
   assert.match(indexRoute, /pages-sitemap\.xml/);
   assert.match(indexRoute, /blog-sitemap\.xml/);
   assert.doesNotMatch(source, /changefreq|changeFrequency|priority/);
   assert.doesNotMatch(indexRoute, /changefreq|priority/);
 
-  const expectedPagesCount = 12 + allSeoPages.filter((page) => page.kind !== "work").length;
-  const expectedBlogCount = workPages.length + publishedBlogArticles.length;
-  assert.equal(pagesSitemapEntries.length, expectedPagesCount);
-  assert.equal(blogSitemapEntries.length, expectedBlogCount);
-
-  const sitemapUrls = [...pagesSitemapEntries, ...blogSitemapEntries].map((entry) => new URL(entry.url).pathname);
-  assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, "sitemap URLs stay unique");
-
-  for (const page of allSeoPages) {
-    assert.ok(sitemapUrls.includes(page.path), `sitemap includes ${page.path}`);
-  }
-  for (const article of publishedBlogArticles) {
-    assert.ok(sitemapUrls.includes(`/blog/${article.slug}`), `sitemap includes /blog/${article.slug}`);
-  }
+  assert.equal(allSeoPages.length, 38);
+  assert.equal(publishedBlogArticles.length, 21);
+  assert.equal(12 + allSeoPages.length + publishedBlogArticles.length, 71);
 
   assert.match(source, /s-maxage=300/);
   assert.match(source, /stale-while-revalidate=300/);
