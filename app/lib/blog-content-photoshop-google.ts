@@ -1,8 +1,8 @@
-import type { BlogArticle } from "./blog-content.ts";
+import type { BlogArticle } from "./blog-types.ts";
 
 const published = "2026-08-28";
 
-const photoshopMain = {
+const photoshopMain: BlogArticle = {
   status: "published",
   articleType: "main",
   cluster: "Adobe Photoshop 27.10",
@@ -98,7 +98,7 @@ const photoshopMain = {
   ],
 };
 
-const photoshopWorkflow = {
+const photoshopWorkflow: BlogArticle = {
   status: "published",
   articleType: "supporting",
   cluster: "Adobe Photoshop 27.10",
@@ -198,7 +198,7 @@ const photoshopWorkflow = {
   ],
 };
 
-const photoshopLight = {
+const photoshopLight: BlogArticle = {
   status: "published",
   articleType: "supporting",
   cluster: "Adobe Photoshop 27.10",
@@ -300,7 +300,7 @@ const photoshopLight = {
   ],
 };
 
-const googleMain = {
+const googleMain: BlogArticle = {
   status: "published",
   articleType: "main",
   cluster: "Google Site Reputation Policy",
@@ -395,7 +395,7 @@ const googleMain = {
   ],
 };
 
-const googleFix = {
+const googleFix: BlogArticle = {
   status: "published",
   articleType: "supporting",
   cluster: "Google Site Reputation Policy",
@@ -505,7 +505,7 @@ const googleFix = {
   ],
 };
 
-const googleParasite = {
+const googleParasite: BlogArticle = {
   status: "published",
   articleType: "supporting",
   cluster: "Google Site Reputation Policy",
@@ -613,11 +613,11 @@ const googleParasite = {
   ],
 };
 
-export const photoshopGoogleArticles = [
+export const photoshopGoogleArticles: BlogArticle[] = [
   photoshopMain,
   photoshopWorkflow,
   photoshopLight,
   googleMain,
   googleFix,
   googleParasite,
-] as unknown as BlogArticle[];
+];
