@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 
+import { publishedBlogArticles } from "../app/lib/blog-content.ts";
 import { allSeoPages, corePages, industryPages, resourcePages, workPages } from "../app/lib/seo-content.ts";
 
 const allowedRelated = new Set([
@@ -82,17 +83,38 @@ test("priority pages receive a contextual internal link beyond their hub", () =>
   }
 });
 
-test("the sitemap index and child sitemaps stay data-driven", async () => {
+test("the sitemap index and child sitemaps stay complete, data-driven, and fresh", async () => {
   const source = await readFile(new URL("../app/lib/sitemap-content.ts", import.meta.url), "utf8");
   const indexRoute = await readFile(new URL("../app/sitemap.xml/route.ts", import.meta.url), "utf8");
+  const pagesRoute = await readFile(new URL("../app/pages-sitemap.xml/route.ts", import.meta.url), "utf8");
+  const blogRoute = await readFile(new URL("../app/blog-sitemap.xml/route.ts", import.meta.url), "utf8");
+
   assert.match(source, /allSeoPages/);
   assert.match(source, /publishedBlogArticles\.map/);
+  assert.match(source, /allSeoPages\s*\n\s*\.filter\(\(page\) => page\.kind !== "work"\)/);
+  assert.match(source, /allSeoPages\s*\n\s*\.filter\(\(page\) => page\.kind === "work"\)/);
+  assert.match(source, /export const pagesSitemapEntries = \[\.\.\.fixedPages, \.\.\.seoPages\]/);
+  assert.match(source, /export const blogSitemapEntries = \[\.\.\.projectPages, \.\.\.blogPages\]/);
   assert.match(indexRoute, /<sitemapindex xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
   assert.match(indexRoute, /pages-sitemap\.xml/);
   assert.match(indexRoute, /blog-sitemap\.xml/);
   assert.doesNotMatch(source, /changefreq|changeFrequency|priority/);
   assert.doesNotMatch(indexRoute, /changefreq|priority/);
-  assert.equal(allSeoPages.length + 11, 49);
+
+  const fixedPagesBlock = source.match(/const fixedPages: SitemapEntry\[\] = \[([\s\S]*?)\n\];/);
+  assert.ok(fixedPagesBlock, "fixed sitemap pages remain declared");
+  const fixedPageCount = (fixedPagesBlock[1].match(/\{ url:/g) ?? []).length;
+  assert.equal(fixedPageCount, 12);
+  assert.ok(
+    fixedPageCount + allSeoPages.length + publishedBlogArticles.length >= 71,
+    "sitemap registry must not regress below the current 71 canonical URLs",
+  );
+
+  assert.match(source, /s-maxage=300/);
+  assert.match(source, /stale-while-revalidate=300/);
+  for (const route of [indexRoute, pagesRoute, blogRoute]) {
+    assert.match(route, /export const revalidate = 300/);
+  }
 });
 
 test("structured data stays visible-content aligned without FAQ rich-result spam", async () => {
