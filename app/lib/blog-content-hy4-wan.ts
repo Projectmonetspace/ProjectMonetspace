@@ -1,4 +1,5 @@
 import type { BlogArticle } from "./blog-content.ts";
+import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
 
 const published = "2026-08-28";
 
@@ -446,4 +447,4 @@ const wanComparison: BlogArticle = {
   relatedPaths: ["/blog/alibaba-wan-3-0", "/blog/wan-3-0-api-guide"],
 };
 
-export const hy4WanArticles: BlogArticle[] = [hy4Main, hy4Local, hy4Comparison, wanMain, wanApi, wanComparison];
+export const hy4WanArticles: BlogArticle[] = [...photoshopGoogleArticles, hy4Main, hy4Local, hy4Comparison, wanMain, wanApi, wanComparison];
