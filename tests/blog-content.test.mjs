@@ -4,7 +4,23 @@ import { readFile } from "node:fs/promises";
 
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content.ts";
 
-const expectedSlugs = ["accuknox-agentz-ai-agent-platform", "how-to-run-qwen3-8-flash-next-locally", "claudeforce-salesforce-in-claude", "qwen3-8-flash-next", "gemini-3-5-transcribe", "instagram-first-draft-reels"];
+const expectedSlugs = [
+  "glm-5-3-flash",
+  "glm-5-3-flash-vs-glm-5-3",
+  "gemini-omni-flash",
+  "how-to-use-gemini-omni-flash-api",
+  "gemini-omni-flash-vs-veo-3-1",
+  "anthropic-model-hardware-standard-mhs",
+  "model-hardware-standard-vs-mcp",
+  "meta-muse-image-api-pricing",
+  "how-to-use-muse-image-api-vercel",
+  "accuknox-agentz-ai-agent-platform",
+  "how-to-run-qwen3-8-flash-next-locally",
+  "claudeforce-salesforce-in-claude",
+  "qwen3-8-flash-next",
+  "gemini-3-5-transcribe",
+  "instagram-first-draft-reels",
+];
 
 test("publishes exactly the approved, unique canonical articles", () => {
   assert.deepEqual(publishedBlogArticles.map((article) => article.slug), expectedSlugs);
@@ -17,8 +33,8 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.cluster, `${article.slug} belongs to a topic cluster`);
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
-    assert.equal(article.datePublished, "2026-08-27");
-    assert.equal(article.dateModified, "2026-08-27");
+    assert.match(article.datePublished, /^2026-08-(27|28)$/);
+    assert.equal(article.dateModified, article.datePublished);
   }
 });
 

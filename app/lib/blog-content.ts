@@ -842,7 +842,2054 @@ const qwenLocal: BlogArticle = {
   relatedPaths: ["/blog/qwen3-8-flash-next", "/blog/accuknox-agentz-ai-agent-platform", "/resources/website-content-checklist"],
 };
 
-export const blogArticles: BlogArticle[] = [agentz, qwenLocal, claudeforce, qwen, gemini, instagram];
+const glmFlash: BlogArticle = {
+  "status": "published",
+  "articleType": "main",
+  "cluster": "GLM-5.3-Flash",
+  "targetSearchIntent": "Broad model overview: release, architecture, multimodal capabilities, pricing/API, benchmarks, context, open weights and deployment",
+  "targetQuery": "GLM-5.3-Flash",
+  "slug": "glm-5-3-flash",
+  "title": "GLM-5.3-Flash: Pricing, API, Benchmarks, Context & Open Weights",
+  "metaTitle": "GLM-5.3-Flash: Pricing, API, Benchmarks & Open Weights",
+  "metaDescription": "GLM-5.3-Flash is Z.ai’s new native-multimodal 320B/18B-active model. See architecture, context, benchmarks, open weights, deployment support and current API/pricing details.",
+  "h1": "GLM-5.3-Flash: What It Is, Pricing, API, Benchmarks and Open Weights",
+  "excerpt": "Z.ai’s native-multimodal 320B/18B-active model combines long context, open MIT-licensed weights and lower-cost agentic inference.",
+  "category": "AI",
+  "author": "Project Monet",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Project Monet editorial graphic for GLM-5.3-Flash: Pricing, API, Benchmarks, Context & Open Weights",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash is Z.ai’s newly released native-multimodal model aimed at efficient coding, agentic workflows, visual understanding and professional work. Z.ai says it has 320 billion total parameters but activates about 18 billion per token, uses a new base model rather than being a simple GLM-5.3 post-train, and combines sparse and linear attention to reduce long-context inference cost. The weights are publicly available under the MIT License."
+        }
+      ]
+    },
+    {
+      "id": "glm-5-3-flash-in-brief",
+      "title": "GLM-5.3-Flash in brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash appeared across Z.ai product surfaces on August 26, 2026, while Z.ai and AutoClaw's detailed launch posts are dated August 27. Before the named release, the company says it evaluated the model anonymously as Ox Alpha under real-world traffic. That earlier identity matters because people who encountered Ox Alpha may now search for what model it became."
+        },
+        {
+          "type": "paragraph",
+          "html": "The model is the first natively multimodal member of the GLM-5 family. Z.ai says it supports text, images, video and files, allowing visual information to participate directly in multi-step reasoning and tool workflows rather than acting as a separate bolt-on capability."
+        }
+      ]
+    },
+    {
+      "id": "architecture-320b-total-18b-active",
+      "title": "Architecture: 320B total, 18B active",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash has 320B total parameters and about 18B active parameters. Z.ai says it redesigned the architecture and training recipe around efficiency, reducing the active parameter count and number of layers relative to the similarly sized GLM-4.5 series."
+        },
+        {
+          "type": "paragraph",
+          "html": "Its hybrid attention design combines linear attention for local/state-based dependencies with sparse attention that retrieves selected global context. Z.ai also describes Manifold-Constrained Hyper-Connections and a 30T-token multimodal training corpus as parts of the model design."
+        },
+        {
+          "type": "paragraph",
+          "html": "For long-context workloads, Z.ai says IndexPool compresses cached key vectors and helps reduce indexer latency and memory overhead. In its own comparison with GLM-5.3, the company reports about 3× lower attention compute and a 4.4× smaller KV cache. These are vendor-reported figures, not independent measurements."
+        }
+      ]
+    },
+    {
+      "id": "context-window",
+      "title": "Context window",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai’s launch material describes the architecture operating at context lengths up to one million tokens. Exact context and maximum-output limits should be checked against the current official model card/API documentation before production use because provider endpoints and serving configurations can differ."
+        }
+      ]
+    },
+    {
+      "id": "native-multimodal-support",
+      "title": "Native multimodal support",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash is trained to work across text and visual information. Z.ai specifically describes image, video and file support and highlights use cases involving screenshots, charts, documents, interfaces, presentations and spreadsheets."
+        },
+        {
+          "type": "paragraph",
+          "html": "For creators and business teams, the interesting part is not simply image recognition. A multimodal agent can inspect a rendered document, slide deck, chart or webpage, reason about the visual result and continue making changes. That makes the model relevant to content workflows, design QA, document automation and agentic web/product work."
+        }
+      ]
+    },
+    {
+      "id": "glm-5-3-flash-benchmarks",
+      "title": "GLM-5.3-Flash benchmarks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai reports that GLM-5.3-Flash outperforms GLM-5.2 across several coding, tool-use, automation and professional-work evaluations. Its published results include 84.3 on Terminal Bench 2.1, 63.4 on DeepSWE v1.1, 78.4 on Toolathlon Verified and 48.8 on AutomationBench v1.0.6."
+        },
+        {
+          "type": "paragraph",
+          "html": "The company also reports multimodal results including 89.4 on CharXiv Reasoning with Tools, 78.0 on Chartography with Tools and 80.5 on MMVU."
+        },
+        {
+          "type": "paragraph",
+          "html": "These numbers come from Z.ai’s own evaluation material. They should be treated as vendor-reported benchmarks; real performance can change with inference settings, tool frameworks, prompts and serving environments."
+        }
+      ]
+    },
+    {
+      "id": "open-weights-and-license",
+      "title": "Open weights and license",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai says the GLM-5.3-Flash weights are publicly available on Hugging Face under the MIT License. This is materially different from a model that is only accessible through a hosted API because teams can evaluate self-hosted deployment and community quantization paths."
+        },
+        {
+          "type": "paragraph",
+          "html": "The official launch material lists SGLang, vLLM and TokenSpeed among supported inference frameworks. Day-zero community reports already show active work on vLLM/SGLang deployment, but community bug reports and unofficial quantizations should not be confused with official support guarantees."
+        }
+      ]
+    },
+    {
+      "id": "glm-5-3-flash-api-and-pricing",
+      "title": "GLM-5.3-Flash API and pricing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai's current developer documentation lists the API model code as <code>glm-5.3-flash</code> and says the model is fully available through the GLM Coding Plan. Its pay-as-you-go pricing table lists standard rates of <strong>$0.15 per million input tokens</strong>, <strong>$0.03 per million cached-input tokens</strong> and <strong>$0.50 per million output tokens</strong>."
+        },
+        {
+          "type": "paragraph",
+          "html": "A 50% launch promotion currently reduces those rates to <strong>$0.075 input</strong>, <strong>$0.015 cached input</strong> and <strong>$0.25 output</strong> per million tokens. Z.ai says that promotion ends at 24:00 on September 9, 2026 in Singapore time (UTC+8). Cached-input storage is listed as limited-time free. These promotional terms are time-sensitive; production budgets should use the live pricing page."
+        }
+      ]
+    },
+    {
+      "id": "what-was-ox-alpha",
+      "title": "What was Ox Alpha?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai says GLM-5.3-Flash was tested anonymously as Ox Alpha before the official release. The anonymous test let the company evaluate the model under real-world traffic before publicly attaching the GLM name."
+        },
+        {
+          "type": "paragraph",
+          "html": "So if you used or saw Ox Alpha shortly before this release, GLM-5.3-Flash is the model Z.ai identifies behind that preview."
+        }
+      ]
+    },
+    {
+      "id": "glm-5-3-flash-vs-glm-5-3",
+      "title": "GLM-5.3-Flash vs GLM-5.3",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The clearest current distinction is positioning. GLM-5.3 is the heavier flagship model, while Flash is designed around lower inference cost, native multimodality and frequent agent/workflow use. A dedicated comparison can be useful because users choosing between the two care about cost, benchmark trade-offs, multimodality and deployment requirements rather than simply which model is newer."
+        },
+        {
+          "type": "paragraph",
+          "html": "A separate comparison article should use current first-party pricing and equivalent benchmark conditions before making a recommendation."
+        }
+      ]
+    },
+    {
+      "id": "who-should-consider-glm-5-3-flash",
+      "title": "Who should consider GLM-5.3-Flash?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The model is especially relevant to developers building multimodal agents, coding assistants, document and presentation workflows, visual QA systems, long-context automation and high-volume applications where inference efficiency matters."
+        },
+        {
+          "type": "paragraph",
+          "html": "It may also be interesting for teams that want open weights but still need native visual understanding and modern agent/tool-use performance."
+        }
+      ]
+    },
+    {
+      "id": "frequently-asked-questions",
+      "title": "Frequently asked questions",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "When was GLM-5.3-Flash released?"
+        },
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash appeared across Z.ai product surfaces on August 26, 2026, with detailed official launch posts dated August 27."
+        },
+        {
+          "type": "subheading",
+          "text": "How large is GLM-5.3-Flash?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Z.ai describes it as a 320B-total-parameter mixture-of-experts model with about 18B active parameters."
+        },
+        {
+          "type": "subheading",
+          "text": "Is GLM-5.3-Flash multimodal?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Z.ai describes native support for text, images, video and files."
+        },
+        {
+          "type": "subheading",
+          "text": "Is GLM-5.3-Flash open weight?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Z.ai says the model weights are available on Hugging Face under the MIT License."
+        },
+        {
+          "type": "subheading",
+          "text": "Can GLM-5.3-Flash run with vLLM or SGLang?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Z.ai lists vLLM and SGLang among supported inference frameworks. Because this is a very new architecture, check current framework releases and known issues before deployment."
+        },
+        {
+          "type": "subheading",
+          "text": "Is Ox Alpha GLM-5.3-Flash?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Z.ai says it anonymously evaluated GLM-5.3-Flash as Ox Alpha before the named release."
+        }
+      ]
+    },
+    {
+      "id": "what-to-watch-next",
+      "title": "What to watch next",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The highest-value updates are stable API pricing after the launch period, wider provider availability, independent benchmarks, mature quantizations and clearer hardware/deployment recipes. Those developments can justify supporting guides without fragmenting the main overview into thin pages."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Z.ai — GLM-5.3-Flash launch announcement",
+      "url": "https://z.ai/blog/glm-5.3-flash"
+    },
+    {
+      "label": "Z.ai — GLM-5.3-Flash API guide",
+      "url": "https://docs.z.ai/guides/vlm/glm-5.3-flash"
+    },
+    {
+      "label": "Z.ai — current API pricing",
+      "url": "https://docs.z.ai/guides/overview/pricing"
+    },
+    {
+      "label": "Z.ai — official Hugging Face model card",
+      "url": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+    },
+    {
+      "label": "Z.ai — MIT license for GLM-5.3-Flash",
+      "url": "https://huggingface.co/zai-org/GLM-5.3-Flash/blob/main/LICENSE"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/glm-5-3-flash-vs-glm-5-3"
+  ]
+};
+
+const glmFlashVs: BlogArticle = {
+  "status": "published",
+  "articleType": "supporting",
+  "cluster": "GLM-5.3-Flash",
+  "targetSearchIntent": "Compare Flash with the full GLM-5.3 model on price, capabilities, multimodality, efficiency and workload fit",
+  "targetQuery": "GLM-5.3-Flash vs GLM-5.3",
+  "parentSlug": "glm-5-3-flash",
+  "slug": "glm-5-3-flash-vs-glm-5-3",
+  "title": "GLM-5.3-Flash vs GLM-5.3: Benchmarks, Pricing & Which to Use",
+  "metaTitle": "GLM-5.3-Flash vs GLM-5.3: Price, Benchmarks & Which to Use",
+  "metaDescription": "Compare GLM-5.3-Flash and GLM-5.3 on pricing, multimodality, efficiency, benchmarks and workload fit. See where Flash saves cost and where the flagship may still make sense.",
+  "h1": "GLM-5.3-Flash vs GLM-5.3: Price, Benchmarks and Which Model to Use",
+  "excerpt": "A practical comparison of Z.ai’s multimodal Flash model and text-only flagship across price, efficiency and workload fit.",
+  "category": "AI",
+  "author": "Project Monet",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Project Monet editorial graphic for GLM-5.3-Flash vs GLM-5.3: Benchmarks, Pricing & Which to Use",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash and GLM-5.3 target different parts of Z.ai’s model lineup. The full GLM-5.3 is positioned as the heavier flagship, while GLM-5.3-Flash is a 320B-total/18B-active model designed around efficient inference, native multimodality and frequent agentic work."
+        },
+        {
+          "type": "paragraph",
+          "html": "If you are choosing between them, the useful question is not simply which model is newer. It is whether your workload benefits enough from the flagship’s deeper reasoning to justify its higher cost, or whether Flash’s lower-compute architecture and visual capabilities are the better default."
+        }
+      ]
+    },
+    {
+      "id": "the-short-version",
+      "title": "The short version",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Choose GLM-5.3-Flash when you need native image/video/file understanding, high-volume agent steps, document or visual workflows, or lower token cost. Consider GLM-5.3 when the strongest available reasoning/coding capability matters more than cost and your workload does not specifically require Flash’s multimodal positioning."
+        },
+        {
+          "type": "paragraph",
+          "html": "That is a workload recommendation, not a claim that one model wins every task."
+        }
+      ]
+    },
+    {
+      "id": "architecture-and-positioning",
+      "title": "Architecture and positioning",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai describes GLM-5.3-Flash as a new-base 320B model with about 18B active parameters. It combines sparse and linear attention and is explicitly designed to reduce attention compute and KV-cache requirements in long-context workloads."
+        },
+        {
+          "type": "paragraph",
+          "html": "Z.ai reports approximately 3× lower attention compute and a 4.4× smaller KV cache for Flash compared with GLM-5.3 in its architecture comparison. Those are vendor-reported efficiency figures."
+        },
+        {
+          "type": "paragraph",
+          "html": "The full GLM-5.3 occupies the flagship tier. Flash is therefore not best understood as a tiny model; it is a large MoE architecture that activates a much smaller portion of its total parameters for each token."
+        }
+      ]
+    },
+    {
+      "id": "multimodality",
+      "title": "Multimodality",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "This is one of the clearest product differences. Z.ai calls GLM-5.3-Flash the first natively multimodal model in the GLM-5 family and describes support for text, images, video and files."
+        },
+        {
+          "type": "paragraph",
+          "html": "That makes Flash especially relevant for screenshot understanding, charts, visual documents, presentation QA, web/interface inspection and workflows where an agent needs to observe the result of its own actions."
+        },
+        {
+          "type": "paragraph",
+          "html": "Z.ai's current GLM-5.3 documentation lists text-only input, so users needing native image, video or file understanding should evaluate Flash rather than assume modality parity."
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai's current pay-as-you-go table lists GLM-5.3-Flash at standard rates of <strong>$0.15 input</strong>, <strong>$0.03 cached input</strong> and <strong>$0.50 output</strong> per million tokens. A 50% launch promotion reduces those rates to <strong>$0.075</strong>, <strong>$0.015</strong> and <strong>$0.25</strong> until 24:00 on September 9, 2026 in Singapore time (UTC+8)."
+        },
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3 is listed at <strong>$1.40 input</strong>, <strong>$0.26 cached input</strong> and <strong>$4.40 output</strong> per million tokens. Those are normal GLM-5.3 rates, not a matching temporary promotion, so both the Flash list price and its discounted price should remain visible in any comparison."
+        }
+      ]
+    },
+    {
+      "id": "benchmarks",
+      "title": "Benchmarks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai’s GLM-5.3-Flash release reports strong coding, tool-use and automation results, including 84.3 on Terminal Bench 2.1, 63.4 on DeepSWE v1.1, 78.4 on Toolathlon Verified and 48.8 on AutomationBench v1.0.6."
+        },
+        {
+          "type": "paragraph",
+          "html": "Those figures should not automatically be interpreted as a direct win over GLM-5.3 because the published Flash launch table prominently compares many results with GLM-5.2. A fair Flash-vs-5.3 benchmark table should include only tests where equivalent official or credible independent results for both models are available."
+        },
+        {
+          "type": "paragraph",
+          "html": "Where comparable evidence is missing, say so rather than filling the gap with inference."
+        }
+      ]
+    },
+    {
+      "id": "context-and-long-documents",
+      "title": "Context and long documents",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Z.ai describes Flash’s architecture at context lengths up to one million tokens. Its hybrid sparse/linear attention and IndexPool mechanism are designed specifically to reduce the cost of long-context attention and cache storage."
+        },
+        {
+          "type": "paragraph",
+          "html": "Exact production context limits can vary by endpoint and provider, so check current API/model documentation for both models before deployment."
+        }
+      ]
+    },
+    {
+      "id": "which-is-better-for-coding-agents",
+      "title": "Which is better for coding agents?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "For frequent agent steps where cost, tool use and fast iteration matter, Flash is compelling because Z.ai designed it around efficient agentic workloads and reports strong coding/tool benchmarks."
+        },
+        {
+          "type": "paragraph",
+          "html": "For the hardest software-engineering tasks, the flagship may still be worth evaluating. Model choice should be based on task success rate and total workflow cost, not token price alone."
+        },
+        {
+          "type": "paragraph",
+          "html": "A useful production test is to route representative tasks through both models and compare successful completion cost: model price multiplied by the amount of retrying, tool use and human correction required."
+        }
+      ]
+    },
+    {
+      "id": "which-is-better-for-creators-and-business-workflows",
+      "title": "Which is better for creators and business workflows?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Flash has the clearer advantage when the workflow includes visual material. Z.ai explicitly highlights documents, presentations, spreadsheets, dashboards, interfaces, charts and meeting artifacts."
+        },
+        {
+          "type": "paragraph",
+          "html": "For Project Monet-style workflows, that can include checking webpage states, interpreting analytics screenshots, reviewing slide layouts, processing documents or using visual feedback inside an automated agent loop."
+        }
+      ]
+    },
+    {
+      "id": "which-should-you-use",
+      "title": "Which should you use?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Use GLM-5.3-Flash first when:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "you need native visual/file understanding;",
+            "the application makes many model calls;",
+            "long-context efficiency matters;",
+            "you are building routine coding or automation agents;",
+            "you want open weights for self-hosted evaluation."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "html": "Evaluate GLM-5.3 when:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "maximum reasoning quality matters more than token cost;",
+            "your workload is dominated by difficult text/coding reasoning;",
+            "benchmark or internal evaluation shows the flagship reduces retries enough to offset the higher price."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "html": "Do not choose solely from a benchmark leaderboard. For agents, a cheaper model that needs repeated retries can cost more than a stronger model, while a flagship used for simple extraction can be unnecessary expense."
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "FAQ",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Is GLM-5.3-Flash smaller than GLM-5.3?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Flash uses a 320B-total mixture-of-experts architecture with about 18B active parameters. Total parameter count alone is not a direct measure of runtime cost because active parameters and attention architecture matter."
+        },
+        {
+          "type": "subheading",
+          "text": "Does GLM-5.3-Flash support images?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Z.ai describes it as natively multimodal with text, image, video and file support."
+        },
+        {
+          "type": "subheading",
+          "text": "Is GLM-5.3-Flash open weight?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Z.ai says its weights are available on Hugging Face under MIT."
+        },
+        {
+          "type": "subheading",
+          "text": "Which model is cheaper?"
+        },
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash. Its current list rates are far below GLM-5.3, and a separate 50% Flash launch discount runs through September 9, 2026 (UTC+8). Recheck the live Z.ai table after that date."
+        }
+      ]
+    },
+    {
+      "id": "bottom-line",
+      "title": "Bottom line",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "GLM-5.3-Flash is not merely a lower-numbered substitute for GLM-5.3. Its native multimodality and efficiency-focused architecture make it a different workload choice. Flash is likely the more practical default for high-volume multimodal agents and business automation; GLM-5.3 remains the model to evaluate when harder reasoning quality justifies higher cost."
+        },
+        {
+          "type": "paragraph",
+          "html": "The right decision should come from a representative workload test using current API pricing and measured task success, not from model naming alone."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Z.ai — GLM-5.3-Flash launch announcement",
+      "url": "https://z.ai/blog/glm-5.3-flash"
+    },
+    {
+      "label": "Z.ai — GLM-5.3-Flash API guide",
+      "url": "https://docs.z.ai/guides/vlm/glm-5.3-flash"
+    },
+    {
+      "label": "Z.ai — GLM-5.3 model documentation",
+      "url": "https://docs.z.ai/guides/llm/glm-5.3"
+    },
+    {
+      "label": "Z.ai — current API pricing",
+      "url": "https://docs.z.ai/guides/overview/pricing"
+    },
+    {
+      "label": "Z.ai — official GLM-5.3-Flash model card",
+      "url": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/glm-5-3-flash"
+  ]
+};
+
+const geminiOmni: BlogArticle = {
+  "status": "published",
+  "articleType": "main",
+  "cluster": "Gemini Omni Flash",
+  "targetSearchIntent": "Broad overview of Gemini Omni Flash 1.1 GA, capabilities, API, resolutions and availability",
+  "targetQuery": "Gemini Omni Flash",
+  "slug": "gemini-omni-flash",
+  "title": "Gemini Omni Flash 1.1: 4K, API, Video Extension & How It Works",
+  "metaTitle": "Gemini Omni Flash 1.1: 4K, API, Video Extension & How It Works",
+  "metaDescription": "Google's Gemini Omni Flash 1.1 is now GA with 360p–4K output, video extension, first/last-frame interpolation and conversational editing. Here's what changed and how the API works.",
+  "h1": "Gemini Omni Flash 1.1: What It Is, 4K Video, API and New Editing Features",
+  "excerpt": "Google’s GA conversational video model adds extension, interpolation and output from 360p through upscaled 4K.",
+  "category": "AI",
+  "author": "Project Monet Editorial Team",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Project Monet editorial graphic for Gemini Omni Flash 1.1: 4K, API, Video Extension & How It Works",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Google released Gemini Omni Flash 1.1 (<code>gemini-omni-1.1-flash</code>) to general availability on August 27, 2026. It is the stable version of Google's fast conversational video generation and editing model and replaces the earlier <code>gemini-omni-flash-preview</code>, which Google says will be deprecated September 30, 2026."
+        }
+      ]
+    },
+    {
+      "id": "what-changed-in-gemini-omni-flash-1-1",
+      "title": "What changed in Gemini Omni Flash 1.1",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The GA release adds three headline controls: video extension, first-and-last-frame interpolation, and explicit output resolution. The model supports text, image and video input and outputs 3–10 second video at 24 FPS. Google lists a 1,048,576-token context window. Resolution options are 360p, 720p, 1080p and 4K; Google explicitly says 1080p and 4K are upscaled outputs rather than native high-resolution generation."
+        }
+      ]
+    },
+    {
+      "id": "video-generation-and-editing",
+      "title": "Video generation and editing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Gemini Omni Flash can generate video from text prompts, animate still images and edit video through the Interactions API. Its stateful editing workflow lets a developer generate a clip, then send follow-up natural-language instructions while retaining the previous interaction state. Google says the model processes text, image, audio and video as multimodal context."
+        }
+      ]
+    },
+    {
+      "id": "video-extension",
+      "title": "Video extension",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The new <code>extend</code> task can continue an existing clip from its ending. This is materially different from simply regenerating a longer prompt because the existing video becomes context for the continuation. Google's model card allows video input up to 10 seconds for editing and extension."
+        }
+      ]
+    },
+    {
+      "id": "first-and-last-frame-interpolation",
+      "title": "First and last frame interpolation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Developers can provide two images and ask Omni Flash to create the transition between them. This makes the model relevant for controlled camera moves, transformations, storyboard transitions and creator workflows where both endpoints matter."
+        }
+      ]
+    },
+    {
+      "id": "resolution-control-and-4k",
+      "title": "Resolution control and 4K",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The API's response format accepts 360p, 720p, 1080p and 4K, with 720p as the default. Treat 4K carefully in comparisons: Google's documentation identifies both 1080p and 4K as upscaled outputs."
+        }
+      ]
+    },
+    {
+      "id": "how-to-access-the-api",
+      "title": "How to access the API",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The stable model ID is <code>gemini-omni-1.1-flash</code>. Google documents Python, JavaScript and REST examples through the Interactions API. Portrait 9:16 and landscape 16:9 aspect ratios are supported, which makes the model directly relevant to Reels, Shorts and other creator video workflows."
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Google's current paid-tier pricing lists <strong>$1.50 per million input tokens</strong> for text, image, video or audio, <strong>$9 per million text-output tokens</strong>, and <strong>$17.50 per million video-output tokens</strong>. Google calculates 720p video at 5,792 output tokens per second, which it says is an effective price of approximately <strong>$0.10 per second</strong>. There is no free API tier for this model in the current table. Higher-resolution cost follows actual output-token consumption; do not assume every resolution costs exactly the 720p effective rate."
+        }
+      ]
+    },
+    {
+      "id": "who-should-care",
+      "title": "Who should care",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Creators gain a faster route from draft generation to conversational edits, portrait output, interpolation and higher-resolution delivery. Developers gain a stable model ID and API workflow instead of building around the preview endpoint. Marketing teams can use the combination of 360p drafts and higher-resolution final outputs as a prototype-to-delivery workflow, subject to current pricing and product policies."
+        }
+      ]
+    },
+    {
+      "id": "key-limitations",
+      "title": "Key limitations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Outputs are 3–10 seconds per generation according to the official model card. 1080p and 4K are upscaled. Availability, rate limits and pricing should be checked against current Google documentation before production use."
+        }
+      ]
+    },
+    {
+      "id": "bottom-line",
+      "title": "Bottom line",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Gemini Omni Flash 1.1 matters less because it adds another AI video model and more because Google has moved a conversational video generation/editing workflow to a stable GA endpoint. The new extension, interpolation and resolution controls make it substantially easier to build practical creator and developer workflows around it."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Google — Gemini API release notes",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog"
+    },
+    {
+      "label": "Google — Gemini Omni Flash model documentation",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash"
+    },
+    {
+      "label": "Google — Gemini Omni guide",
+      "url": "https://ai.google.dev/gemini-api/docs/omni"
+    },
+    {
+      "label": "Google — Gemini API pricing",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/how-to-use-gemini-omni-flash-api",
+    "/blog/gemini-omni-flash-vs-veo-3-1"
+  ]
+};
+
+const geminiOmniApi: BlogArticle = {
+  "status": "published",
+  "articleType": "supporting",
+  "cluster": "Gemini Omni Flash",
+  "targetSearchIntent": "Implement Gemini Omni Flash 1.1 video generation and editing through Python, JavaScript or REST",
+  "targetQuery": "how to use Gemini Omni Flash API",
+  "parentSlug": "gemini-omni-flash",
+  "slug": "how-to-use-gemini-omni-flash-api",
+  "title": "How to Use Gemini Omni Flash API: Python, JavaScript, REST & Video Editing",
+  "metaTitle": "How to Use Gemini Omni Flash API: Python, JS & REST",
+  "metaDescription": "Use Gemini Omni Flash 1.1 with Python, JavaScript or REST for text-to-video, image-to-video, 9:16 output, resolution control and conversational editing.",
+  "h1": "How to Use Gemini Omni Flash API: Python, JavaScript, REST and Video Editing",
+  "excerpt": "A practical Python, JavaScript and REST guide to generation, vertical output, resolution control, editing and extension.",
+  "category": "AI",
+  "author": "Project Monet Editorial Team",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Project Monet editorial graphic for How to Use Gemini Omni Flash API: Python, JavaScript, REST & Video Editing",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Gemini Omni Flash 1.1 is available through Google's Interactions API under the stable model ID <code>gemini-omni-1.1-flash</code>. This guide focuses on the implementation intent: getting from an API key to generated video, then using the controls that make Omni Flash different from a basic text-to-video endpoint."
+        }
+      ]
+    },
+    {
+      "id": "basic-text-to-video",
+      "title": "Basic text-to-video",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Google's Python SDK uses <code>client.interactions.create(model=&quot;gemini-omni-1.1-flash&quot;, input=&quot;...&quot;)</code>. JavaScript uses the same model through <code>ai.interactions.create</code>. REST calls POST to the v1beta interactions endpoint and return generated video in the response steps. In the SDK, Google exposes a convenience <code>output_video</code> field."
+        }
+      ]
+    },
+    {
+      "id": "portrait-video-for-reels-and-shorts",
+      "title": "Portrait video for Reels and Shorts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Set <code>response_format</code> to video and <code>aspect_ratio</code> to <code>9:16</code>. The other documented aspect ratio is <code>16:9</code>. This is the most immediately useful creator control for vertical social video workflows."
+        }
+      ]
+    },
+    {
+      "id": "resolution-control",
+      "title": "Resolution control",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Set the response resolution to <code>360p</code>, <code>720p</code>, <code>1080p</code> or <code>4k</code>. 720p is the default. Google's docs explicitly describe 1080p and 4K as upscaled outputs, so do not describe them as native-resolution generation."
+        }
+      ]
+    },
+    {
+      "id": "image-to-video",
+      "title": "Image-to-video",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Pass an image plus a motion-specific text instruction. Google recommends high-resolution source images and specific descriptions of subject movement, camera motion and environment rather than vague prompts such as 'make it move'."
+        }
+      ]
+    },
+    {
+      "id": "first-last-frame-interpolation",
+      "title": "First/last-frame interpolation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Provide two images and describe the transition. Omni Flash generates the movement between the starting and ending frames. This is useful when the creator needs controlled endpoints rather than an unconstrained generation."
+        }
+      ]
+    },
+    {
+      "id": "explicit-tasks",
+      "title": "Explicit tasks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The documented video task values are <code>text_to_video</code>, <code>image_to_video</code>, <code>reference_to_video</code>, <code>edit</code> and <code>extend</code>. Google recommends relying primarily on prompting and using the task field when the model needs additional mode guidance."
+        }
+      ]
+    },
+    {
+      "id": "conversational-stateful-editing",
+      "title": "Conversational/stateful editing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "After generating a video, follow-up edits can reference the previous interaction ID. This lets the model retain video state and apply natural-language changes without requiring the developer to treat every edit as an unrelated generation."
+        }
+      ]
+    },
+    {
+      "id": "video-extension",
+      "title": "Video extension",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Use the <code>extend</code> behavior to continue an existing clip. The model card supports video input up to 10 seconds for editing and extension, and Google's current guide says clips can be extended by 10 seconds at a time up to 40 seconds total. Verify those limits again before production deployment because implementation constraints can change."
+        }
+      ]
+    },
+    {
+      "id": "practical-implementation-checklist",
+      "title": "Practical implementation checklist",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Use the stable model ID, choose 9:16 or 16:9, prototype at an appropriate resolution, keep prompt instructions specific, preserve previous interaction IDs for iterative edits, and store generated video output safely rather than assuming an SDK-only convenience field exists in raw REST responses."
+        }
+      ]
+    },
+    {
+      "id": "pricing-and-limits",
+      "title": "Pricing and limits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Google's paid-tier table lists $1.50 per million input tokens, $9 per million text-output tokens and $17.50 per million video-output tokens. At the documented 5,792 output tokens per second for 720p, Google estimates about $0.10 per second. The current table has no free tier for Gemini Omni Flash. Rate limits are account- and tier-dependent, so verify them in your project rather than inventing a universal quota."
+        },
+        {
+          "type": "paragraph",
+          "html": "For the broader release, capabilities and availability context, read the main Gemini Omni Flash 1.1 guide."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Google — Gemini Omni guide",
+      "url": "https://ai.google.dev/gemini-api/docs/omni"
+    },
+    {
+      "label": "Google — Gemini Omni Flash model documentation",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash"
+    },
+    {
+      "label": "Google — Gemini API release notes",
+      "url": "https://ai.google.dev/gemini-api/docs/changelog"
+    },
+    {
+      "label": "Google — Gemini API pricing",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/gemini-omni-flash",
+    "/blog/gemini-omni-flash-vs-veo-3-1"
+  ]
+};
+
+const geminiOmniVsVeo: BlogArticle = {
+  "status": "published",
+  "articleType": "supporting",
+  "cluster": "Gemini Omni Flash",
+  "targetSearchIntent": "Compare Google's two current video-generation families and choose based on editing workflow, output quality/control and production needs",
+  "targetQuery": "Gemini Omni Flash vs Veo 3.1",
+  "parentSlug": "gemini-omni-flash",
+  "slug": "gemini-omni-flash-vs-veo-3-1",
+  "title": "Gemini Omni Flash vs Veo 3.1: Features, Resolution, Editing & Which to Use",
+  "metaTitle": "Gemini Omni Flash vs Veo 3.1: Which Google Video Model?",
+  "metaDescription": "Gemini Omni Flash and Veo 3.1 target different video workflows. Compare conversational editing, resolutions, extension, API behavior and production use cases.",
+  "h1": "Gemini Omni Flash vs Veo 3.1: Features, Editing, Resolution and Which to Use",
+  "excerpt": "Omni Flash prioritizes conversational iteration; Veo 3.1 targets cinematic generation and native higher-resolution output.",
+  "category": "AI",
+  "author": "Project Monet Editorial Team",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Project Monet editorial graphic for Gemini Omni Flash vs Veo 3.1: Features, Resolution, Editing & Which to Use",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Gemini Omni Flash 1.1 and Veo 3.1 are both Google video-generation options, but they are not interchangeable products. Omni Flash is positioned around fast multimodal generation plus conversational/stateful editing through the Interactions API. Google's Veo 3.1 model page positions Veo as its high-end cinematic engine for professional output, synchronized audio, complex camera movement and stronger production-oriented control."
+        }
+      ]
+    },
+    {
+      "id": "the-simplest-distinction",
+      "title": "The simplest distinction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Choose Gemini Omni Flash when the workflow itself is conversational and iterative: generate, edit with natural language, extend, interpolate between frames and keep working from the previous interaction. Choose Veo 3.1 when the priority is Google's dedicated cinematic video-generation family and its production-quality controls."
+        }
+      ]
+    },
+    {
+      "id": "resolution",
+      "title": "Resolution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Omni Flash outputs 360p, 720p, 1080p and 4K, but Google's documentation says its 1080p and 4K are upscaled. Veo 3.1 documentation says Veo can directly generate 720p, 1080p and 4K, although Veo 3.1 Lite does not support 4K. This distinction matters when native output resolution is more important than fast iteration."
+        }
+      ]
+    },
+    {
+      "id": "editing-and-iteration",
+      "title": "Editing and iteration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Omni Flash's standout capability is stateful conversational editing via previous interaction IDs. It also exposes task modes for editing and extension. Veo has its own video-generation controls and extension workflow, but Omni's product design is more explicitly centered on a conversational edit loop."
+        }
+      ]
+    },
+    {
+      "id": "inputs-and-workflow",
+      "title": "Inputs and workflow",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Omni's model card accepts text, image and video input, including video context for editing/extension. Current Veo 3.1 preview model cards list text and image input with video output. That makes Omni especially relevant when existing video needs to remain part of the model's editing context."
+        }
+      ]
+    },
+    {
+      "id": "vertical-creator-content",
+      "title": "Vertical creator content",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Omni explicitly documents 9:16 and 16:9 output through the Interactions API, making it straightforward to target Reels and Shorts. Veo remains relevant for creator output, but the decision should be based on required controls and current API support rather than assuming one family universally replaces the other."
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Google's current Veo 3.1 API pricing lists Standard at $0.40/sec for 720p/1080p and $0.60/sec for 4K; Fast at $0.10/$0.12/$0.30; and Lite at $0.05/$0.08 with no 4K. Recheck the official pricing page before publication. Gemini Omni Flash's paid tier lists $1.50 per million input tokens, $9 per million text-output tokens and $17.50 per million video-output tokens. Google equates 720p output to approximately $0.10 per second at its documented token rate. Unlike Veo's per-second table, Omni is billed from token consumption, so compare actual workflow cost rather than treating the two pricing units as identical."
+        }
+      ]
+    },
+    {
+      "id": "which-should-you-use",
+      "title": "Which should you use?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Use Omni Flash for rapid iteration, conversational edits, existing-video context, frame interpolation and workflows that benefit from a single interaction history. Use Veo 3.1 when you specifically need the dedicated cinematic-generation family, native higher-resolution options or Veo's production-oriented controls. For many teams, the practical answer may be workflow-dependent rather than choosing one model permanently."
+        }
+      ]
+    },
+    {
+      "id": "avoid-a-false-winner",
+      "title": "Avoid a false winner",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Google is evolving both families quickly. A benchmark-style 'winner' claim would be weak without controlled testing on the same prompts, seeds, durations and evaluation criteria. Treat feature/API differences as verified; treat subjective quality comparisons as something that requires testing."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Google — Gemini Omni Flash model documentation",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash"
+    },
+    {
+      "label": "Google — Gemini Omni guide",
+      "url": "https://ai.google.dev/gemini-api/docs/omni"
+    },
+    {
+      "label": "Google — Veo documentation",
+      "url": "https://ai.google.dev/gemini-api/docs/veo"
+    },
+    {
+      "label": "Google — Gemini API pricing",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/gemini-omni-flash",
+    "/blog/how-to-use-gemini-omni-flash-api"
+  ]
+};
+
+const mhs: BlogArticle = {
+  "status": "published",
+  "articleType": "main",
+  "cluster": "Anthropic Model Hardware Standard",
+  "targetSearchIntent": "Understand what Anthropic MHS is, what it can do, who can access it, and its current open-source/availability status.",
+  "targetQuery": "Anthropic Model Hardware Standard",
+  "slug": "anthropic-model-hardware-standard-mhs",
+  "title": "Anthropic Model Hardware Standard (MHS): What It Is, Availability & How It Works",
+  "metaTitle": "Anthropic Model Hardware Standard (MHS): What It Is & Availability",
+  "metaDescription": "Anthropic's Model Hardware Standard lets AI agents operate programmable physical equipment. See how MHS works, research-preview access, open-source plans and current limits.",
+  "h1": "Anthropic Model Hardware Standard (MHS): What It Is and How AI Agents Control Physical Devices",
+  "excerpt": "Anthropic’s research-preview specification connects AI agents to programmable lab and manufacturing equipment.",
+  "category": "AI",
+  "author": "Project Monet Editorial Team",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Anthropic Model Hardware Standard connecting AI agents to programmable laboratory and manufacturing equipment",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Anthropic introduced the Model Hardware Standard (MHS) on August 27, 2026 as a research-preview specification for letting AI agents safely operate programmable physical equipment. The first preview is aimed at scientific research labs and advanced manufacturers rather than general consumers."
+        }
+      ]
+    },
+    {
+      "id": "what-is-the-model-hardware-standard",
+      "title": "What is the Model Hardware Standard?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "MHS is a shared interface for AI agents to communicate with and operate physical devices. Anthropic describes examples including microscopes, liquid handlers, robotic arms and quantum-computing equipment. The goal is to reduce the custom integration work normally required when equipment from different vendors cannot easily communicate."
+        },
+        {
+          "type": "paragraph",
+          "html": "Anthropic says the standard can let an agent coordinate multiple instruments, reason through experimental steps, update parameters as conditions change and in some cases recover from hardware errors without human intervention. These are Anthropic's stated capabilities for the research preview, not independent performance benchmarks."
+        }
+      ]
+    },
+    {
+      "id": "why-anthropic-built-mhs",
+      "title": "Why Anthropic built MHS",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Scientific and manufacturing environments often combine hardware from multiple vendors. Connecting those systems can require bespoke software and specialist integration work. Anthropic says MHS can reduce some integrations from weeks or months to hours or minutes by giving compatible programmable devices a shared way to communicate with agents and one another."
+        },
+        {
+          "type": "paragraph",
+          "html": "The larger idea is autonomous or semi-autonomous workflows: an agent could coordinate instruments across a long experiment or production task instead of requiring a human to manually bridge every system."
+        }
+      ]
+    },
+    {
+      "id": "what-hardware-can-mhs-control",
+      "title": "What hardware can MHS control?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Anthropic's launch material names microscopes, liquid handlers, robotic arms and equipment used for tasks such as laser calibration on quantum computers. Anthropic says the standard works with any device that exposes a programmable interface."
+        },
+        {
+          "type": "paragraph",
+          "html": "That does not mean every existing physical device is automatically compatible. Hardware without a programmable interface may require new firmware, adapters or manufacturer support. Anthropic has not published a complete compatibility list."
+        }
+      ]
+    },
+    {
+      "id": "is-mhs-only-for-claude",
+      "title": "Is MHS only for Claude?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "No. Anthropic describes MHS as model-agnostic and says any agent harness can access it through standard protocols such as MCP. This is important because the value of a standard depends on equipment and applications not being tied to one model vendor."
+        }
+      ]
+    },
+    {
+      "id": "mhs-vs-mcp",
+      "title": "MHS vs MCP",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "MHS and the Model Context Protocol (MCP) address different layers. MCP became a standard for connecting AI applications to software tools, data and services. MHS extends the standardization idea into physical equipment: machines, instruments and robotics."
+        },
+        {
+          "type": "paragraph",
+          "html": "The distinction matters enough to deserve its own comparison guide. In short, think of MCP as connecting agents to software context and tools, while MHS is aimed at connecting agents to programmable physical systems. The exact technical relationship should be checked against Anthropic's implementation documentation as MHS matures."
+        }
+      ]
+    },
+    {
+      "id": "is-model-hardware-standard-open-source",
+      "title": "Is Model Hardware Standard open source?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Not yet as of August 28, 2026. Anthropic says it plans to open-source MHS, but the company is first sharing an early version with research and manufacturing partners to develop safety evaluations and deployment guidance."
+        },
+        {
+          "type": "paragraph",
+          "html": "There is currently no verified public repository, final license or exact open-source release date in the launch material. Any article claiming a specific license or download today should be treated cautiously unless Anthropic publishes it."
+        }
+      ]
+    },
+    {
+      "id": "who-can-use-mhs-now",
+      "title": "Who can use MHS now?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "MHS is in a research preview with an initial group of scientific labs, manufacturers and hardware partners. Anthropic is inviting additional stakeholders to join a waitlist. This is not the same as general availability."
+        },
+        {
+          "type": "paragraph",
+          "html": "Anthropic has not announced public pricing for MHS, a paid plan, usage quota or general-availability date. Project Monet will update this article when those details become verifiable."
+        }
+      ]
+    },
+    {
+      "id": "safety-is-part-of-the-preview",
+      "title": "Safety is part of the preview",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Physical agents can create risks that software-only agents do not: damaged equipment, unsafe motion, dangerous experimental conditions or misuse. Anthropic says the preview will be used to build additional safety evaluations, strengthen protections for physical-world AI use and produce a physical safety roadmap before broader open-source release."
+        },
+        {
+          "type": "paragraph",
+          "html": "That means the current preview should be understood as both a technical and safety-evaluation phase, not a finished universal standard."
+        }
+      ]
+    },
+    {
+      "id": "why-mhs-could-matter",
+      "title": "Why MHS could matter",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "If a common hardware protocol gains adoption, developers could spend less time writing one-off integrations for every instrument. Labs could coordinate equipment from multiple vendors, manufacturers could connect agentic software to existing automation systems, and AI models could potentially move between compatible hardware environments with less custom work."
+        },
+        {
+          "type": "paragraph",
+          "html": "The biggest unanswered question is adoption. Standards become useful when device makers, software vendors and developers implement them. Anthropic has named a significant group of early partners, but it is too early to know whether MHS will become a broadly adopted physical-AI standard."
+        }
+      ]
+    },
+    {
+      "id": "frequently-asked-questions",
+      "title": "Frequently asked questions",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "When was Anthropic MHS announced?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Anthropic opened the first Model Hardware Standard research preview on August 27, 2026."
+        },
+        {
+          "type": "subheading",
+          "text": "Is MHS publicly available?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Not generally. It is a research preview with selected partners and a waitlist for additional stakeholders."
+        },
+        {
+          "type": "subheading",
+          "text": "Is MHS open source?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Anthropic says it plans to open-source MHS after research-preview safety work, but no final public repository, license or release date was verified at publication time."
+        },
+        {
+          "type": "subheading",
+          "text": "Does MHS work only with Claude?"
+        },
+        {
+          "type": "paragraph",
+          "html": "The standard is described as model-agnostic. The public launch material focuses on Anthropic's work and partners, but the stated goal is not to lock physical hardware to one AI model."
+        },
+        {
+          "type": "subheading",
+          "text": "What devices does MHS support?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Launch examples include microscopes, liquid handlers, robotic arms and other programmable scientific or manufacturing equipment. There is not yet a complete public compatibility list."
+        },
+        {
+          "type": "subheading",
+          "text": "Is MHS the same as MCP?"
+        },
+        {
+          "type": "paragraph",
+          "html": "No. MCP standardizes how AI systems connect to software tools and context; MHS targets physical equipment. A detailed MHS vs MCP guide should be linked from this article when published."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Anthropic — Model Hardware Standard research preview",
+      "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+    },
+    {
+      "label": "Anthropic — Model Context Protocol announcement",
+      "url": "https://www.anthropic.com/news/model-context-protocol"
+    },
+    {
+      "label": "Model Context Protocol — official introduction",
+      "url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro"
+    },
+    {
+      "label": "Model Context Protocol — official specification",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/model-hardware-standard-vs-mcp"
+  ]
+};
+
+const mhsVsMcp: BlogArticle = {
+  "status": "published",
+  "articleType": "supporting",
+  "cluster": "Anthropic Model Hardware Standard",
+  "targetSearchIntent": "Compare Anthropic's Model Hardware Standard with Model Context Protocol and understand which layer each standard connects to AI agents.",
+  "targetQuery": "MHS vs MCP",
+  "parentSlug": "anthropic-model-hardware-standard-mhs",
+  "slug": "model-hardware-standard-vs-mcp",
+  "title": "MHS vs MCP: Model Hardware Standard vs Model Context Protocol",
+  "metaTitle": "MHS vs MCP: Model Hardware Standard vs Model Context Protocol",
+  "metaDescription": "MHS connects AI agents to programmable physical equipment; MCP connects AI applications to software tools and context. See the differences, overlap and current availability.",
+  "h1": "MHS vs MCP: How Anthropic's Model Hardware Standard Differs From Model Context Protocol",
+  "excerpt": "MCP connects AI to software context and tools; MHS extends standardized access into programmable physical equipment.",
+  "category": "AI",
+  "author": "Project Monet Editorial Team",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Comparison of Model Context Protocol for software tools and Model Hardware Standard for physical equipment",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Anthropic's Model Context Protocol (MCP) and new Model Hardware Standard (MHS) both try to remove one-off integrations around AI agents, but they target different parts of the stack. MCP connects AI applications to software tools, data and services. MHS is designed for programmable physical equipment such as microscopes, liquid handlers and robotic arms."
+        }
+      ]
+    },
+    {
+      "id": "mhs-vs-mcp-in-one-sentence",
+      "title": "MHS vs MCP in one sentence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "<strong>MCP standardizes AI-to-software connections. MHS standardizes AI-to-physical-equipment connections.</strong>"
+        },
+        {
+          "type": "paragraph",
+          "html": "That shorthand is useful, but the two standards are at very different stages. MCP has a public ecosystem and broad software adoption. MHS entered a limited research preview on August 27, 2026 and is not yet generally available or publicly open source."
+        }
+      ]
+    },
+    {
+      "id": "what-mcp-does",
+      "title": "What MCP does",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Anthropic introduced Model Context Protocol as an open standard for connecting AI assistants and agentic applications to external software context. MCP servers can expose tools, resources and prompts so an AI application can interact with services without every developer inventing a completely different integration pattern."
+        },
+        {
+          "type": "paragraph",
+          "html": "Typical MCP use cases include connecting an agent to a database, source-code repository, file system, business application, API or knowledge source."
+        },
+        {
+          "type": "paragraph",
+          "html": "The core problem MCP addresses is software fragmentation: an agent needs a consistent way to discover and use digital tools and context."
+        }
+      ]
+    },
+    {
+      "id": "what-mhs-does",
+      "title": "What MHS does",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Model Hardware Standard applies a similar standardization goal to physical systems. Anthropic's research-preview examples include microscopes, liquid handlers, robotic arms and manufacturing or scientific equipment with programmable interfaces."
+        },
+        {
+          "type": "paragraph",
+          "html": "Instead of exposing only a software tool to an agent, the end result can be a physical action: moving a robotic arm, adjusting experimental parameters or coordinating several instruments during a workflow."
+        },
+        {
+          "type": "paragraph",
+          "html": "Anthropic says the standard is intended to reduce bespoke integration work and enable autonomous or semi-autonomous scientific and manufacturing workflows. Those benefits are launch claims and should not be treated as independently validated performance results yet."
+        }
+      ]
+    },
+    {
+      "id": "key-differences",
+      "title": "Key differences",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "1. Software vs physical equipment"
+        },
+        {
+          "type": "paragraph",
+          "html": "MCP primarily connects agents to digital tools and data. MHS targets equipment that acts in the physical world."
+        },
+        {
+          "type": "subheading",
+          "text": "2. Risk profile"
+        },
+        {
+          "type": "paragraph",
+          "html": "A bad software tool call may corrupt data or trigger the wrong API action. A bad physical action can damage equipment, spoil an experiment or create safety risks. Anthropic is therefore using the MHS research preview to develop additional physical-world safety evaluations and deployment guidance."
+        },
+        {
+          "type": "subheading",
+          "text": "3. Ecosystem maturity"
+        },
+        {
+          "type": "paragraph",
+          "html": "MCP is already publicly documented and widely implemented across AI tools. MHS is a new research preview with selected partners. Anthropic says it plans to open-source MHS, but no final repository, license or public release date was verified as of August 28, 2026."
+        },
+        {
+          "type": "subheading",
+          "text": "4. Hardware requirements"
+        },
+        {
+          "type": "paragraph",
+          "html": "MCP can be implemented anywhere software can expose a compatible server or interface. MHS depends on physical devices having programmable interfaces or manufacturer-supported ways to connect. Not every legacy machine will automatically become MHS-compatible."
+        },
+        {
+          "type": "subheading",
+          "text": "5. The user intent"
+        },
+        {
+          "type": "paragraph",
+          "html": "Use MCP when your agent needs access to software, data or APIs. MHS is relevant when the agent needs to coordinate real equipment in a lab, factory, robotics system or other programmable physical environment."
+        }
+      ]
+    },
+    {
+      "id": "does-mhs-replace-mcp",
+      "title": "Does MHS replace MCP?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "No. MHS should not be viewed as a replacement for MCP. The two can address complementary layers of an agentic workflow."
+        },
+        {
+          "type": "paragraph",
+          "html": "For example, an AI research agent might use software connections to retrieve experimental plans, reference data or analysis tools, while a physical-device standard coordinates the microscope, camera and robotic hardware used to run the experiment."
+        },
+        {
+          "type": "paragraph",
+          "html": "Anthropic says MHS is model-agnostic and can be accessed by any agent harness through standard protocols such as MCP. That makes the standards complementary, but implementation details may evolve while MHS remains in preview; developers should rely on Anthropic's eventual public specification rather than assume today's conceptual relationship guarantees a particular architecture."
+        }
+      ]
+    },
+    {
+      "id": "which-one-should-developers-use-today",
+      "title": "Which one should developers use today?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "For normal software agents, MCP is the relevant mature standard today. MHS is not a general-purpose replacement and is not yet an ordinary public dependency developers can simply install for any project."
+        },
+        {
+          "type": "paragraph",
+          "html": "Teams working in scientific hardware, advanced manufacturing or robotics can watch MHS, join the research-preview waitlist if appropriate, and evaluate how their equipment exposes programmable interfaces."
+        }
+      ]
+    },
+    {
+      "id": "why-the-distinction-matters",
+      "title": "Why the distinction matters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The rise of MCP showed the value of a shared protocol for software tools. If MHS gains similar adoption among hardware vendors, labs and manufacturers, it could reduce the amount of custom glue code needed to bring AI agents into physical workflows."
+        },
+        {
+          "type": "paragraph",
+          "html": "But adoption is not guaranteed. The important signals to watch next are a public MHS specification, repository and license; broader device-manufacturer support; general availability; and evidence from real deployments showing that the standard improves integration reliability and safety."
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "FAQ",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Is MHS part of MCP?"
+        },
+        {
+          "type": "paragraph",
+          "html": "They are separate standards aimed at different connection layers. Reporting describes MHS as building on the standardization direction of MCP, but developers should wait for the public MHS specification for exact implementation details."
+        },
+        {
+          "type": "subheading",
+          "text": "Is MCP for robotics?"
+        },
+        {
+          "type": "paragraph",
+          "html": "MCP can expose software tools used by robotics systems, but it was not designed specifically as a standard for controlling physical hardware. MHS targets that physical-device problem directly."
+        },
+        {
+          "type": "subheading",
+          "text": "Is MHS open source?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Not yet. Anthropic says it plans to open-source MHS after research-preview safety work. No final license or release date was verified at publication time."
+        },
+        {
+          "type": "subheading",
+          "text": "Can MHS work with models other than Claude?"
+        },
+        {
+          "type": "paragraph",
+          "html": "The launch coverage describes MHS as model-agnostic rather than Claude-only."
+        },
+        {
+          "type": "subheading",
+          "text": "Which is more mature?"
+        },
+        {
+          "type": "paragraph",
+          "html": "MCP. MHS is currently an early research preview."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Anthropic — Model Hardware Standard research preview",
+      "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+    },
+    {
+      "label": "Anthropic — Model Context Protocol announcement",
+      "url": "https://www.anthropic.com/news/model-context-protocol"
+    },
+    {
+      "label": "Model Context Protocol — official introduction",
+      "url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro"
+    },
+    {
+      "label": "Model Context Protocol — official specification",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/anthropic-model-hardware-standard-mhs"
+  ]
+};
+
+const museImage: BlogArticle = {
+  "status": "published",
+  "articleType": "main",
+  "cluster": "Meta Muse Image",
+  "targetSearchIntent": "Understand Meta Muse Image, where it is available, what it can generate/edit, and how developers can access it through an API.",
+  "targetQuery": "Muse Image",
+  "slug": "meta-muse-image-api-pricing",
+  "title": "Meta Muse Image: API, Pricing, Image Editing & How It Works",
+  "metaTitle": "Meta Muse Image: API, Pricing, Image Editing & How It Works",
+  "metaDescription": "Meta Muse Image now has developer access through Vercel AI Gateway. See current API pricing, generation/editing features, Meta AI availability and key limitations.",
+  "h1": "Meta Muse Image: API Access, Pricing, Image Editing and How It Works",
+  "excerpt": "Meta’s image model is now available through Vercel AI Gateway for generation, editing and reference-image workflows.",
+  "category": "AI",
+  "author": "Project Monet Editorial Team",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Meta Muse Image 1.0 API for image generation and editing",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Meta's Muse Image is the first image-generation model from Meta Superintelligence Labs. The model originally launched inside Meta AI in July 2026, and on August 26 it became newly accessible to developers through Vercel AI Gateway under the model ID <code>meta/muse-image-1.0</code>."
+        },
+        {
+          "type": "paragraph",
+          "html": "That API availability changes the practical story around Muse Image: developers can now call the model from applications instead of using it only through Meta's consumer surfaces."
+        }
+      ]
+    },
+    {
+      "id": "what-is-muse-image",
+      "title": "What is Muse Image?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Muse Image is Meta's image-generation and editing model. Meta says it was built to follow complex instructions, combine multiple visual references and support iterative editing rather than only one-shot text-to-image generation."
+        },
+        {
+          "type": "paragraph",
+          "html": "In Meta AI, users can generate new images, upload photos for edits, use suggested presets and continue refining an image conversationally. Meta also uses Muse Image in creative experiences across Instagram and WhatsApp, with additional Meta surfaces and advertiser workflows announced for expansion."
+        }
+      ]
+    },
+    {
+      "id": "muse-image-api-availability",
+      "title": "Muse Image API availability",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "As of August 28, 2026, Muse Image 1.0 is available through Vercel AI Gateway. Vercel lists the model as <code>meta/muse-image-1.0</code> and exposes it through the AI SDK image-generation interface."
+        },
+        {
+          "type": "paragraph",
+          "html": "The current Gateway documentation shows one Meta provider and supports both generating an image from a text prompt and editing an input image with instructions. Vercel also documents reference-image inputs for steering generated results."
+        },
+        {
+          "type": "paragraph",
+          "html": "This article does not assume a separate direct Meta developer endpoint unless Meta publicly documents one. The verified developer-access path here is Vercel AI Gateway."
+        }
+      ]
+    },
+    {
+      "id": "muse-image-pricing",
+      "title": "Muse Image pricing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Vercel currently lists Muse Image provider output pricing at <strong>$0.01 per image</strong>. That is the price displayed on the AI Gateway model page at the time of review and can change."
+        },
+        {
+          "type": "paragraph",
+          "html": "Vercel says AI Gateway reflects provider pricing without a platform markup on inference. Developers should still check the live model page before budgeting production workloads because provider pricing, routing and availability can change quickly."
+        },
+        {
+          "type": "paragraph",
+          "html": "Meta separately says using Muse Image in Meta AI is free for everyday creation, with additional usage available through Meta subscription plans. Meta's launch post does not publish a simple numeric consumer quota, so this article does not invent one."
+        }
+      ]
+    },
+    {
+      "id": "what-can-muse-image-do",
+      "title": "What can Muse Image do?",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Text-to-image generation"
+        },
+        {
+          "type": "paragraph",
+          "html": "You can send a written prompt and generate a new image. Meta highlights instruction following, visual composition and text rendering as core capabilities."
+        },
+        {
+          "type": "subheading",
+          "text": "Image editing"
+        },
+        {
+          "type": "paragraph",
+          "html": "Muse Image can take an existing image plus an instruction and return an edited result. The same model handles generation and editing, so developers do not need to switch to a separate editing model in Vercel's current integration."
+        },
+        {
+          "type": "subheading",
+          "text": "Multiple references"
+        },
+        {
+          "type": "paragraph",
+          "html": "Meta's technical material emphasizes multi-image composition and reference blending. Vercel's Gateway documentation also supports passing reference images alongside the text prompt to steer the result."
+        },
+        {
+          "type": "subheading",
+          "text": "Iterative creative workflows"
+        },
+        {
+          "type": "paragraph",
+          "html": "Inside Meta AI, Muse Image keeps conversational context so users can make follow-up changes without restarting. API applications can build their own iterative experience around repeated image calls, though developers should not assume Meta AI's complete consumer conversation state is automatically reproduced by a single Gateway request."
+        }
+      ]
+    },
+    {
+      "id": "muse-image-in-instagram-and-meta-ai",
+      "title": "Muse Image in Instagram and Meta AI",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Muse Image launched as part of Meta AI and also powers creative experiences in Meta's apps. Meta announced more than 30 AI-powered effects for Instagram Stories and image generation in WhatsApp chats in selected markets, with further rollout planned."
+        },
+        {
+          "type": "paragraph",
+          "html": "Meta also said Muse Image is coming to additional surfaces including Facebook and Messenger and to advertisers through Advantage+ creative. Availability can differ by country, account and product surface, so 'Muse Image is available' should not be interpreted as every Meta feature being globally enabled."
+        }
+      ]
+    },
+    {
+      "id": "how-muse-image-compares-conceptually-with-other-image-models",
+      "title": "How Muse Image compares conceptually with other image models",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Muse Image enters a crowded field that includes OpenAI's GPT Image family, Google's Gemini image models, Black Forest Labs' FLUX family and other specialist image APIs."
+        },
+        {
+          "type": "paragraph",
+          "html": "The distinctive part of Meta's positioning is the combination of image generation, editing, multiple references and integration with Meta's social context and apps. That does not by itself prove it is better than a competitor for every use case. Cross-model comparisons should use current pricing, output quality, editing behavior, latency and licensing/usage terms rather than a single vendor benchmark."
+        }
+      ]
+    },
+    {
+      "id": "benchmarks-and-quality-claims",
+      "title": "Benchmarks and quality claims",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Meta reported that Muse Image held the No. 2 position on Arena for text-to-image, single-image editing and multi-image editing using human-preference Elo rankings around the July launch. Those rankings are time-sensitive and can change as new models enter the leaderboard."
+        },
+        {
+          "type": "paragraph",
+          "html": "Meta also introduced Content Seal, an invisible provenance signal for images created through Muse Image in Meta AI. Meta says the signal is designed to survive common transformations such as cropping, compression and screenshots. Developers should verify whether identical provenance behavior applies to every third-party API path before making compliance claims."
+        }
+      ]
+    },
+    {
+      "id": "how-to-call-muse-image-through-vercel",
+      "title": "How to call Muse Image through Vercel",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Vercel's AI SDK uses the experimental image-generation interface. The basic pattern is to set the model to <code>meta/muse-image-1.0</code> and call <code>generateImage</code> with a prompt. A separate Project Monet implementation guide covers text generation, editing with an input image and reference-image workflows in more detail."
+        }
+      ]
+    },
+    {
+      "id": "important-limitations-and-unknowns",
+      "title": "Important limitations and unknowns",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Vercel currently shows one Meta provider for the model, so provider diversity is limited compared with some text models.",
+            "Public API rate limits and every supported image-size/output option are not inferred here unless documented on the current endpoint.",
+            "Meta consumer availability varies by country and product surface.",
+            "Meta's free everyday-creation claim does not specify a universal numeric quota.",
+            "Provider pricing and model availability can change after publication."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "who-should-pay-attention",
+      "title": "Who should pay attention?",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Muse Image is especially relevant to developers building image-generation tools, product-photo workflows, social creative applications, marketing-asset generators and editing experiences where one model handling both generation and edits simplifies the product architecture."
+        },
+        {
+          "type": "paragraph",
+          "html": "For creators and marketers, the wider Meta ecosystem matters too: Muse Image is not only an API model but part of Meta's strategy for creation across Meta AI, Instagram, WhatsApp and advertising tools."
+        }
+      ]
+    },
+    {
+      "id": "frequently-asked-questions",
+      "title": "Frequently asked questions",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Is Muse Image available through an API?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. As of August 28, 2026, Vercel AI Gateway exposes <code>meta/muse-image-1.0</code> for developers."
+        },
+        {
+          "type": "subheading",
+          "text": "How much does Muse Image cost?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Vercel currently lists the provider price at $0.01 per output image. Check the live Gateway page before production use because pricing can change."
+        },
+        {
+          "type": "subheading",
+          "text": "Can Muse Image edit existing images?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Vercel documents image editing with an input image and instruction, while Meta also demonstrates conversational photo editing in Meta AI."
+        },
+        {
+          "type": "subheading",
+          "text": "Can Muse Image use reference images?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Meta highlights multi-reference composition and Vercel documents reference-image input through its image-generation API."
+        },
+        {
+          "type": "subheading",
+          "text": "Is Muse Image free?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Meta says everyday creation in Meta AI is free, with higher usage available through subscriptions. That consumer statement is separate from developer API pricing."
+        },
+        {
+          "type": "subheading",
+          "text": "Is Muse Image available on Instagram?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Muse Image powers some Instagram creative experiences, but availability varies by feature and market. Do not assume the full Meta AI Muse Image interface is present in every Instagram account."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel — Muse Image model and pricing",
+      "url": "https://vercel.com/ai-gateway/models/muse-image-1.0"
+    },
+    {
+      "label": "Vercel — Muse Image launch on AI Gateway",
+      "url": "https://vercel.com/changelog/muse-image-now-available-on-ai-gateway"
+    },
+    {
+      "label": "Meta — Muse Image technical overview",
+      "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"
+    },
+    {
+      "label": "Meta — Muse Image product announcement",
+      "url": "https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/how-to-use-muse-image-api-vercel"
+  ]
+};
+
+const museImageApi: BlogArticle = {
+  "status": "published",
+  "articleType": "supporting",
+  "cluster": "Meta Muse Image",
+  "targetSearchIntent": "Implement Muse Image generation, image editing and reference-image workflows through Vercel AI Gateway.",
+  "targetQuery": "how to use Muse Image API",
+  "parentSlug": "meta-muse-image-api-pricing",
+  "slug": "how-to-use-muse-image-api-vercel",
+  "title": "How to Use Muse Image API with Vercel AI Gateway",
+  "metaTitle": "How to Use Muse Image API with Vercel AI Gateway",
+  "metaDescription": "Use Meta Muse Image 1.0 through Vercel AI Gateway for text-to-image generation, edits and reference-image workflows with the AI SDK.",
+  "h1": "How to Use Meta Muse Image API with Vercel AI Gateway",
+  "excerpt": "A practical AI SDK guide to generating and editing images with meta/muse-image-1.0 through Vercel AI Gateway.",
+  "category": "AI",
+  "author": "Project Monet Editorial Team",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "ogAlt": "Using Meta Muse Image 1.0 through Vercel AI Gateway and the AI SDK",
+  "sections": [
+    {
+      "id": "in-brief",
+      "title": "In brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Meta Muse Image 1.0 is now callable through Vercel AI Gateway, giving developers a straightforward way to add Meta's image generation and editing model to an application without building a separate provider-specific transport layer."
+        },
+        {
+          "type": "paragraph",
+          "html": "The current Vercel model ID is <code>meta/muse-image-1.0</code>. The same model handles text-to-image generation and instruction-based editing."
+        }
+      ]
+    },
+    {
+      "id": "before-you-start",
+      "title": "Before you start",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "You need a Vercel account with AI Gateway access and an API key configured for your project. Install the current AI SDK package used by your application and store the gateway key in an environment variable rather than hard-coding it into client-side code."
+        },
+        {
+          "type": "paragraph",
+          "html": "Vercel's current Muse Image model page should be treated as the source of truth for provider availability, pricing and API behavior because these can change after launch."
+        }
+      ]
+    },
+    {
+      "id": "basic-text-to-image-generation",
+      "title": "Basic text-to-image generation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Vercel documents Muse Image through the AI SDK image-generation interface:"
+        },
+        {
+          "type": "note",
+          "html": "<code>import { generateImage } from 'ai';</code>"
+        },
+        {
+          "type": "paragraph",
+          "html": "const result = await generateImage({ model: 'meta/muse-image-1.0', prompt: 'A red balloon on a wooden table.' });"
+        },
+        {
+          "type": "note",
+          "html": "<code></code>"
+        },
+        {
+          "type": "paragraph",
+          "html": "The important pieces are the model identifier and <code>generateImage</code> call. In production, wrap the call in a server route or server action so your gateway credentials never reach the browser."
+        }
+      ]
+    },
+    {
+      "id": "editing-an-existing-image",
+      "title": "Editing an existing image",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Muse Image does not require a separate edit-only model. Vercel's integration accepts an input image alongside an instruction so the same model can modify an existing asset."
+        },
+        {
+          "type": "paragraph",
+          "html": "The current Vercel changelog describes the input image as being passed through <code>prompt.images</code>. Your application can therefore structure the request around an instruction such as 'remove the background but keep the product unchanged' together with the source image."
+        },
+        {
+          "type": "paragraph",
+          "html": "Because image-input types and helper signatures can change as the AI SDK evolves, copy the exact current object shape from Vercel's live Muse Image documentation when implementing rather than relying on an older cached example."
+        }
+      ]
+    },
+    {
+      "id": "using-reference-images",
+      "title": "Using reference images",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Reference images are useful when the target should inherit visual information from existing art, product shots or other assets. Vercel says Muse Image can accept reference images through <code>prompt.images</code> alongside the text prompt and blend those references into the generated result."
+        },
+        {
+          "type": "paragraph",
+          "html": "A practical workflow is:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Upload or securely fetch the reference asset on the server.",
+            "Pass the image with a specific text instruction describing what should be preserved versus changed.",
+            "Generate the image with <code>meta/muse-image-1.0</code>.",
+            "Save the returned asset to your own storage if the user needs persistence.",
+            "Store the prompt and source references separately if your product needs reproducibility or audit history."
+          ],
+          "ordered": true
+        }
+      ]
+    },
+    {
+      "id": "generation-vs-editing",
+      "title": "Generation vs editing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "The main architectural advantage of the current Muse Image integration is that one model covers both jobs. A product can start with a blank-generation flow and then move into edits without changing model families."
+        },
+        {
+          "type": "paragraph",
+          "html": "For example, an ecommerce creative tool could generate a product scene, then let the user submit follow-up edits such as changing the surface, removing a prop or adapting the same composition for another campaign."
+        }
+      ]
+    },
+    {
+      "id": "current-pricing",
+      "title": "Current pricing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Vercel currently lists the Meta provider output price at <strong>$0.01 per image</strong> for Muse Image 1.0. Check the live model page before production budgeting because provider pricing may change."
+        },
+        {
+          "type": "paragraph",
+          "html": "The AI Gateway page also says free Vercel users who have not made a payment receive $5 of credits every 30 days. That is a Vercel account-credit policy, not a permanent guarantee that Muse Image itself has an unlimited free API tier."
+        }
+      ]
+    },
+    {
+      "id": "production-considerations",
+      "title": "Production considerations",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Keep the API key server-side"
+        },
+        {
+          "type": "paragraph",
+          "html": "Never expose an AI Gateway key in browser JavaScript. Route image requests through your own backend."
+        },
+        {
+          "type": "subheading",
+          "text": "Validate uploads"
+        },
+        {
+          "type": "paragraph",
+          "html": "If users can provide reference images, enforce file-size and media-type limits before sending assets upstream."
+        },
+        {
+          "type": "subheading",
+          "text": "Expect model and provider changes"
+        },
+        {
+          "type": "paragraph",
+          "html": "Vercel currently shows one Meta provider. Build error handling for temporary unavailability rather than assuming infinite provider redundancy."
+        },
+        {
+          "type": "subheading",
+          "text": "Track cost by job"
+        },
+        {
+          "type": "paragraph",
+          "html": "At $0.01 per output image today, repeated regeneration can add up. Record generations per user or workflow so you can enforce product-level budgets even if the underlying provider does not expose the quota you want."
+        },
+        {
+          "type": "subheading",
+          "text": "Separate prompt intent from references"
+        },
+        {
+          "type": "paragraph",
+          "html": "Tell the model what should change and what should remain fixed. Vague prompts are especially costly in editing workflows because users may repeatedly regenerate to recover details that were accidentally changed."
+        }
+      ]
+    },
+    {
+      "id": "example-product-workflows",
+      "title": "Example product workflows",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "Social creative generator"
+        },
+        {
+          "type": "paragraph",
+          "html": "Generate a campaign image from a prompt, then let the user upload a brand/product reference and request format-specific edits."
+        },
+        {
+          "type": "subheading",
+          "text": "Product-photo editor"
+        },
+        {
+          "type": "paragraph",
+          "html": "Take an existing packshot and ask Muse Image to replace the background or place the product into a new scene while preserving the main object."
+        },
+        {
+          "type": "subheading",
+          "text": "Moodboard or concept tool"
+        },
+        {
+          "type": "paragraph",
+          "html": "Use several references to steer color, composition or subject matter, then generate a new visual from the combined direction."
+        },
+        {
+          "type": "subheading",
+          "text": "Iterative creative assistant"
+        },
+        {
+          "type": "paragraph",
+          "html": "Store each generated result and send the selected prior image back as the reference for the next edit. This creates an application-level iteration loop even though the exact consumer Meta AI conversation behavior is not automatically provided by the Gateway call."
+        }
+      ]
+    },
+    {
+      "id": "what-not-to-assume",
+      "title": "What not to assume",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "html": "Do not assume every Meta AI consumer feature is exposed through the Vercel endpoint. The API path is a developer integration for the image model; Meta AI's presets, social context, conversation state and app-specific experiences are separate product layers."
+        },
+        {
+          "type": "paragraph",
+          "html": "Do not invent rate limits, output resolutions, batch limits or commercial-use guarantees that are absent from the current provider documentation. Recheck Meta's terms and Vercel's live model page for production usage."
+        }
+      ]
+    },
+    {
+      "id": "frequently-asked-questions",
+      "title": "Frequently asked questions",
+      "blocks": [
+        {
+          "type": "subheading",
+          "text": "What model ID should I use?"
+        },
+        {
+          "type": "paragraph",
+          "html": "<code>meta/muse-image-1.0</code> on Vercel AI Gateway."
+        },
+        {
+          "type": "subheading",
+          "text": "Can the API edit an existing image?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Vercel documents instruction-based editing with an input image using the same Muse Image model."
+        },
+        {
+          "type": "subheading",
+          "text": "Does Muse Image support reference images?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Yes. Vercel documents reference images alongside the text prompt through <code>prompt.images</code>."
+        },
+        {
+          "type": "subheading",
+          "text": "What does the API cost?"
+        },
+        {
+          "type": "paragraph",
+          "html": "Vercel currently lists $0.01 per output image for the Meta provider. Treat that as time-sensitive pricing."
+        },
+        {
+          "type": "subheading",
+          "text": "Do I need a separate Meta API key?"
+        },
+        {
+          "type": "paragraph",
+          "html": "The verified workflow covered here is Vercel AI Gateway, authenticated through the Gateway setup. Do not assume a separate direct Meta developer endpoint unless Meta publishes one."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Vercel — Muse Image model and pricing",
+      "url": "https://vercel.com/ai-gateway/models/muse-image-1.0"
+    },
+    {
+      "label": "Vercel — Muse Image launch on AI Gateway",
+      "url": "https://vercel.com/changelog/muse-image-now-available-on-ai-gateway"
+    },
+    {
+      "label": "Vercel — AI SDK image generation documentation",
+      "url": "https://ai-sdk.dev/docs/ai-sdk-core/image-generation"
+    },
+    {
+      "label": "Meta — Muse Image technical overview",
+      "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"
+    }
+  ],
+  "relatedPaths": [
+    "/blog/meta-muse-image-api-pricing"
+  ]
+};
+
+export const blogArticles: BlogArticle[] = [glmFlash, glmFlashVs, geminiOmni, geminiOmniApi, geminiOmniVsVeo, mhs, mhsVsMcp, museImage, museImageApi, agentz, qwenLocal, claudeforce, qwen, gemini, instagram];
 
 export const publishedBlogArticles = blogArticles.filter((article) => article.status === "published");
 
