@@ -63,6 +63,6 @@ for (const article of publishedBlogArticles) {
 
 const allChildXml = `${pagesSitemapXml}\n${blogSitemapXml}`;
 assert.doesNotMatch(allChildXml, /<changefreq>|<priority>/);
-assert.equal((allChildXml.match(/<url>/g) ?? []).length, 71, "child sitemaps contain all 71 indexable URLs");
+assert.equal((allChildXml.match(/<url>/g) ?? []).length, 77, "child sitemaps contain all 77 indexable URLs");
 
 console.log(`Verified ${routes.length} SEO routes, ${allSeoPages.length} answer blocks, ${publishedBlogArticles.length} articles, and the sitemap index with both child sitemaps.`);
