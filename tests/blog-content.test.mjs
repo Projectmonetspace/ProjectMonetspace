@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 
-import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content.ts";
+import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
   "photoshop-27-10-ai-assisted-editor-prompt-to-edit",
@@ -34,6 +34,8 @@ const expectedSlugs = [
   "instagram-first-draft-reels",
 ];
 
+const supportedCategories = new Set(["AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other"]);
+
 test("publishes exactly the approved, unique canonical articles", () => {
   assert.deepEqual(publishedBlogArticles.map((article) => article.slug), expectedSlugs);
   assert.equal(new Set(blogArticles.map((article) => article.slug)).size, blogArticles.length);
@@ -47,6 +49,7 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.cluster, `${article.slug} belongs to a topic cluster`);
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
+    assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
     assert.match(article.datePublished, /^2026-08-(27|28)$/);
     assert.equal(article.dateModified, article.datePublished);
   }
@@ -67,6 +70,14 @@ test("supporting articles have a reciprocal main-article relationship", () => {
   }
 });
 
+test("blog batches register centrally rather than chaining into newer batches", async () => {
+  const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
+  const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /photoshopGoogleArticles/);
+  assert.match(registry, /legacyBlogArticles/);
+  assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
+});
+
 test("blog routes are reusable and published-state driven", async () => {
   const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
   const index = await readFile(new URL("../app/(seo)/blog/page.tsx", import.meta.url), "utf8");
@@ -76,6 +87,9 @@ test("blog routes are reusable and published-state driven", async () => {
   assert.match(route, /generateStaticParams/);
   assert.match(index, /publishedBlogArticles\.map/);
   assert.match(sitemap, /publishedBlogArticles\.map/);
+  assert.match(route, /blog-content-registry/);
+  assert.match(index, /blog-content-registry/);
+  assert.match(sitemap, /blog-content-registry/);
   assert.doesNotMatch(route, /qwen3-8-flash-next|gemini-3-5-transcribe|instagram-first-draft-reels/);
 });
 
