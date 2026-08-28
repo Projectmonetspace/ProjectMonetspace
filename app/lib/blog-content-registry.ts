@@ -34,6 +34,11 @@ const registeredArticles: BlogArticle[] = [
   ...legacyBlogArticles,
 ].map(validateArticle);
 
+const registeredSlugs = registeredArticles.map((article) => article.slug);
+if (new Set(registeredSlugs).size !== registeredSlugs.length) {
+  throw new Error("Duplicate blog article slug detected in the central registry");
+}
+
 export const blogArticles = registeredArticles;
 export const publishedBlogArticles = blogArticles.filter((article) => article.status === "published");
 
