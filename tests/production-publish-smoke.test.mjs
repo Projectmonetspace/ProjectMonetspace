@@ -67,17 +67,11 @@ test("all six newly published articles are live with canonical, schema, OG and r
 test("blog index exposes every newly published canonical URL", async () => {
   const blog = await get("/blog");
   assert.equal(blog.response.status, 200, "/blog returns 200");
-  console.log("BLOG CACHE", {
-    age: blog.response.headers.get("age"),
-    cacheControl: blog.response.headers.get("cache-control"),
-    xVercelCache: blog.response.headers.get("x-vercel-cache"),
-    xVercelId: blog.response.headers.get("x-vercel-id"),
-  });
   for (const article of articles) assert.ok(blog.body.includes(`/blog/${article.slug}`), `/blog lists ${article.slug}`);
-  assert.ok(blog.body.includes("27 published briefings"), "/blog reports 27 published briefings");
+  assert.match(blog.body, /27(?:<!-- -->)? published briefings/, "/blog reports 27 published briefings");
 });
 
-test("sitemap index and child sitemaps expose every new URL and all 71 indexable URLs", async () => {
+test("sitemap index and child sitemaps expose every new URL and all 77 indexable URLs", async () => {
   const rootSitemap = await get("/sitemap.xml");
   assert.equal(rootSitemap.response.status, 200, "/sitemap.xml returns 200");
   assert.ok(rootSitemap.body.includes("<sitemapindex"), "root sitemap is a sitemap index");
@@ -90,5 +84,5 @@ test("sitemap index and child sitemaps expose every new URL and all 71 indexable
   assert.equal(blogSitemap.response.status, 200, "/blog-sitemap.xml returns 200");
   for (const article of articles) assert.ok(blogSitemap.body.includes(`/blog/${article.slug}`), `blog sitemap lists ${article.slug}`);
   const all = `${pages.body}\n${blogSitemap.body}`;
-  assert.equal((all.match(/<url>/g) ?? []).length, 71, "child sitemaps expose all 71 indexable URLs");
+  assert.equal((all.match(/<url>/g) ?? []).length, 77, "child sitemaps expose all 77 indexable URLs");
 });
