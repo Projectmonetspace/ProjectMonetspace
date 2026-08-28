@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Clock3 } from "lucide-react";
-import { findPublishedArticle, type BlogArticle } from "../lib/blog-content";
+import { findPublishedArticle } from "../lib/blog-content-registry";
+import type { BlogArticle } from "../lib/blog-types";
 import { findSeoPage } from "../lib/seo-content";
 import { SeoFooter, SeoNav } from "./seo-page";
 

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { allSeoPages } from "../app/lib/seo-content.ts";
-import { publishedBlogArticles } from "../app/lib/blog-content.ts";
+import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
+import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 
 const baseUrl = process.env.TEST_BASE_URL ?? "http://127.0.0.1:3000";
 const blogRoutes = publishedBlogArticles.map((article) => `/blog/${article.slug}`);
@@ -63,6 +64,7 @@ for (const article of publishedBlogArticles) {
 
 const allChildXml = `${pagesSitemapXml}\n${blogSitemapXml}`;
 assert.doesNotMatch(allChildXml, /<changefreq>|<priority>/);
-assert.equal((allChildXml.match(/<url>/g) ?? []).length, 77, "child sitemaps contain all 77 indexable URLs");
+const expectedSitemapUrlCount = pagesSitemapEntries.length + blogSitemapEntries.length;
+assert.equal((allChildXml.match(/<url>/g) ?? []).length, expectedSitemapUrlCount, "child sitemaps contain every data-driven canonical URL");
 
-console.log(`Verified ${routes.length} SEO routes, ${allSeoPages.length} answer blocks, ${publishedBlogArticles.length} articles, and the sitemap index with both child sitemaps.`);
+console.log(`Verified ${routes.length} SEO routes, ${allSeoPages.length} answer blocks, ${publishedBlogArticles.length} articles, and ${expectedSitemapUrlCount} sitemap URLs across both child sitemaps.`);

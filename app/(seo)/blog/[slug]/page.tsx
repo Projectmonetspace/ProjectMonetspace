@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogArticlePage from "../../../components/blog-article";
-import { findPublishedArticle, publishedBlogArticles } from "../../../lib/blog-content";
+import { findPublishedArticle, publishedBlogArticles } from "../../../lib/blog-content-registry";
 
 type PageProps = { params: Promise<{ slug: string }> };
 

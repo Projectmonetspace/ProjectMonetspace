@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SeoFooter, SeoNav } from "../../components/seo-page";
-import { publishedBlogArticles } from "../../lib/blog-content";
+import { publishedBlogArticles } from "../../lib/blog-content-registry";
 
 export const metadata: Metadata = {
   title: "Project Monet Blog — AI, Creator Tools, Marketing & Web Signals",
