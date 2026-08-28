@@ -1,3 +1,5 @@
+import { hy4WanArticles } from "./blog-content-hy4-wan.ts";
+
 export type ArticleBlock =
   | { type: "paragraph"; html: string }
   | { type: "subheading"; text: string }
@@ -2889,7 +2891,7 @@ const museImageApi: BlogArticle = {
   ]
 };
 
-export const blogArticles: BlogArticle[] = [glmFlash, glmFlashVs, geminiOmni, geminiOmniApi, geminiOmniVsVeo, mhs, mhsVsMcp, museImage, museImageApi, agentz, qwenLocal, claudeforce, qwen, gemini, instagram];
+export const blogArticles: BlogArticle[] = [...hy4WanArticles, glmFlash, glmFlashVs, geminiOmni, geminiOmniApi, geminiOmniVsVeo, mhs, mhsVsMcp, museImage, museImageApi, agentz, qwenLocal, claudeforce, qwen, gemini, instagram];
 
 export const publishedBlogArticles = blogArticles.filter((article) => article.status === "published");
 
