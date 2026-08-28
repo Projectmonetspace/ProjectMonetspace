@@ -56,7 +56,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog routes are reusable and published-state driven", async () => {
   const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
   const index = await readFile(new URL("../app/(seo)/blog/page.tsx", import.meta.url), "utf8");
-  const sitemap = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
+  const sitemap = await readFile(new URL("../app/lib/sitemap-content.ts", import.meta.url), "utf8");
 
   assert.match(route, /findPublishedArticle/);
   assert.match(route, /generateStaticParams/);
