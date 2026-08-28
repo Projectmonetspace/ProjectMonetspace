@@ -5,6 +5,12 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content.ts";
 
 const expectedSlugs = [
+  "photoshop-27-10-ai-assisted-editor-prompt-to-edit",
+  "how-to-use-photoshop-prompt-to-edit-ai-assisted-editor",
+  "photoshop-light-adjustment-layer",
+  "google-site-reputation-policy-eea-2026",
+  "fix-google-site-reputation-manual-action",
+  "parasite-seo-google-site-reputation-policy-eea",
   "tencent-hy4-preview",
   "run-hy4-preview-locally",
   "hy4-preview-vs-glm-5-3-vs-kimi-k3",
