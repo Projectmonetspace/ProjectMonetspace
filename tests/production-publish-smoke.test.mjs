@@ -37,7 +37,11 @@ const articles = [
 
 async function get(path) {
   const response = await fetch(`${base}${path}`, {
-    headers: { "user-agent": "ProjectMonet-production-verification/1.0" },
+    headers: {
+      "user-agent": "ProjectMonet-production-verification/1.0",
+      "cache-control": "no-cache",
+      pragma: "no-cache",
+    },
     redirect: "follow",
     cache: "no-store",
   });
@@ -60,12 +64,20 @@ test("all six newly published articles are live with canonical, schema, OG and r
   }
 });
 
-test("blog index and sitemaps expose all six new canonical URLs", async () => {
+test("blog index exposes every newly published canonical URL", async () => {
   const blog = await get("/blog");
   assert.equal(blog.response.status, 200, "/blog returns 200");
-  assert.ok(blog.body.includes("27 published briefings"), "/blog reports 27 published briefings");
+  console.log("BLOG CACHE", {
+    age: blog.response.headers.get("age"),
+    cacheControl: blog.response.headers.get("cache-control"),
+    xVercelCache: blog.response.headers.get("x-vercel-cache"),
+    xVercelId: blog.response.headers.get("x-vercel-id"),
+  });
   for (const article of articles) assert.ok(blog.body.includes(`/blog/${article.slug}`), `/blog lists ${article.slug}`);
+  assert.ok(blog.body.includes("27 published briefings"), "/blog reports 27 published briefings");
+});
 
+test("sitemap index and child sitemaps expose every new URL and all 71 indexable URLs", async () => {
   const rootSitemap = await get("/sitemap.xml");
   assert.equal(rootSitemap.response.status, 200, "/sitemap.xml returns 200");
   assert.ok(rootSitemap.body.includes("<sitemapindex"), "root sitemap is a sitemap index");
