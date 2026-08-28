@@ -1,4 +1,4 @@
-import { publishedBlogArticles } from "./blog-content";
+import { publishedBlogArticles } from "./blog-content-registry";
 import { allSeoPages } from "./seo-content";
 
 const baseUrl = "https://www.projectmonet.space";
