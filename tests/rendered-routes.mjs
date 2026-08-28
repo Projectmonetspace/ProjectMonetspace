@@ -39,7 +39,30 @@ for (const article of publishedBlogArticles) {
 const sitemap = await fetch(`${baseUrl}/sitemap.xml`);
 assert.equal(sitemap.status, 200, "sitemap returns 200");
 const sitemapXml = await sitemap.text();
-for (const page of allSeoPages) assert.ok(sitemapXml.includes(page.path), `sitemap includes ${page.path}`);
-for (const article of publishedBlogArticles) assert.ok(sitemapXml.includes(`/blog/${article.slug}`), `sitemap includes ${article.slug}`);
+assert.match(sitemapXml, /<sitemapindex xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
+assert.ok(sitemapXml.includes("/pages-sitemap.xml"), "sitemap index includes the pages child");
+assert.ok(sitemapXml.includes("/blog-sitemap.xml"), "sitemap index includes the blog and projects child");
 
-console.log(`Verified ${routes.length} SEO routes, ${allSeoPages.length} answer blocks, ${publishedBlogArticles.length} articles, and the generated sitemap.`);
+const pagesSitemap = await fetch(`${baseUrl}/pages-sitemap.xml`);
+assert.equal(pagesSitemap.status, 200, "pages sitemap returns 200");
+const pagesSitemapXml = await pagesSitemap.text();
+assert.match(pagesSitemapXml, /<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
+
+const blogSitemap = await fetch(`${baseUrl}/blog-sitemap.xml`);
+assert.equal(blogSitemap.status, 200, "blog sitemap returns 200");
+const blogSitemapXml = await blogSitemap.text();
+assert.match(blogSitemapXml, /<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
+
+for (const page of allSeoPages) {
+  const expectedSitemap = page.kind === "work" ? blogSitemapXml : pagesSitemapXml;
+  assert.ok(expectedSitemap.includes(page.path), `a child sitemap includes ${page.path}`);
+}
+for (const article of publishedBlogArticles) {
+  assert.ok(blogSitemapXml.includes(`/blog/${article.slug}`), `blog sitemap includes ${article.slug}`);
+}
+
+const allChildXml = `${pagesSitemapXml}\n${blogSitemapXml}`;
+assert.doesNotMatch(allChildXml, /<changefreq>|<priority>/);
+assert.equal((allChildXml.match(/<url>/g) ?? []).length, 65, "child sitemaps contain all 65 indexable URLs");
+
+console.log(`Verified ${routes.length} SEO routes, ${allSeoPages.length} answer blocks, ${publishedBlogArticles.length} articles, and the sitemap index with both child sitemaps.`);
