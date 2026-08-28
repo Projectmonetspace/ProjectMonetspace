@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { allSeoPages } from "../app/lib/seo-content.ts";
-import { publishedBlogArticles } from "../app/lib/blog-content.ts";
+import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 
 const baseUrl = process.env.TEST_BASE_URL ?? "http://127.0.0.1:3000";
