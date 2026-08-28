@@ -7,7 +7,7 @@ import {
 
 const baseUrl = "https://www.projectmonet.space";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
