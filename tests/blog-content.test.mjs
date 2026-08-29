@@ -5,6 +5,9 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "sparkstation-ai-filmmaking-platform",
+  "how-to-use-sparkstation-ai-filmmaking-workflow",
+  "sparkstation-ai-ad-generator",
   "google-demand-gen-august-2026-update",
   "how-to-use-multimodal-video-creation-asset-studio",
   "how-to-use-midjourney-v8-2-edit-model",
