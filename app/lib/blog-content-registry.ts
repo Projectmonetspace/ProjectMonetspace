@@ -1,4 +1,5 @@
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
+import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
 import { praxistArticles } from "./blog-content-praxist.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
@@ -31,6 +32,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const registeredArticles: BlogArticle[] = [
+  ...glm53MidjourneyArticles,
   ...praxistArticles,
   ...photoshopGoogleArticles,
   ...legacyBlogArticles,
