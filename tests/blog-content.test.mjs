@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "glm-5-3",
+  "midjourney-v8-2-edit-model",
   "praxist-autonomous-ai-research-system",
   "how-to-install-use-praxist-codex-claude",
   "photoshop-27-10-ai-assisted-editor-prompt-to-edit",
@@ -52,7 +54,7 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^2026-08-(27|28)$/);
+    assert.match(article.datePublished, /^2026-08-(27|28|29)$/);
     assert.equal(article.dateModified, article.datePublished);
   }
 });
