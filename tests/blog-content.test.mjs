@@ -5,6 +5,11 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "amd-rocm-10-rocm-ai",
+  "how-to-install-rocm-10-supported-gpus",
+  "amd-skills-claude-code-cursor-codex",
+  "perplexity-portable-computer",
+  "how-to-use-perplexity-portable-computer-dgx-spark",
   "sparkstation-ai-filmmaking-platform",
   "how-to-use-sparkstation-ai-filmmaking-workflow",
   "sparkstation-ai-ad-generator",
