@@ -1,3 +1,4 @@
+import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
@@ -31,12 +32,31 @@ function validateArticle(article: BlogArticle): BlogArticle {
   return article;
 }
 
-const registeredArticles: BlogArticle[] = [
+const sourceArticles: BlogArticle[] = [
+  ...approvedArticles20260829,
   ...glm53MidjourneyArticles,
   ...praxistArticles,
   ...photoshopGoogleArticles,
   ...legacyBlogArticles,
-].map(validateArticle);
+];
+
+const supportingPathsByParent = new Map<string, string[]>();
+for (const article of sourceArticles) {
+  if (article.articleType !== "supporting" || !article.parentSlug) continue;
+  const paths = supportingPathsByParent.get(article.parentSlug) ?? [];
+  paths.push(`/blog/${article.slug}`);
+  supportingPathsByParent.set(article.parentSlug, paths);
+}
+
+const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
+  const reciprocalSupportingPaths =
+    article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
+
+  return validateArticle({
+    ...article,
+    relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])],
+  });
+});
 
 const registeredSlugs = registeredArticles.map((article) => article.slug);
 if (new Set(registeredSlugs).size !== registeredSlugs.length) {
