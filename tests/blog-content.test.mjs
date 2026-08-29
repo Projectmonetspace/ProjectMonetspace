@@ -5,6 +5,11 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "how-to-use-midjourney-v8-2-edit-model",
+  "run-glm-5-3-locally",
+  "glm-5-3-license",
+  "ibm-granite-4-2",
+  "run-ibm-granite-4-2-locally",
   "glm-5-3",
   "midjourney-v8-2-edit-model",
   "praxist-autonomous-ai-research-system",
@@ -77,6 +82,8 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /approvedArticles20260829/);
+  assert.match(registry, /glm53MidjourneyArticles/);
   assert.match(registry, /photoshopGoogleArticles/);
   assert.match(registry, /legacyBlogArticles/);
   assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
