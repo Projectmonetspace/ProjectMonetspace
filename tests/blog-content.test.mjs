@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "google-demand-gen-august-2026-update",
+  "how-to-use-multimodal-video-creation-asset-studio",
   "how-to-use-midjourney-v8-2-edit-model",
   "run-glm-5-3-locally",
   "glm-5-3-license",
