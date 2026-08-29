@@ -4,6 +4,7 @@ import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts"
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
 import { praxistArticles } from "./blog-content-praxist.ts";
+import { sparkStationAdArticles } from "./blog-content-sparkstation-ads.ts";
 import { sparkStationArticles } from "./blog-content-sparkstation.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
 
@@ -36,6 +37,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 
 const sourceArticles: BlogArticle[] = [
   ...sparkStationArticles,
+  ...sparkStationAdArticles,
   ...googleDemandGenAugust2026Articles,
   ...approvedArticles20260829,
   ...glm53MidjourneyArticles,
