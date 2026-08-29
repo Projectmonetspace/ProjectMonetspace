@@ -42,7 +42,7 @@ const sourceArticles: BlogArticle[] = [
 
 const supportingPathsByParent = new Map<string, string[]>();
 for (const article of sourceArticles) {
-  if (article.articleType !== "supporting" || !article.parentSlug) continue;
+  if (article.status !== "published" || article.articleType !== "supporting" || !article.parentSlug) continue;
   const paths = supportingPathsByParent.get(article.parentSlug) ?? [];
   paths.push(`/blog/${article.slug}`);
   supportingPathsByParent.set(article.parentSlug, paths);
