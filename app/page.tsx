@@ -45,6 +45,7 @@ const mobileNavigation = [
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Instagram ↗", href: "https://www.projectmonet.com/" },
   { label: "Request Free Demo", href: "/free-website-demo", analyticsEvent: "request_demo_click" },
 ];
 
@@ -57,6 +58,7 @@ const jsonLd = [
     email: "contact@projectmonet.space",
     telephone: "+91-8290096163",
     logo: "https://www.projectmonet.space/favicon.svg",
+    sameAs: ["https://www.projectmonet.com/"],
   },
   {
     "@context": "https://schema.org",
@@ -167,6 +169,9 @@ export default function Home() {
               {label}
             </a>
           ))}
+          <a className="animate-blur-fade-up" style={animation(280)} href="https://www.projectmonet.com/" aria-label="Project Monet Instagram marketing">
+            Instagram ↗
+          </a>
         </nav>
 
         <div className="header-actions">
@@ -420,6 +425,7 @@ export default function Home() {
             <Link href="/resources">Resources</Link>
             <Link href="/about">About</Link>
             <Link href="/pricing">Pricing guide</Link>
+            <a href="https://www.projectmonet.com/">Instagram ↗</a>
             <a href="/privacy">Privacy</a>
             <a href="/cookies">Cookies</a>
             <a href="/terms">Terms</a>
