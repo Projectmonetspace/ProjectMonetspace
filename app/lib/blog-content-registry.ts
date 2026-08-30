@@ -1,13 +1,18 @@
 import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
+import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
+import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
+import { openMontageArticles } from "./blog-content-openmontage.ts";
 import { perplexityPortableArticles } from "./blog-content-perplexity-portable.ts";
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
 import { praxistArticles } from "./blog-content-praxist.ts";
 import { rocm10Articles } from "./blog-content-rocm-10.ts";
 import { sparkStationAdArticles } from "./blog-content-sparkstation-ads.ts";
 import { sparkStationArticles } from "./blog-content-sparkstation.ts";
+import { staatsArticles } from "./blog-content-staats.ts";
+import { youtubeAmazonArticles } from "./blog-content-youtube-amazon.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
 
 const supportedCategories = new Set<BlogCategory>([
@@ -38,6 +43,11 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...openMontageArticles,
+  ...youtubeAmazonArticles,
+  ...googleAdsDeveloperAssistantArticles,
+  ...cohereParseArticles,
+  ...staatsArticles,
   ...rocm10Articles,
   ...perplexityPortableArticles,
   ...sparkStationArticles,
