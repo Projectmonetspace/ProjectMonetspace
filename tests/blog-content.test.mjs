@@ -5,6 +5,17 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "openmontage-agentic-video-production",
+  "how-to-install-openmontage",
+  "openmontage-reference-video-reels-shorts",
+  "youtube-shopping-amazon-affiliate",
+  "how-to-tag-amazon-products-youtube-shopping",
+  "google-ads-api-developer-assistant-v4",
+  "how-to-install-google-ads-api-developer-assistant",
+  "cohere-parse-v5-document-parsing",
+  "how-to-use-cohere-parse-api",
+  "staats-agent-native-website-analytics",
+  "how-to-use-staats-analytics-mcp",
   "amd-rocm-10-rocm-ai",
   "how-to-install-rocm-10-supported-gpus",
   "amd-skills-claude-code-cursor-codex",
@@ -69,7 +80,7 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^2026-08-(27|28|29)$/);
+    assert.match(article.datePublished, /^2026-08-(27|28|29|30)$/);
     assert.equal(article.dateModified, article.datePublished);
   }
 });
@@ -92,6 +103,11 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /openMontageArticles/);
+  assert.match(registry, /youtubeAmazonArticles/);
+  assert.match(registry, /googleAdsDeveloperAssistantArticles/);
+  assert.match(registry, /cohereParseArticles/);
+  assert.match(registry, /staatsArticles/);
   assert.match(registry, /approvedArticles20260829/);
   assert.match(registry, /glm53MidjourneyArticles/);
   assert.match(registry, /photoshopGoogleArticles/);
