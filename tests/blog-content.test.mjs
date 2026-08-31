@@ -5,6 +5,14 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "caddi-ai-automation",
+  "caddi-pricing",
+  "how-to-use-caddi",
+  "olostep",
+  "olostep-api",
+  "olostep-claude-code-cursor-codex",
+  "topview-motion-studio",
+  "how-to-use-topview-motion-studio",
   "openmontage-agentic-video-production",
   "how-to-install-openmontage",
   "openmontage-reference-video-reels-shorts",
@@ -80,7 +88,7 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^2026-08-(27|28|29|30)$/);
+    assert.match(article.datePublished, /^2026-08-(27|28|29|30|31)$/);
     assert.equal(article.dateModified, article.datePublished);
   }
 });
@@ -103,6 +111,9 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /caddiArticles/);
+  assert.match(registry, /olostepArticles/);
+  assert.match(registry, /topviewMotionStudioArticles/);
   assert.match(registry, /openMontageArticles/);
   assert.match(registry, /youtubeAmazonArticles/);
   assert.match(registry, /googleAdsDeveloperAssistantArticles/);
