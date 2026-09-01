@@ -120,17 +120,75 @@ test("publishes exactly the approved, unique canonical articles", () => {
 test("supporting articles have a reciprocal main-article relationship", () => {
   const supportingArticles = publishedBlogArticles.filter((article) => article.articleType === "supporting");
   assert.ok(supportingArticles.length > 0);
-  for (const supporting of supportingArticles) {
-    assert.ok(supporting.parentSlug, `${supporting.slug} has a parent slug`);
-    const parent = findPublishedArticle(supporting.parentSlug);
-    assert.ok(parent, `${supporting.slug} parent is published`);
-    assert.ok(supporting.relatedPaths.includes(`/blog/${parent.slug}`), `${supporting.slug} links back to parent`);
-    assert.ok(parent.relatedPaths.includes(`/blog/${supporting.slug}`), `${parent.slug} links to ${supporting.slug}`);
+
+  for (const article of supportingArticles) {
+    assert.ok(article.parentSlug, `${article.slug} names its main article`);
+    const parent = findPublishedArticle(article.parentSlug);
+    assert.ok(parent, `${article.slug} parent is published`);
+    assert.equal(parent.articleType, "main");
+    assert.equal(parent.cluster, article.cluster);
+    assert.ok(article.relatedPaths.includes(`/blog/${parent.slug}`), `${article.slug} links to its main article`);
+    assert.ok(parent.relatedPaths.includes(`/blog/${article.slug}`), `${parent.slug} links back to its supporting article`);
   }
 });
 
-test("blog content registry remains the only sitemap source", async () => {
-  const sitemap = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
-  assert.match(sitemap, /publishedBlogArticles/);
-  assert.doesNotMatch(sitemap, /87|89|137|139/);
+test("blog batches register centrally rather than chaining into newer batches", async () => {
+  const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
+  const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /mercury25Articles/);
+  assert.match(registry, /googleAiMaxMigrationArticles/);
+  assert.match(registry, /flowiseArticles/);
+  assert.match(registry, /browserSkillArticles/);
+  assert.match(registry, /marketingSkillsArticles/);
+  assert.match(registry, /chatgptAdsArticles/);
+  assert.match(registry, /instagramAiProfileArticles/);
+  assert.match(registry, /optimizelyVirtualTeammateArticles/);
+  assert.match(registry, /stackScopeArticles/);
+  assert.match(registry, /caddiArticles/);
+  assert.match(registry, /olostepArticles/);
+  assert.match(registry, /topviewMotionStudioArticles/);
+  assert.match(registry, /openMontageArticles/);
+  assert.match(registry, /youtubeAmazonArticles/);
+  assert.match(registry, /googleAdsDeveloperAssistantArticles/);
+  assert.match(registry, /cohereParseArticles/);
+  assert.match(registry, /staatsArticles/);
+  assert.match(registry, /approvedArticles20260829/);
+  assert.match(registry, /glm53MidjourneyArticles/);
+  assert.match(registry, /photoshopGoogleArticles/);
+  assert.match(registry, /legacyBlogArticles/);
+  assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
+});
+
+test("blog routes are reusable and published-state driven", async () => {
+  const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
+  const index = await readFile(new URL("../app/(seo)/blog/page.tsx", import.meta.url), "utf8");
+  const sitemap = await readFile(new URL("../app/lib/sitemap-content.ts", import.meta.url), "utf8");
+
+  assert.match(route, /findPublishedArticle/);
+  assert.match(route, /generateStaticParams/);
+  assert.match(index, /publishedBlogArticles\.map/);
+  assert.match(sitemap, /publishedBlogArticles\.map/);
+  assert.match(route, /blog-content-registry/);
+  assert.match(index, /blog-content-registry/);
+  assert.match(sitemap, /blog-content-registry/);
+  assert.doesNotMatch(route, /qwen3-8-flash-next|gemini-3-5-transcribe|instagram-first-draft-reels/);
+});
+
+test("articles provide canonical, article social metadata and BlogPosting schema", async () => {
+  const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
+  const component = await readFile(new URL("../app/components/blog-article.tsx", import.meta.url), "utf8");
+  const imageRoute = await readFile(new URL("../app/(seo)/blog/[slug]/og/route.tsx", import.meta.url), "utf8");
+  assert.match(route, /alternates: \{ canonical: path \}/);
+  assert.match(route, /type: "article"/);
+  assert.match(route, /publishedTime: article\.datePublished/);
+  assert.match(route, /modifiedTime: article\.dateModified/);
+  assert.match(component, /"@type": "BlogPosting"/);
+  assert.match(component, /BreadcrumbList/);
+  assert.match(route, /const image = `\$\{path\}\/og`/);
+  assert.match(component, /src=\{`\/blog\/\$\{article\.slug\}\/og`\}/);
+  assert.match(component, /unoptimized/);
+  assert.match(component, /findPublishedArticle\(slug\)/);
+  assert.match(imageRoute, /new ImageResponse/);
+  assert.doesNotMatch(route, /opengraph-image/);
+  assert.doesNotMatch(component, /opengraph-image/);
 });
