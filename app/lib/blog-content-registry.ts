@@ -6,6 +6,7 @@ import { chatgptAdsArticles } from "./blog-content-chatgpt-ads.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
+import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migration.ts";
 import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
@@ -53,6 +54,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...googleAiMaxMigrationArticles,
   ...flowiseArticles,
   ...browserSkillArticles,
   ...marketingSkillsArticles,
