@@ -5,6 +5,9 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "google-ads-ai-max-migration",
+  "google-ads-ai-max-migration-checklist",
+  "ai-max-broad-match-vs-aca",
   "flowise-shutdown-end-of-life",
   "migrate-from-flowise",
   "flowise-alternatives",
@@ -130,6 +133,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /googleAiMaxMigrationArticles/);
   assert.match(registry, /flowiseArticles/);
   assert.match(registry, /browserSkillArticles/);
   assert.match(registry, /marketingSkillsArticles/);
