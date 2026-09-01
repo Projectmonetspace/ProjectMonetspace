@@ -11,6 +11,7 @@ import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-d
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
 import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
+import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
 import { optimizelyVirtualTeammateArticles } from "./blog-content-optimizely-virtual-teammates.ts";
@@ -54,6 +55,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...mercury25Articles,
   ...googleAiMaxMigrationArticles,
   ...flowiseArticles,
   ...browserSkillArticles,

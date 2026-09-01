@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "mercury-2-5-preview",
+  "mercury-2-5-api-pricing",
   "google-ads-ai-max-migration",
   "google-ads-ai-max-migration-checklist",
   "ai-max-broad-match-vs-aca",
@@ -110,7 +112,7 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-01)$/);
+    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2))$/);
     assert.equal(article.dateModified, article.datePublished);
   }
 });
@@ -133,6 +135,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /mercury25Articles/);
   assert.match(registry, /googleAiMaxMigrationArticles/);
   assert.match(registry, /flowiseArticles/);
   assert.match(registry, /browserSkillArticles/);
