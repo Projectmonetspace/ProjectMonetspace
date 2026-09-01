@@ -5,6 +5,25 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "flowise-shutdown-end-of-life",
+  "migrate-from-flowise",
+  "flowise-alternatives",
+  "browserskill",
+  "browserskill-install",
+  "marketing-skills-ai-agents",
+  "marketing-skills-v2-migration",
+  "install-marketing-skills-claude-code-codex-cursor",
+  "chatgpt-ads",
+  "how-to-advertise-on-chatgpt",
+  "chatgpt-ads-pricing",
+  "instagram-ai-generated-profile-label",
+  "how-to-add-instagram-ai-generated-profile-label",
+  "optimizely-virtual-teammates",
+  "optimizely-seo-ai-search-analyst",
+  "how-to-set-up-optimizely-virtual-teammates",
+  "stackscope",
+  "stackscope-api-mcp",
+  "stackscope-lead-generation",
   "caddi-ai-automation",
   "caddi-pricing",
   "how-to-use-caddi",
@@ -88,7 +107,7 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^2026-08-(27|28|29|30|31)$/);
+    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-01)$/);
     assert.equal(article.dateModified, article.datePublished);
   }
 });
@@ -111,6 +130,13 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /flowiseArticles/);
+  assert.match(registry, /browserSkillArticles/);
+  assert.match(registry, /marketingSkillsArticles/);
+  assert.match(registry, /chatgptAdsArticles/);
+  assert.match(registry, /instagramAiProfileArticles/);
+  assert.match(registry, /optimizelyVirtualTeammateArticles/);
+  assert.match(registry, /stackScopeArticles/);
   assert.match(registry, /caddiArticles/);
   assert.match(registry, /olostepArticles/);
   assert.match(registry, /topviewMotionStudioArticles/);
