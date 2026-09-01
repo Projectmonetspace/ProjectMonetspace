@@ -1,18 +1,25 @@
 import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
+import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
+import { chatgptAdsArticles } from "./blog-content-chatgpt-ads.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
+import { flowiseArticles } from "./blog-content-flowise.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
 import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
+import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
+import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
+import { optimizelyVirtualTeammateArticles } from "./blog-content-optimizely-virtual-teammates.ts";
 import { perplexityPortableArticles } from "./blog-content-perplexity-portable.ts";
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
 import { praxistArticles } from "./blog-content-praxist.ts";
 import { rocm10Articles } from "./blog-content-rocm-10.ts";
 import { sparkStationAdArticles } from "./blog-content-sparkstation-ads.ts";
 import { sparkStationArticles } from "./blog-content-sparkstation.ts";
+import { stackScopeArticles } from "./blog-content-stackscope.ts";
 import { staatsArticles } from "./blog-content-staats.ts";
 import { topviewMotionStudioArticles } from "./blog-content-topview-motion-studio.ts";
 import { youtubeAmazonArticles } from "./blog-content-youtube-amazon.ts";
@@ -46,6 +53,13 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...flowiseArticles,
+  ...browserSkillArticles,
+  ...marketingSkillsArticles,
+  ...chatgptAdsArticles,
+  ...instagramAiProfileArticles,
+  ...optimizelyVirtualTeammateArticles,
+  ...stackScopeArticles,
   ...caddiArticles,
   ...olostepArticles,
   ...topviewMotionStudioArticles,
