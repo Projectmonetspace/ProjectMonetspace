@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "claude-fable-5-1",
+  "claude-fable-5-1-vs-fable-5",
   "mercury-2-5-preview",
   "mercury-2-5-api-pricing",
   "google-ads-ai-max-migration",
@@ -120,7 +122,6 @@ test("publishes exactly the approved, unique canonical articles", () => {
 test("supporting articles have a reciprocal main-article relationship", () => {
   const supportingArticles = publishedBlogArticles.filter((article) => article.articleType === "supporting");
   assert.ok(supportingArticles.length > 0);
-
   for (const article of supportingArticles) {
     assert.ok(article.parentSlug, `${article.slug} names its main article`);
     const parent = findPublishedArticle(article.parentSlug);
@@ -135,6 +136,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /claudeFable51Articles/);
   assert.match(registry, /mercury25Articles/);
   assert.match(registry, /googleAiMaxMigrationArticles/);
   assert.match(registry, /flowiseArticles/);
@@ -163,7 +165,6 @@ test("blog routes are reusable and published-state driven", async () => {
   const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
   const index = await readFile(new URL("../app/(seo)/blog/page.tsx", import.meta.url), "utf8");
   const sitemap = await readFile(new URL("../app/lib/sitemap-content.ts", import.meta.url), "utf8");
-
   assert.match(route, /findPublishedArticle/);
   assert.match(route, /generateStaticParams/);
   assert.match(index, /publishedBlogArticles\.map/);
