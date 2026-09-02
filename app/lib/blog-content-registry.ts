@@ -11,6 +11,7 @@ import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts"
 import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migration.ts";
 import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
+import { googlePicsArticles } from "./blog-content-google-pics.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
 import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
@@ -57,6 +58,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...googlePicsArticles,
   ...geminiAgenticVideoArticles,
   ...claudeFable51Articles,
   ...mercury25Articles,
