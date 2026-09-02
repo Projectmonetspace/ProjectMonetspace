@@ -19,6 +19,7 @@ import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
+import { optimizelyMarkBenchArticles } from "./blog-content-optimizely-mark-bench.ts";
 import { optimizelyVirtualTeammateArticles } from "./blog-content-optimizely-virtual-teammates.ts";
 import { perplexityPortableArticles } from "./blog-content-perplexity-portable.ts";
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
@@ -45,6 +46,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...optimizelyMarkBenchArticles,
   ...asusProArtRtxSparkArticles,
   ...claudeFable51ApiArticles,
   ...googlePicsArticles,
