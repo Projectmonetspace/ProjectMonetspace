@@ -6,6 +6,7 @@ import { chatgptAdsArticles } from "./blog-content-chatgpt-ads.ts";
 import { claudeFable51Articles } from "./blog-content-claude-fable-5-1.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
+import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
 import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migration.ts";
 import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
@@ -56,6 +57,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...geminiAgenticVideoArticles,
   ...claudeFable51Articles,
   ...mercury25Articles,
   ...googleAiMaxMigrationArticles,
