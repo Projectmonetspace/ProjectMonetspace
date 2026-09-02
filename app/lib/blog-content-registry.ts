@@ -7,6 +7,7 @@ import { chatgptAdsArticles } from "./blog-content-chatgpt-ads.ts";
 import { claudeFable51ApiArticles } from "./blog-content-claude-fable-5-1-api.ts";
 import { claudeFable51Articles } from "./blog-content-claude-fable-5-1.ts";
 import { cleanShot5Articles } from "./blog-content-cleanshot-5.ts";
+import { cleanShotComparisonArticles } from "./blog-content-cleanshot-comparison.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
 import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
@@ -47,6 +48,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
   ...optimizelyMarkBenchArticles,
   ...asusProArtRtxSparkArticles,
@@ -93,7 +95,8 @@ for (const article of sourceArticles) {
 
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
-  return validateArticle({ ...article, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
+  const dateModified = article.slug === "cleanshot-5-studio-mode" ? "2026-09-03" : article.dateModified;
+  return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
 });
 
 const registeredSlugs = registeredArticles.map((article) => article.slug);
