@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "optimizely-marketing-ai-models-mark-bench",
   "asus-proart-rtx-spark-p16-p14-gr1x",
   "claude-fable-5-1-api-pricing",
   "google-pics",
@@ -142,6 +143,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /optimizelyMarkBenchArticles/);
   assert.match(registry, /asusProArtRtxSparkArticles/);
   assert.match(registry, /claudeFable51ApiArticles/);
   assert.match(registry, /googlePicsArticles/);
