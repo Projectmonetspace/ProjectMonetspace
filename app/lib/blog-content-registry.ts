@@ -6,6 +6,7 @@ import { caddiArticles } from "./blog-content-caddi.ts";
 import { chatgptAdsArticles } from "./blog-content-chatgpt-ads.ts";
 import { claudeFable51ApiArticles } from "./blog-content-claude-fable-5-1-api.ts";
 import { claudeFable51Articles } from "./blog-content-claude-fable-5-1.ts";
+import { cleanShot5Articles } from "./blog-content-cleanshot-5.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
 import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
@@ -46,6 +47,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...cleanShot5Articles,
   ...optimizelyMarkBenchArticles,
   ...asusProArtRtxSparkArticles,
   ...claudeFable51ApiArticles,
