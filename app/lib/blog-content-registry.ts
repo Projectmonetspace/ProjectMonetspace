@@ -3,6 +3,7 @@ import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
 import { chatgptAdsArticles } from "./blog-content-chatgpt-ads.ts";
+import { claudeFable51Articles } from "./blog-content-claude-fable-5-1.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
@@ -55,6 +56,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...claudeFable51Articles,
   ...mercury25Articles,
   ...googleAiMaxMigrationArticles,
   ...flowiseArticles,
