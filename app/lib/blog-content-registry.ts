@@ -1,8 +1,10 @@
 import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
+import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
 import { chatgptAdsArticles } from "./blog-content-chatgpt-ads.ts";
+import { claudeFable51ApiArticles } from "./blog-content-claude-fable-5-1-api.ts";
 import { claudeFable51Articles } from "./blog-content-claude-fable-5-1.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
@@ -31,33 +33,20 @@ import { youtubeAmazonArticles } from "./blog-content-youtube-amazon.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
 
 const supportedCategories = new Set<BlogCategory>([
-  "AI",
-  "Social Media",
-  "Marketing",
-  "Creator Tools",
-  "Web",
-  "Automation",
-  "SEO",
-  "Other",
+  "AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other",
 ]);
 
 function validateArticle(article: BlogArticle): BlogArticle {
-  if (!article.slug || !article.title || !article.h1 || !article.metaTitle || !article.metaDescription) {
-    throw new Error(`Invalid blog article core fields for ${article.slug || "unknown slug"}`);
-  }
-  if (!supportedCategories.has(article.category)) {
-    throw new Error(`Unsupported blog category ${article.category} for ${article.slug}`);
-  }
-  if (article.sections.length < 1 || article.sources.length < 1) {
-    throw new Error(`Incomplete blog article content for ${article.slug}`);
-  }
-  if (article.articleType === "supporting" && !article.parentSlug) {
-    throw new Error(`Supporting article ${article.slug} is missing parentSlug`);
-  }
+  if (!article.slug || !article.title || !article.h1 || !article.metaTitle || !article.metaDescription) throw new Error(`Invalid blog article core fields for ${article.slug || "unknown slug"}`);
+  if (!supportedCategories.has(article.category)) throw new Error(`Unsupported blog category ${article.category} for ${article.slug}`);
+  if (article.sections.length < 1 || article.sources.length < 1) throw new Error(`Incomplete blog article content for ${article.slug}`);
+  if (article.articleType === "supporting" && !article.parentSlug) throw new Error(`Supporting article ${article.slug} is missing parentSlug`);
   return article;
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...asusProArtRtxSparkArticles,
+  ...claudeFable51ApiArticles,
   ...googlePicsArticles,
   ...geminiAgenticVideoArticles,
   ...claudeFable51Articles,
@@ -99,19 +88,12 @@ for (const article of sourceArticles) {
 }
 
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
-  const reciprocalSupportingPaths =
-    article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
-
-  return validateArticle({
-    ...article,
-    relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])],
-  });
+  const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
+  return validateArticle({ ...article, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
 });
 
 const registeredSlugs = registeredArticles.map((article) => article.slug);
-if (new Set(registeredSlugs).size !== registeredSlugs.length) {
-  throw new Error("Duplicate blog article slug detected in the central registry");
-}
+if (new Set(registeredSlugs).size !== registeredSlugs.length) throw new Error("Duplicate blog article slug detected in the central registry");
 
 export const blogArticles = registeredArticles;
 export const publishedBlogArticles = blogArticles.filter((article) => article.status === "published");
