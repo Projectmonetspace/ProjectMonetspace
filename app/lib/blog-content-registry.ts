@@ -19,6 +19,7 @@ import { googlePicsArticles } from "./blog-content-google-pics.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
 import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
+import { monidArticles } from "./blog-content-monid.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
 import { optimizelyMarkBenchArticles } from "./blog-content-optimizely-mark-bench.ts";
@@ -48,6 +49,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...monidArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
   ...optimizelyMarkBenchArticles,
