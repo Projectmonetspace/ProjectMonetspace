@@ -11,6 +11,8 @@ const expectedSlugs = [
   "monid-agent-tools",
   "how-to-use-monid",
   "monid-marketing-agent-workflows",
+  "vibevoice-asr-streaming",
+  "vibevoice-asr-streaming-local-install",
   "cleanshot-vs-screen-studio",
   "cleanshot-5-studio-mode",
   "how-to-use-cleanshot-studio-mode",
@@ -157,6 +159,7 @@ test("blog batches register centrally rather than chaining into newer batches", 
   assert.match(registry, /gemini38Vs37Articles/);
   assert.match(registry, /monidArticles/);
   assert.match(registry, /monidMarketingWorkflowArticles/);
+  assert.match(registry, /vibeVoiceAsrStreamingArticles/);
   assert.match(registry, /cleanShotComparisonArticles/);
   assert.match(registry, /cleanShot5Articles/);
   assert.match(registry, /optimizelyMarkBenchArticles/);
