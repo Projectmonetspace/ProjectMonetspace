@@ -11,6 +11,7 @@ import { cleanShotComparisonArticles } from "./blog-content-cleanshot-comparison
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
 import { gemini38FlashArticles } from "./blog-content-gemini-3-8-flash.ts";
+import { gemini38Vs37Articles } from "./blog-content-gemini-3-8-vs-3-7.ts";
 import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
 import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migration.ts";
@@ -21,6 +22,7 @@ import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles
 import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
 import { monidArticles } from "./blog-content-monid.ts";
+import { monidMarketingWorkflowArticles } from "./blog-content-monid-marketing-workflows.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
 import { optimizelyMarkBenchArticles } from "./blog-content-optimizely-mark-bench.ts";
@@ -51,7 +53,9 @@ function validateArticle(article: BlogArticle): BlogArticle {
 
 const sourceArticles: BlogArticle[] = [
   ...gemini38FlashArticles,
+  ...gemini38Vs37Articles,
   ...monidArticles,
+  ...monidMarketingWorkflowArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
   ...optimizelyMarkBenchArticles,
@@ -97,9 +101,10 @@ for (const article of sourceArticles) {
   supportingPathsByParent.set(article.parentSlug, paths);
 }
 
+const modifiedMainSlugs = new Set(["cleanshot-5-studio-mode", "monid-agent-tools", "gemini-3-8-flash"]);
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
-  const dateModified = article.slug === "cleanshot-5-studio-mode" ? "2026-09-03" : article.dateModified;
+  const dateModified = modifiedMainSlugs.has(article.slug) ? "2026-09-03" : article.dateModified;
   return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
 });
 
