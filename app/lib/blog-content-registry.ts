@@ -32,6 +32,7 @@ import { perplexityPortableArticles } from "./blog-content-perplexity-portable.t
 import { photoshopGoogleArticles } from "./blog-content-photoshop-google.ts";
 import { praxistArticles } from "./blog-content-praxist.ts";
 import { rocm10Articles } from "./blog-content-rocm-10.ts";
+import { solarWmArticles } from "./blog-content-solarwm.ts";
 import { sparkStationAdArticles } from "./blog-content-sparkstation-ads.ts";
 import { sparkStationArticles } from "./blog-content-sparkstation.ts";
 import { stackScopeArticles } from "./blog-content-stackscope.ts";
@@ -60,6 +61,7 @@ const sourceArticles: BlogArticle[] = [
   ...monidMarketingWorkflowArticles,
   ...vibeVoiceAsrStreamingArticles,
   ...huggingFaceWebgpuKernelArticles,
+  ...solarWmArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
   ...optimizelyMarkBenchArticles,
