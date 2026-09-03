@@ -15,6 +15,8 @@ const expectedSlugs = [
   "vibevoice-asr-streaming-local-install",
   "hugging-face-webgpu-kernels",
   "how-to-use-huggingface-webgpu-kernels",
+  "solarwm-video-world-model",
+  "how-to-run-solarwm-locally",
   "cleanshot-vs-screen-studio",
   "cleanshot-5-studio-mode",
   "how-to-use-cleanshot-studio-mode",
@@ -163,6 +165,7 @@ test("blog batches register centrally rather than chaining into newer batches", 
   assert.match(registry, /monidMarketingWorkflowArticles/);
   assert.match(registry, /vibeVoiceAsrStreamingArticles/);
   assert.match(registry, /huggingFaceWebgpuKernelArticles/);
+  assert.match(registry, /solarWmArticles/);
   assert.match(registry, /cleanShotComparisonArticles/);
   assert.match(registry, /cleanShot5Articles/);
   assert.match(registry, /optimizelyMarkBenchArticles/);
