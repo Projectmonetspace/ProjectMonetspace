@@ -36,6 +36,7 @@ import { sparkStationArticles } from "./blog-content-sparkstation.ts";
 import { stackScopeArticles } from "./blog-content-stackscope.ts";
 import { staatsArticles } from "./blog-content-staats.ts";
 import { topviewMotionStudioArticles } from "./blog-content-topview-motion-studio.ts";
+import { vibeVoiceAsrStreamingArticles } from "./blog-content-vibevoice-asr-streaming.ts";
 import { youtubeAmazonArticles } from "./blog-content-youtube-amazon.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
 
@@ -56,6 +57,7 @@ const sourceArticles: BlogArticle[] = [
   ...gemini38Vs37Articles,
   ...monidArticles,
   ...monidMarketingWorkflowArticles,
+  ...vibeVoiceAsrStreamingArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
   ...optimizelyMarkBenchArticles,
