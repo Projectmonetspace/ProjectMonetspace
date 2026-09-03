@@ -10,6 +10,7 @@ import { cleanShot5Articles } from "./blog-content-cleanshot-5.ts";
 import { cleanShotComparisonArticles } from "./blog-content-cleanshot-comparison.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
+import { gemini38FlashArticles } from "./blog-content-gemini-3-8-flash.ts";
 import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
 import { glm53MidjourneyArticles } from "./blog-content-glm53-midjourney-v82.ts";
 import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migration.ts";
@@ -49,6 +50,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...gemini38FlashArticles,
   ...monidArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
