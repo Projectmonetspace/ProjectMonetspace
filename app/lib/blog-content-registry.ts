@@ -18,6 +18,7 @@ import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migra
 import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
 import { googlePicsArticles } from "./blog-content-google-pics.ts";
+import { huggingFaceWebgpuKernelArticles } from "./blog-content-hugging-face-webgpu-kernels.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
 import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
@@ -58,6 +59,7 @@ const sourceArticles: BlogArticle[] = [
   ...monidArticles,
   ...monidMarketingWorkflowArticles,
   ...vibeVoiceAsrStreamingArticles,
+  ...huggingFaceWebgpuKernelArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
   ...optimizelyMarkBenchArticles,
