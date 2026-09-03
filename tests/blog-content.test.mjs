@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "alchemer-iris",
   "gemini-3-8-flash",
   "gemini-3-8-flash-api-pricing",
   "gemini-3-8-flash-vs-3-7-flash",
@@ -136,8 +137,8 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3))$/);
-    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3))$/);
+    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3|4))$/);
+    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3|4))$/);
     assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
   }
 });
@@ -159,6 +160,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
+  assert.match(registry, /alchemerIrisArticles/);
   assert.match(registry, /gemini38FlashArticles/);
   assert.match(registry, /gemini38Vs37Articles/);
   assert.match(registry, /monidArticles/);
