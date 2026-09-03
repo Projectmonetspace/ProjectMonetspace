@@ -7,8 +7,10 @@ import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../ap
 const expectedSlugs = [
   "gemini-3-8-flash",
   "gemini-3-8-flash-api-pricing",
+  "gemini-3-8-flash-vs-3-7-flash",
   "monid-agent-tools",
   "how-to-use-monid",
+  "monid-marketing-agent-workflows",
   "cleanshot-vs-screen-studio",
   "cleanshot-5-studio-mode",
   "how-to-use-cleanshot-studio-mode",
@@ -152,7 +154,9 @@ test("blog batches register centrally rather than chaining into newer batches", 
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
   assert.match(registry, /gemini38FlashArticles/);
+  assert.match(registry, /gemini38Vs37Articles/);
   assert.match(registry, /monidArticles/);
+  assert.match(registry, /monidMarketingWorkflowArticles/);
   assert.match(registry, /cleanShotComparisonArticles/);
   assert.match(registry, /cleanShot5Articles/);
   assert.match(registry, /optimizelyMarkBenchArticles/);
