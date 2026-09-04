@@ -32,6 +32,7 @@ import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
 import { monidArticles } from "./blog-content-monid.ts";
 import { monidMarketingWorkflowArticles } from "./blog-content-monid-marketing-workflows.ts";
+import { museSpark13ComparisonArticles } from "./blog-content-muse-spark-1-3-comparison.ts";
 import { museSpark13Articles } from "./blog-content-muse-spark-1-3.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
@@ -69,6 +70,7 @@ const sourceArticles: BlogArticle[] = [
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
+  ...museSpark13ComparisonArticles,
   ...gpt6AstraArticles,
   ...gpt6AstraAccessComparisonArticles,
   ...alchemerIrisArticles,
@@ -131,6 +133,7 @@ const modifiedMainDates = new Map<string, string>([
   ["gemini-3-8-flash", "2026-09-04"],
   ["airtop-agent-builder", "2026-09-04"],
   ["gupshup-voice-ai", "2026-09-05"],
+  ["muse-spark-1-3", "2026-09-05"],
 ]);
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
