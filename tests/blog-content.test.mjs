@@ -8,6 +8,8 @@ const expectedSlugs = [
   "airtop-agent-builder",
   "how-to-use-airtop-agent-builder",
   "airtop-agent-builder-pricing",
+  "gupshup-voice-ai",
+  "gupshup-voice-ai-pricing",
   "muse-spark-1-3",
   "muse-spark-1-3-api-pricing",
   "gpt-6-astra",
@@ -171,49 +173,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
-  assert.match(registry, /museSpark13Articles/);
-  assert.match(registry, /gpt6AstraArticles/);
-  assert.match(registry, /gpt6AstraAccessComparisonArticles/);
-  assert.match(registry, /alchemerIrisArticles/);
-  assert.match(registry, /gemini38FlashArticles/);
-  assert.match(registry, /gemini38Vs37Articles/);
-  assert.match(registry, /monidArticles/);
-  assert.match(registry, /monidMarketingWorkflowArticles/);
-  assert.match(registry, /vibeVoiceAsrStreamingArticles/);
-  assert.match(registry, /huggingFaceWebgpuKernelArticles/);
-  assert.match(registry, /funesArticles/);
-  assert.match(registry, /airtopAgentBuilderArticles/);
-  assert.match(registry, /airtopAgentBuilderPricingArticles/);
-  assert.match(registry, /solarWmArticles/);
-  assert.match(registry, /cleanShotComparisonArticles/);
-  assert.match(registry, /cleanShot5Articles/);
-  assert.match(registry, /optimizelyMarkBenchArticles/);
-  assert.match(registry, /asusProArtRtxSparkArticles/);
-  assert.match(registry, /claudeFable51ApiArticles/);
-  assert.match(registry, /googlePicsArticles/);
-  assert.match(registry, /geminiAgenticVideoArticles/);
-  assert.match(registry, /claudeFable51Articles/);
-  assert.match(registry, /mercury25Articles/);
-  assert.match(registry, /googleAiMaxMigrationArticles/);
-  assert.match(registry, /flowiseArticles/);
-  assert.match(registry, /browserSkillArticles/);
-  assert.match(registry, /marketingSkillsArticles/);
-  assert.match(registry, /chatgptAdsArticles/);
-  assert.match(registry, /instagramAiProfileArticles/);
-  assert.match(registry, /optimizelyVirtualTeammateArticles/);
-  assert.match(registry, /stackScopeArticles/);
-  assert.match(registry, /caddiArticles/);
-  assert.match(registry, /olostepArticles/);
-  assert.match(registry, /topviewMotionStudioArticles/);
-  assert.match(registry, /openMontageArticles/);
-  assert.match(registry, /youtubeAmazonArticles/);
-  assert.match(registry, /googleAdsDeveloperAssistantArticles/);
-  assert.match(registry, /cohereParseArticles/);
-  assert.match(registry, /staatsArticles/);
-  assert.match(registry, /approvedArticles20260829/);
-  assert.match(registry, /glm53MidjourneyArticles/);
-  assert.match(registry, /photoshopGoogleArticles/);
-  assert.match(registry, /legacyBlogArticles/);
+  for (const token of ["museSpark13Articles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","gupshupVoiceAiArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
   assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
 });
 
