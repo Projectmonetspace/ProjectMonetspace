@@ -115,7 +115,7 @@ export const funesArticles: BlogArticle[] = [
         title: "1. Install Funes on a supported platform",
         blocks: [
           { type: "paragraph", html: "The live repository currently publishes prebuilt binaries for Linux x86_64, Linux aarch64 and macOS Apple Silicon. Windows is not in the current prebuilt table." },
-          { type: "code", language: "bash", code: "curl -fsSL https://huggingface.co/buckets/huggingface/funes/resolve/install.sh | sh\nfunes status" },
+          { type: "paragraph", html: "Run <code>curl -fsSL https://huggingface.co/buckets/huggingface/funes/resolve/install.sh | sh</code>, then check the installation with <code>funes status</code>." },
           { type: "paragraph", html: "The installer detects the platform, downloads the matching binary and verifies the tagged release checksum and version before placing it in <code>~/.local/bin</code> by default." },
         ],
       },
@@ -123,7 +123,7 @@ export const funesArticles: BlogArticle[] = [
         id: "connect",
         title: "2. Connect Claude Code or Codex",
         blocks: [
-          { type: "code", language: "bash", code: "funes add claude\nfunes add codex" },
+          { type: "paragraph", html: "Connect Claude Code with <code>funes add claude</code> or Codex with <code>funes add codex</code>." },
           { type: "paragraph", html: "The add command builds the first index and gives the agent <code>recall</code> and <code>get</code> tools. The current documentation says Claude, Codex and Hermes also receive automation that keeps the index current as work continues." },
           { type: "paragraph", html: "Claude Code and Codex can write into the same Funes memory, which is what enables cross-agent recall." },
         ],
@@ -132,7 +132,7 @@ export const funesArticles: BlogArticle[] = [
         id: "index",
         title: "3. Index existing sessions",
         blocks: [
-          { type: "code", language: "bash", code: "funes index\nfunes index --harness codex" },
+          { type: "paragraph", html: "Run <code>funes index</code> for the normal sweep, or scope indexing to Codex with <code>funes index --harness codex</code>." },
           { type: "paragraph", html: "With no path, Funes sweeps the supported session directories it finds. The current docs list Claude Code projects, Codex sessions, pi sessions and Hermes state as known sources." },
           { type: "paragraph", html: "A manual index is useful when seeding old project history or diagnosing why expected sessions are missing." },
         ],
@@ -141,7 +141,7 @@ export const funesArticles: BlogArticle[] = [
         id: "recall",
         title: "4. Recall and inspect prior evidence",
         blocks: [
-          { type: "code", language: "bash", code: "funes recall \"why did we change the streaming parser\"" },
+          { type: "paragraph", html: "Query memory directly with a command such as <code>funes recall &quot;why did we change the streaming parser&quot;</code>." },
           { type: "paragraph", html: "Recall returns ranked original passages with provenance. Use the get command or tool identifiers from a live recall result to reopen the full turn and nearby context." },
           { type: "paragraph", html: "For the broader architecture, release context and benchmark limitations, read the <a href=\"/blog/hugging-face-funes\">main Hugging Face Funes overview</a>." },
         ],
@@ -150,7 +150,7 @@ export const funesArticles: BlogArticle[] = [
         id: "ask-share",
         title: "5. Ask a memory or share it across machines",
         blocks: [
-          { type: "code", language: "bash", code: "funes ask claude \"why is funes append-only\" --memory huggingface/funes-memory\nfunes push your-name/funes-memory\nfunes recall \"question\" --memory your-name/funes-memory" },
+          { type: "paragraph", html: "Use <code>funes ask claude &quot;why is funes append-only&quot; --memory huggingface/funes-memory</code> for one grounded answer, <code>funes push your-name/funes-memory</code> to publish new chunks, or <code>funes recall &quot;question&quot; --memory your-name/funes-memory</code> to read a bound remote memory." },
           { type: "paragraph", html: "Funes-created dataset repositories are private by default. Existing repositories retain their current visibility, so always verify the destination before pushing sensitive traces." },
           { type: "note", html: "Funes redacts credentials during indexing and has a separate secret gate before publishing, but coding-agent traces can contain more kinds of sensitive information than a secret scanner can reliably classify." },
         ],
@@ -159,7 +159,7 @@ export const funesArticles: BlogArticle[] = [
         id: "troubleshoot",
         title: "6. Troubleshooting and update checks",
         blocks: [
-          { type: "code", language: "bash", code: "funes status\nfunes update" },
+          { type: "paragraph", html: "Use <code>funes status</code> to inspect the current setup and <code>funes update</code> to replace the installed binary with the latest build for the platform." },
           { type: "list", items: ["Confirm the expected agent traces exist locally", "Run a manual or harness-scoped index if recall misses old work", "Verify the integration created by funes add is still present", "Check dataset identity, credentials and visibility for shared memory", "Confirm your platform is listed in the current release table", "On Linux, note the documented glibc 2.35+ requirement for the default build"] },
           { type: "paragraph", html: "Because Funes is new, recheck the repository and release notes before deploying it across production developer machines." },
         ],
