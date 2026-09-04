@@ -2,6 +2,7 @@ import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts"
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { alchemerIrisArticles } from "./blog-content-alchemer-iris.ts";
 import { airtopAgentBuilderArticles } from "./blog-content-airtop-agent-builder.ts";
+import { airtopAgentBuilderPricingArticles } from "./blog-content-airtop-agent-builder-pricing.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -62,6 +63,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 
 const sourceArticles: BlogArticle[] = [
   ...airtopAgentBuilderArticles,
+  ...airtopAgentBuilderPricingArticles,
   ...museSpark13Articles,
   ...gpt6AstraArticles,
   ...gpt6AstraAccessComparisonArticles,
@@ -119,10 +121,10 @@ for (const article of sourceArticles) {
   supportingPathsByParent.set(article.parentSlug, paths);
 }
 
-const modifiedMainSlugs = new Set(["cleanshot-5-studio-mode", "monid-agent-tools", "gemini-3-8-flash"]);
+const modifiedMainSlugs = new Set(["cleanshot-5-studio-mode", "monid-agent-tools", "gemini-3-8-flash", "airtop-agent-builder"]);
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
-  const dateModified = modifiedMainSlugs.has(article.slug) ? "2026-09-03" : article.dateModified;
+  const dateModified = modifiedMainSlugs.has(article.slug) ? "2026-09-04" : article.dateModified;
   return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
 });
 
