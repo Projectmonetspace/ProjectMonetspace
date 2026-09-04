@@ -7,6 +7,7 @@ import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../ap
 const expectedSlugs = [
   "airtop-agent-builder",
   "how-to-use-airtop-agent-builder",
+  "airtop-agent-builder-pricing",
   "muse-spark-1-3",
   "muse-spark-1-3-api-pricing",
   "gpt-6-astra",
@@ -182,6 +183,7 @@ test("blog batches register centrally rather than chaining into newer batches", 
   assert.match(registry, /huggingFaceWebgpuKernelArticles/);
   assert.match(registry, /funesArticles/);
   assert.match(registry, /airtopAgentBuilderArticles/);
+  assert.match(registry, /airtopAgentBuilderPricingArticles/);
   assert.match(registry, /solarWmArticles/);
   assert.match(registry, /cleanShotComparisonArticles/);
   assert.match(registry, /cleanShot5Articles/);
