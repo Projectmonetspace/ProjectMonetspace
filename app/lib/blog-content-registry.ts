@@ -63,8 +63,8 @@ function validateArticle(article: BlogArticle): BlogArticle {
 const sourceArticles: BlogArticle[] = [
   ...airtopAgentBuilderArticles,
   ...museSpark13Articles,
-  ...gpt6AstraAccessComparisonArticles,
   ...gpt6AstraArticles,
+  ...gpt6AstraAccessComparisonArticles,
   ...alchemerIrisArticles,
   ...gemini38FlashArticles,
   ...gemini38Vs37Articles,
