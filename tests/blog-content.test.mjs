@@ -7,6 +7,8 @@ import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../ap
 const expectedSlugs = [
   "airtop-agent-builder",
   "how-to-use-airtop-agent-builder",
+  "muse-spark-1-3",
+  "muse-spark-1-3-api-pricing",
   "gpt-6-astra",
   "gpt-6-astra-api-pricing",
   "alchemer-iris",
@@ -20,6 +22,8 @@ const expectedSlugs = [
   "vibevoice-asr-streaming-local-install",
   "hugging-face-webgpu-kernels",
   "how-to-use-huggingface-webgpu-kernels",
+  "hugging-face-funes",
+  "how-to-use-funes-claude-code-codex",
   "solarwm-video-world-model",
   "how-to-run-solarwm-locally",
   "cleanshot-vs-screen-studio",
@@ -164,7 +168,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
-  assert.match(registry, /airtopAgentBuilderArticles/);
+  assert.match(registry, /museSpark13Articles/);
   assert.match(registry, /gpt6AstraArticles/);
   assert.match(registry, /alchemerIrisArticles/);
   assert.match(registry, /gemini38FlashArticles/);
@@ -173,6 +177,8 @@ test("blog batches register centrally rather than chaining into newer batches", 
   assert.match(registry, /monidMarketingWorkflowArticles/);
   assert.match(registry, /vibeVoiceAsrStreamingArticles/);
   assert.match(registry, /huggingFaceWebgpuKernelArticles/);
+  assert.match(registry, /funesArticles/);
+  assert.match(registry, /airtopAgentBuilderArticles/);
   assert.match(registry, /solarWmArticles/);
   assert.match(registry, /cleanShotComparisonArticles/);
   assert.match(registry, /cleanShot5Articles/);
