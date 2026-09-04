@@ -1,6 +1,7 @@
 import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { alchemerIrisArticles } from "./blog-content-alchemer-iris.ts";
+import { airtopAgentBuilderArticles } from "./blog-content-airtop-agent-builder.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -59,6 +60,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...airtopAgentBuilderArticles,
   ...museSpark13Articles,
   ...gpt6AstraArticles,
   ...alchemerIrisArticles,
