@@ -27,6 +27,7 @@ import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
 import { monidArticles } from "./blog-content-monid.ts";
 import { monidMarketingWorkflowArticles } from "./blog-content-monid-marketing-workflows.ts";
+import { museSpark13Articles } from "./blog-content-muse-spark-1-3.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
 import { optimizelyMarkBenchArticles } from "./blog-content-optimizely-mark-bench.ts";
@@ -58,6 +59,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...museSpark13Articles,
   ...gpt6AstraArticles,
   ...alchemerIrisArticles,
   ...gemini38FlashArticles,
