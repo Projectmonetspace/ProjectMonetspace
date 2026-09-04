@@ -11,6 +11,7 @@ import { cleanShot5Articles } from "./blog-content-cleanshot-5.ts";
 import { cleanShotComparisonArticles } from "./blog-content-cleanshot-comparison.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
+import { funesArticles } from "./blog-content-funes.ts";
 import { gemini38FlashArticles } from "./blog-content-gemini-3-8-flash.ts";
 import { gemini38Vs37Articles } from "./blog-content-gemini-3-8-vs-3-7.ts";
 import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
@@ -67,6 +68,7 @@ const sourceArticles: BlogArticle[] = [
   ...monidMarketingWorkflowArticles,
   ...vibeVoiceAsrStreamingArticles,
   ...huggingFaceWebgpuKernelArticles,
+  ...funesArticles,
   ...solarWmArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
