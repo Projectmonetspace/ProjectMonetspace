@@ -125,10 +125,16 @@ for (const article of sourceArticles) {
   supportingPathsByParent.set(article.parentSlug, paths);
 }
 
-const modifiedMainSlugs = new Set(["cleanshot-5-studio-mode", "monid-agent-tools", "gemini-3-8-flash", "airtop-agent-builder", "gupshup-voice-ai"]);
+const modifiedMainDates = new Map<string, string>([
+  ["cleanshot-5-studio-mode", "2026-09-04"],
+  ["monid-agent-tools", "2026-09-04"],
+  ["gemini-3-8-flash", "2026-09-04"],
+  ["airtop-agent-builder", "2026-09-04"],
+  ["gupshup-voice-ai", "2026-09-05"],
+]);
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
-  const dateModified = modifiedMainSlugs.has(article.slug) ? "2026-09-05" : article.dateModified;
+  const dateModified = modifiedMainDates.get(article.slug) ?? article.dateModified;
   return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
 });
 
