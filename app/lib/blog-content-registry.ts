@@ -19,6 +19,7 @@ import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migra
 import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
 import { googlePicsArticles } from "./blog-content-google-pics.ts";
+import { gpt6AstraArticles } from "./blog-content-gpt-6-astra.ts";
 import { huggingFaceWebgpuKernelArticles } from "./blog-content-hugging-face-webgpu-kernels.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
 import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
@@ -56,6 +57,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...gpt6AstraArticles,
   ...alchemerIrisArticles,
   ...gemini38FlashArticles,
   ...gemini38Vs37Articles,
