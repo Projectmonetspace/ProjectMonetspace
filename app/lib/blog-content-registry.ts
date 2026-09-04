@@ -1,6 +1,7 @@
 import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { alchemerIrisArticles } from "./blog-content-alchemer-iris.ts";
+import { airtopAgentBuilderArticles } from "./blog-content-airtop-agent-builder.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -11,6 +12,7 @@ import { cleanShot5Articles } from "./blog-content-cleanshot-5.ts";
 import { cleanShotComparisonArticles } from "./blog-content-cleanshot-comparison.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
+import { funesArticles } from "./blog-content-funes.ts";
 import { gemini38FlashArticles } from "./blog-content-gemini-3-8-flash.ts";
 import { gemini38Vs37Articles } from "./blog-content-gemini-3-8-vs-3-7.ts";
 import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
@@ -19,6 +21,7 @@ import { googleAiMaxMigrationArticles } from "./blog-content-google-ai-max-migra
 import { googleAdsDeveloperAssistantArticles } from "./blog-content-google-ads-developer-assistant.ts";
 import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-gen-august-2026.ts";
 import { googlePicsArticles } from "./blog-content-google-pics.ts";
+import { gpt6AstraAccessComparisonArticles } from "./blog-content-gpt-6-astra-access-comparison.ts";
 import { gpt6AstraArticles } from "./blog-content-gpt-6-astra.ts";
 import { huggingFaceWebgpuKernelArticles } from "./blog-content-hugging-face-webgpu-kernels.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
@@ -58,8 +61,10 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...airtopAgentBuilderArticles,
   ...museSpark13Articles,
   ...gpt6AstraArticles,
+  ...gpt6AstraAccessComparisonArticles,
   ...alchemerIrisArticles,
   ...gemini38FlashArticles,
   ...gemini38Vs37Articles,
@@ -67,6 +72,7 @@ const sourceArticles: BlogArticle[] = [
   ...monidMarketingWorkflowArticles,
   ...vibeVoiceAsrStreamingArticles,
   ...huggingFaceWebgpuKernelArticles,
+  ...funesArticles,
   ...solarWmArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
