@@ -24,6 +24,7 @@ import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-
 import { googlePicsArticles } from "./blog-content-google-pics.ts";
 import { gpt6AstraAccessComparisonArticles } from "./blog-content-gpt-6-astra-access-comparison.ts";
 import { gpt6AstraArticles } from "./blog-content-gpt-6-astra.ts";
+import { gupshupVoiceAiArticles } from "./blog-content-gupshup-voice-ai.ts";
 import { huggingFaceWebgpuKernelArticles } from "./blog-content-hugging-face-webgpu-kernels.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
 import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
@@ -64,6 +65,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 const sourceArticles: BlogArticle[] = [
   ...airtopAgentBuilderArticles,
   ...airtopAgentBuilderPricingArticles,
+  ...gupshupVoiceAiArticles,
   ...museSpark13Articles,
   ...gpt6AstraArticles,
   ...gpt6AstraAccessComparisonArticles,
