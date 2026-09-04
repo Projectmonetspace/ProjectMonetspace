@@ -10,6 +10,7 @@ const expectedSlugs = [
   "airtop-agent-builder-pricing",
   "gupshup-voice-ai",
   "gupshup-voice-ai-pricing",
+  "how-to-build-gupshup-voice-ai-agent",
   "muse-spark-1-3",
   "muse-spark-1-3-api-pricing",
   "gpt-6-astra",
@@ -150,8 +151,8 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3|4))$/);
-    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3|4))$/);
+    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3|4|5))$/);
+    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-0(1|2|3|4|5))$/);
     assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
   }
 });
@@ -173,7 +174,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
-  for (const token of ["museSpark13Articles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","gupshupVoiceAiArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
+  for (const token of ["museSpark13Articles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","gupshupVoiceAiArticles","gupshupVoiceAiBuildGuideArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
   assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
 });
 
