@@ -7,6 +7,8 @@ import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../ap
 const expectedSlugs = [
   "gpt-6-astra",
   "gpt-6-astra-api-pricing",
+  "how-to-access-gpt-6-astra",
+  "gpt-6-astra-vs-gpt-5-6-sol",
   "alchemer-iris",
   "gemini-3-8-flash",
   "gemini-3-8-flash-api-pricing",
@@ -163,6 +165,7 @@ test("blog batches register centrally rather than chaining into newer batches", 
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
   assert.match(registry, /gpt6AstraArticles/);
+  assert.match(registry, /gpt6AstraAccessComparisonArticles/);
   assert.match(registry, /alchemerIrisArticles/);
   assert.match(registry, /gemini38FlashArticles/);
   assert.match(registry, /gemini38Vs37Articles/);
