@@ -24,6 +24,7 @@ import { googleDemandGenAugust2026Articles } from "./blog-content-google-demand-
 import { googlePicsArticles } from "./blog-content-google-pics.ts";
 import { gpt6AstraAccessComparisonArticles } from "./blog-content-gpt-6-astra-access-comparison.ts";
 import { gpt6AstraArticles } from "./blog-content-gpt-6-astra.ts";
+import { gupshupVoiceAiBuildGuideArticles } from "./blog-content-gupshup-voice-ai-build-guide.ts";
 import { gupshupVoiceAiArticles } from "./blog-content-gupshup-voice-ai.ts";
 import { huggingFaceWebgpuKernelArticles } from "./blog-content-hugging-face-webgpu-kernels.ts";
 import { instagramAiProfileArticles } from "./blog-content-instagram-ai-profiles.ts";
@@ -66,6 +67,7 @@ const sourceArticles: BlogArticle[] = [
   ...airtopAgentBuilderArticles,
   ...airtopAgentBuilderPricingArticles,
   ...gupshupVoiceAiArticles,
+  ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
   ...gpt6AstraArticles,
   ...gpt6AstraAccessComparisonArticles,
@@ -123,10 +125,10 @@ for (const article of sourceArticles) {
   supportingPathsByParent.set(article.parentSlug, paths);
 }
 
-const modifiedMainSlugs = new Set(["cleanshot-5-studio-mode", "monid-agent-tools", "gemini-3-8-flash", "airtop-agent-builder"]);
+const modifiedMainSlugs = new Set(["cleanshot-5-studio-mode", "monid-agent-tools", "gemini-3-8-flash", "airtop-agent-builder", "gupshup-voice-ai"]);
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
-  const dateModified = modifiedMainSlugs.has(article.slug) ? "2026-09-04" : article.dateModified;
+  const dateModified = modifiedMainSlugs.has(article.slug) ? "2026-09-05" : article.dateModified;
   return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
 });
 
