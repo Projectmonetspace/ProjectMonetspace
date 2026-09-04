@@ -1,6 +1,7 @@
 import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { alchemerIrisArticles } from "./blog-content-alchemer-iris.ts";
+import { airtopAgentBuilderArticles } from "./blog-content-airtop-agent-builder.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -11,6 +12,7 @@ import { cleanShot5Articles } from "./blog-content-cleanshot-5.ts";
 import { cleanShotComparisonArticles } from "./blog-content-cleanshot-comparison.ts";
 import { cohereParseArticles } from "./blog-content-cohere-parse.ts";
 import { flowiseArticles } from "./blog-content-flowise.ts";
+import { funesArticles } from "./blog-content-funes.ts";
 import { gemini38FlashArticles } from "./blog-content-gemini-3-8-flash.ts";
 import { gemini38Vs37Articles } from "./blog-content-gemini-3-8-vs-3-7.ts";
 import { geminiAgenticVideoArticles } from "./blog-content-gemini-agentic-video.ts";
@@ -27,6 +29,7 @@ import { marketingSkillsArticles } from "./blog-content-marketing-skills.ts";
 import { mercury25Articles } from "./blog-content-mercury-2-5.ts";
 import { monidArticles } from "./blog-content-monid.ts";
 import { monidMarketingWorkflowArticles } from "./blog-content-monid-marketing-workflows.ts";
+import { museSpark13Articles } from "./blog-content-muse-spark-1-3.ts";
 import { olostepArticles } from "./blog-content-olostep.ts";
 import { openMontageArticles } from "./blog-content-openmontage.ts";
 import { optimizelyMarkBenchArticles } from "./blog-content-optimizely-mark-bench.ts";
@@ -58,8 +61,10 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
-  ...gpt6AstraArticles,
+  ...airtopAgentBuilderArticles,
+  ...museSpark13Articles,
   ...gpt6AstraAccessComparisonArticles,
+  ...gpt6AstraArticles,
   ...alchemerIrisArticles,
   ...gemini38FlashArticles,
   ...gemini38Vs37Articles,
@@ -67,6 +72,7 @@ const sourceArticles: BlogArticle[] = [
   ...monidMarketingWorkflowArticles,
   ...vibeVoiceAsrStreamingArticles,
   ...huggingFaceWebgpuKernelArticles,
+  ...funesArticles,
   ...solarWmArticles,
   ...cleanShotComparisonArticles,
   ...cleanShot5Articles,
