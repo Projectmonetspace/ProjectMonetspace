@@ -7,6 +7,7 @@ import { dialAiAgentArticles } from "./blog-content-dial-ai-agents.ts";
 import { coderAgentRelayArticles } from "./blog-content-coder-agent-relay.ts";
 import { lyria35Articles } from "./blog-content-lyria-3-5.ts";
 import { neommeArticles } from "./blog-content-neomme.ts";
+import { vlmRunGatewayArticles } from "./blog-content-vlm-run-gateway.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -75,6 +76,7 @@ const sourceArticles: BlogArticle[] = [
   ...coderAgentRelayArticles,
   ...lyria35Articles,
   ...neommeArticles,
+  ...vlmRunGatewayArticles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
