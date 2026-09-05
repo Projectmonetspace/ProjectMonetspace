@@ -5,6 +5,7 @@ import { airtopAgentBuilderArticles } from "./blog-content-airtop-agent-builder.
 import { airtopAgentBuilderPricingArticles } from "./blog-content-airtop-agent-builder-pricing.ts";
 import { dialAiAgentArticles } from "./blog-content-dial-ai-agents.ts";
 import { coderAgentRelayArticles } from "./blog-content-coder-agent-relay.ts";
+import { lyria35Articles } from "./blog-content-lyria-3-5.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -71,6 +72,7 @@ const sourceArticles: BlogArticle[] = [
   ...airtopAgentBuilderPricingArticles,
   ...dialAiAgentArticles,
   ...coderAgentRelayArticles,
+  ...lyria35Articles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
