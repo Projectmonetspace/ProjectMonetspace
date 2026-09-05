@@ -13,6 +13,7 @@ const expectedSlugs = [
   "coder-agent-relay",
   "lyria-3-5-google-ai-music-generator",
   "lyria-3-5-api-pricing",
+  "how-to-use-lyria-3-5-in-gemini",
   "neomme-multimodal-document-retrieval-model",
   "how-to-use-neomme-retriever-visual-rag",
   "vlm-run-gateway",
