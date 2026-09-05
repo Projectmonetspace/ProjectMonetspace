@@ -13,6 +13,8 @@ const expectedSlugs = [
   "coder-agent-relay",
   "lyria-3-5-google-ai-music-generator",
   "lyria-3-5-api-pricing",
+  "neomme-multimodal-document-retrieval-model",
+  "how-to-use-neomme-retriever-visual-rag",
   "gupshup-voice-ai",
   "gupshup-voice-ai-pricing",
   "how-to-build-gupshup-voice-ai-agent",
@@ -180,7 +182,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
-  for (const token of ["museSpark13Articles","museSpark13ComparisonArticles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","dialAiAgentArticles","coderAgentRelayArticles","lyria35Articles","gupshupVoiceAiArticles","gupshupVoiceAiBuildGuideArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
+  for (const token of ["museSpark13Articles","museSpark13ComparisonArticles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","dialAiAgentArticles","coderAgentRelayArticles","lyria35Articles","neommeArticles","gupshupVoiceAiArticles","gupshupVoiceAiBuildGuideArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
   assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
 });
 
