@@ -10,6 +10,7 @@ const expectedSlugs = [
   "airtop-agent-builder-pricing",
   "dial-ai-agent-phone-number",
   "how-to-use-dial-ai-agents",
+  "coder-agent-relay",
   "gupshup-voice-ai",
   "gupshup-voice-ai-pricing",
   "how-to-build-gupshup-voice-ai-agent",
@@ -177,7 +178,7 @@ test("supporting articles have a reciprocal main-article relationship", () => {
 test("blog batches register centrally rather than chaining into newer batches", async () => {
   const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
   const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
-  for (const token of ["museSpark13Articles","museSpark13ComparisonArticles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","dialAiAgentArticles","gupshupVoiceAiArticles","gupshupVoiceAiBuildGuideArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
+  for (const token of ["museSpark13Articles","museSpark13ComparisonArticles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","dialAiAgentArticles","coderAgentRelayArticles","gupshupVoiceAiArticles","gupshupVoiceAiBuildGuideArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
   assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
 });
 
