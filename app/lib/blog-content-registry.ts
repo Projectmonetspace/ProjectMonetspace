@@ -3,6 +3,7 @@ import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
 import { alchemerIrisArticles } from "./blog-content-alchemer-iris.ts";
 import { airtopAgentBuilderArticles } from "./blog-content-airtop-agent-builder.ts";
 import { airtopAgentBuilderPricingArticles } from "./blog-content-airtop-agent-builder-pricing.ts";
+import { dialAiAgentArticles } from "./blog-content-dial-ai-agents.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -67,6 +68,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 const sourceArticles: BlogArticle[] = [
   ...airtopAgentBuilderArticles,
   ...airtopAgentBuilderPricingArticles,
+  ...dialAiAgentArticles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
