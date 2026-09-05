@@ -67,7 +67,7 @@ export const lyria35Articles: BlogArticle[] = [
       ]},
     ],
     sources: lyriaSources,
-    relatedPaths: ["/blog/lyria-3-5-api-pricing"],
+    relatedPaths: ["/blog/lyria-3-5-api-pricing", "/blog/how-to-use-lyria-3-5-in-gemini"],
   },
   {
     status: "published",
@@ -130,5 +130,56 @@ export const lyria35Articles: BlogArticle[] = [
     ],
     sources: lyriaSources,
     relatedPaths: ["/blog/lyria-3-5-google-ai-music-generator"],
+  },
+  {
+    status: "published",
+    articleType: "supporting",
+    cluster: "Google Lyria 3.5",
+    targetSearchIntent: "Creator workflow for generating music in the Gemini app with Lyria 3.5, including prompt structure, vocal or instrumental choices, short versus longer tracks and practical content uses",
+    targetQuery: "how to use Lyria 3.5 in Gemini",
+    parentSlug: "lyria-3-5-google-ai-music-generator",
+    slug: "how-to-use-lyria-3-5-in-gemini",
+    title: "How to Generate Music with Lyria 3.5 in Gemini",
+    metaTitle: "How to Use Lyria 3.5 in Gemini to Generate Music",
+    metaDescription: "Learn how to generate music with Lyria 3.5 in Gemini: prompt genres, vocals, instrumentals, track length and creator-ready music for reels, ads and brand concepts.",
+    h1: "How to Generate Music with Lyria 3.5 in Gemini",
+    excerpt: "Lyria 3.5 is available globally in the Gemini app, with genre controls, vocal or instrumental styles, templates and short or longer track choices for creator workflows.",
+    category: "Creator Tools",
+    author: "Project Monet Editorial Team",
+    datePublished: "2026-09-05",
+    dateModified: "2026-09-05",
+    ogAlt: "Creator workflow for generating AI music with Lyria 3.5 in Gemini, represented by a prompt panel, waveform and short-form video frame",
+    sections: [
+      { id: "start-with-job", title: "Start with the job the track needs to do", blocks: [
+        { type: "paragraph", html: "Begin with the role of the music, not just a genre label. A useful brief can name the platform, energy, vocal preference and where the music must leave room for dialogue or edits." },
+        { type: "paragraph", html: "For example, ask for an energetic electronic instrumental for a fast-cut product reel, with an immediate hook, a cleaner middle section for voiceover and a concise ending. Treat the requested timing as creative direction rather than a guarantee of an exact second count." },
+      ]},
+      { id: "style-controls", title: "Use Gemini's announced style controls deliberately", blocks: [
+        { type: "paragraph", html: "Google says the Gemini app lets users select or describe a genre and choose between vocal or instrumental styles. It also provides templates to jump-start common music ideas." },
+        { type: "paragraph", html: "For dialogue-heavy social content, an instrumental is often the easier starting point because lyrics can compete with speech. Vocal tracks can fit jingles, theme songs or concepts where the song itself is the main creative." },
+      ]},
+      { id: "prompt-detail", title: "Describe texture, energy and structure", blocks: [
+        { type: "paragraph", html: "Reduce ambiguity by adding qualities such as instrumentation, energy, mood and arrangement instead of relying on one broad genre word. A prompt can ask for modern synth-pop with crisp drums and a clean bass groove, or sparse dark electronic music with no vocals." },
+        { type: "paragraph", html: "Google positions Lyria 3.5 around richer arrangements, and the Gemini app now offers short or longer track choices. You can describe an arc such as hook, quieter middle and clean ending, but the consumer announcement does not promise exact duration control to the second." },
+      ]},
+      { id: "creator-workflows", title: "Turn creator and brand briefs into music", blocks: [
+        { type: "paragraph", html: "Translate a visual or brand brief into sonic attributes: premium, minimalist, energetic, cinematic, playful or restrained. Then specify whether the result should sit under voiceover, carry an ad hook or work as a standalone jingle." },
+        { type: "paragraph", html: "Google specifically lists backing tracks and brand jingles as Gemini-app use cases. For a reel, useful instructions include a fast opening hook, enough space for speech, a clear beat for edit points and a clean ending." },
+      ]},
+      { id: "images-and-api", title: "Keep Gemini-app and API capabilities distinct", blocks: [
+        { type: "paragraph", html: "Google's developer documentation supports text-and-image-conditioned music generation through Lyria APIs. The September 4 Gemini-app announcement, however, focuses on genre selection, vocal or instrumental styles, templates and short or longer tracks, so do not assume every API control is exposed identically in the consumer interface." },
+        { type: "paragraph", html: "Use Gemini for fast manual creation and iteration. Use the API when software must generate tracks programmatically, repeat briefs at scale or connect music generation to a larger automated workflow." },
+      ]},
+      { id: "iterate-review", title: "Iterate carefully and review before publishing", blocks: [
+        { type: "paragraph", html: "When an output is close, change one major variable at a time: energy, instrumentation, vocal mode, arrangement or length preference. That makes it easier to understand which instruction improved the result." },
+        { type: "paragraph", html: "Before publishing, check whether the hook fits the edit, whether vocals clash with narration, whether generated lyrics are suitable and whether current Google terms and platform disclosure policies fit the intended use. API or app availability is not itself a blanket commercial-rights guarantee." },
+      ]},
+      { id: "faq", title: "Lyria 3.5 in Gemini FAQ", blocks: [
+        { type: "paragraph", html: "Google announced on September 4, 2026 that Lyria 3.5 is available to all users globally on Gemini web and mobile. The app supports genre selection, vocal or instrumental styles, templates and short or longer track choices." },
+        { type: "paragraph", html: "For most individual creators, Gemini is the simpler no-code starting point. Developers and higher-volume workflows should use the Lyria API guide for model IDs, pricing and implementation constraints." },
+      ]},
+    ],
+    sources: lyriaSources,
+    relatedPaths: ["/blog/lyria-3-5-google-ai-music-generator", "/blog/lyria-3-5-api-pricing"],
   },
 ];
