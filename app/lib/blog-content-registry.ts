@@ -11,6 +11,7 @@ import { vlmRunGatewayArticles } from "./blog-content-vlm-run-gateway.ts";
 import { hydraFusionArticles } from "./blog-content-hydrafusion.ts";
 import { mentionOsArticles } from "./blog-content-mentionos.ts";
 import { lladaImageArticles } from "./blog-content-llada-image.ts";
+import { worldLabsAtlasArticles } from "./blog-content-world-labs-atlas.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -83,6 +84,7 @@ const sourceArticles: BlogArticle[] = [
   ...hydraFusionArticles,
   ...mentionOsArticles,
   ...lladaImageArticles,
+  ...worldLabsAtlasArticles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
