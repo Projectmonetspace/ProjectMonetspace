@@ -16,6 +16,7 @@ import { k2HorizonArticles } from "./blog-content-k2-horizon.ts";
 import { ranklyArticles } from "./blog-content-rankly.ts";
 import { trackMcpArticles } from "./blog-content-trackmcp.ts";
 import { minimaxH3MaxArticles } from "./blog-content-minimax-h3-max.ts";
+import { tadataArticles } from "./blog-content-tadata.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -93,6 +94,7 @@ const sourceArticles: BlogArticle[] = [
   ...ranklyArticles,
   ...trackMcpArticles,
   ...minimaxH3MaxArticles,
+  ...tadataArticles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
