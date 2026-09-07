@@ -16,6 +16,8 @@ import { k2HorizonArticles } from "./blog-content-k2-horizon.ts";
 import { ranklyArticles } from "./blog-content-rankly.ts";
 import { trackMcpArticles } from "./blog-content-trackmcp.ts";
 import { minimaxH3MaxArticles } from "./blog-content-minimax-h3-max.ts";
+import { h3MaxComparisonArticles } from "./blog-content-h3-max-comparison.ts";
+import { secretarUnifiedContextArticles } from "./blog-content-secretar-unified-context.ts";
 import { tadataArticles } from "./blog-content-tadata.ts";
 import { openYap1kArticles } from "./blog-content-open-yap-1k.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
@@ -95,6 +97,8 @@ const sourceArticles: BlogArticle[] = [
   ...ranklyArticles,
   ...trackMcpArticles,
   ...minimaxH3MaxArticles,
+  ...h3MaxComparisonArticles,
+  ...secretarUnifiedContextArticles,
   ...tadataArticles,
   ...openYap1kArticles,
   ...gupshupVoiceAiArticles,
@@ -164,6 +168,7 @@ const modifiedMainDates = new Map<string, string>([
   ["airtop-agent-builder", "2026-09-04"],
   ["gupshup-voice-ai", "2026-09-05"],
   ["muse-spark-1-3", "2026-09-05"],
+  ["minimax-h3-max", "2026-09-07"],
 ]);
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
