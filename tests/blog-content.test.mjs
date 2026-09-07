@@ -28,6 +28,7 @@ const expectedSlugs = [
   "world-labs-atlas-vs-marble",
   "k2-horizon",
   "how-to-run-k2-horizon-locally",
+  "k2-horizon-models",
   "rankly-seo-aeo-geo-website-audit",
   "how-to-use-rankly-seo-aeo-geo-audit",
   "gupshup-voice-ai",
