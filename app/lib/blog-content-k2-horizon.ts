@@ -53,7 +53,7 @@ export const k2HorizonArticles: BlogArticle[] = [
         { type: "note", html: "Partner-specific model coverage, token pricing, rate limits and context limits can change. Verify the provider you plan to use rather than copying a single price across the fleet." },
       ]},
       { id: "benchmarks", title: "Benchmarks: useful launch evidence, not independent proof", blocks: [
-        { type: "paragraph", html: "The current official 7B card reports 68.4 on SWE-bench Verified, 39.1 on Terminal-Bench 2.1 and 59.0 on BrowseComp. The current 3.7B card reports 68.6 on SWE-bench Verified and 25.1 on Terminal-Bench 2.1." },
+        { type: "paragraph", html: "The current official 7B card reports 70.6 on SWE-bench Verified, 39.1 on Terminal-Bench 2.1 and 59.0 on BrowseComp. The current 3.7B card reports 68.6 on SWE-bench Verified and 25.1 on Terminal-Bench 2.1." },
         { type: "paragraph", html: "These are IFM-reported results under documented evaluation settings. The 7B card explicitly notes that its BrowseComp protocol can differ from comparison models, so the numbers should not be presented as independent proof of universal superiority." },
       ]},
       { id: "limitations", title: "What to verify before adopting K2 Horizon", blocks: [
@@ -114,5 +114,62 @@ export const k2HorizonArticles: BlogArticle[] = [
     ],
     sources: k2HorizonSources,
     relatedPaths: ["/blog/k2-horizon"],
+  },
+  {
+    status: "published",
+    articleType: "supporting",
+    cluster: "K2 Horizon",
+    targetSearchIntent: "Choose the right K2 Horizon model size and architecture for edge, local, workstation or enterprise use without conflating total parameters, active parameters, benchmark claims or hardware requirements.",
+    targetQuery: "K2 Horizon models",
+    parentSlug: "k2-horizon",
+    slug: "k2-horizon-models",
+    title: "Which K2 Horizon Model Should You Use? 0.9B to 375B",
+    metaTitle: "K2 Horizon Models Compared: 0.9B to 375B",
+    metaDescription: "Compare all six K2 Horizon models from 0.9B to 375B. See architecture, deployment fit, context, local-use tradeoffs and which model to start with.",
+    h1: "Which K2 Horizon Model Should You Use?",
+    excerpt: "K2 Horizon spans six model sizes from a 0.9B edge model to a 375B-A23B enterprise flagship. The right choice depends on deployment constraints, architecture, latency, context and quality needs—not parameter count alone.",
+    category: "AI",
+    author: "Project Monet Editorial Team",
+    datePublished: "2026-09-07",
+    dateModified: "2026-09-07",
+    ogAlt: "Six K2 Horizon model sizes arranged from edge deployment through local, workstation and enterprise use",
+    sections: [
+      { id: "quick-recommendation", title: "Quick recommendation", blocks: [
+        { type: "paragraph", html: "Choose 0.9B when footprint is the primary constraint and you are targeting edge-class hardware. Choose 3.7B for small local experiments where efficiency matters. Choose 7B when you want the strongest broadly practical local starting point. Choose 32B for workstation or server resources, 36B-A4B when sparse active compute and MoVA fit your serving stack, and 375B-A23B for enterprise-scale inference." },
+        { type: "note", html: "These are deployment recommendations based on IFM’s positioning and model architecture, not guaranteed hardware thresholds. Precision, quantization, context, KV-cache size and runtime can materially change memory and latency." },
+      ]},
+      { id: "small-models", title: "0.9B, 3.7B and 7B: edge to practical local use", blocks: [
+        { type: "paragraph", html: "IFM positions 0.9B for highly constrained environments such as watches and glasses. That positioning does not mean every wearable can run the unmodified checkpoint; actual deployment still depends on quantization, runtime, memory and device acceleration." },
+        { type: "paragraph", html: "The 3.7B model is a small dense option with a native 524,288-token context window. Its current official model card reports 68.6 on SWE-bench Verified and 25.1 on Terminal-Bench 2.1 under IFM’s evaluation setup." },
+        { type: "paragraph", html: "The 7B model is the family’s medium dense option and a sensible general local starting point. Its current official card reports 70.6 on SWE-bench Verified, 39.1 on Terminal-Bench 2.1 and 59.0 on BrowseComp. Those results are vendor-reported, and IFM notes that some comparison protocols differ." },
+      ]},
+      { id: "large-models", title: "32B, 36B-A4B and 375B-A23B", blocks: [
+        { type: "paragraph", html: "The 32B model is a dense workstation/server-class option for users who want more capacity without moving to the flagship. All parameters participate in the standard dense forward computation." },
+        { type: "paragraph", html: "The 36B-A4B model is structurally different: IFM describes it as roughly 36B total parameters with about 4B active under a sparse MoVA architecture. The A4B label therefore does not make it equivalent to a dense 4B checkpoint; storage and memory behavior still reflect a much larger model." },
+        { type: "paragraph", html: "The 375B-A23B flagship activates about 23B parameters and is positioned for demanding enterprise reasoning and agentic workloads. Sparse activation reduces active compute, but the total checkpoint remains extremely large and belongs in serious infrastructure or hosted-inference discussions." },
+      ]},
+      { id: "dense-vs-sparse", title: "Dense vs sparse: compare more than active parameters", blocks: [
+        { type: "paragraph", html: "Dense variants are straightforward: the full parameter set participates in the forward computation. Sparse variants contain more total parameters but activate a subset per token or operation." },
+        { type: "paragraph", html: "That can lower active compute without making total storage requirements disappear. Comparing 36B-A4B directly with a 7B dense model only as ‘4B active versus 7B’ hides architectural, storage and serving differences. Measure latency and memory on the stack you actually plan to use." },
+      ]},
+      { id: "local-use", title: "Which K2 Horizon model is best for local use?", blocks: [
+        { type: "paragraph", html: "For most developers, 3.7B and 7B are the clearest practical starting points because official cards document serving paths and quantization discovery while keeping model size far below the larger workstation and enterprise variants." },
+        { type: "paragraph", html: "The separate local-running guide covers Transformers, vLLM, SGLang and GGUF setup in detail. Move to 32B or 36B-A4B only when your own evaluations justify the extra infrastructure and your runtime supports the architecture well." },
+      ]},
+      { id: "coding-agents", title: "Choosing for coding and agents", blocks: [
+        { type: "paragraph", html: "IFM reports strong coding and agentic results across the family, but benchmark rank alone should not choose a production model. Test your own repository, tool-use behavior, context requirements and latency." },
+        { type: "paragraph", html: "For a local agent baseline, 7B is a reasonable place to start, then move upward only if your evaluation shows a meaningful gain. A smaller model that responds quickly and reliably with your tools can be operationally better than a larger checkpoint with a higher vendor benchmark." },
+      ]},
+      { id: "context", title: "Context length changes the deployment equation", blocks: [
+        { type: "paragraph", html: "The current 3.7B and 7B cards document native 524,288-token context. Long context can dramatically increase KV-cache memory and latency, so support for 512K does not mean every local request should run at the maximum." },
+        { type: "paragraph", html: "Choose a context window around the actual task and available memory. Model size is only one part of the deployment decision." },
+      ]},
+      { id: "faq", title: "K2 Horizon model-selection FAQ", blocks: [
+        { type: "list", items: ["Smallest model: 0.9B.", "Largest model: 375B-A23B.", "A4B meaning: roughly 4B active parameters in the 36B sparse model, not a dense 4B checkpoint.", "Practical local starting point: usually 3.7B or 7B, depending on hardware and quantization.", "Universal best model: none—choose by workload and deployment constraints, then validate on your own evaluation set."] },
+        { type: "paragraph", html: "For the broad release, licensing and API picture, return to the main K2 Horizon guide. For implementation details, continue to the local-running guide." },
+      ]},
+    ],
+    sources: k2HorizonSources,
+    relatedPaths: ["/blog/k2-horizon", "/blog/how-to-run-k2-horizon-locally"],
   },
 ];
