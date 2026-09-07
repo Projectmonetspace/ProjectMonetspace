@@ -13,6 +13,7 @@ import { mentionOsArticles } from "./blog-content-mentionos.ts";
 import { lladaImageArticles } from "./blog-content-llada-image.ts";
 import { worldLabsAtlasArticles } from "./blog-content-world-labs-atlas.ts";
 import { k2HorizonArticles } from "./blog-content-k2-horizon.ts";
+import { ranklyArticles } from "./blog-content-rankly.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -87,6 +88,7 @@ const sourceArticles: BlogArticle[] = [
   ...lladaImageArticles,
   ...worldLabsAtlasArticles,
   ...k2HorizonArticles,
+  ...ranklyArticles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
