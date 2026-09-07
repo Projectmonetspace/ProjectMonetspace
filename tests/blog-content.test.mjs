@@ -35,6 +35,8 @@ const expectedSlugs = [
   "how-to-use-trackmcp-mcp-server",
   "minimax-h3-max",
   "minimax-h3-max-api-pricing",
+  "h3-max-vs-minimax-h3",
+  "secretar-ai-unified-context",
   "tadata-ai-employee-slack",
   "how-to-use-tadata",
   "open-yap-1k",
