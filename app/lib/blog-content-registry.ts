@@ -26,6 +26,7 @@ import { sembly30Articles } from "./blog-content-sembly-3-0.ts";
 import { miniCpm52bArticles } from "./blog-content-minicpm5-2b.ts";
 import { databoxWondrAgentsArticles } from "./blog-content-databox-wondragents.ts";
 import { yorollH3SuperfastArticles } from "./blog-content-yoroll-h3-superfast.ts";
+import { fimoArticles } from "./blog-content-fimo.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -113,6 +114,7 @@ const sourceArticles: BlogArticle[] = [
   ...miniCpm52bArticles,
   ...databoxWondrAgentsArticles,
   ...yorollH3SuperfastArticles,
+  ...fimoArticles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
