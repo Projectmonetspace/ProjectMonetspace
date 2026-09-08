@@ -4,7 +4,7 @@ const databoxSources = [
   { label: "Databox — AI Agents & Automations", url: "https://databox.com/ai-agents-automation" },
   { label: "Databox — Pricing", url: "https://databox.com/pricing" },
   { label: "Databox Help — Choose a subscription plan", url: "https://help.databox.com/choose-a-subscription-plan" },
-  { label: "Databox Help — Top up your AI credits", url: "https://help.datababox.com/top-up-your-ai-credits" },
+  { label: "Databox Help — Top up your AI credits", url: "https://help.databox.com/top-up-your-ai-credits" },
 ];
 
 const wondrAgentsSources = [
