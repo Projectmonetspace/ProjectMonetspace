@@ -22,6 +22,7 @@ import { tadataArticles } from "./blog-content-tadata.ts";
 import { openYap1kArticles } from "./blog-content-open-yap-1k.ts";
 import { vdnH3Articles } from "./blog-content-vdn-h3.ts";
 import { vdnH3SupportingArticles } from "./blog-content-vdn-h3-supporting.ts";
+import { sembly30Articles } from "./blog-content-sembly-3-0.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -105,6 +106,7 @@ const sourceArticles: BlogArticle[] = [
   ...openYap1kArticles,
   ...vdnH3Articles,
   ...vdnH3SupportingArticles,
+  ...sembly30Articles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
