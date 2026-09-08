@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
     <LegalShell
       title="Privacy Policy"
       description="This policy explains what Project Monet collects through this website, why we use it, who processes it and the choices available to you."
-      effectiveDate="August 18, 2026"
+      effectiveDate="September 8, 2026"
     >
       <section>
         <h2>Who is responsible for your information</h2>
@@ -27,6 +27,7 @@ export default function PrivacyPolicy() {
       <section>
         <h2>Information collected automatically</h2>
         <p>Vercel, Web3Forms and related infrastructure may process limited technical information such as IP address, browser and device details, request or submission timestamps, referring pages and security logs to host the website, deliver form submissions and prevent abuse.</p>
+        <p>The site temporarily keeps the first landing page, referring page and any UTM source, medium, campaign and content values in session storage while you browse. If you submit a form, those first-touch fields, the final submission page and the submission time accompany the enquiry. Query strings are excluded from stored page and referrer URLs to reduce the chance of retaining personal information.</p>
         <p>If you accept analytics cookies, Google Analytics collects website-use data including page views, session statistics, approximate location derived from network information, browser and device information, referral source and enabled interaction events such as scrolling, outbound link clicks, file downloads, site searches, video engagement, demo-request CTA clicks and successful demo-request completion. We do not intentionally configure Analytics to collect the text entered into form fields.</p>
       </section>
 

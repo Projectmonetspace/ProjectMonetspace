@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { trackAnalyticsEvent } from "../lib/analytics";
+import { appendSubmissionAttribution } from "../lib/attribution";
 
 export default function DemoRequestForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -17,7 +18,7 @@ export default function DemoRequestForm() {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: new FormData(form),
+        body: appendSubmissionAttribution(new FormData(form)),
       });
       const result = (await response.json()) as { success?: boolean };
       if (!response.ok || !result.success) throw new Error("Submission failed");
