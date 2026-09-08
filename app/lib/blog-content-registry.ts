@@ -27,6 +27,7 @@ import { miniCpm52bArticles } from "./blog-content-minicpm5-2b.ts";
 import { databoxWondrAgentsArticles } from "./blog-content-databox-wondragents.ts";
 import { yorollH3SuperfastArticles } from "./blog-content-yoroll-h3-superfast.ts";
 import { fimoArticles } from "./blog-content-fimo.ts";
+import { supportingArticles20260909 } from "./blog-content-supporting-2026-09-09.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -115,6 +116,7 @@ const sourceArticles: BlogArticle[] = [
   ...databoxWondrAgentsArticles,
   ...yorollH3SuperfastArticles,
   ...fimoArticles,
+  ...supportingArticles20260909,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
@@ -184,6 +186,8 @@ const modifiedMainDates = new Map<string, string>([
   ["muse-spark-1-3", "2026-09-05"],
   ["minimax-h3-max", "2026-09-07"],
   ["vdn-h3-videodeltanet", "2026-09-08"],
+  ["minicpm5-2b", "2026-09-09"],
+  ["fimo-autonomous-website-platform", "2026-09-09"],
 ]);
 const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
