@@ -23,6 +23,7 @@ import { openYap1kArticles } from "./blog-content-open-yap-1k.ts";
 import { vdnH3Articles } from "./blog-content-vdn-h3.ts";
 import { vdnH3SupportingArticles } from "./blog-content-vdn-h3-supporting.ts";
 import { sembly30Articles } from "./blog-content-sembly-3-0.ts";
+import { miniCpm52bArticles } from "./blog-content-minicpm5-2b.ts";
 import { asusProArtRtxSparkArticles } from "./blog-content-asus-proart-rtx-spark.ts";
 import { browserSkillArticles } from "./blog-content-browserskill.ts";
 import { caddiArticles } from "./blog-content-caddi.ts";
@@ -107,6 +108,7 @@ const sourceArticles: BlogArticle[] = [
   ...vdnH3Articles,
   ...vdnH3SupportingArticles,
   ...sembly30Articles,
+  ...miniCpm52bArticles,
   ...gupshupVoiceAiArticles,
   ...gupshupVoiceAiBuildGuideArticles,
   ...museSpark13Articles,
