@@ -12,12 +12,21 @@ const homepage = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8
 const demoForm = readFileSync(new URL("../app/components/demo-request-form.tsx", import.meta.url), "utf8");
 const privacy = readFileSync(new URL("../app/privacy/page.tsx", import.meta.url), "utf8");
 const cookies = readFileSync(new URL("../app/cookies/page.tsx", import.meta.url), "utf8");
+const attribution = readFileSync(new URL("../app/lib/attribution.ts", import.meta.url), "utf8");
 
 test("loads the approved Google Analytics stream only through the consent component", () => {
   assert.match(layout, /<CookieConsent/);
   assert.match(cookieConsent, /G-5QS7ECZJGD/);
   assert.equal((cookieConsent.match(/<GoogleAnalytics/g) ?? []).length, 1);
   assert.match(cookieConsent, /choice === "granted"/);
+});
+
+test("submits first-touch and final-page attribution from both lead forms", () => {
+  assert.match(attribution, /utm_content/);
+  assert.match(attribution, /initial_landing_page/);
+  assert.match(attribution, /submission_page/);
+  assert.match(homepage, /appendSubmissionAttribution/);
+  assert.match(demoForm, /appendSubmissionAttribution/);
 });
 
 test("defaults analytics and advertising consent to denied", () => {

@@ -16,6 +16,7 @@ import Link from "next/link";
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { trackAnalyticsEvent } from "./lib/analytics";
+import { appendSubmissionAttribution } from "./lib/attribution";
 
 const work = [
   { title: "Shop Co", category: "Ecommerce", url: "https://ecommerce-figma-build.vercel.app/shop-co.html", image: "/work/shop-co.jpg", position: "center top" },
@@ -136,7 +137,7 @@ export default function Home() {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: new FormData(form),
+        body: appendSubmissionAttribution(new FormData(form)),
       });
       const result = (await response.json()) as { success?: boolean };
 

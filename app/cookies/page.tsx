@@ -12,7 +12,7 @@ export default function CookiePolicy() {
     <LegalShell
       title="Cookie Policy"
       description="This policy explains the browser storage and optional analytics cookies used on projectmonet.space, including how to accept, reject or withdraw consent."
-      effectiveDate="August 18, 2026"
+      effectiveDate="September 8, 2026"
     >
       <section>
         <h2>What cookies are</h2>
@@ -26,6 +26,7 @@ export default function CookiePolicy() {
             <thead><tr><th>Name</th><th>Provider</th><th>Purpose</th><th>Typical duration</th></tr></thead>
             <tbody>
               <tr><td><code>pm_analytics_consent</code></td><td>Project Monet</td><td>Local storage that remembers whether you accepted or rejected analytics.</td><td>Until you clear site data or change your choice.</td></tr>
+              <tr><td><code>project-monet-first-touch-attribution:v1</code></td><td>Project Monet</td><td>Session storage that preserves the first landing page, referrer and UTM attribution so it can accompany an enquiry.</td><td>Until the browser session ends.</td></tr>
               <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Distinguishes one visitor from another for audience measurement.</td><td>Up to 2 years, subject to browser limits.</td></tr>
               <tr><td><code>_ga_&lt;container-id&gt;</code></td><td>Google Analytics</td><td>Persists the state of an analytics session.</td><td>Up to 2 years, subject to browser limits.</td></tr>
             </tbody>
