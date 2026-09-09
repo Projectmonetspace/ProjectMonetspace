@@ -5,6 +5,18 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "frigade-assist-api",
+  "how-to-use-frigade-assist-api",
+  "x-original-content-rewards",
+  "how-to-apply-x-original-content-rewards",
+  "x-original-content-qualified-impressions",
+  "meta-muse-ai-agent",
+  "how-to-use-meta-muse",
+  "meta-muse-privacy-safety",
+  "tencent-auk-speech-model",
+  "run-tencent-auk-locally",
+  "tencent-auk-speech-editing-guide",
+  "tencent-auk-comfyui-guide",
   "airtop-agent-builder",
   "how-to-use-airtop-agent-builder",
   "airtop-agent-builder-pricing",
