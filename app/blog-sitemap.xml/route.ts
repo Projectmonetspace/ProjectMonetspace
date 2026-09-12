@@ -1,6 +1,7 @@
 import { blogSitemapEntries, renderUrlSet, xmlResponse } from "../lib/sitemap-content";
 
-export const revalidate = 300;
+// Materialized once per release; content dates remain registry-derived.
+export const dynamic = "force-static";
 
 export function GET() {
   return xmlResponse(renderUrlSet(blogSitemapEntries));

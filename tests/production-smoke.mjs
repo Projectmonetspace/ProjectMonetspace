@@ -3,7 +3,16 @@ import assert from "node:assert/strict";
 import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 
-const base = process.env.PRODUCTION_BASE_URL ?? "https://www.projectmonet.space";
+const base = (process.env.PRODUCTION_BASE_URL ?? "https://www.projectmonet.space").replace(/\/$/, "");
+const canonicalOrigin = "https://www.projectmonet.space";
+const expectedCommit = process.env.EXPECTED_COMMIT;
+if (expectedCommit) {
+  const marker = await fetch(`${base}/deployment.json`, { cache: "no-store", signal: AbortSignal.timeout(30000) });
+  assert.equal(marker.status, 200, "Cloudflare deployment marker reachable");
+  const deployment = await marker.json();
+  assert.equal(deployment.platform, "cloudflare-pages");
+  assert.equal(deployment.commit, expectedCommit, "Production serves the exact verified commit");
+}
 
 async function get(path) {
   const response = await fetch(`${base}${path}`, {
@@ -14,20 +23,25 @@ async function get(path) {
     },
     redirect: "follow",
     cache: "no-store",
+    signal: AbortSignal.timeout(30000),
   });
 
   return { response, body: await response.text() };
 }
 
-for (const article of publishedBlogArticles) {
+async function verifyArticle(article) {
   const path = `/blog/${article.slug}`;
   const { response, body } = await get(path);
   assert.equal(response.status, 200, `${path} returns 200`);
   assert.ok(body.includes(article.h1), `${path} renders its intended H1`);
   assert.ok(
-    body.includes(`rel=\"canonical\" href=\"${base}${path}\"`) || body.includes(`rel="canonical" href="${base}${path}"`),
+    body.includes(`rel=\"canonical\" href=\"${canonicalOrigin}${path}\"`) || body.includes(`rel="canonical" href="${canonicalOrigin}${path}"`),
     `${path} has the exact production canonical`,
   );
+  assert.equal((body.match(/<h1(?:\s|>)/g) ?? []).length, 1, `${path}: one H1`);
+  assert.ok(body.includes("BreadcrumbList"), `${path}: breadcrumb schema`);
+  assert.ok(body.includes(`${canonicalOrigin}${path}/og`), `${path}: production OG metadata`);
+  assert.ok(body.includes(article.datePublished) && body.includes(article.dateModified), `${path}: dates preserved`);
   assert.ok(body.includes("BlogPosting"), `${path} includes BlogPosting schema`);
 
   if (article.parentSlug) {
@@ -41,11 +55,31 @@ for (const article of publishedBlogArticles) {
   const og = await fetch(`${base}${path}/og`, {
     headers: { "cache-control": "no-cache", pragma: "no-cache" },
     cache: "no-store",
+    signal: AbortSignal.timeout(30000),
     redirect: "follow",
   });
   assert.equal(og.status, 200, `${path}/og returns 200`);
   assert.match(og.headers.get("content-type") ?? "", /^image\/png/, `${path}/og returns PNG`);
+  const png = Buffer.from(await og.arrayBuffer());
+  assert.equal(png.subarray(0, 8).toString("hex"), "89504e470d0a1a0a", `${path}/og: genuine PNG`);
+  assert.equal(png.readUInt32BE(16), 1200, `${path}/og: width`);
+  assert.equal(png.readUInt32BE(20), 630, `${path}/og: height`);
 }
+
+// Bound parallel requests so the full published registry remains practical to certify.
+for (let start = 0; start < publishedBlogArticles.length; start += 6) {
+  await Promise.all(publishedBlogArticles.slice(start, start + 6).map(verifyArticle));
+}
+for (const entry of [...pagesSitemapEntries, ...blogSitemapEntries].filter(e => !new URL(e.url).pathname.startsWith("/blog/"))) {
+  const path = new URL(entry.url).pathname;
+  const page = await get(path);
+  assert.equal(page.response.status, 200, `${path}: core route`);
+  const canonical = page.body.match(/<link rel="canonical" href="([^"]+)"/);
+  assert.ok(canonical, `${path}: core canonical present`);
+  assert.equal(new URL(canonical[1]).href, new URL(entry.url).href, `${path}: core canonical`);
+}
+const unknown = await get("/migration-unknown-route-404-check");
+assert.equal(unknown.response.status, 404, "Unknown routes return a genuine 404");
 
 const blog = await get("/blog");
 assert.equal(blog.response.status, 200, "/blog returns 200");

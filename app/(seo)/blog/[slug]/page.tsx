@@ -5,6 +5,8 @@ import { findPublishedArticle, publishedBlogArticles } from "../../../lib/blog-c
 
 type PageProps = { params: Promise<{ slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return publishedBlogArticles.map((article) => ({ slug: article.slug }));
 }

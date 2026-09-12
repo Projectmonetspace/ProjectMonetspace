@@ -7,7 +7,8 @@ import {
 
 const baseUrl = "https://www.projectmonet.space";
 
-export const revalidate = 300;
+// Materialized once per release; content dates remain registry-derived.
+export const dynamic = "force-static";
 
 export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

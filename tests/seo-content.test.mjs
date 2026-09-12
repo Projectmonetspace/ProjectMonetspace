@@ -114,7 +114,8 @@ test("the sitemap index and child sitemaps stay complete, data-driven, and fresh
   assert.match(source, /s-maxage=300/);
   assert.match(source, /stale-while-revalidate=300/);
   for (const route of [indexRoute, pagesRoute, blogRoute]) {
-    assert.match(route, /export const revalidate = 300/);
+    assert.match(route, /export const dynamic = "force-static"/);
+    assert.doesNotMatch(route, /export const revalidate\s*=/, "Static exports cannot depend on runtime ISR");
   }
 });
 
