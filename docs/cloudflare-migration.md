@@ -1,6 +1,6 @@
 # Cloudflare Pages migration
 
-Status: application preparation; production remains on Vercel until the Pages preview and staged DNS gates pass.
+Status: application prepared and Node 22 CI passed; production remains on Vercel until the Pages preview and staged DNS gates pass.
 
 ## Source and deployment authority
 
@@ -48,3 +48,7 @@ Do not delete Vercel. After Cloudflare becomes authoritative, an emergency web r
 Preview verification precedes zone creation. Then independently verify the zone, take fresh Hostinger DNS, compare/copy every record, verify mail and DNSSEC/parent DS, and pause for the nameserver change. Verify authoritative DNS and zone activation before custom-domain routing. Require an active Pages custom-domain certificate before testing production routing; retain immediate DNS rollback capability.
 
 Work Publisher remains paused until the Cloudflare production path is certified and its instructions are updated. SEO Radar remains enabled. Intended publisher path: Approved → focused branch/PR → CI and Pages preview → merge → Pages deployment for exact merge commit → real-domain production smoke → Notion Published + Verified. Search crawl and analytics ingestion delays are observation items, not automatic rollback triggers.
+
+## Pages resource checkpoint — 12 September 2026
+
+The user connected GitHub and created the existing-repository Pages project `projectmonetspace`, ID `9ce7258a-caf2-4e01-ab0c-90ca7355587a`, in the verified Project Monet Space account. Its preview origin is `https://projectmonetspace.pages.dev`; production branch is `main` with preview branches enabled. The build configuration is now `npm run build:cloudflare` → `out`. The initial blank-build deployment is not migration evidence. This branch push triggers the first configured native Git preview. CI passed at `0cedce34613fd711387bbd4c5e192618ce162f1a` (run 34686873788). Node 22 scripts explicitly enable native TypeScript stripping; `tsc --noEmit` remains a separate required check. No custom domain or zone has been added.
