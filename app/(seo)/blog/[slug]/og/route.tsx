@@ -1,6 +1,14 @@
 import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
-import { findPublishedArticle } from "../../../../lib/blog-content-registry";
+import { findPublishedArticle, publishedBlogArticles } from "../../../../lib/blog-content-registry";
+
+// Next exports these responses as genuine PNG files at the existing extensionless URLs.
+// No request-time image generation or Cloudflare Function is deployed.
+export const dynamic = "force-static";
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return publishedBlogArticles.map(({ slug }) => ({ slug }));
+}
 
 export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

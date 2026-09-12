@@ -14,7 +14,9 @@
     "test:rendered": "node tests/rendered-routes.mjs",
     "verify:production": "node tests/production-smoke.mjs",
     "lint": "eslint .",
-    "audit:production": "npm audit --omit=dev --audit-level=high"
+    "audit:production": "npm audit --omit=dev --audit-level=high",
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@next/third-parties": "16.3.4",
