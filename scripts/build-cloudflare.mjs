@@ -51,6 +51,6 @@ await writeFile("out/deployment.json", JSON.stringify({
 }) + "\n");
 // Keep the export's 404.html: Pages must not fall back to SPA routing.
 await readFile("out/404.html");
-const verify = spawnSync(process.execPath, ["scripts/verify-export.mjs"], { stdio: "inherit" });
+const verify = spawnSync(process.execPath, ["--experimental-strip-types", "scripts/verify-export.mjs"], { stdio: "inherit" });
 process.exit(verify.status ?? 1);
 
