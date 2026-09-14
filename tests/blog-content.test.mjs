@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "runway-plugin-premiere-pro-after-effects",
+  "how-to-use-runway-plugin-premiere-pro-after-effects",
   "chatgpt-images-2-5",
   "gpt-image-2-5-api-flare-vs-sunburst",
   "chatgpt-images-2-5-sketch-editing",

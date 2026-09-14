@@ -1,3 +1,4 @@
+import { runwayPluginArticles20260914 } from "./blog-content-approved-2026-09-14-runway-plugins.ts";
 import { reviewArticles20260914A } from "./blog-content-review-2026-09-14-a.ts";
 import { reviewArticles20260914B } from "./blog-content-review-2026-09-14-b.ts";
 import { reviewArticles20260914C } from "./blog-content-review-2026-09-14-c.ts";
@@ -97,6 +98,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...runwayPluginArticles20260914,
   ...reviewArticles20260914A,
   ...reviewArticles20260914B,
   ...reviewArticles20260914C,
