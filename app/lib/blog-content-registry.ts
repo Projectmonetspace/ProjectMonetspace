@@ -1,3 +1,9 @@
+import { reviewArticles20260914A } from "./blog-content-review-2026-09-14-a.ts";
+import { reviewArticles20260914B } from "./blog-content-review-2026-09-14-b.ts";
+import { reviewArticles20260914C } from "./blog-content-review-2026-09-14-c.ts";
+import { reviewArticles20260914D } from "./blog-content-review-2026-09-14-d.ts";
+import { reviewArticles20260914E } from "./blog-content-review-2026-09-14-e.ts";
+import { reviewArticles20260914F } from "./blog-content-review-2026-09-14-f.ts";
 import { approvedArticles20260909All } from "./blog-content-approved-2026-09-09-all.ts";
 import { approvedArticles20260829 } from "./blog-content-approved-2026-08-29.ts";
 import { blogArticles as legacyBlogArticles } from "./blog-content.ts";
@@ -91,6 +97,12 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...reviewArticles20260914A,
+  ...reviewArticles20260914B,
+  ...reviewArticles20260914C,
+  ...reviewArticles20260914D,
+  ...reviewArticles20260914E,
+  ...reviewArticles20260914F,
   ...approvedArticles20260909All,
   ...airtopAgentBuilderArticles,
   ...airtopAgentBuilderPricingArticles,
