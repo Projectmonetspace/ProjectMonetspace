@@ -5,6 +5,23 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "cloudflare-ai-crawler-settings-september-15",
+  "configure-cloudflare-ai-crawler-settings",
+  "cloudflare-ai-crawler-googlebot-seo",
+  "siri-ai",
+  "how-to-use-siri-ai",
+  "siri-ai-supported-devices-countries-languages",
+  "openrouter-zdr-zero-data-retention",
+  "openrouter-zdr-vs-no-training-in-region-routing",
+  "openrouter-zdr-api-guide",
+  "bolt-forge",
+  "bolt-forge-privacy-data-training",
+  "how-to-use-bolt-forge",
+  "yattayo-ai",
+  "how-to-use-yattayo-ai",
+  "yattayo-ai-pricing",
+  "metricool-flows",
+  "how-to-use-metricool-flows-instagram",
   "runway-plugin-premiere-pro-after-effects",
   "how-to-use-runway-plugin-premiere-pro-after-effects",
   "chatgpt-images-2-5",
@@ -293,8 +310,8 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14))$/);
-    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14))$/);
+    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15))$/);
+    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15))$/);
     assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
   }
 });
