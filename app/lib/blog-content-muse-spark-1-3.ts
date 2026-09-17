@@ -23,7 +23,7 @@ export const museSpark13Articles: BlogArticle[] = [
     category: "AI",
     author: "Project Monet Editorial Team",
     datePublished: "2026-09-04",
-    dateModified: "2026-09-04",
+    dateModified: "2026-09-17",
     ogAlt: "Muse Spark 1.3 coding and agent workflow overview with API and pricing callouts",
     sections: [
       {
@@ -31,7 +31,7 @@ export const museSpark13Articles: BlogArticle[] = [
         title: "Muse Spark 1.3 release and availability",
         blocks: [
           { type: "paragraph", html: "Meta released Muse Spark 1.3 on September 2, 2026 and says it began rolling out that day in Muse Code and the Meta Model API. The update focuses on coding, tool use and longer-horizon agent work." },
-          { type: "paragraph", html: "Meta says the reasoning modes that were already available remain usable, while a max-reasoning mode is still pending additional safety testing. Do not treat max reasoning as generally available until Meta updates the product surface you plan to use." },
+          { type: "paragraph", html: "Meta's current official Muse Spark 1.3 page now says max reasoning is available on Muse Code and the Meta Model API. Meta does not provide a separate dated changelog establishing the exact moment this changed, so treat the current product surface as the source of truth for configuration and account access." },
         ],
       },
       {
@@ -78,7 +78,7 @@ export const museSpark13Articles: BlogArticle[] = [
         id: "limitations",
         title: "Current limitations and what to recheck",
         blocks: [
-          { type: "paragraph", html: "Meta’s public launch post does not consolidate every direct-API price, region, quota and provider-specific limit on one page. Max reasoning is not yet generally available, and third-party gateway pricing can change independently of Meta’s own API." },
+          { type: "paragraph", html: "Meta’s public page does not consolidate every direct-API price, region, quota and provider-specific limit on one page. Max reasoning is now listed as available on Muse Code and the Meta Model API, while third-party gateway pricing and controls can change independently." },
           { type: "paragraph", html: "Muse Spark 1.3 should also be treated as an API and product release rather than an open-weight release unless Meta separately publishes downloadable weights. Recheck access, pricing, output limits, rate limits and data terms before a production commitment." },
         ],
       },
@@ -102,7 +102,7 @@ export const museSpark13Articles: BlogArticle[] = [
     category: "AI",
     author: "Project Monet Editorial Team",
     datePublished: "2026-09-04",
-    dateModified: "2026-09-04",
+    dateModified: "2026-09-17",
     ogAlt: "Muse Spark 1.3 API pricing guide with standard and contributor model routes",
     sections: [
       {
@@ -149,7 +149,7 @@ export const museSpark13Articles: BlogArticle[] = [
         id: "reasoning-deployment",
         title: "Reasoning status and deployment checks",
         blocks: [
-          { type: "paragraph", html: "Meta says existing reasoning modes are available now, while max reasoning is coming after additional safety testing. Do not build a production dependency on max reasoning until it is actually enabled on the surface you use." },
+          { type: "paragraph", html: "Meta's current official page says max reasoning is available on Muse Code and the Meta Model API. Before production use, confirm the exact reasoning control, account eligibility, region, rate limits and provider-specific behavior on the surface you actually use." },
           { type: "list", items: ["Recheck current provider prices and cache rates", "Confirm context and output limits", "Review contributor data-use terms", "Check regional access and rate limits", "Set retry and budget ceilings", "Keep secrets out of prompts"] },
         ],
       },

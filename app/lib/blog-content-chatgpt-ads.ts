@@ -16,15 +16,15 @@ export const chatgptAdsArticles: BlogArticle[] = [
     category: "Marketing",
     author: "Project Monet Editorial Team",
     datePublished: "2026-09-01",
-    dateModified: "2026-09-01",
+    dateModified: "2026-09-17",
     ogAlt: "ChatGPT Ads explainer showing a clearly labeled sponsored placement, campaign controls and conversion measurement.",
     sections: [
       {
         id: "availability",
         title: "Where ChatGPT Ads Manager is available",
         blocks: [
-          { type: "paragraph", html: "As of September 1, 2026, OpenAI's live Ads Manager availability table lists self-service as available in Australia, Brazil, Canada, Japan, Korea, Mexico, New Zealand, the United Kingdom and the United States. India and the 31-country Europe expansion are still marked Coming Soon." },
-          { type: "list", items: ["Creating an Ads Manager account does not unlock delivery before a country is supported.", "Advertisers in new European markets can currently use the OpenAI Ads team or approved partners where applicable.", "Always check the live country table before planning a launch."] },
+          { type: "paragraph", html: "As of September 17, 2026, OpenAI's live Ads Manager availability table lists self-service as available across the United States, United Kingdom, India, Australia, Brazil, Canada, Japan, Korea, Mexico, New Zealand, most of Europe, and multiple Middle East and North Africa markets. The legal entity that will advertise and be billed must be based in a country currently marked Available." },
+          { type: "list", items: ["India is now marked Available for self-service.", "European and MENA availability has expanded materially since the September 1 version of this article.", "Always check the live country table immediately before launch because beta availability can change."] },
         ],
       },
       {
@@ -44,6 +44,14 @@ export const chatgptAdsArticles: BlogArticle[] = [
         ],
       },
       {
+        id: "ai-powered-advertising-update",
+        title: "September 16 update: Sponsored Agents, HubSpot, Shopify and AI campaign tools",
+        blocks: [
+          { type: "paragraph", html: "OpenAI's September 16 advertising update added Sponsored Agents testing with select U.S. advertisers, prompt-based campaign work in ChatGPT Work, new AI creative tools, and integrations with HubSpot and Shopify. Sponsored Agent conversations are clearly labeled and remain separate from ChatGPT's independent answers and the user's original conversation." },
+          { type: "paragraph", html: "HubSpot businesses can connect a ChatGPT Ads account, create ads, track performance and follow up on leads. U.S.-based Shopify merchants can use the ChatGPT Ads app now; OpenAI says the app launches internationally in markets where ChatGPT Ads are available on September 23." },
+        ],
+      },
+      {
         id: "privacy",
         title: "Ads stay separate from ChatGPT answers",
         blocks: [
@@ -57,6 +65,7 @@ export const chatgptAdsArticles: BlogArticle[] = [
       { label: "OpenAI Ads Manager availability", url: "https://help.openai.com/en/articles/20001245-ads-manager-availability" },
       { label: "OpenAI: Ads in ChatGPT basics", url: "https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics" },
       { label: "OpenAI: Create campaigns", url: "https://help.openai.com/en/articles/20001210" },
+      { label: "OpenAI: Reimagining advertising with AI", url: "https://openai.com/index/reimagining-advertising-with-ai/" },
     ],
     relatedPaths: ["/blog/how-to-advertise-on-chatgpt", "/blog/chatgpt-ads-pricing"],
   },
