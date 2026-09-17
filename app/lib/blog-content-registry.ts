@@ -1,3 +1,6 @@
+import { publishAll20260917A } from "./blog-content-publish-all-2026-09-17-a.ts";
+import { publishAll20260917B } from "./blog-content-publish-all-2026-09-17-b.ts";
+import { publishAll20260917C } from "./blog-content-publish-all-2026-09-17-c.ts";
 import { reviewedArticles20260915A } from "./blog-content-reviewed-2026-09-15-a.ts";
 import { reviewedArticles20260915B } from "./blog-content-reviewed-2026-09-15-b.ts";
 import { approvedArticles20260915 } from "./blog-content-approved-2026-09-15.ts";
@@ -101,6 +104,9 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...publishAll20260917A,
+  ...publishAll20260917B,
+  ...publishAll20260917C,
   ...reviewedArticles20260915A,
   ...reviewedArticles20260915B,
   ...approvedArticles20260915,
@@ -205,7 +211,7 @@ const modifiedMainDates = new Map<string, string>([
   ["gemini-3-8-flash", "2026-09-04"],
   ["airtop-agent-builder", "2026-09-04"],
   ["gupshup-voice-ai", "2026-09-05"],
-  ["muse-spark-1-3", "2026-09-05"],
+  ["muse-spark-1-3", "2026-09-17"],
   ["minimax-h3-max", "2026-09-07"],
   ["vdn-h3-videodeltanet", "2026-09-08"],
   ["minicpm5-2b", "2026-09-09"],

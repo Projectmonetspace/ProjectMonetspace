@@ -8,6 +8,9 @@ const accessSources = [
   { label: "ChatGPT Business models and limits", url: "https://help.openai.com/en/articles/12003714-chatgpt-team-models-limits" },
   { label: "OpenAI GPT-6 Astra model page", url: "https://developers.openai.com/api/docs/models/gpt-6-astra" },
   { label: "OpenAI GPT-6 Astra model guidance", url: "https://developers.openai.com/api/docs/guides/latest-model" },
+  { label: "Vercel AI Gateway — GPT-6 Astra", url: "https://vercel.com/changelog/gpt-6-astra-now-available-on-vercel-ai-gateway" },
+  { label: "Vercel AI Gateway — GPT-6 Astra", url: "https://vercel.com/ai-gateway/models/gpt-6-astra" },
+  { label: "Vercel AI Gateway — GPT-6 Astra Fast", url: "https://vercel.com/ai-gateway/models/gpt-6-astra-fast" },
 ];
 
 const comparisonSources = [
@@ -34,14 +37,14 @@ export const gpt6AstraAccessComparisonArticles: BlogArticle[] = [
     category: "AI",
     author: "Project Monet Editorial Team",
     datePublished: "2026-09-04",
-    dateModified: "2026-09-04",
+    dateModified: "2026-09-17",
     ogAlt: "How to access GPT-6 Astra in ChatGPT, Work, Codex and the API",
     sections: [
       {
         id: "check-access",
         title: "The fastest way to check whether you have GPT-6 Astra",
         blocks: [
-          { type: "paragraph", html: "GPT-6 Astra is still rolling out in stages. OpenAI's September 3 release notes say access started with a limited set of organizations and is not yet generally available, so an eligible subscription does not mean every account or product surface has received Astra at the same moment." },
+          { type: "paragraph", html: "GPT-6 Astra launched with a staged rollout, but current OpenAI help pages now document live access across several product surfaces. GPT-6 Pro, powered by Astra, is available in ChatGPT for Pro $100, Pro $200, Business and Enterprise plans, while Plus includes Astra in ChatGPT Work and Codex. Product and workspace permissions can still differ, so check the exact surface you plan to use." },
           { type: "paragraph", html: "Sign in to the exact product where you want to use Astra and check its model picker or model-access settings. Do not assume that seeing Astra in Chat automatically means your API project, ChatGPT Work or Codex environment has received it too." },
         ],
       },
@@ -49,7 +52,7 @@ export const gpt6AstraAccessComparisonArticles: BlogArticle[] = [
         id: "eligible-plans",
         title: "Who is eligible during the rollout?",
         blocks: [
-          { type: "paragraph", html: "OpenAI's launch announcement says Astra is expanding over the coming days to ChatGPT Plus, Pro, Business and Enterprise users, as well as the OpenAI API. The detailed ChatGPT help page is more specific for Chat itself: GPT-6 Astra appears there as GPT-6 Pro and is currently described as rolling out to Pro $100, Pro $200, Business and Enterprise plans." },
+          { type: "paragraph", html: "OpenAI's current ChatGPT help pages list GPT-6 Pro, powered by Astra, for Pro $100, Pro $200, Business and Enterprise in Chat. Plus plans include Astra in ChatGPT Work and Codex. The API model <code>gpt-6-astra</code> is live, and enterprise access can still depend on workspace model permissions." },
           { type: "note", html: "The launch-level eligibility statement and the product-specific Chat page are not identical. Treat the current model picker and plan documentation for the exact product you are using as the source of truth rather than assuming every plan gets the same Astra surface at the same time." },
         ],
       },
@@ -57,7 +60,7 @@ export const gpt6AstraAccessComparisonArticles: BlogArticle[] = [
         id: "chatgpt",
         title: "How to access GPT-6 Astra in ChatGPT",
         blocks: [
-          { type: "paragraph", html: "If Astra has reached your eligible ChatGPT account, check the model menu's Pro-model options. OpenAI's current help page says GPT-6 Astra is exposed as GPT-6 Pro on eligible plans as it rolls out." },
+          { type: "paragraph", html: "In ChatGPT, Astra is exposed as GPT-6 Pro for Pro $100, Pro $200, Business and Enterprise plans. Enterprise availability also depends on workspace model-access permissions. Plus users should look for Astra in ChatGPT Work and Codex rather than assuming it appears as GPT-6 Pro in Chat." },
           { type: "paragraph", html: "If GPT-6 Pro is missing, staged rollout is one possible explanation. For managed Business or Enterprise accounts, workspace policy can also affect what appears, so check both rollout status and workspace model permissions before treating the absence as an account problem." },
         ],
       },
@@ -86,6 +89,14 @@ export const gpt6AstraAccessComparisonArticles: BlogArticle[] = [
         ],
       },
       {
+        id: "vercel-ai-gateway",
+        title: "Use GPT-6 Astra through Vercel AI Gateway",
+        blocks: [
+          { type: "paragraph", html: "Vercel AI Gateway now provides a third-party routing path for Astra using <code>openai/gpt-6-astra</code>. Vercel currently displays $10 per million input tokens and $50 per million output tokens for the standard route, matching OpenAI's standard API headline rates." },
+          { type: "paragraph", html: "Vercel also exposes <code>openai/gpt-6-astra-fast</code> at $20/M input and $100/M output. Treat these as gateway-specific access and pricing details. Use OpenAI's own model page for canonical model limits, reasoning support and long-context pricing rules." },
+        ],
+      },
+      {
         id: "first-use",
         title: "What should you use GPT-6 Astra for first?",
         blocks: [
@@ -98,14 +109,14 @@ export const gpt6AstraAccessComparisonArticles: BlogArticle[] = [
         title: "Why GPT-6 Astra may not be showing up",
         blocks: [
           { type: "list", ordered: true, items: ["Confirm the exact ChatGPT plan or API account you are using.", "Confirm Astra has rolled out to that specific product surface.", "Check the model picker or product-specific model controls.", "For managed workspaces, check admin model-access controls and assigned roles.", "Remember that Chat, ChatGPT Work, Codex and API availability can differ during rollout."] },
-          { type: "note", html: "Do not treat a missing model on September 4, 2026 as a permanent eligibility decision. OpenAI's current release notes still describe Astra as a staged rollout with broader availability planned over the coming days." },
+          { type: "note", html: "If Astra is missing, first update the ChatGPT desktop app and Codex CLI, then check the plan and workspace permissions for the exact product surface. OpenAI currently requires Codex CLI 0.153.0 or newer for Astra." },
         ],
       },
       {
         id: "faq",
         title: "GPT-6 Astra access FAQ",
         blocks: [
-          { type: "paragraph", html: "<strong>Is GPT-6 Astra available to everyone?</strong> No. As of September 4, OpenAI says Astra is not yet generally available and is still rolling out." },
+          { type: "paragraph", html: "<strong>Where is GPT-6 Astra available now?</strong> OpenAI currently documents GPT-6 Pro in Chat for Pro $100, Pro $200, Business and Enterprise; Astra in Work and Codex for Plus and Pro; and <code>gpt-6-astra</code> in the API. Enterprise access can depend on workspace permissions." },
           { type: "paragraph", html: "<strong>Is GPT-6 Astra called GPT-6 Pro in ChatGPT?</strong> OpenAI's current ChatGPT help page says GPT-6 Astra is available as GPT-6 Pro on eligible plans as it rolls out." },
           { type: "paragraph", html: "<strong>Can Plus users use GPT-6 Astra?</strong> OpenAI's launch page includes Plus in the broader rollout, but the current Chat-specific GPT-6 Pro section lists Pro, Business and Enterprise for GPT-6 Pro in Chat. Check the exact product's current access controls instead of assuming every surface has identical eligibility." },
           { type: "paragraph", html: "<strong>What is the API model name?</strong> <code>gpt-6-astra</code>." },

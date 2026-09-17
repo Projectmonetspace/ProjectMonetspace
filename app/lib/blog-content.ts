@@ -409,11 +409,11 @@ const claudeforce: BlogArticle = {
   metaTitle: "Claudeforce: Salesforce in Claude, 37 Skills, Availability & How It Works",
   metaDescription: "Claudeforce brings Salesforce data and workflows into Claude through a new plugin with 37 sales skills. Here’s how it works, current availability, security and what’s still unknown.",
   h1: "Claudeforce Explained: How Salesforce in Claude Works and Who Can Use It",
-  excerpt: "Salesforce in Claude connects Claude to live Salesforce context through 37 prebuilt sales skills, with pilot access now and an open beta planned for September 2026.",
+  excerpt: "Salesforce in Claude connects Claude to live Salesforce context through 37 prebuilt sales skills, with Salesforce now describing the integration as available to all customers in beta.",
   category: "AI",
   author: "Project Monet Editorial Team",
   datePublished: "2026-08-27",
-  dateModified: "2026-08-27",
+  dateModified: "2026-09-17",
   ogAlt: "Project Monet editorial graphic explaining Claudeforce and Salesforce in Claude without implying affiliation",
   sections: [
     {
@@ -421,8 +421,8 @@ const claudeforce: BlogArticle = {
       title: "What is Claudeforce?",
       blocks: [
         { type: "paragraph", html: "<strong>Claudeforce</strong> is the name Salesforce and Anthropic are using for an expanded partnership that connects Claude with Salesforce data, workflows and business rules. Its first product is <strong>Salesforce in Claude</strong>, a plugin for sales teams with <strong>37 prebuilt skills</strong> covering work such as pipeline review, meeting preparation, account planning and deal analysis." },
-        { type: "paragraph", html: "As of <strong>August 27, 2026</strong>, Salesforce says the plugin is available to <strong>select pilot customers</strong> and is planned to enter <strong>open beta in September 2026</strong>. Salesforce has not announced an exact beta date or standalone pricing." },
-        { type: "note", html: "Salesforce in Claude is not generally available to every Salesforce or Claude customer today. Access, packaging and regional availability may depend on customer agreements." },
+        { type: "paragraph", html: "As of <strong>September 16, 2026</strong>, Salesforce's AIforce launch says <strong>Salesforce in Claude is available to all customers in beta</strong>. Salesforce still has not announced standalone Claudeforce pricing." },
+        { type: "note", html: "Salesforce now describes Salesforce in Claude as available to all customers in beta. Exact packaging, regional eligibility and contract terms can still vary by customer agreement." },
       ],
     },
     {
@@ -474,9 +474,9 @@ const claudeforce: BlogArticle = {
       id: "availability",
       title: "Is Salesforce in Claude available now?",
       blocks: [
-        { type: "paragraph", html: "<strong>Partially.</strong> Salesforce says Salesforce in Claude is available to <strong>select pilot customers</strong> as of the August 26 announcement." },
-        { type: "paragraph", html: "The company expects to launch an <strong>open beta in September 2026</strong>. The current official product page and announcement do not give a specific September date." },
-        { type: "paragraph", html: "Salesforce's public waitlist remains available for updates. It would be inaccurate to describe the plugin as generally available to every Salesforce or Claude customer today." },
+        { type: "paragraph", html: "<strong>Yes, in beta.</strong> Salesforce's September 16 AIforce announcement says Salesforce in Claude is available to all customers in beta." },
+        { type: "paragraph", html: "This supersedes the August launch-state wording that described select pilots and a planned September open beta." },
+        { type: "paragraph", html: "Beta availability does not establish standalone pricing, identical regional access or final general-availability terms, so confirm those details for your Salesforce organization before deployment." },
       ],
     },
     {
@@ -503,7 +503,7 @@ const claudeforce: BlogArticle = {
       blocks: [
         { type: "paragraph", html: "At launch, the most visible product is a Claude plugin focused on Sales, but Salesforce is positioning Claudeforce as a broader partnership rather than a one-off connector." },
         { type: "paragraph", html: "Salesforce says additional prebuilt skills will begin launching later in 2026. The product page marks capabilities for <strong>Service, Marketing and Commerce</strong> as coming later, without firm public release dates." },
-        { type: "paragraph", html: "That makes the September open beta, official pricing and the next persona-specific releases the most important milestones to watch." },
+        { type: "paragraph", html: "With the beta now open to all customers, official pricing, final general availability and the next persona-specific releases are the most important milestones to watch." },
       ],
     },
     {
@@ -512,7 +512,7 @@ const claudeforce: BlogArticle = {
       blocks: [
         { type: "paragraph", html: "The interesting part of Claudeforce is not simply that two large enterprise AI companies integrated their products. It reflects a wider shift in business software: users increasingly want an AI interface to come to the data and workflows they already use rather than navigating every application manually." },
         { type: "paragraph", html: "For Salesforce, that means exposing more platform capabilities through headless interfaces and MCP. For Anthropic, it means Claude can act as an interface for governed enterprise work instead of operating separately from the systems where the records and business rules live." },
-        { type: "paragraph", html: "If the open beta is broad and the skills work reliably, likely demand will move from <strong>“what is Claudeforce?”</strong> toward practical questions about setup, pricing, permissions, supported Salesforce editions and comparisons with Agentforce." },
+        { type: "paragraph", html: "Now that Salesforce describes the beta as available to all customers, likely demand shifts from <strong>“what is Claudeforce?”</strong> toward practical questions about setup, pricing, permissions, supported Salesforce editions and how AIforce relates to Agentforce." },
       ],
     },
     {
@@ -539,7 +539,7 @@ const claudeforce: BlogArticle = {
         { type: "subheading", text: "What is Salesforce in Claude?" },
         { type: "paragraph", html: "It is the first product announced under Claudeforce: a Claude plugin that connects to Salesforce business context and launches with 37 prebuilt sales skills." },
         { type: "subheading", text: "Is Salesforce in Claude available to everyone?" },
-        { type: "paragraph", html: "No. Salesforce says it is currently available to select pilot customers, with an open beta planned for September 2026." },
+        { type: "paragraph", html: "Salesforce's September 16 AIforce announcement says Salesforce in Claude is available to all customers in beta." },
         { type: "subheading", text: "Does Claudeforce have pricing?" },
         { type: "paragraph", html: "No standalone public price or packaging was found in Salesforce's current launch material." },
         { type: "subheading", text: "Does Salesforce in Claude use MCP?" },
@@ -569,8 +569,9 @@ const claudeforce: BlogArticle = {
     { label: "Salesforce Investor Relations — Claudeforce announcement", url: "https://investor.salesforce.com/news/news-details/2026/Salesforce-and-Anthropic-Announce-Claudeforce-The-1-AI-Meets-the-1-AI-CRM/default.aspx" },
     { label: "Anthropic — expanded Salesforce partnership and trust-boundary context", url: "https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership" },
     { label: "Salesforce — Headless 360 architecture", url: "https://www.salesforce.com/news/stories/salesforce-headless-360-announcement/" },
+    { label: "Salesforce — AIforce launch and current Salesforce in Claude beta availability", url: "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/" },
   ],
-  relatedPaths: ["/blog/gemini-3-5-transcribe", "/blog/qwen3-8-flash-next", "/resources/what-makes-a-good-business-website", "/services/web-design-for-local-businesses"],
+  relatedPaths: ["/blog/salesforce-aiforce", "/blog/gemini-3-5-transcribe", "/blog/qwen3-8-flash-next", "/resources/what-makes-a-good-business-website", "/services/web-design-for-local-businesses"],
 };
 
 const agentz: BlogArticle = {
