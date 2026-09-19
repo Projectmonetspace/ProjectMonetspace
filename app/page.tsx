@@ -104,6 +104,9 @@ export default function Home() {
     let frame = 0;
     let lastTime = performance.now();
     let lastActive = -1;
+    let pointerActive = false;
+    let focusActive = false;
+    let galleryVisible = false;
 
     const pauseAutoScroll = (duration = 1400) => {
       autoResumeAtRef.current = performance.now() + duration;
@@ -117,7 +120,9 @@ export default function Home() {
 
     const centerOnMiddleCopy = () => {
       const middle = gallery.querySelector<HTMLElement>('[data-copy="1"][data-index="0"]');
-      if (middle) gallery.scrollLeft = middle.offsetLeft;
+      if (middle) {
+        gallery.scrollLeft = middle.offsetLeft - (gallery.clientWidth - middle.offsetWidth) / 2;
+      }
     };
 
     const normalizeLoop = () => {
@@ -153,36 +158,69 @@ export default function Home() {
       lastTime = now;
       normalizeLoop();
 
-      const width = loopWidth();
-      if (!reducedMotion.matches && width > 0 && now >= autoResumeAtRef.current) {
-        gallery.scrollLeft += (width / 96000) * delta;
-      }
+      if (galleryVisible) {
+        const width = loopWidth();
+        if (
+          !reducedMotion.matches &&
+          !pointerActive &&
+          !focusActive &&
+          width > 0 &&
+          now >= autoResumeAtRef.current
+        ) {
+          gallery.scrollLeft += (width / 96000) * delta;
+        }
 
-      updateActiveProject();
+        updateActiveProject();
+      }
       frame = requestAnimationFrame(tick);
     };
 
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        galleryVisible = entry.isIntersecting;
+        if (galleryVisible) updateActiveProject();
+      },
+      { rootMargin: "200px 0px" },
+    );
+
     centerOnMiddleCopy();
-    updateActiveProject();
+    visibilityObserver.observe(gallery);
     frame = requestAnimationFrame(tick);
 
-    const pauseForPointer = () => pauseAutoScroll(2200);
+    const pauseForPointer = () => {
+      pointerActive = true;
+      pauseAutoScroll(2200);
+    };
+    const resumeFromPointer = () => {
+      if (!pointerActive) return;
+      pointerActive = false;
+      pauseAutoScroll(1500);
+    };
     const pauseForWheel = () => pauseAutoScroll(1500);
-    const pauseForFocus = () => pauseAutoScroll(3000);
+    const pauseForFocus = () => {
+      focusActive = true;
+    };
+    const resumeFromFocus = () => {
+      focusActive = false;
+      pauseAutoScroll(1000);
+    };
 
     gallery.addEventListener("pointerdown", pauseForPointer, { passive: true });
-    gallery.addEventListener("pointerup", pauseForWheel, { passive: true });
-    gallery.addEventListener("pointercancel", pauseForWheel, { passive: true });
+    window.addEventListener("pointerup", resumeFromPointer, { passive: true });
+    window.addEventListener("pointercancel", resumeFromPointer, { passive: true });
     gallery.addEventListener("wheel", pauseForWheel, { passive: true });
     gallery.addEventListener("focusin", pauseForFocus);
+    gallery.addEventListener("focusout", resumeFromFocus);
 
     return () => {
       cancelAnimationFrame(frame);
+      visibilityObserver.disconnect();
       gallery.removeEventListener("pointerdown", pauseForPointer);
-      gallery.removeEventListener("pointerup", pauseForWheel);
-      gallery.removeEventListener("pointercancel", pauseForWheel);
+      window.removeEventListener("pointerup", resumeFromPointer);
+      window.removeEventListener("pointercancel", resumeFromPointer);
       gallery.removeEventListener("wheel", pauseForWheel);
       gallery.removeEventListener("focusin", pauseForFocus);
+      gallery.removeEventListener("focusout", resumeFromFocus);
     };
   }, []);
 
@@ -384,8 +422,8 @@ export default function Home() {
                         rel="noreferrer"
                         tabIndex={duplicate ? -1 : undefined}
                         aria-label={duplicate ? undefined : `Open ${item.title} live website`}
-                        data-analytics-event={duplicate ? undefined : "portfolio_open"}
-                        data-analytics-location={duplicate ? undefined : "homepage_gallery"}
+                        data-analytics-event="portfolio_open"
+                        data-analytics-location="homepage_gallery"
                       >
                         <div className={`work-image fallback-${index + 1}`}>
                           <Image
@@ -419,8 +457,8 @@ export default function Home() {
             <div className="gallery-count"><span>{String(activeProject + 1).padStart(2, "0")}</span> / {String(work.length).padStart(2, "0")}</div>
             <div className="gallery-progress" aria-hidden="true"><i style={{ width: `${((activeProject + 1) / work.length) * 100}%` }} /></div>
             <div className="gallery-arrows">
-              <button className="liquid-glass" type="button" aria-label="Previous project" onClick={() => goToProject(activeProject - 1)} disabled={activeProject === 0}><ChevronLeft size={18} /></button>
-              <button className="liquid-glass" type="button" aria-label="Next project" onClick={() => goToProject(activeProject + 1)} disabled={activeProject === work.length - 1}><ChevronRight size={18} /></button>
+              <button className="liquid-glass" type="button" aria-label="Previous project" onClick={() => goToProject(activeProject - 1)}><ChevronLeft size={18} /></button>
+              <button className="liquid-glass" type="button" aria-label="Next project" onClick={() => goToProject(activeProject + 1)}><ChevronRight size={18} /></button>
             </div>
           </div>
         </section>
