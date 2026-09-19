@@ -93,35 +93,126 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState(0);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const galleryRef = useRef<HTMLDivElement>(null);
+  const autoResumeAtRef = useRef(0);
 
   useEffect(() => {
     const gallery = galleryRef.current;
     if (!gallery) return;
 
     const cards = Array.from(gallery.querySelectorAll<HTMLElement>(".work-card"));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const closest = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (closest) setActiveProject(Number((closest.target as HTMLElement).dataset.index));
-      },
-      { root: gallery, threshold: [0.5, 0.65, 0.8] },
-    );
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    let lastTime = performance.now();
+    let lastActive = -1;
 
-    cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
+    const pauseAutoScroll = (duration = 1400) => {
+      autoResumeAtRef.current = performance.now() + duration;
+    };
+
+    const loopWidth = () => {
+      const first = gallery.querySelector<HTMLElement>('[data-copy="0"][data-index="0"]');
+      const second = gallery.querySelector<HTMLElement>('[data-copy="1"][data-index="0"]');
+      return first && second ? second.offsetLeft - first.offsetLeft : gallery.scrollWidth / 3;
+    };
+
+    const centerOnMiddleCopy = () => {
+      const middle = gallery.querySelector<HTMLElement>('[data-copy="1"][data-index="0"]');
+      if (middle) gallery.scrollLeft = middle.offsetLeft;
+    };
+
+    const normalizeLoop = () => {
+      const width = loopWidth();
+      if (!width) return;
+      if (gallery.scrollLeft < width * 0.35) gallery.scrollLeft += width;
+      else if (gallery.scrollLeft > width * 1.65) gallery.scrollLeft -= width;
+    };
+
+    const updateActiveProject = () => {
+      const viewportCenter = gallery.scrollLeft + gallery.clientWidth / 2;
+      let closest: HTMLElement | undefined;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((card) => {
+        const distance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - viewportCenter);
+        if (distance < closestDistance) {
+          closest = card;
+          closestDistance = distance;
+        }
+      });
+
+      if (!closest) return;
+      const index = Number(closest.dataset.index);
+      if (index !== lastActive) {
+        lastActive = index;
+        setActiveProject(index);
+      }
+    };
+
+    const tick = (now: number) => {
+      const delta = Math.min(now - lastTime, 50);
+      lastTime = now;
+      normalizeLoop();
+
+      const width = loopWidth();
+      if (!reducedMotion.matches && width > 0 && now >= autoResumeAtRef.current) {
+        gallery.scrollLeft += (width / 96000) * delta;
+      }
+
+      updateActiveProject();
+      frame = requestAnimationFrame(tick);
+    };
+
+    centerOnMiddleCopy();
+    updateActiveProject();
+    frame = requestAnimationFrame(tick);
+
+    const pauseForPointer = () => pauseAutoScroll(2200);
+    const pauseForWheel = () => pauseAutoScroll(1500);
+    const pauseForFocus = () => pauseAutoScroll(3000);
+
+    gallery.addEventListener("pointerdown", pauseForPointer, { passive: true });
+    gallery.addEventListener("pointerup", pauseForWheel, { passive: true });
+    gallery.addEventListener("pointercancel", pauseForWheel, { passive: true });
+    gallery.addEventListener("wheel", pauseForWheel, { passive: true });
+    gallery.addEventListener("focusin", pauseForFocus);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      gallery.removeEventListener("pointerdown", pauseForPointer);
+      gallery.removeEventListener("pointerup", pauseForWheel);
+      gallery.removeEventListener("pointercancel", pauseForWheel);
+      gallery.removeEventListener("wheel", pauseForWheel);
+      gallery.removeEventListener("focusin", pauseForFocus);
+    };
   }, []);
 
   function goToProject(index: number) {
-    const next = Math.max(0, Math.min(work.length - 1, index));
-    const card = galleryRef.current?.querySelector<HTMLElement>(`[data-index="${next}"]`);
-    card?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    const gallery = galleryRef.current;
+    if (!gallery) return;
+
+    const next = ((index % work.length) + work.length) % work.length;
+    const cards = Array.from(gallery.querySelectorAll<HTMLElement>(`[data-index="${next}"]`));
+    const viewportCenter = gallery.scrollLeft + gallery.clientWidth / 2;
+    const card = cards.reduce<HTMLElement | null>((closest, current) => {
+      if (!closest) return current;
+      const closestDistance = Math.abs(closest.offsetLeft + closest.offsetWidth / 2 - viewportCenter);
+      const currentDistance = Math.abs(current.offsetLeft + current.offsetWidth / 2 - viewportCenter);
+      return currentDistance < closestDistance ? current : closest;
+    }, null);
+
+    if (!card) return;
+    autoResumeAtRef.current = performance.now() + 1800;
+    gallery.scrollTo({
+      left: card.offsetLeft - (gallery.clientWidth - card.offsetWidth) / 2,
+      behavior: "smooth",
+    });
     setActiveProject(next);
   }
 
   function cardPosition(index: number) {
-    const offset = index - activeProject;
+    let offset = index - activeProject;
+    if (offset > work.length / 2) offset -= work.length;
+    if (offset < -work.length / 2) offset += work.length;
     if (offset === 0) return "is-active";
     if (offset === -1) return "is-left";
     if (offset === 1) return "is-right";
@@ -275,34 +366,52 @@ export default function Home() {
 
           <div className="gallery-stage">
             <div className="gallery-haze" aria-hidden="true" />
-            <div className="curved-gallery" ref={galleryRef} aria-label="Scrollable live website gallery">
-              <div className="gallery-spacer" aria-hidden="true" />
-              {work.map((item, index) => (
-                <article className={`work-card ${cardPosition(index)}`} data-index={index} key={item.url}>
-                  <a href={item.url} target="_blank" rel="noreferrer" aria-label={`Open ${item.title} live website`} data-analytics-event="portfolio_open" data-analytics-location="homepage_gallery">
-                    <div className={`work-image fallback-${index + 1}`}>
-                      <Image
-                        src={item.image}
-                        alt={`${item.title} website preview`}
-                        fill
-                        sizes="(max-width: 767px) 272px, 28vw"
-                        style={{ objectPosition: item.position }}
-                      />
-                      <div className="work-scrim" />
-                      <span className="live-pill"><i></i> Live website</span>
-                      <span className="open-project">Open <ArrowUpRight size={16} /></span>
-                    </div>
-                    <div className="work-caption">
-                      <div>
-                        <span>{String(index + 1).padStart(2, "0")}</span>
-                        <h3>{item.title}</h3>
-                      </div>
-                      <p>{item.category}</p>
-                    </div>
-                  </a>
-                </article>
-              ))}
-              <div className="gallery-spacer" aria-hidden="true" />
+            <div className="curved-gallery" ref={galleryRef} aria-label="Automatically scrolling live website gallery. Swipe or scroll horizontally to browse manually.">
+              {[0, 1, 2].flatMap((copy) =>
+                work.map((item, index) => {
+                  const duplicate = copy !== 1;
+                  return (
+                    <article
+                      className={`work-card ${cardPosition(index)}`}
+                      data-copy={copy}
+                      data-index={index}
+                      key={`${copy}-${item.url}`}
+                      aria-hidden={duplicate || undefined}
+                    >
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        tabIndex={duplicate ? -1 : undefined}
+                        aria-label={duplicate ? undefined : `Open ${item.title} live website`}
+                        data-analytics-event={duplicate ? undefined : "portfolio_open"}
+                        data-analytics-location={duplicate ? undefined : "homepage_gallery"}
+                      >
+                        <div className={`work-image fallback-${index + 1}`}>
+                          <Image
+                            src={item.image}
+                            alt={duplicate ? "" : `${item.title} website preview`}
+                            fill
+                            sizes="(max-width: 767px) 272px, 28vw"
+                            style={{ objectPosition: item.position }}
+                            draggable={false}
+                          />
+                          <div className="work-scrim" />
+                          <span className="live-pill"><i></i> Live website</span>
+                          <span className="open-project">Open <ArrowUpRight size={16} /></span>
+                        </div>
+                        <div className="work-caption">
+                          <div>
+                            <span>{String(index + 1).padStart(2, "0")}</span>
+                            <h3>{item.title}</h3>
+                          </div>
+                          <p>{item.category}</p>
+                        </div>
+                      </a>
+                    </article>
+                  );
+                }),
+              )}
             </div>
           </div>
 
