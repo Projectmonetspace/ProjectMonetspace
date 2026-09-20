@@ -332,7 +332,7 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
     assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21))$/);
-    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17))$/);
+    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21))$/);
     assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
   }
 });
