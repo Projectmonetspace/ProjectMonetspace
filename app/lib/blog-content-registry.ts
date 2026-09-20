@@ -105,7 +105,6 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
-  ...eukaInstagramArticles,
   ...publishAll20260917A,
   ...publishAll20260917B,
   ...publishAll20260917C,
@@ -197,6 +196,7 @@ const sourceArticles: BlogArticle[] = [
   ...praxistArticles,
   ...photoshopGoogleArticles,
   ...legacyBlogArticles,
+  ...eukaInstagramArticles,
 ];
 
 const supportingPathsByParent = new Map<string, string[]>();
