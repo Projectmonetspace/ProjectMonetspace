@@ -1,4 +1,10 @@
 import { eukaInstagramArticles } from "./blog-content-euka-instagram.ts";
+import { perplexityWindowsArticles } from "./blog-content-perplexity-windows.ts";
+import { googleHomeMcpArticles } from "./blog-content-google-home-mcp.ts";
+import { cpanelAiArticles } from "./blog-content-cpanel-ai.ts";
+import { aunioArticles } from "./blog-content-aunio.ts";
+import { claudeCodeProjectsArticles } from "./blog-content-claude-code-projects.ts";
+import { koalaAiMcpArticles } from "./blog-content-koala-ai-mcp.ts";
 import { publishAll20260917A } from "./blog-content-publish-all-2026-09-17-a.ts";
 import { publishAll20260917B } from "./blog-content-publish-all-2026-09-17-b.ts";
 import { publishAll20260917C } from "./blog-content-publish-all-2026-09-17-c.ts";
@@ -197,6 +203,12 @@ const sourceArticles: BlogArticle[] = [
   ...photoshopGoogleArticles,
   ...legacyBlogArticles,
   ...eukaInstagramArticles,
+  ...perplexityWindowsArticles,
+  ...googleHomeMcpArticles,
+  ...cpanelAiArticles,
+  ...aunioArticles,
+  ...claudeCodeProjectsArticles,
+  ...koalaAiMcpArticles,
 ];
 
 const supportingPathsByParent = new Map<string, string[]>();

@@ -13,14 +13,14 @@ const portableComputerMain: BlogArticle = {
   title: "Perplexity Portable Computer: Local AI, DGX Spark, Models & Availability",
   metaTitle: "Perplexity Portable Computer: Local AI, DGX Spark & Availability",
   metaDescription:
-    "Perplexity Portable Computer runs its agent stack locally on NVIDIA DGX Spark with Qwen 3.8 27B or PPLX 27B, optional cloud escalation and private on-device workflows.",
-  h1: "Perplexity Portable Computer Runs Its AI Agent Locally on NVIDIA DGX Spark",
+    "Perplexity Portable Computer runs locally on DGX Spark and supported Windows/Linux RTX PCs with 24GB+ VRAM, using PPLX 27B on RTX PCs with optional cloud escalation.",
+  h1: "Perplexity Portable Computer Runs Locally on NVIDIA DGX Spark and RTX PCs",
   excerpt:
-    "Perplexity’s Portable Computer moves its agent orchestration onto DGX Spark at launch, keeping many files and tasks local while allowing permissioned cloud escalation when needed.",
+    "Perplexity Portable Computer now spans NVIDIA DGX Spark plus supported Windows and Linux RTX PCs, keeping many files and tasks local while allowing permissioned cloud escalation when needed.",
   category: "AI",
   author: "Project Monet Editorial Team",
   datePublished: published,
-  dateModified: published,
+  dateModified: "2026-09-21",
   ogAlt:
     "Project Monet editorial diagram showing a local AI workstation processing private files with an optional permission-controlled path to cloud search, models and connectors",
   sections: [
@@ -44,11 +44,11 @@ const portableComputerMain: BlogArticle = {
       blocks: [
         {
           type: "paragraph",
-          html: "The first release targets NVIDIA DGX Spark on Linux and is available to eligible Perplexity Pro and Max subscribers. DGX Spark is built around NVIDIA’s GB10 Grace Blackwell platform with a 20-core Arm CPU, NVIDIA GPU and 128 GB of unified memory.",
+          html: "The first release targeted NVIDIA DGX Spark on Linux. Perplexity now also supports Windows and Linux PCs with a supported NVIDIA RTX GPU and at least 24GB of VRAM; access is available to eligible Perplexity Pro and Max subscribers.",
         },
         {
           type: "note",
-          html: "Perplexity says Windows plus broader GeForce RTX and RTX PRO PC support are coming later. The launch material does not provide a universal future RTX VRAM requirement or a guaranteed rollout date, so those should not be invented.",
+          html: "Perplexity’s current product page now lists supported Windows and Linux RTX PCs with 24GB of VRAM or higher. On RTX PCs, PPLX 27B is the available local model; Qwen 3.8 27B is not available there.",
         },
       ],
     },
@@ -58,11 +58,11 @@ const portableComputerMain: BlogArticle = {
       blocks: [
         {
           type: "paragraph",
-          html: "At launch, Portable Computer can use Qwen 3.8 27B or PPLX 27B. Perplexity describes PPLX 27B as a post-trained model designed for local knowledge work and for deciding when an authorized remote capability is useful.",
+          html: "On NVIDIA DGX Spark, Portable Computer can use PPLX 27B or Qwen 3.8 27B. On supported Windows and Linux RTX PCs, the current product page lists PPLX 27B; Qwen 3.8 27B is not available on RTX PCs.",
         },
         {
           type: "paragraph",
-          html: "Perplexity also announced NVIDIA Nemotron 3.5 Lightning as coming to the model picker. Treat that as announced future support until it is actually exposed in the released product.",
+          html: "Perplexity still lists NVIDIA Nemotron 3.5 Lightning as coming soon. Treat it as announced future support until it is exposed in the released product.",
         },
       ],
     },
@@ -138,12 +138,13 @@ const portableComputerMain: BlogArticle = {
       blocks: [
         {
           type: "paragraph",
-          html: "Portable Computer is a hybrid local/cloud agent architecture: it keeps orchestration and many private-data tasks on DGX Spark at launch while allowing explicit escalation to current web information, connected applications and remote models. Windows, broader RTX support and Nemotron 3.5 Lightning in the picker remain announced future expansion rather than launch availability.",
+          html: "Portable Computer is a hybrid local/cloud agent architecture. It now supports NVIDIA DGX Spark plus supported Windows and Linux RTX PCs with 24GB+ VRAM. Windows and Linux RTX PCs use PPLX 27B locally; Qwen 3.8 27B remains available on DGX Spark but not RTX PCs, while Nemotron 3.5 Lightning is still announced as coming soon.",
         },
       ],
     },
   ],
   sources: [
+    { label: "Perplexity — Portable Computer product page", url: "https://www.perplexity.ai/hub/products/portable-computer" },
     {
       label: "Perplexity — Introducing Portable Computer for local-first AI",
       url: "https://www.perplexity.ai/uk/hub/blog/introducing-portable-computer-for-local-first-ai",
@@ -179,7 +180,7 @@ const portableComputerGuide: BlogArticle = {
   category: "AI",
   author: "Project Monet Editorial Team",
   datePublished: published,
-  dateModified: published,
+  dateModified: "2026-09-21",
   ogAlt:
     "Project Monet setup flow showing a DGX Spark-style workstation, local model selection, private files, a permission prompt and optional cloud connectors",
   sections: [
@@ -193,7 +194,7 @@ const portableComputerGuide: BlogArticle = {
         },
         {
           type: "note",
-          html: "Do not use this launch guide as a Windows or generic RTX setup guide. Perplexity says those paths are coming later and has not published universal future RTX minimum-VRAM requirements.",
+          html: "This guide remains specifically for NVIDIA DGX Spark. Windows and Linux RTX users now have an official path requiring a supported NVIDIA RTX GPU with at least 24GB of VRAM; use the dedicated Windows RTX guide for that workflow.",
         },
       ],
     },
@@ -304,7 +305,7 @@ const portableComputerGuide: BlogArticle = {
       blocks: [
         {
           type: "paragraph",
-          html: "Windows plus broader GeForce RTX and RTX PRO support are announced as coming later. Until those builds ship, third-party claims about exact supported cards, VRAM minimums, installer commands or rollout dates should not be treated as official Perplexity requirements.",
+          html: "Windows and broader RTX support are now available on supported Windows and Linux PCs with an NVIDIA RTX GPU and at least 24GB of VRAM. Perplexity does not publish a universal list of every compatible card, so check the current product page rather than assuming any 24GB GPU is supported.",
         },
       ],
     },
@@ -320,6 +321,7 @@ const portableComputerGuide: BlogArticle = {
     },
   ],
   sources: [
+    { label: "Perplexity — Portable Computer product page", url: "https://www.perplexity.ai/hub/products/portable-computer" },
     {
       label: "Perplexity — Introducing Portable Computer for local-first AI",
       url: "https://www.perplexity.ai/uk/hub/blog/introducing-portable-computer-for-local-first-ai",

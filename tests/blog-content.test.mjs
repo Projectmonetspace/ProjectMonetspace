@@ -313,6 +313,19 @@ const expectedSlugs = [
   "gemini-3-5-transcribe",
   "instagram-first-draft-reels",
   "euka-instagram-creator-commerce",
+  "perplexity-portable-computer-windows-rtx",
+  "google-home-mcp",
+  "google-home-mcp-setup",
+  "cpanel-ai-meridian-mcp",
+  "cpanel-mcp-claude-code-setup",
+  "cpanel-ai-nodejs-mcp-deployment",
+  "aunio-ai-audio-agent",
+  "aunio-pricing-credits",
+  "claude-code-projects",
+  "how-to-use-claude-code-projects",
+  "koala-ai-mcp",
+  "koala-ai-mcp-pricing-credits",
+  "koala-ai-mcp-setup",
 ];
 
 const supportedCategories = new Set(["AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other"]);
