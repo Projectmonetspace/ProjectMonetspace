@@ -92,17 +92,145 @@ import { vibeVoiceAsrStreamingArticles } from "./blog-content-vibevoice-asr-stre
 import { youtubeAmazonArticles } from "./blog-content-youtube-amazon.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
 
-const supportedCategories = new Set<BlogCategory>(["AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other"]);
-function validateArticle(article: BlogArticle): BlogArticle { if (!article.slug || !article.title || !article.h1 || !article.metaTitle || !article.metaDescription) throw new Error(`Invalid blog article core fields for ${article.slug || "unknown slug"}`); if (!supportedCategories.has(article.category)) throw new Error(`Unsupported blog category ${article.category} for ${article.slug}`); if (article.sections.length < 1 || article.sources.length < 1) throw new Error(`Incomplete blog article content for ${article.slug}`); if (article.articleType === "supporting" && !article.parentSlug) throw new Error(`Supporting article ${article.slug} is missing parentSlug`); return article; }
+const supportedCategories = new Set<BlogCategory>([
+  "AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other",
+]);
+
+function validateArticle(article: BlogArticle): BlogArticle {
+  if (!article.slug || !article.title || !article.h1 || !article.metaTitle || !article.metaDescription) throw new Error(`Invalid blog article core fields for ${article.slug || "unknown slug"}`);
+  if (!supportedCategories.has(article.category)) throw new Error(`Unsupported blog category ${article.category} for ${article.slug}`);
+  if (article.sections.length < 1 || article.sources.length < 1) throw new Error(`Incomplete blog article content for ${article.slug}`);
+  if (article.articleType === "supporting" && !article.parentSlug) throw new Error(`Supporting article ${article.slug} is missing parentSlug`);
+  return article;
+}
+
 const sourceArticles: BlogArticle[] = [
   ...eukaInstagramArticles,
-  ...publishAll20260917A, ...publishAll20260917B, ...publishAll20260917C, ...reviewedArticles20260915A, ...reviewedArticles20260915B, ...approvedArticles20260915, ...runwayPluginArticles20260914, ...reviewArticles20260914A, ...reviewArticles20260914B, ...reviewArticles20260914C, ...reviewArticles20260914D, ...reviewArticles20260914E, ...reviewArticles20260914F, ...approvedArticles20260909All, ...airtopAgentBuilderArticles, ...airtopAgentBuilderPricingArticles, ...dialAiAgentArticles, ...coderAgentRelayArticles, ...lyria35Articles, ...neommeArticles, ...vlmRunGatewayArticles, ...hydraFusionArticles, ...mentionOsArticles, ...lladaImageArticles, ...worldLabsAtlasArticles, ...k2HorizonArticles, ...ranklyArticles, ...trackMcpArticles, ...minimaxH3MaxArticles, ...h3MaxComparisonArticles, ...secretarUnifiedContextArticles, ...tadataArticles, ...openYap1kArticles, ...vdnH3Articles, ...vdnH3SupportingArticles, ...sembly30Articles, ...miniCpm52bArticles, ...databoxWondrAgentsArticles, ...yorollH3SuperfastArticles, ...fimoArticles, ...supportingArticles20260909, ...gupshupVoiceAiArticles, ...gupshupVoiceAiBuildGuideArticles, ...museSpark13Articles, ...museSpark13ComparisonArticles, ...gpt6AstraArticles, ...gpt6AstraAccessComparisonArticles, ...alchemerIrisArticles, ...gemini38FlashArticles, ...gemini38Vs37Articles, ...monidArticles, ...monidMarketingWorkflowArticles, ...vibeVoiceAsrStreamingArticles, ...huggingFaceWebgpuKernelArticles, ...funesArticles, ...solarWmArticles, ...cleanShotComparisonArticles, ...cleanShot5Articles, ...optimizelyMarkBenchArticles, ...asusProArtRtxSparkArticles, ...claudeFable51ApiArticles, ...googlePicsArticles, ...geminiAgenticVideoArticles, ...claudeFable51Articles, ...mercury25Articles, ...googleAiMaxMigrationArticles, ...flowiseArticles, ...browserSkillArticles, ...marketingSkillsArticles, ...chatgptAdsArticles, ...instagramAiProfileArticles, ...optimizelyVirtualTeammateArticles, ...stackScopeArticles, ...caddiArticles, ...olostepArticles, ...topviewMotionStudioArticles, ...openMontageArticles, ...youtubeAmazonArticles, ...googleAdsDeveloperAssistantArticles, ...cohereParseArticles, ...staatsArticles, ...rocm10Articles, ...perplexityPortableArticles, ...sparkStationArticles, ...sparkStationAdArticles, ...googleDemandGenAugust2026Articles, ...approvedArticles20260829, ...glm53MidjourneyArticles, ...praxistArticles, ...photoshopGoogleArticles, ...legacyBlogArticles
+  ...publishAll20260917A,
+  ...publishAll20260917B,
+  ...publishAll20260917C,
+  ...reviewedArticles20260915A,
+  ...reviewedArticles20260915B,
+  ...approvedArticles20260915,
+  ...runwayPluginArticles20260914,
+  ...reviewArticles20260914A,
+  ...reviewArticles20260914B,
+  ...reviewArticles20260914C,
+  ...reviewArticles20260914D,
+  ...reviewArticles20260914E,
+  ...reviewArticles20260914F,
+  ...approvedArticles20260909All,
+  ...airtopAgentBuilderArticles,
+  ...airtopAgentBuilderPricingArticles,
+  ...dialAiAgentArticles,
+  ...coderAgentRelayArticles,
+  ...lyria35Articles,
+  ...neommeArticles,
+  ...vlmRunGatewayArticles,
+  ...hydraFusionArticles,
+  ...mentionOsArticles,
+  ...lladaImageArticles,
+  ...worldLabsAtlasArticles,
+  ...k2HorizonArticles,
+  ...ranklyArticles,
+  ...trackMcpArticles,
+  ...minimaxH3MaxArticles,
+  ...h3MaxComparisonArticles,
+  ...secretarUnifiedContextArticles,
+  ...tadataArticles,
+  ...openYap1kArticles,
+  ...vdnH3Articles,
+  ...vdnH3SupportingArticles,
+  ...sembly30Articles,
+  ...miniCpm52bArticles,
+  ...databoxWondrAgentsArticles,
+  ...yorollH3SuperfastArticles,
+  ...fimoArticles,
+  ...supportingArticles20260909,
+  ...gupshupVoiceAiArticles,
+  ...gupshupVoiceAiBuildGuideArticles,
+  ...museSpark13Articles,
+  ...museSpark13ComparisonArticles,
+  ...gpt6AstraArticles,
+  ...gpt6AstraAccessComparisonArticles,
+  ...alchemerIrisArticles,
+  ...gemini38FlashArticles,
+  ...gemini38Vs37Articles,
+  ...monidArticles,
+  ...monidMarketingWorkflowArticles,
+  ...vibeVoiceAsrStreamingArticles,
+  ...huggingFaceWebgpuKernelArticles,
+  ...funesArticles,
+  ...solarWmArticles,
+  ...cleanShotComparisonArticles,
+  ...cleanShot5Articles,
+  ...optimizelyMarkBenchArticles,
+  ...asusProArtRtxSparkArticles,
+  ...claudeFable51ApiArticles,
+  ...googlePicsArticles,
+  ...geminiAgenticVideoArticles,
+  ...claudeFable51Articles,
+  ...mercury25Articles,
+  ...googleAiMaxMigrationArticles,
+  ...flowiseArticles,
+  ...browserSkillArticles,
+  ...marketingSkillsArticles,
+  ...chatgptAdsArticles,
+  ...instagramAiProfileArticles,
+  ...optimizelyVirtualTeammateArticles,
+  ...stackScopeArticles,
+  ...caddiArticles,
+  ...olostepArticles,
+  ...topviewMotionStudioArticles,
+  ...openMontageArticles,
+  ...youtubeAmazonArticles,
+  ...googleAdsDeveloperAssistantArticles,
+  ...cohereParseArticles,
+  ...staatsArticles,
+  ...rocm10Articles,
+  ...perplexityPortableArticles,
+  ...sparkStationArticles,
+  ...sparkStationAdArticles,
+  ...googleDemandGenAugust2026Articles,
+  ...approvedArticles20260829,
+  ...glm53MidjourneyArticles,
+  ...praxistArticles,
+  ...photoshopGoogleArticles,
+  ...legacyBlogArticles,
 ];
+
 const supportingPathsByParent = new Map<string, string[]>();
-for (const article of sourceArticles) { if (article.status !== "published" || article.articleType !== "supporting" || !article.parentSlug) continue; const paths = supportingPathsByParent.get(article.parentSlug) ?? []; paths.push(`/blog/${article.slug}`); supportingPathsByParent.set(article.parentSlug, paths); }
-const modifiedMainDates = new Map<string, string>([["cleanshot-5-studio-mode", "2026-09-04"], ["monid-agent-tools", "2026-09-04"], ["gemini-3-8-flash", "2026-09-04"], ["airtop-agent-builder", "2026-09-04"], ["gupshup-voice-ai", "2026-09-05"], ["muse-spark-1-3", "2026-09-17"], ["minimax-h3-max", "2026-09-07"], ["vdn-h3-videodeltanet", "2026-09-08"], ["minicpm5-2b", "2026-09-09"], ["fimo-autonomous-website-platform", "2026-09-09"]]);
-const registeredArticles: BlogArticle[] = sourceArticles.map((article) => { const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : []; const dateModified = modifiedMainDates.get(article.slug) ?? article.dateModified; return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] }); });
-const registeredSlugs = registeredArticles.map((article) => article.slug); if (new Set(registeredSlugs).size !== registeredSlugs.length) throw new Error("Duplicate blog article slug detected in the central registry");
+for (const article of sourceArticles) {
+  if (article.status !== "published" || article.articleType !== "supporting" || !article.parentSlug) continue;
+  const paths = supportingPathsByParent.get(article.parentSlug) ?? [];
+  paths.push(`/blog/${article.slug}`);
+  supportingPathsByParent.set(article.parentSlug, paths);
+}
+
+const modifiedMainDates = new Map<string, string>([
+  ["cleanshot-5-studio-mode", "2026-09-04"],
+  ["monid-agent-tools", "2026-09-04"],
+  ["gemini-3-8-flash", "2026-09-04"],
+  ["airtop-agent-builder", "2026-09-04"],
+  ["gupshup-voice-ai", "2026-09-05"],
+  ["muse-spark-1-3", "2026-09-17"],
+  ["minimax-h3-max", "2026-09-07"],
+  ["vdn-h3-videodeltanet", "2026-09-08"],
+  ["minicpm5-2b", "2026-09-09"],
+  ["fimo-autonomous-website-platform", "2026-09-09"],
+]);
+const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
+  const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
+  const dateModified = modifiedMainDates.get(article.slug) ?? article.dateModified;
+  return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
+});
+
+const registeredSlugs = registeredArticles.map((article) => article.slug);
+if (new Set(registeredSlugs).size !== registeredSlugs.length) throw new Error("Duplicate blog article slug detected in the central registry");
+
 export const blogArticles = registeredArticles;
 export const publishedBlogArticles = blogArticles.filter((article) => article.status === "published");
-export function findPublishedArticle(slug: string) { return publishedBlogArticles.find((article) => article.slug === slug); }
+
+export function findPublishedArticle(slug: string) {
+  return publishedBlogArticles.find((article) => article.slug === slug);
+}
