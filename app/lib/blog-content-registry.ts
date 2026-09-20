@@ -1,3 +1,4 @@
+import { eukaInstagramArticles } from "./blog-content-euka-instagram.ts";
 import { publishAll20260917A } from "./blog-content-publish-all-2026-09-17-a.ts";
 import { publishAll20260917B } from "./blog-content-publish-all-2026-09-17-b.ts";
 import { publishAll20260917C } from "./blog-content-publish-all-2026-09-17-c.ts";
@@ -195,6 +196,7 @@ const sourceArticles: BlogArticle[] = [
   ...praxistArticles,
   ...photoshopGoogleArticles,
   ...legacyBlogArticles,
+  ...eukaInstagramArticles,
 ];
 
 const supportingPathsByParent = new Map<string, string[]>();
