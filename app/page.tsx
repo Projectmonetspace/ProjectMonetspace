@@ -91,6 +91,7 @@ function animation(delay: number) {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
+  const [galleryImagesReady, setGalleryImagesReady] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const galleryRef = useRef<HTMLDivElement>(null);
   const autoResumeAtRef = useRef(0);
@@ -178,9 +179,12 @@ export default function Home() {
     const visibilityObserver = new IntersectionObserver(
       ([entry]) => {
         galleryVisible = entry.isIntersecting;
-        if (galleryVisible) updateActiveProject();
+        if (galleryVisible) {
+          setGalleryImagesReady(true);
+          updateActiveProject();
+        }
       },
-      { rootMargin: "200px 0px" },
+      { rootMargin: "100px 0px" },
     );
 
     centerOnMiddleCopy();
@@ -426,14 +430,16 @@ export default function Home() {
                         data-analytics-location="homepage_gallery"
                       >
                         <div className={`work-image fallback-${index + 1}`}>
-                          <Image
-                            src={item.image}
-                            alt={duplicate ? "" : `${item.title} website preview`}
-                            fill
-                            sizes="(max-width: 767px) 272px, 28vw"
-                            style={{ objectPosition: item.position }}
-                            draggable={false}
-                          />
+                          {galleryImagesReady && (
+                            <Image
+                              src={item.image}
+                              alt={duplicate ? "" : `${item.title} website preview`}
+                              fill
+                              sizes="(max-width: 767px) 272px, 28vw"
+                              style={{ objectPosition: item.position }}
+                              draggable={false}
+                            />
+                          )}
                           <div className="work-scrim" />
                           <span className="live-pill"><i></i> Live website</span>
                           <span className="open-project">Open <ArrowUpRight size={16} /></span>
