@@ -3,6 +3,11 @@ import { securityHeaders } from "./security-headers.mjs";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  experimental: {
+    // The global stylesheet is small; inlining removes a render-blocking
+    // network round trip on slow mobile connections.
+    inlineCss: true,
+  },
   images: {
     // Prevent 272px mobile cards from jumping from 384px straight to 640px.
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 480],

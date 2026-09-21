@@ -20,7 +20,9 @@ for (const entry of entries) {
   assert.ok(html.includes('name="description"'), `${route}: description`);
   assert.doesNotMatch(html, /name="robots"[^>]*noindex/);
   assert.ok(!html.includes("/_next/image?"), `${route}: no runtime image optimizer`);
-  for (const m of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
+  // Match real src/href attributes, not React's data-href metadata used by
+  // inlineCss (which can contain a space-separated list of source files).
+  for (const m of html.matchAll(/(?:^|\s)(?:src|href)="([^"]+)"/g)) {
     if (m[1].startsWith("/__images/") || m[1].startsWith("/_next/static/")) {
       await stat(path.join("out", decodeURIComponent(m[1].split("?")[0])));
     }
