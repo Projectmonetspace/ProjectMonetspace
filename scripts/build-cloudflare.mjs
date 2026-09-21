@@ -8,7 +8,9 @@ const require = createRequire(import.meta.url);
 // Use the image engine already pinned by Next.js and the repository lockfile.
 const sharp = require("sharp");
 const { imageConfigDefault } = require("next/dist/shared/lib/image-config.js");
-const widths = [...new Set([...imageConfigDefault.deviceSizes, ...imageConfigDefault.imageSizes])];
+// 480px is the closest DPR-aware candidate for the 272px mobile work cards.
+// Keep the source files untouched and encode only the generated delivery variants.
+const widths = [...new Set([...imageConfigDefault.deviceSizes, ...imageConfigDefault.imageSizes, 480])];
 const root = process.cwd();
 const generated = path.join(root, "public", "__images");
 await rm(generated, { recursive: true, force: true });
@@ -28,11 +30,12 @@ for (const source of await images(path.join(root, "public"))) {
   await mkdir(destination, { recursive: true });
   for (const width of widths) {
     await sharp(source).rotate().resize({ width, withoutEnlargement: true })
-      .webp({ lossless: true, effort: 4 }).toFile(path.join(destination, "w" + width + ".webp"));
+      .webp({ quality: 86, smartSubsample: true, effort: 5 })
+      .toFile(path.join(destination, "w" + width + ".webp"));
     variants++;
   }
 }
-console.log("Generated", variants, "lossless responsive image variants; originals are unchanged.");
+console.log("Generated", variants, "quality-optimized responsive image variants; originals are unchanged.");
 const build = spawnSync(process.execPath, [require.resolve("next/dist/bin/next"), "build"], {
   stdio: "inherit", env: { ...process.env, PM_STATIC_EXPORT: "1" },
 });
@@ -40,7 +43,7 @@ if (build.status !== 0) process.exit(build.status ?? 1);
 
 const headers = "/*\n" + securityHeaders.map(({ key, value }) => "  " + key + ": " + value).join("\n") +
   "\n\n/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n" +
-  "\n/__images/*\n  Cache-Control: public, max-age=0, must-revalidate\n" +
+  "\n/__images/*\n  Cache-Control: public, max-age=31536000, immutable\n" +
   "\n/blog/*/og\n  Content-Type: image/png\n  Cache-Control: public, max-age=0, must-revalidate\n" +
   ["/hero-video.mp4", "/hero-poster.webp"].map(p => "\n" + p + "\n  Cache-Control: public, max-age=31536000, immutable\n").join("") +
   ["/sitemap.xml", "/pages-sitemap.xml", "/blog-sitemap.xml"].map(p => "\n" + p + "\n  Content-Type: application/xml; charset=utf-8\n  Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=300\n").join("");
@@ -53,4 +56,3 @@ await writeFile("out/deployment.json", JSON.stringify({
 await readFile("out/404.html");
 const verify = spawnSync(process.execPath, ["--experimental-strip-types", "scripts/verify-export.mjs"], { stdio: "inherit" });
 process.exit(verify.status ?? 1);
-
