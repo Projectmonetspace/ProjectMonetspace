@@ -100,7 +100,7 @@ button { color: inherit; }
 .price-list article > span { color: #56575a; font-size: .6rem; }
 .price-list h3 { margin: 0 0 .3rem; font-size: clamp(1.15rem, 2vw, 1.7rem); font-weight: 400; letter-spacing: -.035em; }
 .price-list small { color: #6d6e72; font-size: .68rem; }
-.price-list article > p { margin: 0; color: #d7d7d2; font-size: clamp(1.3rem, 2.2vw, 2.1rem); font-weight: 300; }
+.price-list article > p { margin: 0; color: #d7d7d2; font-family: Arial, sans-serif; font-size: clamp(1.3rem, 2.2vw, 2.1rem); font-weight: 300; }
 .price-list i { padding: 0 .55rem; color: #4d4e51; font-style: normal; }
 .pricing-note { max-width: 720px; margin: 2rem 0 0 auto; color: #727377; font-size: .7rem; line-height: 1.7; }
 
