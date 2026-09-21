@@ -9,6 +9,8 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "optional",
+  preload: false,
   // Load only the two weights used for critical text; intermediate weights
   // are synthesized without delaying the hero's first render.
   weight: ["400", "600"],
