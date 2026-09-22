@@ -115,7 +115,6 @@ function validateArticle(article: BlogArticle): BlogArticle {
 const sourceArticles: BlogArticle[] = [
   ...qwen38OmniFlashArticles,
   ...unpublishedArticles20260922,
-  ...qwen38OmniFlashArticles,
   ...publishAll20260917A,
   ...publishAll20260917B,
   ...publishAll20260917C,
