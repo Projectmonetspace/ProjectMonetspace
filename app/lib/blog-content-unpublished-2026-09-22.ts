@@ -34,7 +34,13 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "Custom Agents are built around an individual organization's own policies, knowledge, connected systems, actions and approval rules. Zendesk's Agent Builder is the no-code environment for creating, testing and deploying them. A business defines the job the agent owns, which systems it may use, which actions it may take and where human approval is required."
-          },
+          }
+        ]
+      },
+      {
+        "id": "industry-vs-custom",
+        "title": "Industry Agents vs Custom Agents",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "That distinction matters. An Industry Agent provides a starting layer of domain expertise; a Custom Agent is shaped around the business's particular operating rules. Zendesk also says Industry Agents can be customized with instructions, knowledge, policies, workflows, connected systems, actions, escalation rules and tone."
@@ -46,7 +52,13 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "Zendesk says these agents can run inside Zendesk and in external service environments including Salesforce and ServiceNow. This is important for organizations that want specialized automation without replacing their existing service platform. Zendesk positions the product as part of its broader Autonomous Service Workforce and Resolution Platform strategy."
-          },
+          }
+        ]
+      },
+      {
+        "id": "evidence-and-pricing",
+        "title": "Evidence, pricing and plan boundaries",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Zendesk reports that customers executed more than one million Custom Agent runs during the first seven weeks and says some customers saw automated resolution rates increase by 10% after deployment. These are vendor-reported figures, not independent benchmarks. Zendesk also markets Specialized Agents around automating up to 80% of workflows; that should be read as a product claim rather than a guaranteed outcome for a particular business."
@@ -58,7 +70,13 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "This launch builds on earlier 2026 changes. Zendesk had already expanded advanced agentic AI-agent capabilities across Suite and Support plans and introduced Agent Builder. The September launch creates a clearer product category around agents specialized by industry or business-specific job."
-          },
+          }
+        ]
+      },
+      {
+        "id": "deployment-and-controls",
+        "title": "Deployment, actions and human controls",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "For commerce teams, the practical difference from a conventional support bot is the ability to connect policy, customer context and backend actions. A returns agent, for example, can inspect an order, evaluate eligibility against policy, collect needed information, initiate the return, update the customer and escalate an exception with context preserved. Whether every action is available depends on the connected systems and permissions configured by the business."
@@ -66,11 +84,13 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "Human control remains part of the model. Teams define escalation and approval boundaries, and Zendesk says human agents can step in with conversation context when judgment or expertise is required. That makes permissions, connected-system scope and approval design central to a safe deployment."
-          },
-          {
-            "type": "paragraph",
-            "html": "FAQ"
-          },
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "title": "FAQ",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "What are Zendesk Specialized AI Agents? They are purpose-built AI agents that combine domain or company-specific knowledge with policies, workflows and connected systems to complete defined jobs."
@@ -4049,6 +4069,10 @@ export const unpublishedArticles20260922: BlogArticle[] = [
       {
         "label": "Primary source",
         "url": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B-GGUF"
+      },
+      {
+        "label": "Xing4.0 official llama.cpp local guide",
+        "url": "https://github.com/XingChen-AGI/Xing4.0-29B-A4B/blob/main/tutorial/llama.cpp/README_EN.md"
       }
     ],
     "relatedPaths": [
