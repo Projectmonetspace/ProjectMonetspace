@@ -293,7 +293,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://www.zendesk.com/newsroom/articles/relate-2026/"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "zendesk-specialized-ai-agents"
   },
   {
     "status": "published",
@@ -669,7 +670,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "amazon-bedrock-agentcore-runtime"
   },
   {
     "status": "published",
@@ -1508,7 +1510,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://prismml.com/news/prismml-launches-bonsai-2-27b"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "bonsai-2-27b"
   },
   {
     "status": "published",
@@ -2137,7 +2140,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://x.ai/news/grok-4-7"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "grok-4-7"
   },
   {
     "status": "published",
@@ -2376,7 +2380,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://investors.fastly.com/news-releases/news-release-details/fastly-launches-ai-firewall-and-ai-runtime-control-secure-and"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "fastly-ai-runtime-control"
   },
   {
     "status": "published",
@@ -3131,7 +3136,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://vercel.com/i/jev-agent-control"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "jev-ai"
   },
   {
     "status": "published",
@@ -3461,7 +3467,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://github.com/XiaomiMiMo"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "xiaomi-mimo-v2-6-pro"
   },
   {
     "status": "published",
@@ -3972,7 +3979,8 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B-GGUF"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "xing4-0-29b-a4b"
   },
   {
     "status": "published",
@@ -4428,6 +4436,7 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://platform.claude.com/docs/en/models/overview"
       }
     ],
-    "relatedPaths": []
+    "relatedPaths": [],
+    "parentSlug": "claude-opus-5-5"
   }
 ];
