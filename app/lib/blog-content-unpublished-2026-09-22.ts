@@ -151,75 +151,93 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "Zendesk Custom Agents are Specialized AI Agents built around one company's own processes, policies, knowledge and connected systems. Zendesk positions Agent Builder as the no-code environment for creating, testing and deploying these agents. The useful way to approach Agent Builder is not to start with a generic instruction such as 'handle support.' Start with one bounded job that has a clear outcome, the information needed to make decisions and explicit rules for when a person must take over."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 1: Define one job"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-1-define-one-job",
+        "title": "Define one job",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Zendesk describes a Custom Agent as an agent built for a specific business job. Good starting jobs are concrete workflows such as evaluating a refund request, processing a warranty claim, updating an account, handling an employee IT request or routing a complex service case. Define what successful completion means before connecting tools."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 2: Give the agent the right business context"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-2-give-the-agent-the-right-business-context",
+        "title": "Give the agent the right business context",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "A Custom Agent can use the organization's knowledge, policies, workflow rules and customer or employee context. For a refund agent, that might include refund eligibility rules, purchase history and order status. For an IT agent, it might include device policy, employee information and approved replacement procedures. Keep the source material authoritative and scoped to the job."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 3: Connect only the systems the job requires"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-3-connect-only-the-systems-the-job-requires",
+        "title": "Connect only the systems the job requires",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Zendesk says Specialized Agents can use connected systems to take actions. The launch also says agents can operate in Zendesk or service environments including Salesforce and ServiceNow. The exact integration set depends on the organization's environment. Avoid giving a narrowly scoped agent unnecessary access simply because a connector exists."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 4: Define allowed actions"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-4-define-allowed-actions",
+        "title": "Define allowed actions",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "The agent needs an explicit action boundary. For a commerce return workflow, allowed actions might include checking an order, verifying policy eligibility, initiating a return and updating the customer. Zendesk lists workflows such as order tracking, returns and exchanges, refunds, address changes, account updates, subscription management, case routing and escalation. Actual actions depend on connected systems and permissions."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 5: Decide where human approval is required"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-5-decide-where-human-approval-is-required",
+        "title": "Decide where human approval is required",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Zendesk explicitly says businesses define where human approval is required. Use this for decisions with meaningful financial, policy or customer-impact consequences. A workflow can let the agent complete routine cases automatically while routing exceptions or sensitive decisions to a human with the conversation context preserved."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 6: Configure escalation"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-6-configure-escalation",
+        "title": "Configure escalation",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "A Custom Agent should have a clear stop condition. Zendesk says human agents can step in when expertise, judgment or empathy is needed. Define what triggers escalation, what context is handed over and which actions the AI must not complete on its own."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 7: Test before broad deployment"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-7-test-before-broad-deployment",
+        "title": "Test before broad deployment",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Agent Builder is described by Zendesk as an environment for creating, testing and deploying agents. Test common successful cases, missing-data cases, conflicting-policy cases and exceptions. Verify that the agent uses the correct knowledge, calls only intended systems, respects approval boundaries and escalates when it cannot safely finish the job."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 8: Choose how the agent runs"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-8-choose-how-the-agent-runs",
+        "title": "Choose how the agent runs",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Custom Agents do not have to wait for a customer message. Zendesk says they can run proactively in response to business events or on a schedule. That opens workflows such as checking a service event and initiating a follow-up process. Scheduled or event-driven automation should use the same permission and escalation discipline as conversational use."
-          },
-          {
-            "type": "paragraph",
-            "html": "Step 9: Measure outcomes rather than chat volume"
-          },
+          }
+        ]
+      },
+      {
+        "id": "step-9-measure-outcomes-rather-than-chat-volume",
+        "title": "Measure outcomes rather than chat volume",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Zendesk's current AI-agent commercial model centers on automated resolutions and outcomes. For a Custom Agent, useful evaluation should focus on whether the defined job was completed correctly, how often a human had to intervene, where policy or knowledge gaps caused escalation, and whether the automation created downstream rework. Zendesk says its Resolution Learning Loop uses outcomes to improve service, but individual performance claims should not be assumed for a new deployment."
@@ -231,11 +249,13 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "A narrowly designed returns agent can receive the request, retrieve the order, compare it with the company's return policy, collect any missing information, initiate an eligible return, update the customer and send exceptions to a human. This example follows the workflow Zendesk uses in its Specialized Agents documentation. The exact backend actions depend on the integrations and permissions configured by the business."
-          },
-          {
-            "type": "paragraph",
-            "html": "What Custom Agents are not"
-          },
+          }
+        ]
+      },
+      {
+        "id": "what-custom-agents-are-not",
+        "title": "What Custom Agents are not",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "They are not unrestricted general-purpose assistants. Zendesk describes them as specialized agents operating within a defined job and business context. They are also different from a fixed decision-tree chatbot: Zendesk says they can reason through context and business rules and take approved actions. That added autonomy makes scope and governance more important, not less."
@@ -293,7 +313,9 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://www.zendesk.com/newsroom/articles/relate-2026/"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/zendesk-specialized-ai-agents"
+    ],
     "parentSlug": "zendesk-specialized-ai-agents"
   },
   {
@@ -668,9 +690,15 @@ export const unpublishedArticles20260922: BlogArticle[] = [
       {
         "label": "Primary source",
         "url": "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/"
+      },
+      {
+        "label": "AWS AgentCore Runtime developer guide",
+        "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/amazon-bedrock-agentcore-runtime"
+    ],
     "parentSlug": "amazon-bedrock-agentcore-runtime"
   },
   {
@@ -698,11 +726,13 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "ZCode 3.14 introduces Dynamic Workflows, a new way to coordinate multiple sub-agents around a complex task. According to Z.ai's September 19, 2026 changelog, one workflow script can orchestrate several sub-agents and users can start a workflow from the plus menu in the input box or with the /workflow command. The same release also adds separate Office and Coding modes."
-          },
-          {
-            "type": "paragraph",
-            "html": "What changed in ZCode 3.14"
-          },
+          }
+        ]
+      },
+      {
+        "id": "what-changed-in-zcode-3-14",
+        "title": "What changed in ZCode 3.14",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "The important change is orchestration. Earlier ZCode capabilities already covered long-running agent tasks, scheduled automation, browser control and remote interaction. Dynamic Workflows adds an explicit multi-agent coordination layer: a script can define work that multiple sub-agents collaborate on instead of treating the entire job as one continuous agent thread."
@@ -710,59 +740,73 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "Z.ai's public changelog confirms the feature but the currently indexed documentation does not yet publish a complete Dynamic Workflows scripting reference. That means exact workflow DSL syntax, every supported primitive, limits and plan gating should not be inferred from the short release note."
-          },
-          {
-            "type": "paragraph",
-            "html": "How to start a Dynamic Workflow"
-          },
+          }
+        ]
+      },
+      {
+        "id": "how-to-start-a-dynamic-workflow",
+        "title": "How to start a Dynamic Workflow",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Z.ai documents two launch surfaces in the 3.14 changelog: the plus menu in the input box and the /workflow command. The release note says these start a workflow, but does not currently provide a complete public click-by-click or scripting tutorial. Treat any more detailed syntax from community examples as community material until it appears in first-party documentation."
-          },
-          {
-            "type": "paragraph",
-            "html": "Dynamic Workflows vs Goal mode"
-          },
+          }
+        ]
+      },
+      {
+        "id": "dynamic-workflows-vs-goal-mode",
+        "title": "Dynamic Workflows vs Goal mode",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Goal mode is ZCode's existing long-running single-objective execution mode. The official Goal documentation says /goal sets an objective and ZCode keeps iterating until the goal is met, automatically starting another round when necessary. Dynamic Workflows solves a different problem: coordinating multiple sub-agents around complex work. A practical mental model is Goal mode for persistent pursuit of one objective and Dynamic Workflows for explicit multi-agent orchestration. Z.ai has not stated that one universally replaces the other."
-          },
-          {
-            "type": "paragraph",
-            "html": "Dynamic Workflows vs ZCode Automations"
-          },
+          }
+        ]
+      },
+      {
+        "id": "dynamic-workflows-vs-zcode-automations",
+        "title": "Dynamic Workflows vs ZCode Automations",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "ZCode Automations are trigger and cadence mechanisms. The official documentation describes scheduled tasks that run at a chosen time/repeat rule and idle-time tasks that can run when spare capacity is available. Dynamic Workflows describes how multiple sub-agents collaborate inside a workflow. These concepts can be complementary, but do not assume a scheduled task can invoke every Dynamic Workflow pattern until Z.ai documents that integration explicitly."
-          },
-          {
-            "type": "paragraph",
-            "html": "Office and Coding modes"
-          },
+          }
+        ]
+      },
+      {
+        "id": "office-and-coding-modes",
+        "title": "Office and Coding modes",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "Version 3.14 also adds switching between Office and Coding modes. ZCode's broader product positioning remains development-focused, while the new mode switch suggests a wider work surface. The changelog does not yet provide enough detail to claim different model entitlements, tool permissions or workflow syntax for each mode."
-          },
-          {
-            "type": "paragraph",
-            "html": "Other capabilities around the workflow"
-          },
+          }
+        ]
+      },
+      {
+        "id": "other-capabilities-around-the-workflow",
+        "title": "Other capabilities around the workflow",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "ZCode's documented environment includes Goal mode for long-horizon work, scheduled and idle-time automations, a browser panel the agent can operate, remote control from a phone, bot channels, file and terminal context, and model connections through Z.ai/BigModel plans or API keys. These are separate documented capabilities and should not all be described as features of Dynamic Workflows itself."
-          },
-          {
-            "type": "paragraph",
-            "html": "Models and plans"
-          },
+          }
+        ]
+      },
+      {
+        "id": "models-and-plans",
+        "title": "Models and plans",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "ZCode supports GLM models through Z.ai and BigModel connections and can also be configured with model-service access. Z.ai's current global page lists GLM Coding Lite, Pro and Max tiers, while its FAQ says the ZCode application itself is free and model/API access is still required. Pricing and quota details can change, so they should be rechecked immediately before publication rather than hard-coded as permanent facts."
-          },
-          {
-            "type": "paragraph",
-            "html": "Platform availability"
-          },
+          }
+        ]
+      },
+      {
+        "id": "platform-availability",
+        "title": "Platform availability",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "ZCode provides desktop installers for macOS, Windows and Linux. The 3.14 changelog establishes the Dynamic Workflows release, but the current public documentation does not explicitly document feature parity for Dynamic Workflows on every OS. Avoid claiming identical behavior across platforms until verified."
@@ -774,11 +818,13 @@ export const unpublishedArticles20260922: BlogArticle[] = [
           {
             "type": "paragraph",
             "html": "Multi-agent workflow orchestration is most useful when a task can be decomposed into specialist roles or parallel subtasks: repository research plus implementation plus verification; migration planning plus code changes plus tests; or multi-part analysis where separate agents can investigate independent components. These are inferred use patterns based on the feature's documented multi-sub-agent design, not official guarantees about a specific workflow template."
-          },
-          {
-            "type": "paragraph",
-            "html": "Limitations to know"
-          },
+          }
+        ]
+      },
+      {
+        "id": "limitations-to-know",
+        "title": "Limitations to know",
+        "blocks": [
           {
             "type": "paragraph",
             "html": "The biggest current limitation is documentation depth. Z.ai confirms the feature and launch mechanisms but has not yet exposed a complete indexed Dynamic Workflows scripting reference. Do not invent commands, schemas, concurrency limits, supported sub-agent counts or plan requirements. ZCode 3.14.1, released September 21, is a bug-fix release and does not materially change the Dynamic Workflows announcement."
@@ -1510,7 +1556,9 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://prismml.com/news/prismml-launches-bonsai-2-27b"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/bonsai-2-27b"
+    ],
     "parentSlug": "bonsai-2-27b"
   },
   {
@@ -2140,7 +2188,9 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://x.ai/news/grok-4-7"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/grok-4-7"
+    ],
     "parentSlug": "grok-4-7"
   },
   {
@@ -2380,7 +2430,9 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://investors.fastly.com/news-releases/news-release-details/fastly-launches-ai-firewall-and-ai-runtime-control-secure-and"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/fastly-ai-runtime-control"
+    ],
     "parentSlug": "fastly-ai-runtime-control"
   },
   {
@@ -3136,7 +3188,9 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://vercel.com/i/jev-agent-control"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/jev-ai"
+    ],
     "parentSlug": "jev-ai"
   },
   {
@@ -3304,6 +3358,14 @@ export const unpublishedArticles20260922: BlogArticle[] = [
       {
         "label": "Primary source",
         "url": "https://github.com/XiaomiMiMo"
+      },
+      {
+        "label": "Xiaomi MiMo — MiMo-V2.6-Pro-RL",
+        "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"
+      },
+      {
+        "label": "Xiaomi MiMo — MiMo-V2.6 collection",
+        "url": "https://huggingface.co/XiaomiMiMo/collections"
       }
     ],
     "relatedPaths": []
@@ -3465,9 +3527,19 @@ export const unpublishedArticles20260922: BlogArticle[] = [
       {
         "label": "Primary source",
         "url": "https://github.com/XiaomiMiMo"
+      },
+      {
+        "label": "Xiaomi MiMo — MiMo-V2.6-Pro-RL",
+        "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"
+      },
+      {
+        "label": "Xiaomi MiMo — MiMo-V2.6 collection",
+        "url": "https://huggingface.co/XiaomiMiMo/collections"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/xiaomi-mimo-v2-6-pro"
+    ],
     "parentSlug": "xiaomi-mimo-v2-6-pro"
   },
   {
@@ -3979,7 +4051,9 @@ export const unpublishedArticles20260922: BlogArticle[] = [
         "url": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B-GGUF"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/xing4-0-29b-a4b"
+    ],
     "parentSlug": "xing4-0-29b-a4b"
   },
   {
@@ -4434,9 +4508,15 @@ export const unpublishedArticles20260922: BlogArticle[] = [
       {
         "label": "Primary source",
         "url": "https://platform.claude.com/docs/en/models/overview"
+      },
+      {
+        "label": "Anthropic API pricing",
+        "url": "https://platform.claude.com/docs/en/about-claude/pricing"
       }
     ],
-    "relatedPaths": [],
+    "relatedPaths": [
+      "/blog/claude-opus-5-5"
+    ],
     "parentSlug": "claude-opus-5-5"
   }
 ];
