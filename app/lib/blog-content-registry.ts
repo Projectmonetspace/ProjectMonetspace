@@ -1,3 +1,5 @@
+import { qwen38OmniFlashArticles } from "./blog-content-qwen38-omni-flash.ts";
+import { unpublishedArticles20260922 } from "./blog-content-unpublished-2026-09-22.ts";
 import { eukaInstagramArticles } from "./blog-content-euka-instagram.ts";
 import { perplexityWindowsArticles } from "./blog-content-perplexity-windows.ts";
 import { googleHomeMcpArticles } from "./blog-content-google-home-mcp.ts";
@@ -111,6 +113,8 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...qwen38OmniFlashArticles,
+  ...unpublishedArticles20260922,
   ...publishAll20260917A,
   ...publishAll20260917B,
   ...publishAll20260917C,
