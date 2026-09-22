@@ -5,6 +5,27 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "qwen3-8-omni-flash",
+  "qwen3-8-omni-flash-api",
+  "zendesk-specialized-ai-agents",
+  "zendesk-custom-agent-builder",
+  "amazon-bedrock-agentcore-runtime",
+  "migrate-agent-to-amazon-bedrock-agentcore-runtime",
+  "zcode-dynamic-workflows",
+  "bonsai-2-27b",
+  "how-to-run-bonsai-2-27b-locally",
+  "grok-4-7",
+  "grok-4-7-api-guide",
+  "fastly-ai-runtime-control-setup",
+  "fastly-ai-runtime-control",
+  "jev-ai",
+  "how-to-use-jev-api",
+  "xiaomi-mimo-v2-6-pro",
+  "run-mimo-v2-6-pro-locally",
+  "xing4-0-29b-a4b",
+  "run-xing4-0-29b-a4b-locally",
+  "claude-opus-5-5",
+  "claude-opus-5-5-api-pricing",
   "how-to-use-whatsapp-business-tools-mcp",
   "whatsapp-business-tools-mcp",
   "salesforce-koa-benchmarks",
@@ -330,7 +351,7 @@ const expectedSlugs = [
 
 const supportedCategories = new Set(["AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other"]);
 
-test("publishes exactly the approved, unique canonical articles", () => {
+test("publishes exactly the authorized, unique canonical articles", () => {
   assert.deepEqual(publishedBlogArticles.map((article) => article.slug), expectedSlugs);
   assert.equal(new Set(blogArticles.map((article) => article.slug)).size, blogArticles.length);
   assert.equal(new Set(publishedBlogArticles.map((article) => article.metaTitle)).size, publishedBlogArticles.length);
@@ -344,8 +365,8 @@ test("publishes exactly the approved, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21))$/);
-    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21))$/);
+    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22))$/);
+    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22))$/);
     assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
   }
 });
