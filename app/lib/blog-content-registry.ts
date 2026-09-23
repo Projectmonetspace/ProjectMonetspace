@@ -1,3 +1,4 @@
+import { autoPublish20260923Articles } from "./blog-content-auto-2026-09-23.ts";
 import { qwen38OmniFlashArticles } from "./blog-content-qwen38-omni-flash.ts";
 import { unpublishedArticles20260922 } from "./blog-content-unpublished-2026-09-22.ts";
 import { eukaInstagramArticles } from "./blog-content-euka-instagram.ts";
@@ -113,6 +114,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...autoPublish20260923Articles,
   ...qwen38OmniFlashArticles,
   ...unpublishedArticles20260922,
   ...publishAll20260917A,
