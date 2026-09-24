@@ -1,3 +1,10 @@
+import { qwenAudio31Articles } from "./blog-content-qwen-audio-3-1.ts";
+import { gemini38TtsArticles } from "./blog-content-gemini-3-8-tts.ts";
+import { lensVlm9bArticles } from "./blog-content-lensvlm-9b.ts";
+import { antigravityLocalArticles } from "./blog-content-antigravity-local.ts";
+import { nemotron3DiarizationArticles } from "./blog-content-nemotron-3-diarization.ts";
+import { gpt6PromptCachingArticles } from "./blog-content-gpt-6-prompt-caching.ts";
+import { madeOnYouTube2026Articles } from "./blog-content-made-on-youtube-2026.ts";
 import { autoPublish20260923Articles } from "./blog-content-auto-2026-09-23.ts";
 import { qwen38OmniFlashArticles } from "./blog-content-qwen38-omni-flash.ts";
 import { unpublishedArticles20260922 } from "./blog-content-unpublished-2026-09-22.ts";
@@ -114,6 +121,13 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...qwenAudio31Articles,
+  ...gemini38TtsArticles,
+  ...lensVlm9bArticles,
+  ...antigravityLocalArticles,
+  ...nemotron3DiarizationArticles,
+  ...gpt6PromptCachingArticles,
+  ...madeOnYouTube2026Articles,
   ...autoPublish20260923Articles,
   ...qwen38OmniFlashArticles,
   ...unpublishedArticles20260922,

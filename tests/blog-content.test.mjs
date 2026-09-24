@@ -5,6 +5,23 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "qwen-audio-3-1",
+  "qwen-audio-3-1-tts-next-api",
+  "qwen-audio-3-1-realtime-api",
+  "qwen-audio-3-1-asr-api",
+  "gemini-3-8-flash-tts",
+  "gemini-3-8-flash-tts-voice-cloning",
+  "apple-lensvlm-9b",
+  "lensvlm-9b-local-install",
+  "google-antigravity-sdk-local-models",
+  "run-google-antigravity-sdk-locally-gemma-4-litert",
+  "google-antigravity-sdk-ollama-lm-studio-vllm",
+  "nvidia-nemotron-3-diarization",
+  "nvidia-nemotron-3-diarization-local-setup",
+  "gpt-6-prompt-caching",
+  "made-on-youtube-2026-creator-tools",
+  "youtube-video-ab-testing",
+  "youtube-gemini-conversational-editing",
   "gpt-6-sol-luna",
   "gpt-6-sol-vs-gpt-5-6-sol",
   "google-agent-executor-ax",
@@ -373,8 +390,8 @@ test("publishes exactly the authorized, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22|23))$/);
-    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22|23))$/);
+    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22|23|24|25))$/);
+    assert.match(article.dateModified, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22|23|24|25))$/);
     assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
   }
 });
