@@ -5,6 +5,19 @@ import { readFile } from "node:fs/promises";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
 const expectedSlugs = [
+  "qwen-audio-3-1",
+  "qwen-audio-3-1-tts-next-api",
+  "qwen-audio-3-1-realtime-api",
+  "qwen-audio-3-1-asr-api",
+  "gemini-3-8-flash-tts",
+  "gemini-3-8-flash-tts-voice-cloning",
+  "apple-lensvlm-9b",
+  "lensvlm-9b-local-install",
+  "google-antigravity-sdk-local-models",
+  "run-google-antigravity-sdk-locally-gemma-4-litert",
+  "google-antigravity-sdk-ollama-lm-studio-vllm",
+  "nvidia-nemotron-3-diarization",
+  "nvidia-nemotron-3-diarization-local-setup",
   "gpt-6-prompt-caching",
   "made-on-youtube-2026-creator-tools",
   "youtube-video-ab-testing",
