@@ -12,19 +12,27 @@ export const chatgptAdsArticles: BlogArticle[] = [
     metaTitle: "ChatGPT Ads: Ads Manager, Pricing, Countries & How It Works",
     metaDescription: "ChatGPT Ads explained: current Ads Manager availability, CPM/CPC/oCPC, targeting, measurement, privacy and how self-service access works.",
     h1: "ChatGPT Ads: Self-Service Ads Manager, Pricing, Targeting & Availability",
-    excerpt: "ChatGPT Ads now has a beta self-service Ads Manager, but access is country-specific and the live availability table is the operational source of truth.",
+    excerpt: "ChatGPT Ads is now available in more than 60 countries, with a September 23 rollout adding seven Southeast Asian and Taiwan markets; self-service Ads Manager remains limited to eligible businesses.",
     category: "Marketing",
     author: "Project Monet Editorial Team",
     datePublished: "2026-09-01",
-    dateModified: "2026-09-17",
+    dateModified: "2026-09-25",
     ogAlt: "ChatGPT Ads explainer showing a clearly labeled sponsored placement, campaign controls and conversion measurement.",
     sections: [
       {
         id: "availability",
         title: "Where ChatGPT Ads Manager is available",
         blocks: [
-          { type: "paragraph", html: "As of September 17, 2026, OpenAI's live Ads Manager availability table lists self-service as available across the United States, United Kingdom, India, Australia, Brazil, Canada, Japan, Korea, Mexico, New Zealand, most of Europe, and multiple Middle East and North Africa markets. The legal entity that will advertise and be billed must be based in a country currently marked Available." },
-          { type: "list", items: ["India is now marked Available for self-service.", "European and MENA availability has expanded materially since the September 1 version of this article.", "Always check the live country table immediately before launch because beta availability can change."] },
+          { type: "paragraph", html: "As of September 23, 2026, OpenAI says ChatGPT Ads is available in more than 60 countries. The latest expansion is beginning to roll out across Indonesia, Malaysia, the Philippines, Singapore, Thailand, Vietnam and Taiwan. Self-service Ads Manager is available to eligible businesses, while managed access also runs through OpenAI Ads Solutions, agency partners and technology partners." },
+          { type: "list", items: ["The September 23 expansion adds Indonesia, Malaysia, the Philippines, Singapore, Thailand, Vietnam and Taiwan.", "OpenAI describes the new-market access as beginning to roll out, so do not assume every advertiser account is enabled immediately.", "Always check the live country table and Ads Manager eligibility immediately before launch because availability can change."] },
+        ],
+      },
+      {
+        id: "asia-expansion",
+        title: "September 23 update: seven more Asian markets",
+        blocks: [
+          { type: "paragraph", html: "OpenAI announced on September 23 that ChatGPT Ads is beginning to roll out in Indonesia, Malaysia, the Philippines, Singapore, Thailand, Vietnam and Taiwan, taking the platform to more than 60 countries. The company says ads in these markets remain limited to Free and Go users; Plus, Pro and Enterprise remain ad-free." },
+          { type: "paragraph", html: "OpenAI also reiterated that advertisers do not receive private conversations, ads stay clearly labeled and separate from ChatGPT answers, and advertising does not influence those answers. The more-than-60-country figure and the reported $1 billion annualized revenue run rate are OpenAI-reported platform figures, not independent performance benchmarks." },
         ],
       },
       {
@@ -61,6 +69,7 @@ export const chatgptAdsArticles: BlogArticle[] = [
       },
     ],
     sources: [
+      { label: "OpenAI: ChatGPT Ads expands to Southeast Asia and Taiwan", url: "https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan/" },
       { label: "OpenAI: New ways to buy ChatGPT ads", url: "https://openai.com/index/new-ways-to-buy-chatgpt-ads/" },
       { label: "OpenAI Ads Manager availability", url: "https://help.openai.com/en/articles/20001245-ads-manager-availability" },
       { label: "OpenAI: Ads in ChatGPT basics", url: "https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics" },
