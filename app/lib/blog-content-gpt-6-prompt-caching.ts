@@ -16,8 +16,8 @@ export const gpt6PromptCachingArticles: BlogArticle[] = [
     excerpt: "Learn how GPT-6 prompt caching works, including its dashboard, diagnostics, explicit breakpoints and 30-minute eligible-prefix window.",
     category: "AI",
     author: "Project Monet Editorial Team",
-    datePublished: "2026-09-23",
-    dateModified: "2026-09-23",
+    datePublished: "2026-09-25",
+    dateModified: "2026-09-25",
     ogAlt: "GPT-6 prompt caching dashboard, diagnostics and reusable context guide",
     sections: [
       { id: "overview", title: "What changed in GPT-6 prompt caching", blocks: [
