@@ -116,6 +116,11 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...qwenAudio31Articles,
+  ...gemini38TtsArticles,
+  ...lensVlm9bArticles,
+  ...antigravityLocalArticles,
+  ...nemotron3DiarizationArticles,
   ...gpt6PromptCachingArticles,
   ...madeOnYouTube2026Articles,
   ...autoPublish20260923Articles,
