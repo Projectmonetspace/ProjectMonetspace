@@ -8,7 +8,7 @@ export const madeOnYouTube2026Articles: BlogArticle[] = [
     title: "Made on YouTube 2026: New AI Creator & YouTube Studio Tools", metaTitle: "Made on YouTube 2026: New AI Creator & Studio Tools",
     metaDescription: "Made on YouTube 2026 brings video A/B testing, AI draft feedback, dynamic thumbnails, Gemini editing, Shorts Series and new creator business tools.",
     h1: "Made on YouTube 2026: Every Major New Creator Tool Explained", excerpt: "A verified guide to YouTube's September 2026 creator, Studio, AI editing and monetization announcements.",
-    category: "Creator Tools", author: "Project Monet Editorial Team", datePublished: "2026-09-24", dateModified: "2026-09-24",
+    category: "Creator Tools", author: "Project Monet Editorial Team", datePublished: "2026-09-25", dateModified: "2026-09-25",
     ogAlt: "Made on YouTube 2026 creator tools, video experiments, thumbnails and AI editing",
     sections: [
       { id: "overview", title: "What was announced at Made on YouTube 2026?", blocks: [
@@ -50,7 +50,7 @@ export const madeOnYouTube2026Articles: BlogArticle[] = [
     title: "YouTube Video A/B Testing: How the New Three-Cut Test Works", metaTitle: "YouTube Video A/B Testing: How Three-Cut Tests Work",
     metaDescription: "YouTube is adding video A/B testing for up to three cuts. Learn what it tests, how it differs from thumbnail tests and how creators should design experiments.",
     h1: "YouTube Video A/B Testing: How the New Three-Cut Test Works", excerpt: "How YouTube's upcoming three-cut video experiment differs from title and thumbnail tests.",
-    category: "Creator Tools", author: "Project Monet Editorial Team", datePublished: "2026-09-24", dateModified: "2026-09-24",
+    category: "Creator Tools", author: "Project Monet Editorial Team", datePublished: "2026-09-25", dateModified: "2026-09-25",
     ogAlt: "Three abstract YouTube video cut variants compared in an A/B testing experiment",
     sections: [
       { id: "what-it-is", title: "What is YouTube video A/B testing?", blocks: [
@@ -88,7 +88,7 @@ export const madeOnYouTube2026Articles: BlogArticle[] = [
     title: "YouTube Gemini Conversational Editing: Shorts & YouTube Create Guide", metaTitle: "YouTube Gemini Conversational Editing: Shorts & Create Guide",
     metaDescription: "YouTube is adding Gemini conversational editing to Shorts and YouTube Create. See what it can edit, how the workflow works and what remains unconfirmed.",
     h1: "YouTube Gemini Conversational Editing: How the New AI Editor Works", excerpt: "A practical guide to YouTube's new Gemini-powered conversational editor for Shorts and YouTube Create.",
-    category: "Creator Tools", author: "Project Monet Editorial Team", datePublished: "2026-09-24", dateModified: "2026-09-24",
+    category: "Creator Tools", author: "Project Monet Editorial Team", datePublished: "2026-09-25", dateModified: "2026-09-25",
     ogAlt: "Conversational prompts beside an abstract mobile video editing timeline",
     sections: [
       { id: "overview", title: "What is YouTube's conversational editor?", blocks: [
