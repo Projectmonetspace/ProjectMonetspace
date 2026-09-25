@@ -106,6 +106,7 @@ import { staatsArticles } from "./blog-content-staats.ts";
 import { topviewMotionStudioArticles } from "./blog-content-topview-motion-studio.ts";
 import { vibeVoiceAsrStreamingArticles } from "./blog-content-vibevoice-asr-streaming.ts";
 import { youtubeAmazonArticles } from "./blog-content-youtube-amazon.ts";
+import { adobeGeminiArticles } from "./blog-content-adobe-gemini.ts";
 import type { BlogArticle, BlogCategory } from "./blog-types.ts";
 
 const supportedCategories = new Set<BlogCategory>([
@@ -209,6 +210,7 @@ const sourceArticles: BlogArticle[] = [
   ...topviewMotionStudioArticles,
   ...openMontageArticles,
   ...youtubeAmazonArticles,
+  ...adobeGeminiArticles,
   ...googleAdsDeveloperAssistantArticles,
   ...cohereParseArticles,
   ...staatsArticles,
