@@ -1,6 +1,7 @@
 import type { BlogArticle } from "./blog-types.ts";
 
 const published = "2026-08-30";
+const modified = "2026-09-25";
 
 const youtubeAmazonMain: BlogArticle = {
   status: "published",
@@ -11,22 +12,22 @@ const youtubeAmazonMain: BlogArticle = {
   slug: "youtube-shopping-amazon-affiliate",
   title: "YouTube Shopping Amazon Affiliate: Eligibility, Tagging & How It Works",
   metaTitle: "YouTube Shopping Amazon Affiliate: Eligibility & Tagging Guide",
-  metaDescription: "YouTube now lets eligible U.S. creators tag Amazon products in Shorts, videos and livestreams. See eligibility, account linking, earnings and key limits.",
+  metaDescription: "YouTube Shopping supports Amazon product tagging for eligible U.S. creators, with India and Brazil expansion announced for the coming weeks. See rollout, eligibility, tagging and key limits.",
   h1: "YouTube Shopping Now Lets Creators Tag Amazon Products",
-  excerpt: "Eligible U.S. YouTube Shopping creators can now link Amazon Associates or Influencer accounts and tag Amazon products natively in Shorts, videos and livestreams.",
+  excerpt: "Eligible U.S. YouTube Shopping creators can tag Amazon products natively, and YouTube says the integration is expanding to India and Brazil in the coming weeks and more countries before year-end.",
   category: "Social Media",
   author: "Project Monet Editorial Team",
   datePublished: published,
-  dateModified: published,
+  dateModified: modified,
   ogAlt: "Project Monet editorial graphic showing a YouTube-style video, native shopping tag and Amazon product purchase flow",
   sections: [
     { id: "launch", title: "What changed", blocks: [
-      { type: "paragraph", html: "YouTube announced on August 27, 2026 that Amazon had joined the YouTube Shopping Affiliate Program. Eligible U.S. creators can tag Amazon products directly in Shorts, long-form videos and livestreams instead of relying only on affiliate links in descriptions." },
+      { type: "paragraph", html: "YouTube announced on August 27, 2026 that Amazon had joined the YouTube Shopping Affiliate Program for eligible U.S. creators. On September 23, YouTube announced the next expansion: Amazon product tagging is coming to India and Brazil in the coming weeks and to more countries before the end of 2026." },
       { type: "paragraph", html: "The product tag becomes part of YouTube's Shopping experience and the viewer completes the purchase through Amazon. This is a native commerce integration rather than merely another description-link format." },
     ]},
     { id: "eligibility", title: "Who is eligible", blocks: [
       { type: "paragraph", html: "YouTube's Amazon-specific help page requires the creator to be in the YouTube Partner Program, enrolled in the YouTube Shopping affiliate program in the United States, part of the Amazon Influencer Program or Amazon Associates Program in good standing, and to link the YouTube channel to that Amazon account." },
-      { type: "paragraph", html: "The broader YouTube Shopping affiliate program operates in multiple countries, including India, but the August 27 Amazon rollout is specifically documented for eligible U.S. creators. Creator eligibility and international viewer routing are separate issues." },
+      { type: "paragraph", html: "The broader YouTube Shopping affiliate program is also expanding to 35 countries by the end of 2026. YouTube says cross-border product tags will show localized links to viewers, helping eligible creators earn commissions on global sales; country-specific Amazon eligibility should still be checked against current YouTube documentation before setup." },
     ]},
     { id: "tagging", title: "Tagging, auto-tagging and catalog limits", blocks: [
       { type: "paragraph", html: "Once enabled, creators can use the product picker in YouTube Studio to tag available Amazon products across Shorts, videos and livestreams. Amazon products can also participate in auto-tagging when that feature is enabled." },
@@ -38,11 +39,12 @@ const youtubeAmazonMain: BlogArticle = {
     ]},
     { id: "next", title: "How creators should approach the rollout", blocks: [
       { type: "paragraph", html: "The strongest early use cases are reviews, buying guides, tutorials, unboxings and product-focused livestreams where the tagged item is genuinely relevant. Native tags may reduce shopping friction, but creators should test performance rather than assume they always outperform description links." },
-      { type: "paragraph", html: "For the actual connection and tagging steps, read <a href=\"/blog/how-to-tag-amazon-products-youtube-shopping\">How to Tag Amazon Products on YouTube Shopping</a>. Creators outside the U.S. should watch official YouTube documentation for expansion instead of assuming general Shopping availability means Amazon tagging is already enabled in their market." },
+      { type: "paragraph", html: "For the actual connection and tagging steps, read <a href=\"/blog/how-to-tag-amazon-products-youtube-shopping\">How to Tag Amazon Products on YouTube Shopping</a>. Creators in India and Brazil should treat the September 23 announcement as a rollout notice rather than proof that every eligible account already has access: YouTube says expansion is happening in the coming weeks. Other markets should check official documentation as additional countries are added before year-end." },
     ]},
   ],
   sources: [
     { label: "YouTube Blog — Amazon joins YouTube Shopping", url: "https://blog.youtube/news-and-events/youtube-shopping-amazon-creator-affiliates/" },
+    { label: "YouTube Blog — Made On YouTube 2026 creator monetization and Shopping", url: "https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/" },
     { label: "YouTube Help — Tag Amazon products", url: "https://support.google.com/youtube/answer/17105501" },
     { label: "YouTube Help — Shopping affiliate eligibility", url: "https://support.google.com/youtube/answer/13376398" },
   ],
@@ -65,7 +67,7 @@ const youtubeAmazonTagging: BlogArticle = {
   category: "Social Media",
   author: "Project Monet Editorial Team",
   datePublished: published,
-  dateModified: published,
+  dateModified: modified,
   ogAlt: "Project Monet step diagram showing a YouTube channel linking to an Amazon affiliate account and native product tags",
   sections: [
     { id: "eligibility", title: "Confirm eligibility before linking", blocks: [
@@ -92,6 +94,7 @@ const youtubeAmazonTagging: BlogArticle = {
   sources: [
     { label: "YouTube Help — Tag Amazon products", url: "https://support.google.com/youtube/answer/17105501" },
     { label: "YouTube Blog — Amazon creator affiliates", url: "https://blog.youtube/news-and-events/youtube-shopping-amazon-creator-affiliates/" },
+    { label: "YouTube Blog — Made On YouTube 2026 creator monetization and Shopping", url: "https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/" },
     { label: "YouTube Help — Shopping affiliate eligibility", url: "https://support.google.com/youtube/answer/13376398" },
   ],
   relatedPaths: ["/blog/youtube-shopping-amazon-affiliate"],
