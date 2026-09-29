@@ -306,6 +306,8 @@ const expectedSlugs = [
   "openmontage-reference-video-reels-shorts",
   "youtube-shopping-amazon-affiliate",
   "how-to-tag-amazon-products-youtube-shopping",
+  "adobe-in-gemini",
+  "how-to-use-adobe-in-gemini",
   "google-ads-api-developer-assistant-v4",
   "how-to-install-google-ads-api-developer-assistant",
   "cohere-parse-v5-document-parsing",
@@ -372,8 +374,6 @@ const expectedSlugs = [
   "koala-ai-mcp",
   "koala-ai-mcp-pricing-credits",
   "koala-ai-mcp-setup",
-  "adobe-in-gemini",
-  "how-to-use-adobe-in-gemini",
 ];
 
 const supportedCategories = new Set(["AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other"]);
