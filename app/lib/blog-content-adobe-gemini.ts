@@ -2,6 +2,8 @@ import type { BlogArticle } from "./blog-types.ts";
 
 const adobeGeminiSources = [
   { label: "Adobe — Adobe comes to Gemini and expands what you can do in Claude", url: "https://blog.adobe.com/en/publish/2026/09/24/adobe-comes-to-gemini-expands-what-you-can-do-in-claude" },
+  { label: "Adobe Help — Adobe for Google Gemini overview", url: "https://helpx.adobe.com/in/creative-cloud/apps/integration-with-other-apps/adobe-connectors/adobe-for-gemini.html" },
+  { label: "Adobe — Adobe for creativity connector is coming soon to Google Gemini", url: "https://blog.adobe.com/en/publish/2026/05/19/adobe-creativity-connector-coming-google-gemini" },
 ];
 
 export const adobeGeminiArticles: BlogArticle[] = [
