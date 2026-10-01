@@ -62,15 +62,10 @@ button { color: inherit; }
 .work-heading > p { margin: 0; color: #8c8d90; font-size: .88rem; line-height: 1.65; }
 .gallery-stage { position: relative; margin-top: 2.5rem; }
 .gallery-haze { position: absolute; z-index: 0; left: 50%; top: 50%; width: 56vw; height: 32vw; transform: translate(-50%,-50%); border-radius: 50%; background: rgba(255,255,255,.04); filter: blur(80px); pointer-events: none; }
-.curved-gallery { position: relative; z-index: 1; display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.2rem); overflow-x: auto; overscroll-behavior-x: contain; touch-action: pan-x pan-y; scrollbar-width: none; padding: 2rem 0 4.5rem; }
-.curved-gallery::-webkit-scrollbar { display: none; }
+.horizontal-gallery { position: relative; z-index: 1; display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.2rem); overflow-x: auto; overscroll-behavior-x: contain; touch-action: pan-x pan-y; scrollbar-width: none; padding: 2rem 0 4.5rem; }
+.horizontal-gallery::-webkit-scrollbar { display: none; }
 .gallery-spacer { flex: 0 0 calc(50vw - min(19vw, 210px)); }
-.work-card { flex: 0 0 clamp(260px, 28vw, 420px); scroll-snap-align: center; transform-origin: 50% 115%; transition: transform .7s cubic-bezier(.16,1,.3,1), opacity .55s ease; }
-.work-card.is-active { z-index: 4; transform: translateY(0) rotate(0deg) scale(1.04); opacity: 1; }
-.work-card.is-left { transform: translateY(2.7rem) rotate(-5deg) scale(.91); opacity: .72; }
-.work-card.is-right { transform: translateY(2.7rem) rotate(5deg) scale(.91); opacity: .72; }
-.work-card.is-far-left { transform: translateY(4.5rem) rotate(-7deg) scale(.82); opacity: .3; }
-.work-card.is-far-right { transform: translateY(4.5rem) rotate(7deg) scale(.82); opacity: .3; }
+.work-card { flex: 0 0 clamp(260px, 28vw, 420px); scroll-snap-align: center; }
 .work-card a { display: block; }
 .work-image { position: relative; overflow: hidden; aspect-ratio: 4 / 5; border-radius: 2.2rem; background: #222; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
 .work-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .8s cubic-bezier(.16,1,.3,1); }
@@ -222,8 +217,6 @@ footer { background: #090a0b; padding: 7rem 4vw 2rem; }
   .gallery-stage { margin-top: 1.2rem; }
   .gallery-spacer { flex-basis: calc(50vw - 136px); }
   .work-card { flex-basis: 272px; }
-  .work-card.is-left { transform: translateY(1.6rem) rotate(-4deg) scale(.91); }
-  .work-card.is-right { transform: translateY(1.6rem) rotate(4deg) scale(.91); }
   .work-image { border-radius: 1.7rem; }
   .gallery-controls { grid-template-columns: auto 1fr auto; gap: .8rem; padding: 0 1.2rem; }
   .gallery-progress { width: auto; }
