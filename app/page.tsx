@@ -200,7 +200,14 @@ export default function Home() {
       pointerActive = false;
       pauseAutoScroll(1500);
     };
-    const pauseForWheel = () => pauseAutoScroll(1500);
+    const pauseForWheel = (event: WheelEvent) => {
+      pauseAutoScroll(1500);
+      // Trackpads already send horizontal deltas; map a vertical mouse wheel to the rail.
+      if (!event.ctrlKey && Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        gallery.scrollLeft += event.deltaY;
+      }
+    };
     const pauseForFocus = () => {
       focusActive = true;
     };
@@ -212,7 +219,7 @@ export default function Home() {
     gallery.addEventListener("pointerdown", pauseForPointer, { passive: true });
     window.addEventListener("pointerup", resumeFromPointer, { passive: true });
     window.addEventListener("pointercancel", resumeFromPointer, { passive: true });
-    gallery.addEventListener("wheel", pauseForWheel, { passive: true });
+    gallery.addEventListener("wheel", pauseForWheel, { passive: false });
     gallery.addEventListener("focusin", pauseForFocus);
     gallery.addEventListener("focusout", resumeFromFocus);
 
@@ -249,16 +256,6 @@ export default function Home() {
       behavior: "smooth",
     });
     setActiveProject(next);
-  }
-
-  function cardPosition(index: number) {
-    let offset = index - activeProject;
-    if (offset > work.length / 2) offset -= work.length;
-    if (offset < -work.length / 2) offset += work.length;
-    if (offset === 0) return "is-active";
-    if (offset === -1) return "is-left";
-    if (offset === 1) return "is-right";
-    return offset < 0 ? "is-far-left" : "is-far-right";
   }
 
   async function submitDemoRequest(event: FormEvent<HTMLFormElement>) {
@@ -408,13 +405,13 @@ export default function Home() {
 
           <div className="gallery-stage">
             <div className="gallery-haze" aria-hidden="true" />
-            <div className="curved-gallery" ref={galleryRef} aria-label="Automatically scrolling live website gallery. Swipe or scroll horizontally to browse manually.">
+            <div className="horizontal-gallery" ref={galleryRef} aria-label="Automatically scrolling live website gallery. Swipe or scroll horizontally to browse manually.">
               {[0, 1, 2].flatMap((copy) =>
                 work.map((item, index) => {
                   const duplicate = copy !== 1;
                   return (
                     <article
-                      className={`work-card ${cardPosition(index)}`}
+                      className="work-card"
                       data-copy={copy}
                       data-index={index}
                       key={`${copy}-${item.url}`}
