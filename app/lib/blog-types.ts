@@ -21,6 +21,15 @@ export type BlogCategory =
   | "Other";
 
 export type BlogArticle = {
+  editorial?: {
+    focus: "website-search-conversion";
+    businessPurpose: string;
+    audience: string;
+    originalContribution: string;
+    evidenceUrls: string[];
+    servicePath: string;
+    cta: string;
+  };
   status: "published" | "draft";
   articleType: "main" | "supporting";
   cluster: string;

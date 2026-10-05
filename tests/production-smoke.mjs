@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { articleRedirects, purgedArticleSlugs } from "../app/lib/content-policy.ts";
 import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 import { blogSitemapEntries, pagesSitemapEntries } from "../app/lib/sitemap-content.ts";
 
@@ -77,6 +78,22 @@ for (const entry of [...pagesSitemapEntries, ...blogSitemapEntries].filter(e => 
   const canonical = page.body.match(/<link rel="canonical" href="([^"]+)"/);
   assert.ok(canonical, `${path}: core canonical present`);
   assert.equal(new URL(canonical[1]).href, new URL(entry.url).href, `${path}: core canonical`);
+}
+// Verify the actual Pages response, not merely the exported redirect file.
+for (const [from, to] of Object.entries(articleRedirects)) {
+  for (const suffix of ["", ".html"]) {
+    const response = await fetch(`${base}/blog/${from}${suffix}`, { redirect: "manual", cache: "no-store", signal: AbortSignal.timeout(30000) });
+    assert.equal(response.status, 301, `${from}${suffix}: permanent consolidation`);
+    assert.equal(new URL(response.headers.get("location"), base).pathname, `/blog/${to}`, `${from}: exact intent replacement`);
+  }
+  assert.equal((await get(`/blog/${to}`)).response.status, 200);
+}
+const purges = [...purgedArticleSlugs];
+for (let start = 0; start < purges.length; start += 6) {
+  await Promise.all(purges.slice(start, start + 6).map(async slug => {
+    const response = await fetch(`${base}/blog/${slug}`, { redirect: "manual", cache: "no-store", signal: AbortSignal.timeout(30000) });
+    assert.equal(response.status, 404, `${slug}: genuine removed-page response`);
+  }));
 }
 const unknown = await get("/migration-unknown-route-404-check");
 assert.equal(unknown.response.status, 404, "Unknown routes return a genuine 404");

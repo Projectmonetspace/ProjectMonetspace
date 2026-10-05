@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import AttributionCapture from "./components/attribution-capture";
 import AnalyticsEvents from "./components/analytics-events";
 import CookieConsent from "./components/cookie-consent";
 import "./globals.css";
 
-const inter = Inter({
+const inter = localFont({
   variable: "--font-inter",
-  subsets: ["latin"],
   display: "optional",
   preload: false,
-  // Load only the two weights used for critical text; intermediate weights
-  // are synthesized without delaying the hero's first render.
-  weight: ["400", "600"],
+  src: [
+    { path: "../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2", weight: "600", style: "normal" },
+  ],
 });
 
 export const metadata: Metadata = {

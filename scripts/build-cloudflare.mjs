@@ -1,3 +1,4 @@
+import { articleRedirects } from "../app/lib/content-policy.ts";
 import { readdir, mkdir, readFile, writeFile, rm } from "node:fs/promises";
 import path from "node:path";
 import { createRequire } from "node:module";
@@ -48,6 +49,11 @@ const headers = "/*\n" + securityHeaders.map(({ key, value }) => "  " + key + ":
   ["/hero-video.mp4", "/hero-poster.webp"].map(p => "\n" + p + "\n  Cache-Control: public, max-age=31536000, immutable\n").join("") +
   ["/sitemap.xml", "/pages-sitemap.xml", "/blog-sitemap.xml"].map(p => "\n" + p + "\n  Content-Type: application/xml; charset=utf-8\n  Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=300\n").join("");
 await writeFile("out/_headers", headers);
+// Only equivalent consolidated intents receive redirects. Purges use Pages' real 404.
+await writeFile("out/_redirects", Object.entries(articleRedirects).flatMap(([from, to]) => [
+  `/blog/${from} /blog/${to} 301`,
+  `/blog/${from}.html /blog/${to} 301`,
+]).join("\n") + "\n");
 await writeFile("out/deployment.json", JSON.stringify({
   commit: process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA || null,
   platform: "cloudflare-pages", artifact: "static-export",
