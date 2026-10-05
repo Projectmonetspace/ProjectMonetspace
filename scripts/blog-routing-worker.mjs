@@ -19,6 +19,10 @@ export default {
     const asset = await env.ASSETS.fetch(request);
     const response = new Response(asset.body, asset);
     for (const { key, value } of securityHeaders) response.headers.set(key, value);
+    if (response.status === 200 && url.pathname.endsWith('/og')) {
+      response.headers.set('Content-Type', 'image/png');
+      response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate');
+    }
     if (response.status === 404) response.headers.set('Cache-Control', 'no-store');
     return response;
   }

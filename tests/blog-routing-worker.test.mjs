@@ -37,14 +37,14 @@ test("retained articles, OGs and unknown routes preserve asset behavior", async 
   const env = { ASSETS: { async fetch(request) {
     visited.push(request.url);
     const unknown = new URL(request.url).pathname.endsWith("unknown-retained-route");
-    return new Response(unknown ? html : "asset", { status: unknown ? 404 : 200, headers: { "Content-Type": "image/png", "Cache-Control": "public, max-age=0, must-revalidate" } });
+    return new Response(unknown ? html : "asset", { status: unknown ? 404 : 200, headers: { "Content-Type": "application/octet-stream", "Cache-Control": "public, max-age=0, must-revalidate" } });
   } } };
   for (const article of publishedBlogArticles) {
     for (const suffix of ["", "/og"]) {
       const response = await worker.fetch(new Request(`https://www.projectmonet.space/blog/${article.slug}${suffix}`), env);
       assert.equal(response.status, 200);
       assert.equal(await response.text(), "asset");
-      assert.equal(response.headers.get("content-type"), "image/png");
+      assert.equal(response.headers.get("content-type"), suffix === "/og" ? "image/png" : "application/octet-stream");
       assert.equal(response.headers.get("x-frame-options"), "DENY");
     }
   }
