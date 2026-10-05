@@ -1,4 +1,5 @@
-import { articleRedirects } from "../app/lib/content-policy.ts";
+import { articleRedirects, purgedArticleSlugs } from "../app/lib/content-policy.ts";
+import { createBlogRoutingWorker, blogFunctionRoutes } from "./blog-routing-worker.mjs";
 import { readdir, mkdir, readFile, writeFile, rm } from "node:fs/promises";
 import path from "node:path";
 import { createRequire } from "node:module";
@@ -59,6 +60,8 @@ await writeFile("out/deployment.json", JSON.stringify({
   platform: "cloudflare-pages", artifact: "static-export",
 }) + "\n");
 // Keep the export's 404.html: Pages must not fall back to SPA routing.
-await readFile("out/404.html");
+const notFoundHtml = await readFile("out/404.html", "utf8");
+await writeFile("out/_worker.js", createBlogRoutingWorker({ purgedSlugs: purgedArticleSlugs, notFoundHtml, securityHeaders }));
+await writeFile("out/_routes.json", JSON.stringify(blogFunctionRoutes(articleRedirects)) + "\n");
 const verify = spawnSync(process.execPath, ["--experimental-strip-types", "scripts/verify-export.mjs"], { stdio: "inherit" });
 process.exit(verify.status ?? 1);

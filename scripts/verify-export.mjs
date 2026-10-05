@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
-import { articleRedirects, retiredArticleSlugs } from "../app/lib/content-policy.ts";
+import { articleRedirects, retiredArticleSlugs, purgedArticleSlugs } from "../app/lib/content-policy.ts";
+import { blogFunctionRoutes } from "./blog-routing-worker.mjs";
 import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 import { pagesSitemapEntries, blogSitemapEntries, latestModification, renderUrlSet } from "../app/lib/sitemap-content.ts";
 import { securityHeaders } from "../security-headers.mjs";
@@ -72,6 +73,17 @@ for (const [name, list] of [["pages", pagesSitemapEntries], ["blog", blogSitemap
   assert.ok(index.includes(`<lastmod>${latestModification(list)}</lastmod>`));
 }
 assert.match(await readFile("out/404.html", "utf8"), /noindex/);
+assert.deepEqual(JSON.parse(await readFile("out/_routes.json", "utf8")), blogFunctionRoutes(articleRedirects));
+const { default: routingWorker } = await import(`file://${path.resolve("out/_worker.js")}`);
+const expected404 = await readFile("out/404.html", "utf8");
+for (const slug of purgedArticleSlugs) {
+  const response = await routingWorker.fetch(new Request(`${origin}/blog/${slug}`), {
+    ASSETS: { fetch() { throw new Error("Retired requests must not consult cached assets"); } },
+  });
+  assert.equal(response.status, 404, `${slug}: generated worker retirement status`);
+  assert.equal(await response.text(), expected404, `${slug}: actual branded 404 export`);
+  assert.equal(response.headers.get("cache-control"), "no-store");
+}
 assert.ok((await readFile("out/robots.txt", "utf8")).includes(`${origin}/sitemap.xml`));
 const headers = await readFile("out/_headers", "utf8");
 for (const { key, value } of securityHeaders) assert.ok(headers.includes(`${key}: ${value}`));

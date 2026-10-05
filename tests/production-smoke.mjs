@@ -91,8 +91,19 @@ for (const [from, to] of Object.entries(articleRedirects)) {
 const purges = [...purgedArticleSlugs];
 for (let start = 0; start < purges.length; start += 6) {
   await Promise.all(purges.slice(start, start + 6).map(async slug => {
-    const response = await fetch(`${base}/blog/${slug}`, { redirect: "manual", cache: "no-store", signal: AbortSignal.timeout(30000) });
-    assert.equal(response.status, 404, `${slug}: genuine removed-page response`);
+    for (const suffix of ["", ".html", "/og"]) {
+      const response = await fetch(`${base}/blog/${slug}${suffix}`, { redirect: "manual", cache: "no-store", signal: AbortSignal.timeout(30000) });
+      if (response.status !== 404) {
+        const body = await response.text();
+        console.error("Removed URL diagnostic", JSON.stringify({ path: `/blog/${slug}${suffix}`, status: response.status,
+          headers: Object.fromEntries(["cf-cache-status", "age", "server", "location", "cache-control", "content-type", "cf-ray", "vary", "x-vercel-cache", "x-vercel-id", "x-matched-path", "x-nextjs-cache"].map(key => [key, response.headers.get(key)])),
+          title: body.match(/<title>([^<]*)<\/title>/)?.[1], h1: body.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]?.replace(/<[^>]*>/g, "").slice(0, 160),
+          canonical: body.match(/<link rel="canonical" href="([^"]+)"/)?.[1] }));
+      }
+      assert.equal(response.status, 404, `${slug}${suffix}: genuine removed-page response`);
+      assert.equal(response.headers.get("cache-control"), "no-store", `${slug}${suffix}: retirement cannot be cached`);
+      await response.arrayBuffer();
+    }
   }));
 }
 const unknown = await get("/migration-unknown-route-404-check");
