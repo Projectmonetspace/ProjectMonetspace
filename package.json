@@ -15,7 +15,7 @@
     "verify:production": "node --experimental-strip-types tests/production-smoke.mjs",
     "lint": "eslint .",
     "audit:production": "npm audit --omit=dev --audit-level=high",
-    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "build:cloudflare": "node --experimental-strip-types scripts/build-cloudflare.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
