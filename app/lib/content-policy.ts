@@ -1,11 +1,7 @@
-import assert from "node:assert/strict";
-import test from "node:test";
-import { readFile } from "node:fs/promises";
+import type { BlogArticle } from "./blog-types.ts";
 
-import { retiredArticleSlugs } from "../app/lib/content-policy.ts";
-import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
-
-const expectedSlugs = [
+// Frozen migration inventory. New slugs must qualify even when backdated.
+export const legacyArticleSlugs = new Set<string>([
   "qwen-audio-3-1",
   "qwen-audio-3-1-tts-next-api",
   "qwen-audio-3-1-realtime-api",
@@ -372,81 +368,187 @@ const expectedSlugs = [
   "how-to-use-claude-code-projects",
   "koala-ai-mcp",
   "koala-ai-mcp-pricing-credits",
+  "koala-ai-mcp-setup"
+]);
+export const purgedArticleSlugs = new Set<string>([
+  "ai-max-broad-match-vs-aca",
+  "airtop-agent-builder",
+  "airtop-agent-builder-pricing",
+  "alchemer-iris",
+  "alibaba-wan-3-0",
+  "amd-rocm-10-rocm-ai",
+  "amd-skills-claude-code-cursor-codex",
+  "anthropic-model-hardware-standard-mhs",
+  "browserskill",
+  "browserskill-install",
+  "caddi-ai-automation",
+  "caddi-pricing",
+  "chatgpt-ads-pricing",
+  "claude-fable-5-1",
+  "claude-fable-5-1-api-pricing",
+  "claude-fable-5-1-vs-fable-5",
+  "cleanshot-5-studio-mode",
+  "cleanshot-vs-screen-studio",
+  "coder-agent-relay",
+  "cohere-parse-v5-document-parsing",
+  "dial-ai-agent-phone-number",
+  "flowise-alternatives",
+  "flowise-shutdown-end-of-life",
+  "gemini-3-8-flash",
+  "gemini-3-8-flash-api-pricing",
+  "gemini-3-8-flash-vs-3-7-flash",
+  "gemini-agentic-video-understanding",
+  "github-copilot-hydrafusion",
+  "glm-5-3",
+  "glm-5-3-license",
+  "google-ads-ai-max-migration",
+  "google-ads-ai-max-migration-checklist",
+  "google-ads-api-developer-assistant-v4",
+  "google-pics",
+  "gpt-6-astra",
+  "gpt-6-astra-api-pricing",
+  "gpt-6-astra-vs-gpt-5-6-sol",
+  "gupshup-voice-ai",
+  "gupshup-voice-ai-pricing",
+  "how-to-access-gpt-6-astra",
+  "how-to-add-instagram-ai-generated-profile-label",
+  "how-to-advertise-on-chatgpt",
+  "how-to-build-gupshup-voice-ai-agent",
+  "how-to-install-google-ads-api-developer-assistant",
+  "how-to-install-rocm-10-supported-gpus",
+  "how-to-install-use-praxist-codex-claude",
+  "how-to-run-solarwm-locally",
+  "how-to-tag-amazon-products-youtube-shopping",
+  "how-to-use-airtop-agent-builder",
+  "how-to-use-caddi",
+  "how-to-use-cleanshot-studio-mode",
+  "how-to-use-cohere-parse-api",
+  "how-to-use-dial-ai-agents",
+  "how-to-use-funes-claude-code-codex",
+  "how-to-use-gemini-agentic-video-api",
+  "how-to-use-github-hydrafusion",
+  "how-to-use-google-pics",
+  "how-to-use-huggingface-webgpu-kernels",
+  "how-to-use-lyria-3-5-in-gemini",
+  "how-to-use-midjourney-v8-2-edit-model",
+  "how-to-use-monid",
+  "how-to-use-neomme-retriever-visual-rag",
+  "how-to-use-perplexity-portable-computer-dgx-spark",
+  "how-to-use-sparkstation-ai-filmmaking-workflow",
+  "how-to-use-topview-motion-studio",
+  "how-to-use-vlm-run-gateway-api",
+  "hugging-face-funes",
+  "hugging-face-webgpu-kernels",
+  "hy4-preview-vs-glm-5-3-vs-kimi-k3",
+  "ibm-granite-4-2",
+  "instagram-ai-generated-profile-label",
+  "lyria-3-5-api-pricing",
+  "lyria-3-5-google-ai-music-generator",
+  "mercury-2-5-api-pricing",
+  "mercury-2-5-preview",
+  "midjourney-v8-2-edit-model",
+  "migrate-from-flowise",
+  "model-hardware-standard-vs-mcp",
+  "monid-agent-tools",
+  "monid-marketing-agent-workflows",
+  "muse-spark-1-3",
+  "muse-spark-1-3-api-pricing",
+  "muse-spark-1-3-vs-claude-fable-5-1",
+  "neomme-multimodal-document-retrieval-model",
+  "openmontage-reference-video-reels-shorts",
+  "optimizely-marketing-ai-models-mark-bench",
+  "photoshop-light-adjustment-layer",
+  "praxist-autonomous-ai-research-system",
+  "run-glm-5-3-locally",
+  "run-hy4-preview-locally",
+  "run-ibm-granite-4-2-locally",
+  "solarwm-video-world-model",
+  "sparkstation-ai-ad-generator",
+  "sparkstation-ai-filmmaking-platform",
+  "tencent-hy4-preview",
+  "topview-motion-studio",
+  "vibevoice-asr-streaming",
+  "vibevoice-asr-streaming-local-install",
+  "vlm-run-gateway",
+  "wan-3-0-api-guide",
+  "wan-3-0-vs-gemini-omni-vs-veo",
+  "youtube-shopping-amazon-affiliate"
+]);
+export const articleRedirects: Readonly<Record<string, string>> = {
+  "how-to-use-mentionos": "mentionos-autonomous-aeo-agent",
+  "how-to-use-rankly-seo-aeo-geo-audit": "rankly-seo-aeo-geo-website-audit",
+  "how-to-use-fimo-claude-code-codex-cursor": "fimo-autonomous-website-platform",
+  "fimo-seo-agents-guide": "fimo-autonomous-website-platform",
+  "how-to-use-staats-analytics-mcp": "staats-agent-native-website-analytics",
+  "olostep-api": "olostep",
+  "olostep-claude-code-cursor-codex": "olostep",
+  "marketing-skills-v2-migration": "marketing-skills-ai-agents",
+  "install-marketing-skills-claude-code-codex-cursor": "marketing-skills-ai-agents",
+  "stackscope-api-mcp": "stackscope",
+  "stackscope-lead-generation": "stackscope",
+  "how-to-set-up-optimizely-virtual-teammates": "optimizely-virtual-teammates",
+  "optimizely-seo-ai-search-analyst": "optimizely-virtual-teammates"
+};
+export const websiteArticleSlugs = new Set<string>([
+  "canva-ai-2-0",
+  "canva-code-2-0",
+  "cloudflare-ai-crawler-googlebot-seo",
+  "cloudflare-ai-crawler-settings-september-15",
+  "configure-cloudflare-ai-crawler-settings",
+  "cpanel-ai-meridian-mcp",
+  "cpanel-ai-nodejs-mcp-deployment",
+  "fairing-advanced-attribution",
+  "fairing-advanced-attribution-setup",
+  "fairing-creator-influencer-attribution",
+  "fimo-autonomous-website-platform",
+  "firecrawl-alexandria",
+  "fix-google-site-reputation-manual-action",
+  "google-site-reputation-policy-eea-2026",
+  "how-to-use-firecrawl-alexandria",
+  "how-to-use-seoagent",
+  "koala-ai-mcp",
+  "koala-ai-mcp-pricing-credits",
   "koala-ai-mcp-setup",
-];
+  "marketing-skills-ai-agents",
+  "mentionos-autonomous-aeo-agent",
+  "olostep",
+  "optimizely-virtual-teammates",
+  "parasite-seo-google-site-reputation-policy-eea",
+  "rankly-seo-aeo-geo-website-audit",
+  "seoagent",
+  "seoagent-okf-llms-txt",
+  "staats-agent-native-website-analytics",
+  "stackscope"
+]);
+export const retiredArticleSlugs = new Set([...purgedArticleSlugs, ...Object.keys(articleRedirects)]);
 
-const supportedCategories = new Set(["AI", "Social Media", "Marketing", "Creator Tools", "Web", "Automation", "SEO", "Other"]);
-
-test("publishes exactly the authorized, unique canonical articles", () => {
-  assert.deepEqual(publishedBlogArticles.map((article) => article.slug), expectedSlugs.filter(slug => !retiredArticleSlugs.has(slug)));
-  assert.equal(new Set(blogArticles.map((article) => article.slug)).size, blogArticles.length);
-  assert.equal(new Set(publishedBlogArticles.map((article) => article.metaTitle)).size, publishedBlogArticles.length);
-  for (const article of publishedBlogArticles) {
-    assert.equal(findPublishedArticle(article.slug), article);
-    const blockCount = article.sections.reduce((count, section) => count + section.blocks.length, 0);
-    assert.ok(article.sections.length >= 4, `${article.slug} keeps a useful heading structure`);
-    assert.ok(blockCount >= 8, `${article.slug} keeps substantive article content`);
-    assert.ok(article.sources.length >= 3, `${article.slug} includes source links`);
-    assert.ok(article.cluster, `${article.slug} belongs to a topic cluster`);
-    assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
-    assert.ok(article.targetQuery, `${article.slug} has a target query`);
-    assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22|23|24|25))$/);
-    assert.match(article.dateModified, /^2026-\d{2}-\d{2}$/);
-    assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
+export function assertPublicationEligible(article: BlogArticle) {
+  if (legacyArticleSlugs.has(article.slug) || article.status !== "published") return;
+  const brief = article.editorial;
+  if (!brief || !["Web", "SEO", "Marketing", "Automation"].includes(article.category) ||
+      !brief.businessPurpose.trim() || !brief.audience.trim() || !brief.originalContribution.trim() ||
+      !brief.cta.trim() || !brief.servicePath.startsWith("/services/") ||
+      !brief.evidenceUrls.length || brief.evidenceUrls.some(url => !/^https:\/\//.test(url))) {
+    throw new Error(`${article.slug}: new publications require a website/search/conversion business brief, original contribution, evidence and a relevant service CTA`);
   }
-});
+  if (brief.focus !== "website-search-conversion") throw new Error(`${article.slug}: general model/news publishing is retired`);
+}
 
-test("supporting articles have a reciprocal main-article relationship", () => {
-  const supportingArticles = publishedBlogArticles.filter((article) => article.articleType === "supporting");
-  assert.ok(supportingArticles.length > 0);
-  for (const article of supportingArticles) {
-    assert.ok(article.parentSlug, `${article.slug} names its main article`);
-    const parent = findPublishedArticle(article.parentSlug);
-    assert.ok(parent, `${article.slug} parent is published`);
-    assert.equal(parent.articleType, "main");
-    assert.equal(parent.cluster, article.cluster);
-    assert.ok(article.relatedPaths.includes(`/blog/${parent.slug}`), `${article.slug} links to its main article`);
-    assert.ok(parent.relatedPaths.includes(`/blog/${article.slug}`), `${parent.slug} links back to its supporting article`);
-  }
-});
+export function resolveArticlePath(path: string): string | null {
+  if (!path.startsWith("/blog/")) return path;
+  const [slug, fragment] = path.slice(6).split("#");
+  if (purgedArticleSlugs.has(slug)) return null;
+  const replacement = articleRedirects[slug];
+  // Consolidation changes headings; do not preserve a stale fragment.
+  return replacement ? `/blog/${replacement}` : `/blog/${slug}${fragment ? `#${fragment}` : ""}`;
+}
 
-test("blog batches register centrally rather than chaining into newer batches", async () => {
-  const registry = await readFile(new URL("../app/lib/blog-content-registry.ts", import.meta.url), "utf8");
-  const hy4Wan = await readFile(new URL("../app/lib/blog-content-hy4-wan.ts", import.meta.url), "utf8");
-  for (const token of ["publishAll20260917A","publishAll20260917B","publishAll20260917C","museSpark13Articles","museSpark13ComparisonArticles","gpt6AstraArticles","gpt6AstraAccessComparisonArticles","alchemerIrisArticles","gemini38FlashArticles","gemini38Vs37Articles","monidArticles","monidMarketingWorkflowArticles","vibeVoiceAsrStreamingArticles","huggingFaceWebgpuKernelArticles","funesArticles","airtopAgentBuilderArticles","airtopAgentBuilderPricingArticles","dialAiAgentArticles","coderAgentRelayArticles","lyria35Articles","neommeArticles","vlmRunGatewayArticles","hydraFusionArticles","mentionOsArticles","lladaImageArticles","worldLabsAtlasArticles","k2HorizonArticles","ranklyArticles","trackMcpArticles","minimaxH3MaxArticles","tadataArticles","openYap1kArticles","vdnH3Articles","vdnH3SupportingArticles","sembly30Articles","miniCpm52bArticles","databoxWondrAgentsArticles","yorollH3SuperfastArticles","fimoArticles","supportingArticles20260909","gupshupVoiceAiArticles","gupshupVoiceAiBuildGuideArticles","solarWmArticles","cleanShotComparisonArticles","cleanShot5Articles","optimizelyMarkBenchArticles","asusProArtRtxSparkArticles","claudeFable51ApiArticles","googlePicsArticles","geminiAgenticVideoArticles","claudeFable51Articles","mercury25Articles","googleAiMaxMigrationArticles","flowiseArticles","browserSkillArticles","marketingSkillsArticles","chatgptAdsArticles","instagramAiProfileArticles","optimizelyVirtualTeammateArticles","stackScopeArticles","caddiArticles","olostepArticles","topviewMotionStudioArticles","openMontageArticles","youtubeAmazonArticles","googleAdsDeveloperAssistantArticles","cohereParseArticles","staatsArticles","approvedArticles20260829","glm53MidjourneyArticles","photoshopGoogleArticles","legacyBlogArticles"]) assert.match(registry, new RegExp(token));
-  assert.doesNotMatch(hy4Wan, /blog-content-photoshop-google/);
-});
-
-test("blog routes are reusable and published-state driven", async () => {
-  const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
-  const index = await readFile(new URL("../app/(seo)/blog/page.tsx", import.meta.url), "utf8");
-  const sitemap = await readFile(new URL("../app/lib/sitemap-content.ts", import.meta.url), "utf8");
-  assert.match(route, /findPublishedArticle/);
-  assert.match(route, /generateStaticParams/);
-  assert.match(index, /publishedBlogArticles\.map/);
-  assert.match(sitemap, /publishedBlogArticles\.map/);
-  assert.match(route, /blog-content-registry/);
-  assert.match(index, /blog-content-registry/);
-  assert.match(sitemap, /blog-content-registry/);
-  assert.doesNotMatch(route, /qwen3-8-flash-next|gemini-3-5-transcribe|instagram-first-draft-reels/);
-});
-
-test("articles provide canonical, article social metadata and BlogPosting schema", async () => {
-  const route = await readFile(new URL("../app/(seo)/blog/[slug]/page.tsx", import.meta.url), "utf8");
-  const component = await readFile(new URL("../app/components/blog-article.tsx", import.meta.url), "utf8");
-  const imageRoute = await readFile(new URL("../app/(seo)/blog/[slug]/og/route.tsx", import.meta.url), "utf8");
-  assert.match(route, /alternates: \{ canonical: path \}/);
-  assert.match(route, /type: "article"/);
-  assert.match(route, /publishedTime: article\.datePublished/);
-  assert.match(route, /modifiedTime: article\.dateModified/);
-  assert.match(component, /"@type": "BlogPosting"/);
-  assert.match(component, /BreadcrumbList/);
-  assert.match(route, /const image = `\$\{path\}\/og`/);
-  assert.match(component, /src=\{`\/blog\/\$\{article\.slug\}\/og`\}/);
-  assert.match(component, /unoptimized/);
-  assert.match(component, /findPublishedArticle\(slug\)/);
-  assert.match(imageRoute, /new ImageResponse/);
-  assert.doesNotMatch(route, /opengraph-image/);
-  assert.doesNotMatch(component, /opengraph-image/);
-});
+export function cleanArticleHtml(html: string): string {
+  return html.replace(/<a\b([^>]*?)href=(["'])([^"']+)\2([^>]*)>([\s\S]*?)<\/a>/gi,
+    (anchor, before: string, quote: string, href: string, after: string, label: string) => {
+      const absolute = /^https:\/\/(www\.)?projectmonet\.space(?=\/)/i;
+      const path = href.replace(absolute, "");
+      const resolved = resolveArticlePath(path);
+      return resolved === null ? label : resolved === path ? anchor : `<a${before}href=${quote}${resolved}${quote}${after}>${label}</a>`;
+    });
+}

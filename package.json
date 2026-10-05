@@ -15,13 +15,14 @@
     "verify:production": "node --experimental-strip-types tests/production-smoke.mjs",
     "lint": "eslint .",
     "audit:production": "npm audit --omit=dev --audit-level=high",
-    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "build:cloudflare": "node --experimental-strip-types scripts/build-cloudflare.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@next/third-parties": "16.3.4",
+    "@fontsource/inter": "5.3.0",
+    "@next/third-parties": "16.3.8",
     "lucide-react": "0.468.0",
-    "next": "16.3.4",
+    "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
@@ -31,7 +32,7 @@
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "16.3.8",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3"
   },

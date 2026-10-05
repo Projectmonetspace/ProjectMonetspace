@@ -1,3 +1,5 @@
+import { assertPublicationEligible, retiredArticleSlugs, resolveArticlePath, cleanArticleHtml } from "./content-policy.ts";
+import { consolidatedArticleUpdates } from "./blog-content-consolidated.ts";
 import { qwenAudio31Articles } from "./blog-content-qwen-audio-3-1.ts";
 import { gemini38TtsArticles } from "./blog-content-gemini-3-8-tts.ts";
 import { lensVlm9bArticles } from "./blog-content-lensvlm-9b.ts";
@@ -231,8 +233,11 @@ const sourceArticles: BlogArticle[] = [
   ...koalaAiMcpArticles,
 ];
 
+const activeSourceArticles = sourceArticles.filter(article => !retiredArticleSlugs.has(article.slug));
+for (const article of activeSourceArticles) assertPublicationEligible(article);
+
 const supportingPathsByParent = new Map<string, string[]>();
-for (const article of sourceArticles) {
+for (const article of activeSourceArticles) {
   if (article.status !== "published" || article.articleType !== "supporting" || !article.parentSlug) continue;
   const paths = supportingPathsByParent.get(article.parentSlug) ?? [];
   paths.push(`/blog/${article.slug}`);
@@ -251,10 +256,17 @@ const modifiedMainDates = new Map<string, string>([
   ["minicpm5-2b", "2026-09-09"],
   ["fimo-autonomous-website-platform", "2026-09-09"],
 ]);
-const registeredArticles: BlogArticle[] = sourceArticles.map((article) => {
+const registeredArticles: BlogArticle[] = activeSourceArticles.map((sourceArticle) => {
+  const article = { ...sourceArticle, ...consolidatedArticleUpdates[sourceArticle.slug] };
   const reciprocalSupportingPaths = article.articleType === "main" ? (supportingPathsByParent.get(article.slug) ?? []) : [];
-  const dateModified = modifiedMainDates.get(article.slug) ?? article.dateModified;
-  return validateArticle({ ...article, dateModified, relatedPaths: [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths])] });
+  const dateModified = consolidatedArticleUpdates[article.slug]?.dateModified ?? modifiedMainDates.get(article.slug) ?? article.dateModified;
+  const relatedPaths = [...new Set([...article.relatedPaths, ...reciprocalSupportingPaths].map(resolveArticlePath).filter((path): path is string => path !== null))].filter(path => path !== `/blog/${article.slug}`);
+  const sections = article.sections.map(section => ({ ...section, blocks: section.blocks.map(block => {
+    if (block.type === "paragraph" || block.type === "note") return { ...block, html: cleanArticleHtml(block.html) };
+    if (block.type === "list") return { ...block, items: block.items.map(cleanArticleHtml) };
+    return block;
+  }) }));
+  return validateArticle({ ...article, dateModified, relatedPaths, sections });
 });
 
 const registeredSlugs = registeredArticles.map((article) => article.slug);

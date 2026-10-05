@@ -1,3 +1,4 @@
+import { improveResourcePage } from "./resource-content-updates.ts";
 export type SeoSection = {
   title: string;
   answer?: string;
@@ -788,7 +789,7 @@ const resourcePagesBase: SeoPage[] = [
 ];
 
 export const corePages: SeoPage[] = [...corePagesBase, ...phaseTwoCorePages];
-export const resourcePages: SeoPage[] = [...resourcePagesBase, ...phaseTwoResourcePages];
+export const resourcePages: SeoPage[] = [...resourcePagesBase, ...phaseTwoResourcePages].map(improveResourcePage);
 export { workPages };
 
 export const allSeoPages = [...corePages, ...industryPages, ...resourcePages, ...workPages];

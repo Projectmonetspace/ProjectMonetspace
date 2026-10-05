@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
+import { articleRedirects, retiredArticleSlugs } from "../app/lib/content-policy.ts";
 import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 import { pagesSitemapEntries, blogSitemapEntries, latestModification, renderUrlSet } from "../app/lib/sitemap-content.ts";
 import { securityHeaders } from "../security-headers.mjs";
@@ -26,6 +27,23 @@ for (const entry of entries) {
     if (m[1].startsWith("/__images/") || m[1].startsWith("/_next/static/")) {
       await stat(path.join("out", decodeURIComponent(m[1].split("?")[0])));
     }
+  }
+}
+const redirects = await readFile("out/_redirects", "utf8");
+const retired = [...retiredArticleSlugs];
+for (const slug of retired) {
+  await assert.rejects(stat(`out/blog/${slug}.html`), { code: "ENOENT" });
+  await assert.rejects(stat(`out/blog/${slug}/og`), { code: "ENOENT" });
+}
+for (const [from, to] of Object.entries(articleRedirects)) {
+  assert.ok(redirects.split("\n").includes(`/blog/${from} /blog/${to} 301`));
+  await stat(`out/blog/${to}.html`);
+}
+for (const entry of entries) {
+  const route = new URL(entry.url).pathname;
+  const html = await readFile(route === "/" ? "out/index.html" : `out${route}.html`, "utf8");
+  for (const link of html.matchAll(/href="(?:https:\/\/(?:www\.)?projectmonet\.space)?\/blog\/([a-z0-9-]+)(?:["#?])/g)) {
+    assert.ok(!retiredArticleSlugs.has(link[1]), `${route}: no retired rendered link ${link[1]}`);
   }
 }
 const blog = await readFile("out/blog.html", "utf8");

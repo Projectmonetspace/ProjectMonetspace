@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Clock3 } from "lucide-react";
 import { findPublishedArticle } from "../lib/blog-content-registry";
+import { websiteArticleSlugs } from "../lib/content-policy";
 import type { BlogArticle } from "../lib/blog-types";
 import { findSeoPage } from "../lib/seo-content";
 import { SeoFooter, SeoNav } from "./seo-page";
@@ -22,6 +23,7 @@ function renderBlock(block: BlogArticle["sections"][number]["blocks"][number], i
 }
 
 export default function BlogArticlePage({ article }: { article: BlogArticle }) {
+  const websiteGuide = websiteArticleSlugs.has(article.slug);
   const canonical = `${siteUrl}/blog/${article.slug}`;
   const image = `${canonical}/og`;
   const schema = {
@@ -75,7 +77,7 @@ export default function BlogArticlePage({ article }: { article: BlogArticle }) {
         </div>
 
         <header className="seo-hero blog-hero">
-          <p className="seo-kicker">{article.category} · Project Monet Briefing</p>
+          <p className="seo-kicker">{article.category} · {websiteGuide ? "Project Monet guide" : "Historical coverage"}</p>
           <h1>{article.h1}</h1>
           <p>{article.excerpt}</p>
           <p className="seo-updated"><Clock3 size={14} /> Published {article.datePublished} · Updated {article.dateModified} · By {article.author}</p>
@@ -104,7 +106,7 @@ export default function BlogArticlePage({ article }: { article: BlogArticle }) {
             <section id="sources" className="blog-sources">
               <p className="seo-section-number">Sources</p>
               <h2>Primary and supporting sources</h2>
-              <p>Facts were rechecked against the linked sources immediately before publication. Pricing, product availability and rollout status can change.</p>
+              <p>Use the linked documentation to check current pricing, access and product behaviour. The dates above describe this article; they do not guarantee that every vendor claim remains current.</p>
               <ul>
                 {article.sources.map((source) => (
                   <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label}<ArrowUpRight size={15} aria-hidden="true" /></a></li>
@@ -125,9 +127,9 @@ export default function BlogArticlePage({ article }: { article: BlogArticle }) {
 
         <section className="seo-final-cta">
           <p className="seo-kicker">Project Monet</p>
-          <h2>Useful signals. Clear decisions. Better digital work.</h2>
-          <p>Project Monet turns relevant shifts in AI, creator tools and the web into practical context—and builds focused websites for businesses ready to grow.</p>
-          <Link href="/free-website-demo" data-analytics-event="request_demo_click" data-analytics-location="blog_article_final_cta">Request a free homepage concept <ArrowRight size={17} /></Link>
+          <h2>{websiteGuide ? "Put the workflow into a clear website plan." : "Planning a business website?"}</h2>
+          <p>{websiteGuide ? "Define the service, evidence and enquiry journey before choosing tools. Compare our website scope and concept process." : "Our website planning guides explain scope, costs and customer decisions."}</p>
+          <Link href={websiteGuide ? "/services/web-design-for-local-businesses" : "/resources/prepare-before-hiring-web-designer"} data-analytics-location="blog_article_final_cta">{websiteGuide ? "Explore website services" : "Read the website planning guide"} <ArrowRight size={17} /></Link>
         </section>
       </article>
       <SeoFooter />
