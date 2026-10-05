@@ -95,7 +95,7 @@ for (let start = 0; start < purges.length; start += 6) {
     if (response.status !== 404) {
       const body = await response.text();
       console.error("Removed URL diagnostic", JSON.stringify({ path: `/blog/${slug}`, status: response.status,
-        headers: Object.fromEntries(["cf-cache-status", "age", "server", "location", "cache-control", "content-type"].map(key => [key, response.headers.get(key)])),
+        headers: Object.fromEntries(["cf-cache-status", "age", "server", "location", "cache-control", "content-type", "cf-ray", "vary", "x-vercel-cache", "x-vercel-id", "x-matched-path", "x-nextjs-cache"].map(key => [key, response.headers.get(key)])),
         title: body.match(/<title>([^<]*)<\/title>/)?.[1], h1: body.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]?.replace(/<[^>]*>/g, "").slice(0, 160),
         canonical: body.match(/<link rel="canonical" href="([^"]+)"/)?.[1] }));
     }
