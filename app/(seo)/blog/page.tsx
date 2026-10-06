@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SeoFooter, SeoNav } from "../../components/seo-page";
 import { publishedBlogArticles } from "../../lib/blog-content-registry";
-import { websiteArticleSlugs } from "../../lib/content-policy";
+import { isWebsiteGuide } from "../../lib/content-policy";
 import { resourcePages, workPages } from "../../lib/seo-content";
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Website & Search Guides | Project Monet", description: "Practical website and search decisions.", images: ["/og.png"] },
 };
 
-const websiteGuides = publishedBlogArticles.filter(article => websiteArticleSlugs.has(article.slug));
-const legacyArticles = publishedBlogArticles.filter(article => !websiteArticleSlugs.has(article.slug));
+const websiteGuides = publishedBlogArticles.filter(isWebsiteGuide);
+const legacyArticles = publishedBlogArticles.filter(article => !isWebsiteGuide(article));
 const priorityResources = new Set([
   "/resources/small-business-website-cost-india", "/resources/one-page-vs-multi-page-website",
   "/resources/google-business-profile-vs-website", "/resources/local-business-website-sections",

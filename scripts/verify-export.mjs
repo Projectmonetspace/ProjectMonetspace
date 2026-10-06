@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
-import { articleRedirects, retiredArticleSlugs, purgedArticleSlugs } from "../app/lib/content-policy.ts";
+import { articleRedirects, retiredArticleSlugs, purgedArticleSlugs, isWebsiteGuide } from "../app/lib/content-policy.ts";
 import { blogFunctionRoutes } from "./blog-routing-worker.mjs";
 import { publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 import { pagesSitemapEntries, blogSitemapEntries, latestModification, renderUrlSet } from "../app/lib/sitemap-content.ts";
@@ -52,6 +52,12 @@ for (const article of publishedBlogArticles) {
   const route = `/blog/${article.slug}`;
   const html = await readFile(`out${route}.html`, "utf8");
   assert.ok(blog.includes(route), `${route}: listed`);
+  if (article.editorial) {
+    assert.ok(isWebsiteGuide(article));
+    assert.ok(blog.indexOf(`href="${route}"`) < blog.indexOf('id="legacy-archive"'), `${route}: appears before legacy archive`);
+    assert.ok(html.includes("Project Monet guide"), `${route}: current guide label`);
+    assert.ok(!html.includes("Historical coverage"), `${route}: not historical coverage`);
+  }
   assert.ok(html.includes("BlogPosting") && html.includes("BreadcrumbList"), `${route}: schemas`);
   assert.ok(html.includes(article.datePublished) && html.includes(article.dateModified), `${route}: dates`);
   assert.ok(html.includes(`${origin}${route}/og`), `${route}: production OG metadata`);

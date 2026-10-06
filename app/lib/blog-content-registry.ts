@@ -1,5 +1,6 @@
 import { assertPublicationEligible, retiredArticleSlugs, resolveArticlePath, cleanArticleHtml } from "./content-policy.ts";
 import { consolidatedArticleUpdates } from "./blog-content-consolidated.ts";
+import { websiteGuides20261006 } from "./blog-content-website-guides-2026-10-06.ts";
 import { qwenAudio31Articles } from "./blog-content-qwen-audio-3-1.ts";
 import { gemini38TtsArticles } from "./blog-content-gemini-3-8-tts.ts";
 import { lensVlm9bArticles } from "./blog-content-lensvlm-9b.ts";
@@ -123,6 +124,7 @@ function validateArticle(article: BlogArticle): BlogArticle {
 }
 
 const sourceArticles: BlogArticle[] = [
+  ...websiteGuides20261006,
   ...qwenAudio31Articles,
   ...gemini38TtsArticles,
   ...lensVlm9bArticles,

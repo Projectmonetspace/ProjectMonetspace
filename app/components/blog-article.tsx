@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Clock3 } from "lucide-react";
 import { findPublishedArticle } from "../lib/blog-content-registry";
-import { websiteArticleSlugs } from "../lib/content-policy";
+import { isWebsiteGuide } from "../lib/content-policy";
 import type { BlogArticle } from "../lib/blog-types";
 import { findSeoPage } from "../lib/seo-content";
 import { SeoFooter, SeoNav } from "./seo-page";
@@ -23,7 +23,7 @@ function renderBlock(block: BlogArticle["sections"][number]["blocks"][number], i
 }
 
 export default function BlogArticlePage({ article }: { article: BlogArticle }) {
-  const websiteGuide = websiteArticleSlugs.has(article.slug);
+  const websiteGuide = isWebsiteGuide(article);
   const canonical = `${siteUrl}/blog/${article.slug}`;
   const image = `${canonical}/og`;
   const schema = {
@@ -106,7 +106,7 @@ export default function BlogArticlePage({ article }: { article: BlogArticle }) {
             <section id="sources" className="blog-sources">
               <p className="seo-section-number">Sources</p>
               <h2>Primary and supporting sources</h2>
-              <p>Use the linked documentation to check current pricing, access and product behaviour. The dates above describe this article; they do not guarantee that every vendor claim remains current.</p>
+              <p>{article.editorial ? "Use the linked documentation and labelled build examples to check the evidence. Business examples are planning tools; they do not establish customer outcomes or guarantee search visibility." : "Use the linked documentation to check current pricing, access and product behaviour. The dates above describe this article; they do not guarantee that every vendor claim remains current."}</p>
               <ul>
                 {article.sources.map((source) => (
                   <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label}<ArrowUpRight size={15} aria-hidden="true" /></a></li>

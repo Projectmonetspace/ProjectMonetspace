@@ -5,7 +5,20 @@ import { readFile } from "node:fs/promises";
 import { retiredArticleSlugs } from "../app/lib/content-policy.ts";
 import { blogArticles, findPublishedArticle, publishedBlogArticles } from "../app/lib/blog-content-registry.ts";
 
+const newWebsiteSlugs = [
+  "small-business-website-redesign-seo-checklist",
+  "ga4-call-whatsapp-clicks-lead-measurement",
+  "business-website-not-indexed-google",
+  "seo-aeo-geo-small-business-website",
+  "service-pages-vs-location-pages-local-business",
+  "interior-design-portfolio-project-page-template",
+  "restaurant-website-menu-hours-local-search-checklist",
+  "mobile-website-speed-images-video-checklist",
+  "small-store-ecommerce-product-page-checklist",
+  "cloudflare-pages-website-launch-handover",
+];
 const expectedSlugs = [
+  ...newWebsiteSlugs,
   "qwen-audio-3-1",
   "qwen-audio-3-1-tts-next-api",
   "qwen-audio-3-1-realtime-api",
@@ -391,7 +404,8 @@ test("publishes exactly the authorized, unique canonical articles", () => {
     assert.ok(article.targetSearchIntent, `${article.slug} has a distinct search intent`);
     assert.ok(article.targetQuery, `${article.slug} has a target query`);
     assert.ok(supportedCategories.has(article.category), `${article.slug} uses a supported editorial category`);
-    assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22|23|24|25))$/);
+    if (newWebsiteSlugs.includes(article.slug)) assert.equal(article.datePublished, "2026-10-06");
+    else assert.match(article.datePublished, /^(2026-08-(27|28|29|30|31)|2026-09-(0(1|2|3|4|5|6|7|8|9)|14|15|17|21|22|23|24|25))$/);
     assert.match(article.dateModified, /^2026-\d{2}-\d{2}$/);
     assert.ok(article.dateModified >= article.datePublished, `${article.slug} modification date is not earlier than publication`);
   }

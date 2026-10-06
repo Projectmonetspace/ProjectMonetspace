@@ -3,12 +3,13 @@ import test from "node:test";
 import { publishedBlogArticles, findPublishedArticle } from "../app/lib/blog-content-registry.ts";
 import { allSeoPages, resourcePages } from "../app/lib/seo-content.ts";
 import { blogSitemapEntries } from "../app/lib/sitemap-content.ts";
-import { articleRedirects, purgedArticleSlugs, retiredArticleSlugs, assertPublicationEligible, cleanArticleHtml } from "../app/lib/content-policy.ts";
+import { articleRedirects, purgedArticleSlugs, retiredArticleSlugs, legacyArticleSlugs, isWebsiteGuide, assertPublicationEligible, cleanArticleHtml } from "../app/lib/content-policy.ts";
 
 test("cleanup preserves measured winners and removes only the approved URL inventory", () => {
   assert.equal(purgedArticleSlugs.size, 102);
   assert.equal(Object.keys(articleRedirects).length, 13);
-  assert.equal(publishedBlogArticles.length, 252);
+  assert.equal(publishedBlogArticles.filter(article => legacyArticleSlugs.has(article.slug)).length, 252);
+  assert.equal(publishedBlogArticles.length, 262);
   for (const slug of retiredArticleSlugs) {
     assert.equal(findPublishedArticle(slug), undefined);
     assert.ok(!blogSitemapEntries.some(entry => entry.url === `https://www.projectmonet.space/blog/${slug}`));
@@ -38,12 +39,26 @@ test("rendered content and related paths contain no retired article links", () =
 });
 
 test("new model-news and backdated slugs cannot bypass the business brief gate", () => {
-  const article = { ...publishedBlogArticles[0], slug: "unapproved-backdated-model-news", datePublished: "2026-08-27" };
+  const article = { ...publishedBlogArticles[0], editorial: undefined, slug: "unapproved-backdated-model-news", datePublished: "2026-08-27" };
   assert.throws(() => assertPublicationEligible(article), /business brief/);
   const editorial = { focus: "website-search-conversion", businessPurpose: "Improve service enquiry qualification", audience: "Local service businesses", originalContribution: "A tested event map for this site", evidenceUrls: ["https://developers.google.com/analytics"], servicePath: "/services/web-design-for-local-businesses", cta: "Review the website scope" };
   assert.throws(() => assertPublicationEligible({ ...article, category: "AI", editorial }), /business brief/);
   assert.doesNotThrow(() => assertPublicationEligible({ ...article, category: "Web", editorial }));
   assert.throws(() => assertPublicationEligible({ ...article, category: "Web", editorial: { ...editorial, evidenceUrls: [] } }), /business brief/);
+});
+
+test("the authorized website batch passes the editorial gate and is classified outside the archive", () => {
+  const articles = publishedBlogArticles.filter(article => !legacyArticleSlugs.has(article.slug));
+  assert.equal(articles.length, 10);
+  for (const article of articles) {
+    assert.equal(article.datePublished, "2026-10-06");
+    assert.equal(article.dateModified, "2026-10-06");
+    assert.doesNotThrow(() => assertPublicationEligible(article));
+    assert.ok(isWebsiteGuide(article));
+    assert.ok(article.relatedPaths.includes(article.editorial.servicePath));
+    assert.ok(article.sections.some(section => JSON.stringify(section.blocks).includes(article.editorial.servicePath)));
+  }
+  assert.equal(isWebsiteGuide({ slug: "unknown-legacy-model", editorial: undefined }), false);
 });
 
 test("existing website query owners retain their URLs and gain decision evidence", () => {
