@@ -522,6 +522,10 @@ export const websiteArticleSlugs = new Set<string>([
 ]);
 export const retiredArticleSlugs = new Set([...purgedArticleSlugs, ...Object.keys(articleRedirects)]);
 
+export function isWebsiteGuide(article: Pick<BlogArticle, "slug" | "editorial">): boolean {
+  return websiteArticleSlugs.has(article.slug) || article.editorial?.focus === "website-search-conversion";
+}
+
 export function assertPublicationEligible(article: BlogArticle) {
   if (legacyArticleSlugs.has(article.slug) || article.status !== "published") return;
   const brief = article.editorial;
