@@ -11,7 +11,7 @@ export const perplexityWindowsArticles: BlogArticle[] = [
     "slug": "perplexity-portable-computer-windows-rtx",
     "title": "Perplexity Portable Computer on Windows RTX: Requirements & Setup",
     "metaTitle": "Perplexity Portable Computer Windows: RTX Requirements & Setup",
-    "metaDescription": "Perplexity Portable Computer now runs on Windows PCs with NVIDIA GeForce RTX or RTX PRO GPUs with at least 24GB VRAM. See requirements, access, local AI behavior and setup.",
+    "metaDescription": "Perplexity Portable Computer now runs on Windows PCs with NVIDIA GeForce RTX or RTX PRO GPUs with at least 24GB VRAM.",
     "h1": "How to Run Perplexity Portable Computer on Windows RTX PCs",
     "excerpt": "Perplexity Portable Computer now supports compatible Windows RTX PCs with at least 24GB of VRAM, using PPLX 27B for local inference and optional cloud escalation.",
     "category": "AI",

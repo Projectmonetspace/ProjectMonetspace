@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.projectmonet.space"),
   title: "Project Monet — Professional Websites for Local Businesses",
   description:
-    "Project Monet builds professional websites for local businesses. Request a free homepage concept, review the direction first, and own the site after final payment.",
+    "Project Monet builds websites for local businesses. Request a free homepage concept, review the direction, and own the site after final payment.",
   alternates: { canonical: "/" },
   manifest: "/site.webmanifest",
   robots: { index: true, follow: true },

@@ -6,8 +6,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "MentionOS: Evaluate an AEO Agent Before It Publishes",
     "metaTitle": "MentionOS AEO Agent: Setup, Approval & Measurement",
     "h1": "How to evaluate MentionOS for business search visibility",
-    "metaDescription": "MentionOS can help structure an AI search visibility workflow. Start with real buyer questions, approve changes and measure qualified enquiries alongside visibility.",
-    "excerpt": "MentionOS can help structure an AI search visibility workflow. Start with real buyer questions, approve changes and measure qualified enquiries alongside visibility.",
+    "metaDescription": "Use MentionOS to structure an AI search visibility workflow. Start with buyer questions, approve changes and measure qualified enquiries.",
+    "excerpt": "Use MentionOS to structure an AI search visibility workflow. Start with buyer questions, approve changes and measure qualified enquiries.",
     "dateModified": "2026-10-05",
     "sections": [
       {
@@ -115,8 +115,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "Rankly Website Audit: Turn Scores into a Practical Fix List",
     "metaTitle": "Rankly SEO, AEO & GEO Audit: Practical Website Workflow",
     "h1": "Use a Rankly audit to prioritise website fixes",
-    "metaDescription": "Use Rankly’s SEO, AEO and GEO checks as a starting checklist. Validate findings, fix crawlability and buyer information, then measure outcomes instead of chasing scores.",
-    "excerpt": "Use Rankly’s SEO, AEO and GEO checks as a starting checklist. Validate findings, fix crawlability and buyer information, then measure outcomes instead of chasing scores.",
+    "metaDescription": "Use Rankly’s SEO, AEO and GEO checks as a starting checklist. Validate findings, improve crawlability and buyer information, then measure results.",
+    "excerpt": "Use Rankly’s SEO, AEO and GEO checks as a starting checklist. Validate findings, improve crawlability and buyer information, then measure results.",
     "dateModified": "2026-10-05",
     "sections": [
       {
@@ -236,8 +236,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "Fimo for Business Websites: Setup, SEO Agents & Review",
     "metaTitle": "Fimo Websites: Setup, SEO Agent Review & Ownership",
     "h1": "Evaluate Fimo before handing it your business website",
-    "metaDescription": "A practical Fimo workflow: define website scope, connect a repository, review agent branches, verify search essentials and agree ownership before ongoing automation.",
-    "excerpt": "A practical Fimo workflow: define website scope, connect a repository, review agent branches, verify search essentials and agree ownership before ongoing automation.",
+    "metaDescription": "A practical Fimo workflow: define scope, connect a repository, review agent branches, verify search basics and agree ownership.",
+    "excerpt": "A practical Fimo workflow: define scope, connect a repository, review agent branches, verify search basics and agree ownership.",
     "dateModified": "2026-10-05",
     "sections": [
       {
@@ -341,8 +341,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "Staats Website Analytics: Setup, MCP & Useful Measurement",
     "metaTitle": "Staats Analytics Setup: MCP, Funnels & Change Reviews",
     "h1": "Use Staats to investigate website changes, not invent causation",
-    "metaDescription": "Prepare Staats tracking, define a business funnel and use MCP workflows to compare changes. Keep enquiry quality, consent decisions and small-sample limits explicit.",
-    "excerpt": "Prepare Staats tracking, define a business funnel and use MCP workflows to compare changes. Keep enquiry quality, consent decisions and small-sample limits explicit.",
+    "metaDescription": "Prepare Staats tracking, define a business funnel and use MCP workflows to compare changes.",
+    "excerpt": "Prepare Staats tracking, define a business funnel and use MCP workflows to compare changes.",
     "dateModified": "2026-10-05",
     "sections": [
       {
@@ -442,8 +442,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "Olostep for Website Research: API, Agent Setup & Limits",
     "metaTitle": "Olostep API & Agent Setup for Website Research",
     "h1": "Use Olostep to research public websites with traceable evidence",
-    "metaDescription": "Combine Olostep API and coding-agent workflows into a reviewable website research process. Preserve sources, restrict scope and verify important facts before publishing.",
-    "excerpt": "Combine Olostep API and coding-agent workflows into a reviewable website research process. Preserve sources, restrict scope and verify important facts before publishing.",
+    "metaDescription": "Combine Olostep API and coding agents for website research. Preserve sources, limit scope and verify important facts before publishing.",
+    "excerpt": "Combine Olostep API and coding agents for website research. Preserve sources, limit scope and verify important facts before publishing.",
     "dateModified": "2026-10-05",
     "sections": [
       {
@@ -551,8 +551,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "Marketing Skills for Website Work: Install, Migrate & Review",
     "metaTitle": "Marketing Skills: Website Workflow, Setup & Migration",
     "h1": "Use Marketing Skills with a real website brief",
-    "metaDescription": "Combine installation and migration into one website workflow. Ground agent tasks in customer context, review recommendations and measure enquiry quality instead of treating skills as strategy.",
-    "excerpt": "Combine installation and migration into one website workflow. Ground agent tasks in customer context, review recommendations and measure enquiry quality instead of treating skills as strategy.",
+    "metaDescription": "Combine AI marketing skill installation and migration into one website workflow. Review recommendations and measure enquiry quality.",
+    "excerpt": "Combine AI marketing skill installation and migration into one website workflow. Review recommendations and measure enquiry quality.",
     "dateModified": "2026-10-05",
     "sections": [
       {
@@ -656,8 +656,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "StackScope: Website Intelligence, API, MCP & Lead Research",
     "metaTitle": "StackScope API & MCP: Practical Website Lead Research",
     "h1": "Use StackScope to qualify website research, not automate spam",
-    "metaDescription": "A bounded StackScope workflow for website intelligence, API and MCP research. Verify the business, respect the data licence and review outreach relevance before acting.",
-    "excerpt": "A bounded StackScope workflow for website intelligence, API and MCP research. Verify the business, respect the data licence and review outreach relevance before acting.",
+    "metaDescription": "Use StackScope for website and API research. Verify the business, respect the data licence and review outreach relevance before acting.",
+    "excerpt": "Use StackScope for website and API research. Verify the business, respect the data licence and review outreach relevance before acting.",
     "dateModified": "2026-10-05",
     "sections": [
       {
@@ -761,8 +761,8 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "title": "Optimizely Virtual Teammates: Setup, SEO Role & Approvals",
     "metaTitle": "Optimizely Virtual Teammates: Setup & SEO Review",
     "h1": "Evaluate a Virtual Teammate for a bounded marketing task",
-    "metaDescription": "Combine Virtual Teammate setup and SEO role guidance into one reviewable workflow. Grant limited access, approve actions and check findings against real website evidence.",
-    "excerpt": "Combine Virtual Teammate setup and SEO role guidance into one reviewable workflow. Grant limited access, approve actions and check findings against real website evidence.",
+    "metaDescription": "Set up Optimizely Virtual Teammates for SEO with limited access, action approvals and checks against real website evidence.",
+    "excerpt": "Set up Optimizely Virtual Teammates for SEO with limited access, action approvals and checks against real website evidence.",
     "dateModified": "2026-10-05",
     "sections": [
       {

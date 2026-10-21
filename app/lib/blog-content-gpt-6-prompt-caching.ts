@@ -11,7 +11,7 @@ export const gpt6PromptCachingArticles: BlogArticle[] = [
     slug: "gpt-6-prompt-caching",
     title: "GPT-6 Prompt Caching: Dashboard, Diagnostics & Breakpoints",
     metaTitle: "GPT-6 Prompt Caching: Dashboard, Diagnostics & Breakpoints",
-    metaDescription: "Learn how GPT-6 prompt caching works, including the 30-minute eligible-prefix window, dashboard, cache-miss diagnostics, explicit breakpoints and practical ways to improve cache reuse.",
+    metaDescription: "Learn how GPT-6 prompt caching works: eligible prefixes, dashboard, cache-miss diagnostics, breakpoints and ways to improve reuse.",
     h1: "GPT-6 Prompt Caching: How the New Cache System Works",
     excerpt: "Learn how GPT-6 prompt caching works, including its dashboard, diagnostics, explicit breakpoints and 30-minute eligible-prefix window.",
     category: "AI",

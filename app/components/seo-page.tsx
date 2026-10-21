@@ -111,7 +111,7 @@ function schemaFor(page: SeoPage) {
         areaServed: ["India", "Worldwide"],
           };
 
-  return { "@context": "https://schema.org", "@graph": [primary, breadcrumbSchema] };
+  return [primary, breadcrumbSchema].map(item => ({ "@context": "https://schema.org", ...item }));
 }
 
 export function SeoNav() {
@@ -153,7 +153,9 @@ export default function SeoDetailPage({ page }: { page: SeoPage }) {
 
   return (
     <main className="seo-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFor(page)) }} />
+      {schemaFor(page).map((schema, index) => (
+        <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      ))}
 
       <SeoNav />
 

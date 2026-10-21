@@ -98,7 +98,7 @@ export const approvedArticles20260909All: BlogArticle[] = [
     slug: "x-original-content-rewards",
     title: "X Original Content Rewards: Eligibility, Rules & How to Apply",
     metaTitle: "X Original Content Rewards: Eligibility, Rules & How to Apply",
-    metaDescription: "X Original Content Rewards replaces Creator Revenue Sharing. See the September 2026 rollout, eligibility rules, qualified impressions, originality requirements and application process.",
+    metaDescription: "X Original Content Rewards replaces Creator Revenue Sharing. Explore rollout, eligibility, qualified impressions and originality rules.",
     h1: "X Original Content Rewards: Eligibility, Qualified Impressions & Rollout",
     excerpt: "X Original Content Rewards replaces Creator Revenue Sharing with a monetization program centered on original work and qualified Premium-user Home Timeline impressions.",
     category: "Social Media",

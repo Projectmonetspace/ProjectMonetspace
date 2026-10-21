@@ -10,7 +10,7 @@ export const eukaInstagramArticles: BlogArticle[] = [
     slug: "euka-instagram-creator-commerce",
     title: "Euka Instagram: Creator Commerce, Shopify & Affiliate Tools",
     metaTitle: "Euka Instagram: Creator Commerce, Shopify & Affiliate Tools",
-    metaDescription: "Euka expanded its creator-commerce platform to Instagram with Shopify-connected affiliate workflows. See how creator search, tracking, payouts and the beta work.",
+    metaDescription: "Euka expanded its creator-commerce platform to Instagram with Shopify-connected affiliate workflows.",
     h1: "Euka Instagram: Creator Commerce, Shopify Integration & How It Works",
     excerpt: "Euka is expanding its creator-commerce platform to Instagram, with Shopify supplying commerce mechanics behind the beta workflow.",
     category: "Marketing",

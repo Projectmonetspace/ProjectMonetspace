@@ -459,7 +459,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "docs.fairing.co — about advanced attribution",
-        "url": "https://docs.fairing.co/docs/about-advanced-attribution"
+        "url": "https://docs.fairing.co/docs/advanced-attribution"
       },
       {
         "label": "docs.fairing.co — set up advanced attribution",
@@ -696,7 +696,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "docs.fairing.co — about advanced attribution",
-        "url": "https://docs.fairing.co/docs/about-advanced-attribution"
+        "url": "https://docs.fairing.co/docs/advanced-attribution"
       },
       {
         "label": "docs.fairing.co — set up advanced attribution",
@@ -942,7 +942,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "docs.fairing.co — about advanced attribution",
-        "url": "https://docs.fairing.co/docs/about-advanced-attribution"
+        "url": "https://docs.fairing.co/docs/advanced-attribution"
       },
       {
         "label": "docs.fairing.co — set up advanced attribution",
@@ -1594,7 +1594,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
     "slug": "adobe-acrobat-productivity-agent",
     "title": "Adobe Acrobat Productivity Agent: AI Presentations, Reports & Audio",
     "metaTitle": "Adobe Acrobat Productivity Agent: AI Presentations, Reports & Audio",
-    "metaDescription": "Adobe Acrobat’s Productivity Agent can turn documents into AI presentations, interactive visual reports and audio. Here’s what launched, availability and limits.",
+    "metaDescription": "Adobe Acrobat’s Productivity Agent can turn documents into AI presentations, interactive visual reports and audio.",
     "h1": "Adobe Acrobat Productivity Agent Turns Documents Into Presentations, Visual Reports and Audio",
     "excerpt": "Adobe expanded Acrobat's Productivity Agent on September 9, 2026 with a more ambitious document-to-output workflow: source files can now be turned into interactive visual reports, polished presentations and audio experiences without requiring users to rebuild the information m…",
     "category": "AI",
@@ -2185,7 +2185,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
     "slug": "adobe-acrobat-interactive-reports",
     "title": "Adobe Acrobat Interactive Visual Reports: How the AI Workflow Works",
     "metaTitle": "Adobe Acrobat Interactive Reports: How the AI Workflow Works",
-    "metaDescription": "Adobe Acrobat can turn complex documents into interactive visual reports with charts, images and navigation. Here’s how the new AI workflow works and its limits.",
+    "metaDescription": "Adobe Acrobat can turn complex documents into interactive visual reports with charts, images and navigation.",
     "h1": "Adobe Acrobat Interactive Visual Reports: How the AI Workflow Works",
     "excerpt": "Adobe Acrobat's September 2026 Productivity Agent expansion adds a new way to work with dense source material: generate an interactive visual report instead of reading the documents line by line or stopping at a text summary.",
     "category": "AI",
@@ -2621,15 +2621,15 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "openrouter.ai — containers",
-        "url": "https://openrouter.ai/docs/features/containers"
+        "url": "https://openrouter.ai/docs/guides/features/containers"
       },
       {
         "label": "openrouter.ai — files",
-        "url": "https://openrouter.ai/docs/api-reference/files"
+        "url": "https://openrouter.ai/docs/guides/features/files-api"
       },
       {
         "label": "openrouter.ai — shell",
-        "url": "https://openrouter.ai/docs/features/tool-calling/shell"
+        "url": "https://openrouter.ai/docs/guides/features/server-tools/shell"
       }
     ],
     "relatedPaths": [
@@ -2764,15 +2764,15 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "openrouter.ai — containers",
-        "url": "https://openrouter.ai/docs/features/containers"
+        "url": "https://openrouter.ai/docs/guides/features/containers"
       },
       {
         "label": "openrouter.ai — files",
-        "url": "https://openrouter.ai/docs/api-reference/files"
+        "url": "https://openrouter.ai/docs/guides/features/files-api"
       },
       {
         "label": "openrouter.ai — shell",
-        "url": "https://openrouter.ai/docs/features/tool-calling/shell"
+        "url": "https://openrouter.ai/docs/guides/features/server-tools/shell"
       }
     ],
     "relatedPaths": [
@@ -2906,15 +2906,15 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "openrouter.ai — containers",
-        "url": "https://openrouter.ai/docs/features/containers"
+        "url": "https://openrouter.ai/docs/guides/features/containers"
       },
       {
         "label": "openrouter.ai — files",
-        "url": "https://openrouter.ai/docs/api-reference/files"
+        "url": "https://openrouter.ai/docs/guides/features/files-api"
       },
       {
         "label": "openrouter.ai — shell",
-        "url": "https://openrouter.ai/docs/features/tool-calling/shell"
+        "url": "https://openrouter.ai/docs/guides/features/server-tools/shell"
       }
     ],
     "relatedPaths": [

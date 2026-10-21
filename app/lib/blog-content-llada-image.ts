@@ -17,7 +17,7 @@ export const lladaImageArticles: BlogArticle[] = [
     slug: "llada-image",
     title: "LLaDA-Image: Open Image Generator, Editing, Models & Setup",
     metaTitle: "LLaDA-Image: Open Image Generator, Editing, Models & Setup",
-    metaDescription: "LLaDA-Image is inclusionAI’s new unified image generation and editing model family. See Base vs Turbo, checkpoints, setup, modes, benchmarks and current limitations.",
+    metaDescription: "Explore inclusionAI’s LLaDA-Image model family: Base and Turbo checkpoints, setup, image generation and editing, benchmarks and limitations.",
     h1: "LLaDA-Image: Open Image Generation and Editing Model Explained",
     excerpt: "LLaDA-Image is inclusionAI’s newly released 6B-parameter image generation and editing family, with a 50-step Base model, a distilled 4-step Turbo model, BF16/FP8 checkpoints and Diffusers-based inference code.",
     category: "AI",

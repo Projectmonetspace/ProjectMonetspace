@@ -8,7 +8,7 @@ import { resourcePages, workPages } from "../../lib/seo-content";
 
 export const metadata: Metadata = {
   title: "Website, SEO & Business Growth Guides | Project Monet",
-  description: "Practical guides to website costs, local search, AI search visibility and better enquiry journeys. Explore honest design concepts and useful implementation workflows.",
+  description: "Practical guides to website costs, local search, AI search visibility and better enquiry journeys, plus design concepts and implementation workflows.",
   alternates: { canonical: "/blog" },
   openGraph: {
     type: "website", url: "/blog", siteName: "Project Monet",

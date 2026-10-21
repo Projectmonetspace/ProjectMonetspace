@@ -13,7 +13,7 @@ const portableComputerMain: BlogArticle = {
   title: "Perplexity Portable Computer: Local AI, DGX Spark, Models & Availability",
   metaTitle: "Perplexity Portable Computer: Local AI, DGX Spark & Availability",
   metaDescription:
-    "Perplexity Portable Computer runs locally on DGX Spark and supported Windows/Linux RTX PCs with 24GB+ VRAM, using PPLX 27B on RTX PCs with optional cloud escalation.",
+    "Perplexity Portable Computer runs on DGX Spark and supported Windows or Linux RTX PCs with 24GB+ VRAM, with optional cloud escalation.",
   h1: "Perplexity Portable Computer Runs Locally on NVIDIA DGX Spark and RTX PCs",
   excerpt:
     "Perplexity Portable Computer now spans NVIDIA DGX Spark plus supported Windows and Linux RTX PCs, keeping many files and tasks local while allowing permissioned cloud escalation when needed.",
