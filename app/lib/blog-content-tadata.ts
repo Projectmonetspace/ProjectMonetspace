@@ -71,7 +71,7 @@ export const tadataArticles: BlogArticle[] = [
     slug: "how-to-use-tadata",
     title: "How to Use Tadata: Slack Setup, Connectors & First Workflow",
     metaTitle: "How to Use Tadata: Slack Setup, Connectors & Workflows",
-    metaDescription: "A practical Tadata setup guide: connect Slack and business tools, choose a first workflow, configure approvals, test permissions, and measure whether the agent saves useful work.",
+    metaDescription: "Set up Tadata with Slack and business tools: choose a workflow, configure approvals, test permissions and measure whether the agent saves time.",
     h1: "How to Use Tadata: Set Up Slack, Connect Tools and Build Your First Workflow",
     excerpt: "Use Tadata safely by starting with one narrow Slack workflow, connecting only the data sources it needs, keeping approval in the loop and measuring accuracy and credit use before expanding access.",
     category: "Automation",

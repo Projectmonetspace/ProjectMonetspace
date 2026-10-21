@@ -458,7 +458,7 @@ export const industryPages: SeoPage[] = [
   {
     path: "/industries/jewellery",
     title: "Website Design for Jewellery Businesses",
-    metaTitle: "Jewellery Website Design for Collections & Appointments | Project Monet",
+    metaTitle: "Jewellery Website Design & Appointments | Project Monet",
     metaDescription: "Premium jewellery websites for collections, craftsmanship, store visits, custom enquiries and carefully scoped ecommerce.",
     eyebrow: "Jewellery website design",
     heading: "Present the detail and trust that a small product card cannot carry.",

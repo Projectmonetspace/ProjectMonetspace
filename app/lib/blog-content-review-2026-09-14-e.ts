@@ -737,7 +737,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
     "slug": "canva-code-2-0",
     "title": "Canva Code 2.0: HTML Import, Interactive Forms & Publishing",
     "metaTitle": "Canva Code 2.0: HTML Import, Forms & Interactive Publishing",
-    "metaDescription": "Canva Code 2.0 can generate responsive interactive experiences, import HTML, collect form responses in Canva Sheets and publish with custom-domain and SSO options.",
+    "metaDescription": "Canva Code 2.0 can generate responsive experiences, import HTML, collect form responses in Canva Sheets and publish with custom domains.",
     "h1": "Canva Code 2.0: HTML Import, Interactive Forms & Publishing Explained",
     "excerpt": "Canva Code 2.0 is the interactive-creation component of Canva AI 2.0. Canva says users can describe an interactive experience conversationally and have the system build a responsive result that works across devices.",
     "category": "Web",
@@ -1311,7 +1311,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
       },
       {
         "label": "help.openai.com — 20001518",
-        "url": "https://help.openai.com/en/articles/20001518"
+        "url": "https://help.openai.com/en/articles/20001518-using-the-data-plugin-in-chatgpt-work-and-codex"
       },
       {
         "label": "openai.com — data",
@@ -1614,7 +1614,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
       },
       {
         "label": "help.openai.com — 20001518",
-        "url": "https://help.openai.com/en/articles/20001518"
+        "url": "https://help.openai.com/en/articles/20001518-using-the-data-plugin-in-chatgpt-work-and-codex"
       },
       {
         "label": "openai.com — data",
@@ -1876,7 +1876,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
       },
       {
         "label": "help.openai.com — 20001518",
-        "url": "https://help.openai.com/en/articles/20001518"
+        "url": "https://help.openai.com/en/articles/20001518-using-the-data-plugin-in-chatgpt-work-and-codex"
       },
       {
         "label": "openai.com — data",
@@ -1900,7 +1900,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
     "slug": "runway-model-licensing",
     "title": "Runway Model Licensing: Weights, Self-Hosting & Fine-Tuning",
     "metaTitle": "Runway Model Licensing: Weights, Self-Hosting & Fine-Tuning",
-    "metaDescription": "Runway now licenses its model weights to enterprises. Learn what the license includes, how fine-tuning and self-hosting work, pricing limits, and how it differs from Runway Dev.",
+    "metaDescription": "Runway licenses model weights to enterprises. Explore fine-tuning, self-hosting, license scope and how it differs from Runway Dev.",
     "h1": "Runway Model Licensing: How Its Enterprise Model Weights Work",
     "excerpt": "Runway has opened a model-licensing path for enterprises that want more control than a normal generative-AI API provides. Instead of only sending requests to Runway-hosted models, qualified customers can license complete Runway model weights, fine-tune them on proprietary data…",
     "category": "Creator Tools",
@@ -2395,7 +2395,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
     "slug": "runway-self-hosted-fine-tuning",
     "title": "How to Self-Host and Fine-Tune Licensed Runway Models",
     "metaTitle": "How to Self-Host & Fine-Tune Licensed Runway Models",
-    "metaDescription": "Runway's enterprise license includes model weights, checkpoints and a training script. Here's what the self-hosting and fine-tuning workflow involves—and what remains undocumented.",
+    "metaDescription": "Runway’s enterprise license includes weights, checkpoints and a training script. See its self-hosting workflow and what remains undocumented.",
     "h1": "How to Self-Host and Fine-Tune Licensed Runway Models",
     "excerpt": "Runway's new Model Licensing program gives enterprise customers a path to operate Runway models inside their own infrastructure instead of relying only on hosted API inference. The important distinction is that this is not a public open-weight download: access is commercial, n…",
     "category": "Creator Tools",
@@ -2618,7 +2618,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
     "slug": "elevenlabs-music-v2-5",
     "title": "ElevenLabs Music v2.5: Features, API, Pricing & Rights",
     "metaTitle": "ElevenLabs Music v2.5: Features, API, Pricing & Rights",
-    "metaDescription": "ElevenLabs released Music v2.5 with improved music generation, lossless downloads, API access and updated creator rights. Here is what changed and what it costs.",
+    "metaDescription": "ElevenLabs released Music v2.5 with improved music generation, lossless downloads, API access and updated creator rights.",
     "h1": "ElevenLabs Music v2.5: What Changed, API Access, Pricing and Rights",
     "excerpt": "ElevenLabs released Music v2.5 on September 11, 2026, making it the new default model for prompted and reference generation inside ElevenMusic. The update is aimed at better musical coherence and more natural instrumentation while also changing something practical for creators…",
     "category": "AI",

@@ -64,7 +64,7 @@ export const chatgptAdsArticles: BlogArticle[] = [
       { label: "OpenAI: New ways to buy ChatGPT ads", url: "https://openai.com/index/new-ways-to-buy-chatgpt-ads/" },
       { label: "OpenAI Ads Manager availability", url: "https://help.openai.com/en/articles/20001245-ads-manager-availability" },
       { label: "OpenAI: Ads in ChatGPT basics", url: "https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics" },
-      { label: "OpenAI: Create campaigns", url: "https://help.openai.com/en/articles/20001210" },
+      { label: "OpenAI: Create campaigns", url: "https://help.openai.com/en/articles/20001210-create-campaigns-for-chatgpt-ads" },
       { label: "OpenAI: Reimagining advertising with AI", url: "https://openai.com/index/reimagining-advertising-with-ai/" },
     ],
     relatedPaths: ["/blog/how-to-advertise-on-chatgpt", "/blog/chatgpt-ads-pricing"],
@@ -124,7 +124,7 @@ export const chatgptAdsArticles: BlogArticle[] = [
     sources: [
       { label: "OpenAI Ads Manager availability", url: "https://help.openai.com/en/articles/20001245-ads-manager-availability" },
       { label: "OpenAI Ads Manager overview", url: "https://help.openai.com/en/articles/20001206" },
-      { label: "OpenAI: Create campaigns", url: "https://help.openai.com/en/articles/20001210" },
+      { label: "OpenAI: Create campaigns", url: "https://help.openai.com/en/articles/20001210-create-campaigns-for-chatgpt-ads" },
       { label: "OpenAI: New ways to buy ChatGPT ads", url: "https://openai.com/index/new-ways-to-buy-chatgpt-ads/" },
     ],
     relatedPaths: ["/blog/chatgpt-ads", "/blog/chatgpt-ads-pricing"],
@@ -183,7 +183,7 @@ export const chatgptAdsArticles: BlogArticle[] = [
     ],
     sources: [
       { label: "OpenAI: Ads in ChatGPT basics", url: "https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics" },
-      { label: "OpenAI: Create campaigns", url: "https://help.openai.com/en/articles/20001210" },
+      { label: "OpenAI: Create campaigns", url: "https://help.openai.com/en/articles/20001210-create-campaigns-for-chatgpt-ads" },
       { label: "OpenAI: oCPC campaigns", url: "https://help.openai.com/en/articles/20001412-create-ocpc-campaigns" },
       { label: "OpenAI: New ways to buy ChatGPT ads", url: "https://openai.com/index/new-ways-to-buy-chatgpt-ads/" },
     ],

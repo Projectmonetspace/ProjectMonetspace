@@ -11,7 +11,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
     "slug": "elevenlabs-music-v2-5-api",
     "title": "ElevenLabs Music v2.5 API Guide: Setup, Pricing & Model ID",
     "metaTitle": "ElevenLabs Music v2.5 API: Setup, Pricing & Model ID",
-    "metaDescription": "A practical guide to the ElevenLabs Music v2.5 API: access requirements, current pricing, SDKs, endpoints, streaming and the important model-ID transition caveat.",
+    "metaDescription": "A guide to the ElevenLabs Music v2.5 API: access, pricing, SDKs, endpoints, streaming and the model ID transition.",
     "h1": "ElevenLabs Music v2.5 API Guide: Setup, Pricing and Model ID",
     "excerpt": "ElevenLabs says Music v2.5 is live in the ElevenLabs API, making the September 2026 model update relevant not only to creators using the web interface but also to developers building music generation into products.",
     "category": "AI",
@@ -558,7 +558,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
     "slug": "gemini-windows-app",
     "title": "Gemini for Windows: Download, Features & How to Use It",
     "metaTitle": "Gemini for Windows: Download, Features & How to Use It",
-    "metaDescription": "Google's Gemini app is now available globally on Windows 10 and 11. Learn what it does, how Alt + Space works, Spark, Google app connections, image/video creation and current limitations.",
+    "metaDescription": "Google’s Gemini app is available on Windows 10 and 11. Explore Alt + Space, Spark, app connections and image or video creation.",
     "h1": "Gemini for Windows: Features, Availability and How It Works",
     "excerpt": "Google launched a native Gemini app for Windows on September 10, 2026, bringing Gemini out of the browser and into a desktop interface designed to stay available while you work in other applications.",
     "category": "AI",
@@ -813,7 +813,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
       },
       {
         "label": "gemini.google — desktop",
-        "url": "https://gemini.google/desktop"
+        "url": "https://gemini.google/desktop/"
       },
       {
         "label": "gemini.google — release notes",
@@ -834,7 +834,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
     "slug": "how-to-use-gemini-windows",
     "title": "How to Use Gemini on Windows: Install, Alt + Space, Spark & Google Apps",
     "metaTitle": "How to Use Gemini on Windows: Install, Shortcut & Spark",
-    "metaDescription": "A practical guide to using the Gemini Windows app: download it, open Gemini with Alt + Space, use the full workspace, connect Google context and create images or video.",
+    "metaDescription": "Use the Gemini Windows app: install it, open it with Alt + Space, connect Google context and create images or video.",
     "h1": "How to Use Gemini on Windows: Install, Alt + Space, Spark and Google Apps",
     "excerpt": "Google's Gemini app is now available globally for Windows 10 and Windows 11. The desktop release is built around two modes of use: a quick Alt + Space overlay for immediate help and a full Gemini workspace for longer tasks.",
     "category": "AI",
@@ -1114,7 +1114,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
       },
       {
         "label": "gemini.google — desktop",
-        "url": "https://gemini.google/desktop"
+        "url": "https://gemini.google/desktop/"
       },
       {
         "label": "gemini.google — release notes",
@@ -2040,7 +2040,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
     "slug": "widgo-ai-sales-rep",
     "title": "Widgo AI Sales Rep: Pricing, Features & How It Works",
     "metaTitle": "Widgo AI Sales Rep: Pricing, Features & How It Works",
-    "metaDescription": "Widgo is an AI sales rep for websites that answers from approved content, identifies and scores visitors, books demos and syncs CRM records. See pricing, features and limits.",
+    "metaDescription": "Widgo is an AI sales rep for websites that answers from approved content, identifies and scores visitors, books demos and syncs CRM records.",
     "h1": "Widgo AI Sales Rep: Pricing, Features and How It Works",
     "excerpt": "Widgo is a website-based AI sales rep designed to engage inbound visitors while they are still on a company’s site. Instead of acting only as a support chatbot, Widgo combines four jobs: answering product questions from approved source material, identifying visitors and compan…",
     "category": "Marketing",

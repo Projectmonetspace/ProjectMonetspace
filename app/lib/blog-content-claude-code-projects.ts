@@ -276,7 +276,7 @@ export const claudeCodeProjectsArticles: BlogArticle[] = [
     "sources": [
       {
         "label": "claude.com",
-        "url": "https://claude.com/blog/projects-redesigned"
+        "url": "https://claude.com/resources/articles/projects-redesigned"
       },
       {
         "label": "theverge.com",
@@ -603,7 +603,7 @@ export const claudeCodeProjectsArticles: BlogArticle[] = [
     "sources": [
       {
         "label": "claude.com",
-        "url": "https://claude.com/blog/projects-redesigned"
+        "url": "https://claude.com/resources/articles/projects-redesigned"
       },
       {
         "label": "theverge.com",

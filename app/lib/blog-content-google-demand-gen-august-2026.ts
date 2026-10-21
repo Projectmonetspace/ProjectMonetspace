@@ -69,7 +69,7 @@ const assetStudioHowTo: BlogArticle = {
   slug: "how-to-use-multimodal-video-creation-asset-studio",
   title: "How to Use Multimodal Video Creation in Google Ads Asset Studio",
   metaTitle: "How to Use Multimodal Video Creation in Google Ads Asset Studio",
-  metaDescription: "Learn the documented workflow for Google Ads Multimodal Video Creation in Asset Studio—from brand inputs and storyboards to prompt refinement and multi-format Demand Gen video.",
+  metaDescription: "Use Google Ads Multimodal Video Creation in Asset Studio, from brand inputs and storyboards to prompts and Demand Gen formats.",
   h1: "How to Use Multimodal Video Creation in Google Ads Asset Studio",
   excerpt: "A source-grounded workflow for moving from brand context and a creative brief to storyboards, prompt refinements and multi-format Google Ads video.",
   category: "Marketing",

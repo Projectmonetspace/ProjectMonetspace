@@ -10,9 +10,9 @@ export const autoPublish20260923Articles: BlogArticle[] = [
     "slug": "gpt-6-sol-luna",
     "title": "GPT-6 Sol & Luna: API Pricing, Benchmarks & Features",
     "metaTitle": "GPT-6 Sol & Luna: API Pricing, Benchmarks & Features",
-    "metaDescription": "OpenAI released GPT-6 Sol and Luna on September 22, 2026. See API pricing, benchmark claims, coding and computer-use performance, and how they compare with Astra and GPT-5.6.",
+    "metaDescription": "OpenAI released GPT-6 Sol and Luna on September 22, 2026. Compare API pricing, coding, computer-use performance and benchmark claims.",
     "h1": "GPT-6 Sol and Luna: Pricing, API, Benchmarks and Features",
-    "excerpt": "OpenAI released GPT-6 Sol and Luna on September 22, 2026. See API pricing, benchmark claims, coding and computer-use performance, and how they compare with Astra and GPT-5.6.",
+    "excerpt": "OpenAI released GPT-6 Sol and Luna on September 22, 2026. Compare API pricing, coding, computer-use performance and benchmark claims.",
     "category": "AI",
     "author": "Project Monet Editorial Team",
     "datePublished": "2026-09-23",
@@ -662,7 +662,7 @@ export const autoPublish20260923Articles: BlogArticle[] = [
           },
           {
             "type": "paragraph",
-            "html": "The source code and documentation are publicly available through the official google/ax repository and <a href=\"http://agentexecutor.io\">agentexecutor.io</a>."
+            "html": "The source code and documentation are publicly available through the official google/ax repository and <a href=\"https://agentexecutor.io\">agentexecutor.io</a>."
           }
         ]
       }
@@ -1029,9 +1029,9 @@ export const autoPublish20260923Articles: BlogArticle[] = [
     "slug": "firecrawl-alexandria",
     "title": "Firecrawl Alexandria: API, MCP, Indexes & How It Works",
     "metaTitle": "Firecrawl Alexandria: API, MCP, Indexes & How It Works",
-    "metaDescription": "Firecrawl Alexandria combines the live web, official providers and specialized indexes for AI agents. See how it works, access options, limits and pricing status.",
+    "metaDescription": "Firecrawl Alexandria combines the live web, official providers and specialized indexes for AI agents.",
     "h1": "Firecrawl Alexandria: What It Is, How It Works & How to Use It",
-    "excerpt": "Firecrawl Alexandria combines the live web, official providers and specialized indexes for AI agents. See how it works, access options, limits and pricing status.",
+    "excerpt": "Firecrawl Alexandria combines the live web, official providers and specialized indexes for AI agents.",
     "category": "AI",
     "author": "Project Monet Editorial Team",
     "datePublished": "2026-09-23",
@@ -1141,9 +1141,9 @@ export const autoPublish20260923Articles: BlogArticle[] = [
     "slug": "how-to-use-firecrawl-alexandria",
     "title": "How to Use Firecrawl Alexandria with MCP & CLI",
     "metaTitle": "How to Use Firecrawl Alexandria: MCP & CLI Guide",
-    "metaDescription": "Learn how Firecrawl Alexandria fits into an AI-agent workflow, how to install Firecrawl's CLI/skills, address provider capabilities, and avoid common setup mistakes.",
+    "metaDescription": "Use Firecrawl Alexandria in an AI-agent workflow: install the CLI and skills, check provider capabilities and avoid setup mistakes.",
     "h1": "How to Use Firecrawl Alexandria with MCP & CLI",
-    "excerpt": "Learn how Firecrawl Alexandria fits into an AI-agent workflow, how to install Firecrawl's CLI/skills, address provider capabilities, and avoid common setup mistakes.",
+    "excerpt": "Use Firecrawl Alexandria in an AI-agent workflow: install the CLI and skills, check provider capabilities and avoid setup mistakes.",
     "category": "AI",
     "author": "Project Monet Editorial Team",
     "datePublished": "2026-09-23",
