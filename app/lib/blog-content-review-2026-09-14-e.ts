@@ -1311,7 +1311,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
       },
       {
         "label": "help.openai.com — 20001518",
-        "url": "https://help.openai.com/en/articles/20001518"
+        "url": "https://help.openai.com/en/articles/20001518-using-the-data-plugin-in-chatgpt-work-and-codex"
       },
       {
         "label": "openai.com — data",
@@ -1614,7 +1614,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
       },
       {
         "label": "help.openai.com — 20001518",
-        "url": "https://help.openai.com/en/articles/20001518"
+        "url": "https://help.openai.com/en/articles/20001518-using-the-data-plugin-in-chatgpt-work-and-codex"
       },
       {
         "label": "openai.com — data",
@@ -1876,7 +1876,7 @@ export const reviewArticles20260914E: BlogArticle[] = [
       },
       {
         "label": "help.openai.com — 20001518",
-        "url": "https://help.openai.com/en/articles/20001518"
+        "url": "https://help.openai.com/en/articles/20001518-using-the-data-plugin-in-chatgpt-work-and-codex"
       },
       {
         "label": "openai.com — data",

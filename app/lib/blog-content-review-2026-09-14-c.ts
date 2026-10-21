@@ -1885,7 +1885,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "helpx.adobe.com — pdf spaces overview.html",
-        "url": "https://helpx.adobe.com/in/acrobat/desktop/explore-pdf-spaces/pdf-spaces-overview.html"
+        "url": "https://helpx.adobe.com/acrobat/desktop/explore-pdf-spaces/pdf-spaces-overview.html"
       }
     ],
     "relatedPaths": [
@@ -2168,7 +2168,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "helpx.adobe.com — pdf spaces overview.html",
-        "url": "https://helpx.adobe.com/in/acrobat/desktop/explore-pdf-spaces/pdf-spaces-overview.html"
+        "url": "https://helpx.adobe.com/acrobat/desktop/explore-pdf-spaces/pdf-spaces-overview.html"
       }
     ],
     "relatedPaths": [
@@ -2452,7 +2452,7 @@ export const reviewArticles20260914C: BlogArticle[] = [
       },
       {
         "label": "helpx.adobe.com — pdf spaces overview.html",
-        "url": "https://helpx.adobe.com/in/acrobat/desktop/explore-pdf-spaces/pdf-spaces-overview.html"
+        "url": "https://helpx.adobe.com/acrobat/desktop/explore-pdf-spaces/pdf-spaces-overview.html"
       }
     ],
     "relatedPaths": [

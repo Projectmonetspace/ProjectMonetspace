@@ -226,7 +226,7 @@ export const publishAll20260917B: BlogArticle[] = [
       },
       {
         "label": "OpenAI Help Center — 20001245 ads manager availability",
-        "url": "https://help.openai.com/en-us/articles/20001245-ads-manager-availability"
+        "url": "https://help.openai.com/en/articles/20001245-ads-manager-availability"
       }
     ],
     "relatedPaths": [
@@ -418,7 +418,7 @@ export const publishAll20260917B: BlogArticle[] = [
       },
       {
         "label": "OpenAI Help Center — 20001522 set up chatgpt ads in hubspot",
-        "url": "https://help.openai.com/en/articles/20001522-set-up-chatgpt-ads-in-hubspot"
+        "url": "https://help.openai.com/en/articles/20001522-setting-up-chatgpt-ads-in-hubspot"
       },
       {
         "label": "OpenAI Help Center — 20001523 set up chatgpt ads for shopify",

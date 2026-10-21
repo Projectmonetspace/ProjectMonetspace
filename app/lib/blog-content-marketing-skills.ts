@@ -55,7 +55,7 @@ export const marketingSkillsArticles: BlogArticle[] = [
     sources: [
       { label: "Marketing Skills repository", url: "https://github.com/coreyhaines31/marketingskills" },
       { label: "Marketing Skills README", url: "https://github.com/coreyhaines31/marketingskills/blob/main/README.md" },
-      { label: "Agent Skills specification", url: "https://agentskills.io" },
+      { label: "Agent Skills specification", url: "https://agentskills.io/home" },
       { label: "Vercel Skills CLI", url: "https://github.com/vercel-labs/skills" },
     ],
     relatedPaths: ["/blog/install-marketing-skills-claude-code-codex-cursor", "/blog/marketing-skills-v2-migration"],
@@ -176,7 +176,7 @@ export const marketingSkillsArticles: BlogArticle[] = [
       { label: "Marketing Skills repository", url: "https://github.com/coreyhaines31/marketingskills" },
       { label: "Marketing Skills installation README", url: "https://github.com/coreyhaines31/marketingskills/blob/main/README.md" },
       { label: "Vercel Skills CLI", url: "https://github.com/vercel-labs/skills" },
-      { label: "Agent Skills specification", url: "https://agentskills.io" },
+      { label: "Agent Skills specification", url: "https://agentskills.io/home" },
     ],
     relatedPaths: ["/blog/marketing-skills-ai-agents", "/blog/marketing-skills-v2-migration"],
   },

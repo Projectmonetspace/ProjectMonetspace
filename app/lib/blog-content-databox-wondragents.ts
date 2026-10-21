@@ -8,7 +8,7 @@ const databoxSources = [
 ];
 
 const wondrAgentsSources = [
-  { label: "Wondrlab — Official company site", url: "https://wondrlab.com/" },
+  { label: "Wondrlab — Official company site", url: "https://www.wondrlab.com/" },
   { label: "Wondrlab / PR Newswire — WondrAgents launch release", url: "https://www.prnewswire.com/in/news-releases/wondrlab-launches-wondragents-indias-first-unified-agentic-operating-system-for-end-to-end-influencer-marketing-302872145.html" },
   { label: "Manifest — WondrAgents launch coverage", url: "https://manifest-media.in/digital/070926/wondrlab-launches-wondragents-for-end-to-end-influencer-marketing.html" },
 ];

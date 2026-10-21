@@ -813,7 +813,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
       },
       {
         "label": "gemini.google — desktop",
-        "url": "https://gemini.google/desktop"
+        "url": "https://gemini.google/desktop/"
       },
       {
         "label": "gemini.google — release notes",
@@ -1114,7 +1114,7 @@ export const reviewArticles20260914F: BlogArticle[] = [
       },
       {
         "label": "gemini.google — desktop",
-        "url": "https://gemini.google/desktop"
+        "url": "https://gemini.google/desktop/"
       },
       {
         "label": "gemini.google — release notes",

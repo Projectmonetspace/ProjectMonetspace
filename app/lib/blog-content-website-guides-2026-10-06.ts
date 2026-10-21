@@ -145,7 +145,7 @@ export const websiteGuides20261006: BlogArticle[] = [
         p("A useful support request contains the affected URLs, inspection results, recent changes and intended page purpose. That lets a provider distinguish a hosting fault, an indexing directive, a canonical choice and a content problem before recommending work."),
         p('Use the <a href="/services/web-design-for-local-businesses">website review service</a> to scope the fix. For a site replacement, use the <a href="/blog/small-business-website-redesign-seo-checklist">redesign checklist</a> to prevent the same problem being carried into the next launch.')),
     ],
-    sources: [source("Google: a page missing from Search", "https://support.google.com/webmasters/answer/7474347?hl=en"), source("Google: HTTP responses and crawling", "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"), source("Project Monet: retained and retired URL ledger", `${repo}docs/content-url-decisions-2026-10-05.csv`)],
+    sources: [source("Google: a page missing from Search", "https://support.google.com/webmasters/answer/7474347?hl=en"), source("Google: HTTP responses and crawling", "https://developers.google.com/crawling/docs/troubleshooting/http-status-codes"), source("Project Monet: retained and retired URL ledger", `${repo}docs/content-url-decisions-2026-10-05.csv`)],
     relatedPaths: ["/blog/cloudflare-ai-crawler-googlebot-seo", "/blog/small-business-website-redesign-seo-checklist", "/resources/google-business-profile-vs-website"],
   }),
   guide({

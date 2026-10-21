@@ -637,7 +637,7 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
       },
       {
         "label": "Agent Skills specification",
-        "url": "https://agentskills.io"
+        "url": "https://agentskills.io/home"
       },
       {
         "label": "Vercel Skills CLI",
@@ -734,7 +734,7 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
     "sources": [
       {
         "label": "StackScope Data & pricing",
-        "url": "https://stackscope.dev/data"
+        "url": "https://firstsited.com/pricing"
       },
       {
         "label": "StackScope API reference",
@@ -742,11 +742,11 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
       },
       {
         "label": "StackScope MCP documentation",
-        "url": "https://stackscope.dev/docs/mcp"
+        "url": "https://firstsited.com/docs/mcp"
       },
       {
         "label": "StackScope paid data licence",
-        "url": "https://stackscope.dev/data-licence"
+        "url": "https://firstsited.com/data-licence"
       }
     ],
     "relatedPaths": [
@@ -843,15 +843,15 @@ export const consolidatedArticleUpdates: Record<string, Partial<BlogArticle>> = 
       },
       {
         "label": "Virtual Teammates overview",
-        "url": "https://support.optimizely.com/hc/en-us/articles/47211851973261-Virtual-Teammates-overview"
+        "url": "https://docs.optimizely.com/agent-platform/docs/virtual-teammates-overview"
       },
       {
         "label": "Hire a Virtual Teammate",
-        "url": "https://support.optimizely.com/hc/en-us/articles/47212988975885-Hire-a-Virtual-Teammate"
+        "url": "https://docs.optimizely.com/agent-platform/docs/hire-a-virtual-teammate"
       },
       {
         "label": "Optimizely Opal credits",
-        "url": "https://support.optimizely.com/hc/en-us/articles/36304551863181-Optimizely-Opal-credits"
+        "url": "https://docs.optimizely.com/agent-platform/docs/agent-platform-credits"
       }
     ],
     "relatedPaths": [
