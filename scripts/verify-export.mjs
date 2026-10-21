@@ -97,6 +97,8 @@ assert.ok(headers.includes("/blog/*/og\n  Content-Type: image/png"));
 async function files(dir) {
   const all = [];
   for (const e of await readdir(dir, { withFileTypes: true })) {
+    // Next may briefly expose temporary route files while finishing the export.
+    if (e.name.startsWith(".__next.")) continue;
     const p = path.join(dir, e.name);
     if (e.isDirectory()) all.push(...await files(p)); else all.push(p);
   }
